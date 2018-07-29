@@ -17,3 +17,9 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
+
+<ul>
+  <li *ngFor="let todo of todoList" [class.completed]="todo.completed">
+    {{ todo.title }}
+  </li>
+</ul>
