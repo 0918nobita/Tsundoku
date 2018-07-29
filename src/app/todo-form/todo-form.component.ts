@@ -21,7 +21,7 @@ export class TodoFormComponent implements OnInit {
     if (this.title) {
       const todo: Todo = { title: this.title, completed: false };
       this.submit.emit(todo);
-      this.title = ''
+      this.title = '';
     }
   }
 }
