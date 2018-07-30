@@ -16,6 +16,15 @@ $ cd Tsundoku
 $ npm i
 ```
 
+## 各画面の詳細
+
+- トップページ
+- 積読本棚
+  - 本のサムネイル ( 画像鯖から取得し、まだ画像鯖に存在しない画像なら Amazon の API で取得する )
+- 本の詳細画面
+  - 本のタイトル / 著者 / 全体のページ数 / 読んだページ数
+- GitHub / Twitter 連携画面
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
