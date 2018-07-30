@@ -25,9 +25,14 @@ $ npm i
   - 本のタイトル / 著者 / 全体のページ数 / 読んだページ数
 - GitHub / Twitter 連携画面
 
-## Development server
+## Webサーバーの起動
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+下のコマンドを実行すると ``localhost:4200`` でWebサーバーが起動する。  
+ファイルの更新を検知して自動でページがリロードされる。
+
+```bash
+$ npm run start
+```
 
 ## Code scaffolding
 
