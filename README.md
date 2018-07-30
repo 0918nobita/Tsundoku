@@ -4,7 +4,13 @@
 - Twitterと連携してアカウント登録できる
 - 本の情報は、AmazonのAPIを利用して取得する
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+## 環境構築
+
+```bash
+$ git clone https://github.com/0918nobita/Tsundoku.git
+$ cd Tsundoku
+$ npm i
+```
 
 ## Development server
 
