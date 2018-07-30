@@ -34,6 +34,12 @@ $ npm i
 $ npm run start
 ```
 
+## ビルド
+
+```bash
+$ npm run build
+```
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
