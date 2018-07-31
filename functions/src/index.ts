@@ -11,7 +11,7 @@ export const getBooks = functions.https.onCall((data, context) => {
       let response = [];
       result.forEach(doc => {
         const docData = doc.data();
-        const number = (docData.asin !== void 0) ? docData.asin : docData.isbn13;
+        const number = (docData.asin !== void 0) ? docData.asin : docData.isbn10;
         response.push({
           id: doc.id,
           title: docData.title,
