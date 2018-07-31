@@ -7,13 +7,18 @@ const db = admin.firestore();
 exports.getBooks = functions.https.onCall((data, context) => {
     return db.collection('books').get()
         .then(result => {
-        let str = '';
+        let response = [];
         result.forEach(doc => {
             const docData = doc.data();
-            const id = (docData.asin !== void 0) ? docData.asin : docData.isbn13;
-            str += doc.id + ' => ' + docData.title + ', ' + docData.author + ', ' + id + '\n';
+            const number = (docData.asin !== void 0) ? docData.asin : docData.isbn13;
+            response.push({
+                id: doc.id,
+                title: docData.title,
+                author: docData.author,
+                number: number
+            });
         });
-        return str;
+        return response;
     })
         .catch(error => error);
 });
