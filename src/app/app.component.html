@@ -4,9 +4,9 @@
   </h1>
 </div>
 
-<app-todo-form (submit)="addTodo($event)"></app-todo-form>
-<app-todo-list [todoList]="todoList"></app-todo-list>
+<!--<app-todo-form (submit)="addTodo($event)"></app-todo-form>
+<app-todo-list [todoList]="todoList"></app-todo-list>-->
 
-<button type="button" class="btn btn-primary">登録する</button>
-
-<img src="http://images-jp.amazon.com/images/P/B077NSY211.09.LZZZZZZZ">
+<ng-container *ngFor="let book of books">
+  <img src="http://images-jp.amazon.com/images/P/{{book.number}}.09.MZZZZZZZ.jpg">
+</ng-container>
