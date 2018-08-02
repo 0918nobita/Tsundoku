@@ -52,6 +52,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^1.2.0",
     "mocha": "^5.2.0",
+    "node-static": "^0.7.10",
     "protractor": "~5.4.0",
     "retire": "^1.6.2",
     "ts-node": "~7.0.0",
