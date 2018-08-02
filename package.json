@@ -5,6 +5,7 @@
     "ng": "ng",
     "build": "ng build",
     "start": "ng build --prod && npm run ngsw-config && static dist",
+    "release": "ng build --prod && npm run ngsw-config",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
