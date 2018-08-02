@@ -3167,7 +3167,7 @@ firebase-functions@^2.0.2:
     jsonwebtoken "^8.2.1"
     lodash "^4.6.1"
 
-firebase-tools@^4.0.0:
+firebase-tools@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-4.0.2.tgz#d4fc7743e5c4cf8156fb73f2103d75c29446cfd2"
   dependencies:
