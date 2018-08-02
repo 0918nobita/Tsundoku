@@ -55,6 +55,11 @@
     "retire": "^1.6.2",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "^2.9.2"
-  }
+    "typescript": "^2.9.2",
+    "yarn": "^1.9.2"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/0918nobita/Tsundoku.git",
+  "author": "0918nobita <nobita.0918@gmail.com>",
+  "license": "MIT"
 }
