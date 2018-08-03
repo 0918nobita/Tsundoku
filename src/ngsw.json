@@ -2,7 +2,7 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "tsundoku-0.0.0",
       "installMode": "prefetch",
       "resources": {
         "files": ["/favicon.ico", "/index.html"],
