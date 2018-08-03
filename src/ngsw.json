@@ -5,8 +5,7 @@
       "name": "tsundoku-0.0.0",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico", "/index.html"],
-        "versionedFiles": ["/*.bundle.css", "/*.bundle.js", "/*.chunk.js"]
+        "files": ["/favicon.ico", "/index.html", "/*.bundle.css", "/*.bundle.js", "/*.chunk.js"]
       }
     }
   ]
