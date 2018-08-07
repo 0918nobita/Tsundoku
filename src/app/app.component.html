@@ -1,12 +1,3 @@
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-</div>
-
-<!--<app-todo-form (submit)="addTodo($event)"></app-todo-form>
-<app-todo-list [todoList]="todoList"></app-todo-list>-->
-
 <ng-container *ngFor="let book of books">
-  <p>{{book.number}}</p>
+  <app-book [number]="book.number"></app-book>
 </ng-container>

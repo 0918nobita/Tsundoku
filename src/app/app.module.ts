@@ -6,12 +6,14 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
