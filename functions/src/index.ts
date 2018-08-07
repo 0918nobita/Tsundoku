@@ -1,17 +1,16 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
+import { config } from './config';
 
 admin.initializeApp(functions.config().firebase);
 
-const db = admin.firestore();
-
-export const getBooks = functions.https.onCall((data, context) => {
-  return db.collection('books').get()
+export const getBooks = functions.https.onCall(data =>
+  admin.firestore().collection('books').get()
     .then(result => {
       let response = [];
       result.forEach(doc => {
-        const docData = doc.data();
-        const number = (docData.asin !== void 0) ? docData.asin : docData.isbn10;
+        const docData = doc.data(),
+              number = (docData.asin !== void 0) ? docData.asin : docData.isbn10;
         response.push({
           id: doc.id,
           title: docData.title,
@@ -21,8 +20,8 @@ export const getBooks = functions.https.onCall((data, context) => {
       });
       return response;
     })
-    .catch(error => error);
-});
+    .catch(error => error)
+);
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
