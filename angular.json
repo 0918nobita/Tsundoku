@@ -21,6 +21,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.json",
               {
                 "input": "node_modules/@angular/service-worker",
                 "glob": "ngsw-worker.js",
