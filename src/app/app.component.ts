@@ -27,7 +27,7 @@ export class AppComponent {
       .then(result => {
         console.log('search: ', result);
         result.data.items.map((item, index) =>
-          this.hitBooks.push(item.volumeInfo.imageLinks.smallThumbnail));
+          this.hitBooks.push('https' + item.volumeInfo.imageLinks.smallThumbnail.slice(4)));
       })
       .catch(error => console.log(error));
   }
