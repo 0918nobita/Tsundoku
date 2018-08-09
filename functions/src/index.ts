@@ -1,6 +1,7 @@
 import * as admin from 'firebase-admin';
-import axios from 'axios';
+// import axios from 'axios';
 import * as functions from 'firebase-functions';
+import resSample from './res_sample'
 
 admin.initializeApp(functions.config().firebase);
 
@@ -23,7 +24,7 @@ export const getBooks = functions.https.onCall(data =>
     .catch(error => error)
 );
 
-export const searchBooks = functions.https.onCall(data =>
-  axios.get('https://www.googleapis.com/books/v1/volumes?q=' + encodeURI(data))
+export const searchBooks = functions.https.onCall(data => resSample
+  /*axios.get('https://www.googleapis.com/books/v1/volumes?q=' + encodeURI(data))
     .then(result => result)
-    .catch(error => 'Error: ' + error));
+    .catch(error => 'Error: ' + error)*/);
