@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
+import axios from 'axios';
 import * as functions from 'firebase-functions';
-import { config } from './config';
 
 admin.initializeApp(functions.config().firebase);
 
@@ -23,9 +23,7 @@ export const getBooks = functions.https.onCall(data =>
     .catch(error => error)
 );
 
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
-
-export const helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello from Firebase!");
-});
+export const searchBooks = functions.https.onCall(data =>
+  axios.get('https://www.googleapis.com/books/v1/volumes?q=' + encodeURI(data))
+    .then(result => result)
+    .catch(error => 'Error: ' + error));

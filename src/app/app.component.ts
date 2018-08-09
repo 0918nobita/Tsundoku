@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Todo } from './todo';
 import { config } from './config';
-import { todoList } from './todo-list';
+
 import * as firebase from 'firebase/app';
 import 'firebase/functions';
 
@@ -12,22 +11,19 @@ import 'firebase/functions';
 })
 
 export class AppComponent {
-  title = 'Tsundoku.tech';
-  todoList = todoList;
   books: any = [];
 
   constructor() {
     firebase.initializeApp(config);
-    
-    const getBooks = firebase.functions().httpsCallable('getBooks');
-    getBooks().then(result => {
-      this.books = result.data;
-    }).catch(
-      error => console.log(error.details)
-    );
-  }
 
-  addTodo(todo: Todo) {
-    this.todoList.unshift(todo);
+    const functions = firebase.functions();
+
+    functions.httpsCallable('getBooks')()
+      .then(result => { this.books = result.data; })
+      .catch(error => console.log(error.details));
+
+    functions.httpsCallable('searchBooks')('Programming Rust')
+      .then(result => console.log('search: ', result))
+      .catch(error => console.log(error));
   }
 }
