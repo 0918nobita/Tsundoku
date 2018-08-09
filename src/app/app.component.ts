@@ -12,6 +12,7 @@ import 'firebase/functions';
 
 export class AppComponent {
   books: any = [];
+  hitBooks: any = [];
 
   constructor() {
     firebase.initializeApp(config);
@@ -23,7 +24,11 @@ export class AppComponent {
       .catch(error => console.log(error.details));
 
     functions.httpsCallable('searchBooks')('Programming Rust')
-      .then(result => console.log('search: ', result))
+      .then(result => {
+        console.log('search: ', result);
+        result.data.items.map((item, index) =>
+          this.hitBooks.push(item.volumeInfo.imageLinks.smallThumbnail));
+      })
       .catch(error => console.log(error));
   }
 }

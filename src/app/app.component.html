@@ -1,3 +1,7 @@
-<ng-container *ngFor="let book of books">
+<!--<ng-container *ngFor="let book of books">
   <app-book [number]="book.number"></app-book>
+</ng-container>-->
+
+<ng-container *ngFor="let hitBook of hitBooks">
+  <img src="{{ hitBook }}">
 </ng-container>
