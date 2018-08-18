@@ -26,4 +26,4 @@ export const getBooks = functions.https.onCall(data =>
 export const searchBooks = functions.https.onCall(data =>
   axios.get('https://www.googleapis.com/books/v1/volumes?q=' + encodeURI(data))
     .then(result => result)
-    .catch(error => 'Error: ' + error);
+    .catch(error => 'Error: ' + error));
