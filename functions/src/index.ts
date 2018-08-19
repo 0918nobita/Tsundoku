@@ -1,11 +1,12 @@
 import * as admin from 'firebase-admin';
-import axios from 'axios';
 import * as functions from 'firebase-functions';
 
 admin.initializeApp(functions.config().firebase);
+const db = admin.firestore();
+db.settings({ timestampsInSnapshots: true });
 
 export const getBooks = functions.https.onCall(data =>
-  admin.firestore().collection('books').get()
+  db.collection('books').get()
     .then(result => {
       let response = [];
       result.forEach(doc => {
@@ -22,8 +23,3 @@ export const getBooks = functions.https.onCall(data =>
     })
     .catch(error => error)
 );
-
-export const searchBooks = functions.https.onCall(data =>
-  axios.get('https://www.googleapis.com/books/v1/volumes?q=' + encodeURI(data))
-    .then(result => result)
-    .catch(error => 'Error: ' + error));
