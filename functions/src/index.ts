@@ -13,6 +13,7 @@ admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
+/*
 export const getBooks = functions.https.onCall(data =>
   db.collection('books').get()
     .then(result => {
@@ -25,6 +26,38 @@ export const getBooks = functions.https.onCall(data =>
           title: docData.title,
           author: docData.author,
           number: number
+        });
+      });
+      return response;
+    })
+    .catch(error => error)
+);
+*/
+
+/*
+// ISBN 検索でヒットしなかった本を記録する
+const registerBook = (isbn: string) =>
+  db.collection('unresolvedBooks').add({
+    isbn
+  }).then().catch();
+*/
+
+// resolvedBooks コレクションで本を検索する
+export const searchBooksByISBN = functions.https.onCall((isbn: string) =>
+  db.collection('resolvedBooks')
+    .where('isbn', '==', isbn)
+    .get()
+    .then(querySnapshot => {
+      console.log(isbn);
+      let response: Array<ResolvedBook>;
+      querySnapshot.forEach(doc => {
+        const docData = doc.data();
+        response.push({
+          desc: docData.desc,
+          donor: docData.donor,
+          image: docData.image,
+          isbn: docData.isbn,
+          title: docData.title
         });
       });
       return response;
