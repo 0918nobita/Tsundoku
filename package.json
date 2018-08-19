@@ -61,7 +61,7 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "^2.9.2",
-    "yarn": "^1.9.2"
+    "yarn": "^1.9.4"
   },
   "main": "index.js",
   "repository": "https://github.com/0918nobita/Tsundoku.git",
