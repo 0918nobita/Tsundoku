@@ -5,7 +5,9 @@
     "module": "commonjs",
     "types": [
       "jasmine",
-      "node"
+      "node",
+      "axios",
+      "jquery"
     ]
   },
   "files": [
