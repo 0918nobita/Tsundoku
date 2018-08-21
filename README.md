@@ -3,7 +3,7 @@
 さぁ、今日も積読を消化しよう
 
 - 積読の消化の進捗を可視化・共有できる PWA (Progressive Web App)
-- GitHub リポジトリと技術書を紐づけることで、技術書の読書記録とGitHub上のコミットの対応関係を保存することができる
+- GitHub リポジトリと技術書を紐づけることで、読書記録とGitHub上のコミットの対応関係を保存することができる
 - Twitter と連携でき、タイムラインで進捗を共有する機能が利用できる
 - Google Books APIs を利用して、ISBN で本を検索できる機能を実装する
 - ユーザー認証/管理には Firebase Authentication を用いる
