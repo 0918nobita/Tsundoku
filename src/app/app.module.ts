@@ -2,18 +2,12 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TodoListComponent,
-    TodoFormComponent,
-    BookComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
