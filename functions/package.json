@@ -7,7 +7,8 @@
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "retire": "retire"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -17,6 +18,7 @@
     "firebase-functions": "^2.0.2"
   },
   "devDependencies": {
+    "retire": "^1.6.2",
     "tslint": "^5.8.0",
     "typescript": "^2.5.3"
   },
