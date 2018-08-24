@@ -46,7 +46,6 @@ export class AppComponent {
     axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + text)
       .then(async result => {
         this.hitBooks = [];
-        console.log('search: ', result);
 
         if (result.data.items !== void 0) {
           // ヒットした場合は取り出してサムネを出力する
@@ -55,7 +54,6 @@ export class AppComponent {
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
           const books = await searchBooksByISBN(text);
-          console.log(books);
           books.map(item => this.hitBooks.push(item.image));
         }
       })
