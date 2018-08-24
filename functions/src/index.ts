@@ -49,7 +49,7 @@ export const searchBooksByISBN = functions.https.onCall((isbn: string) =>
     .get()
     .then(querySnapshot => {
       console.log(isbn);
-      let response: Array<ResolvedBook>;
+      const response: Array<ResolvedBook> = [];
       querySnapshot.forEach(doc => {
         const docData = doc.data();
         response.push({
