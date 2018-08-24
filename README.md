@@ -49,11 +49,3 @@ $ ng generate component component-name
 ```
 
 同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` を用いることができる
-
-## 単体テストの実行方法
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## End-to-end テストを実行する
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
