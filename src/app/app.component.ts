@@ -21,7 +21,6 @@ interface ResolvedBook {
 })
 
 export class AppComponent {
-  books: any = [];
   hitBooks: Array<string> = [];
   content = '';
   functions: firebase.functions.Functions;
