@@ -17,7 +17,7 @@ interface ResolvedBook {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: []
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
