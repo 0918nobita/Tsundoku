@@ -1,4 +1,9 @@
-<div class="detailOfBook">
+<img id="thumbnail" src="{{ image }}" (click)="show()">
+
+<div id="filter" (click)="close()">
+</div>
+
+<div id="details">
   <h2>本の詳細</h2>
   <p>{{ title }}</p>
   <p>{{ author }}</p>

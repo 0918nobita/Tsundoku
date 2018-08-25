@@ -20,5 +20,9 @@
 <br>
 
 <ng-container *ngFor="let hitBook of hitBooks">
-  <img src="{{ hitBook.image }}">
+  <app-book-modal [title]="hitBook.title"
+      [author]="hitBook.author"
+      [desc]="hitBook.desc"
+      [isbn]="hitBook.isbn"
+      [image]="hitBook.image"></app-book-modal>
 </ng-container>
