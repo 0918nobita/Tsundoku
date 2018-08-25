@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BookModalComponent } from './book-modal/book-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookModalComponent
   ],
   imports: [
     BrowserModule,
