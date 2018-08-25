@@ -21,7 +21,7 @@ interface ResolvedBook {
 })
 
 export class AppComponent {
-  hitBooks: Array<string> = [];
+  hitBooks: Array<ResolvedBook> = [];
   content = '';
   functions: firebase.functions.Functions;
 
@@ -31,8 +31,8 @@ export class AppComponent {
     this.functions = firebase.functions();
   }
 
-  search(text: string) {
-    if ((text.length !== 10) && (text.length !== 13)) {
+  search(isbn: string) {
+    if ((isbn.length !== 10) && (isbn.length !== 13)) {
       $('#errorModal').modal();
       return;
     }
@@ -42,18 +42,23 @@ export class AppComponent {
         .then(result => result.data)
         .catch(error => error);
 
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + text)
+    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
       .then(async result => {
         this.hitBooks = [];
 
         if (result.data.items !== void 0) {
           // ヒットした場合は取り出してサムネを出力する
           result.data.items.map((item, index) =>
-            this.hitBooks.push('https' + item.volumeInfo.imageLinks.smallThumbnail.slice(4)));
+            this.hitBooks.push({
+              desc: item.volumeInfo.description,
+              donor: 'none',
+              image: 'https' + item.volumeInfo.imageLinks.smallThumbnail.slice(4),
+              isbn: isbn,
+              title: item.volumeInfo.title
+            }));
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
-          const books = await searchBooksByISBN(text);
-          books.map(item => this.hitBooks.push(item.image));
+          this.hitBooks = await searchBooksByISBN(isbn);
         }
       })
       .catch(error => 'Error: ' + error);
