@@ -1,5 +1,6 @@
-<input type="text" name="text" [(ngModel)]="content" placeholder="ISBN(10 or 13文字)">
-<button class="btn btn-primary" (click)="search(content)">検索</button>
+<button id="back" class="btn btn-dark" routerLink="/">戻る</button><br>
+<input id="isbn" type="text" name="text" [(ngModel)]="content" placeholder="ISBN(10 or 13文字)">
+<button id="search" class="btn btn-primary" (click)="search(content)">検索</button>
 
 <div class="modal fade" id="errorModal">
   <div class="modal-dialog">
