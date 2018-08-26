@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { config } from '../config';
-import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase/app';
-import 'firebase/functions';
+import { Component, OnInit, Input } from '@angular/core';
+import { FirebaseService } from '../firebase.service';
 
 declare var $;
 
@@ -21,16 +19,21 @@ interface ResolvedBook {
 })
 
 export class SearchComponent implements OnInit {
-  ngOnInit() {}
 
   hitBooks: Array<ResolvedBook> = [];
   content = '';
-  functions: firebase.functions.Functions;
 
-  constructor() {
-    firebase.initializeApp(config);
+  /**
+   * FirebaseService のプロパティの参照を取得するプロパティ
+   * @type {firebase.functions.Functions}
+   * @memberof TopComponent
+   */
+  public functions: firebase.functions.Functions;
 
-    this.functions = firebase.functions();
+  constructor(private firebaseService: FirebaseService) {}
+
+  ngOnInit() {
+    this.functions = this.firebaseService.functions;
   }
 
   search(isbn: string) {

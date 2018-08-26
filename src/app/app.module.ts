@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
+import { FirebaseService } from './firebase.service';
 
 export const AppRoutes = [
     { path: '', component: TopComponent },
@@ -37,7 +38,10 @@ export const AppRoutes = [
     FormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
   ],
-  providers: [],
+  providers: [
+    // FirebaseService のインスタンスを、アプリ全体で共有されるサービスとして登録する
+    FirebaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
