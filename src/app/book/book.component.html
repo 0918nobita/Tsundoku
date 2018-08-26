@@ -1,12 +1,15 @@
 <img id="thumbnail" src="{{ image }}" (click)="show()">
 
-<div id="filter" (click)="close()">
+<div id="bg">
+  <img id="image" src="{{ image }}">
 </div>
 
+<div id="filter" (click)="close()"></div>
+
 <div id="details">
-  <h2>本の詳細</h2>
+  <p>本の詳細</p>
+  <img src="{{ image }}">
   <p>{{ title }}</p>
   <p>{{ author }}</p>
   <p>{{ desc }}</p>
-  <img src="{{ image }}">
 </div>

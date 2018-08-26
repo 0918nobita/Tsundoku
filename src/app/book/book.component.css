@@ -1,15 +1,40 @@
-#filter {
+#bg {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: 10px;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
+/* 本の詳細画面の背景 */
+#image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  padding: 0;
+  margin: -40px;
+  filter: blur(30px);
+  z-index: 1;
+}
+
+#filter {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 2;
+}
+
+/* 本の詳細画面の内容 */
 #details {
   display: none;
   position: absolute;
@@ -22,8 +47,7 @@
   padding: 1em;
   margin: auto;
   color: white;
-  background-color: #222222;
-  z-index: 2;
+  z-index: 3;
   overflow-y: scroll;
 }
 

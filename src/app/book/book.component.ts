@@ -23,6 +23,7 @@ export class BookComponent implements OnInit {
 
   show() {
     if (this.visible === false) {
+      $('#bg').show();
       $('#filter').show();
       $('#details').show();
       this.visible = true;
@@ -32,6 +33,7 @@ export class BookComponent implements OnInit {
   close() {
     $('#details').hide();
     $('#filter').hide();
+    $('#bg').hide();
     this.visible = false;
   }
 }
