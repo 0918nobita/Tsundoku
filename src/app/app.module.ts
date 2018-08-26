@@ -13,7 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     BookComponent,
     BookshelfComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
