@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+declare var $;
 
 @Component({
   selector: 'app-top',
@@ -11,4 +14,11 @@ export class TopComponent implements OnInit {
 
   ngOnInit() {}
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
 }
