@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { BookComponent } from './book/book.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
     BookComponent,
     BookshelfComponent,
     ProfileComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
