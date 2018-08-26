@@ -21,4 +21,8 @@ export class TopComponent implements OnInit {
   login() {
     this.router.navigate(['/login']);
   }
+
+  search() {
+    this.router.navigate(['/search']);
+  }
 }
