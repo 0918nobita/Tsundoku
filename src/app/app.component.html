@@ -20,9 +20,9 @@
 <br>
 
 <ng-container *ngFor="let hitBook of hitBooks">
-  <app-book-modal [title]="hitBook.title"
+  <app-book [title]="hitBook.title"
       [author]="hitBook.author"
       [desc]="hitBook.desc"
       [isbn]="hitBook.isbn"
-      [image]="hitBook.image"></app-book-modal>
+      [image]="hitBook.image"></app-book>
 </ng-container>

@@ -3,12 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 declare var $;
 
 @Component({
-  selector: 'app-book-modal',
-  templateUrl: './book-modal.component.html',
-  styleUrls: ['./book-modal.component.css']
+  selector: 'app-book',
+  templateUrl: './book.component.html',
+  styleUrls: ['./book.component.css']
 })
 
-export class BookModalComponent implements OnInit {
+export class BookComponent implements OnInit {
   @Input() public title: string;
   @Input() public author: string;
   @Input() public desc: string;
