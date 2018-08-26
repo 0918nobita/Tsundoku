@@ -19,7 +19,8 @@ import { SearchComponent } from './search/search.component';
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    SearchComponent
+    SearchComponent,
+    TopComponent
   ],
   imports: [
     BrowserModule,
