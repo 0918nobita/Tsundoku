@@ -13,16 +13,4 @@ export class TopComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
-
-  register() {
-    this.router.navigate(['/register']);
-  }
-
-  login() {
-    this.router.navigate(['/login']);
-  }
-
-  search() {
-    this.router.navigate(['/search']);
-  }
 }
