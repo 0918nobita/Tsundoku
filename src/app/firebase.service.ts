@@ -18,6 +18,6 @@ export class FirebaseService {
 
   constructor() {
     firebase.initializeApp(config);
-    this.functions = firebase.functions();;
+    this.functions = firebase.functions();
   }
 }
