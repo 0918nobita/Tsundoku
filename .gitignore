@@ -1,4 +1,5 @@
 src/app/config.ts
+.firebase/
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
