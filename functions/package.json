@@ -14,10 +14,13 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "axios": "^0.18.0",
+    "cors": "^2.8.4",
     "firebase-admin": "^5.13.1",
-    "firebase-functions": "^2.0.2"
+    "firebase-functions": "^2.0.2",
+    "x-ray": "^2.3.3"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.4",
     "retire": "^1.6.2",
     "tslint": "^5.8.0",
     "typescript": "^2.5.3"
