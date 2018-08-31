@@ -1,5 +1,6 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
+import { ehb } from './ehb';
 
 interface ResolvedBook {
   desc: string;
@@ -64,3 +65,5 @@ export const searchBooksByISBN = functions.https.onCall((isbn: string) =>
     })
     .catch(error => error)
 );
+
+export const getContributions = functions.https.onRequest(ehb);
