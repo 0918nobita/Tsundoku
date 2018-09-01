@@ -45,8 +45,8 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const searchBooksByISBN = (isbn: string): Promise<Array<ResolvedBook>> =>
-      this.functions.httpsCallable('searchBooksByISBN')(isbn)
+    const searchBooksByISBN = (clue: string): Promise<Array<ResolvedBook>> =>
+      this.functions.httpsCallable('searchBooksByISBN')(clue)
         .then(result => result.data)
         .catch(error => error);
 
