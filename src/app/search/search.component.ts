@@ -12,6 +12,9 @@ interface ResolvedBook {
   title: string;
 }
 
+/**
+ * 本の検索画面
+ */
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
