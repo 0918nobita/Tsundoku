@@ -3,6 +3,9 @@ import * as firebase from 'firebase/app';
 import 'firebase/functions';
 import * as config from './config.json';
 
+/**
+ * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
+ */
 @Injectable({
   providedIn: 'root'
 })
