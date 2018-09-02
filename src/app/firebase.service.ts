@@ -6,18 +6,15 @@ import * as config from './config.json';
 @Injectable({
   providedIn: 'root'
 })
-
 export class FirebaseService {
-
-  /**
-   * FirebaseService を DI したコンポーネントで参照されるプロパティ
-   * @type {firebase.functions.Functions}
-   * @memberof FirebaseService
-   */
   public functions: firebase.functions.Functions;
 
   constructor() {
     firebase.initializeApp(config);
+    /**
+     * FirebaseService を DI したコンポーネントで参照されるプロパティ
+     * @type {firebase.functions.Functions}
+     */
     this.functions = firebase.functions();
   }
 }
