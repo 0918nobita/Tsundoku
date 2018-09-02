@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "retire": "retire",
-    "firebase": "firebase",
-    "ngsw-config": "ngsw-config dist src/ngsw.json"
+    "firebase": "firebase"
   },
   "private": true,
   "dependencies": {
