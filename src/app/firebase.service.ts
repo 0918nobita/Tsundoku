@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/functions';
-import { config } from './config';
+import * as config from './config.json';
 
 @Injectable({
   providedIn: 'root'
