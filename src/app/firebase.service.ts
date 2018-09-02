@@ -9,6 +9,9 @@ import * as config from './config.json';
 export class FirebaseService {
   public functions: firebase.functions.Functions;
 
+  /**
+   * Firebase SDK の設定
+   */
   constructor() {
     firebase.initializeApp(config);
     /**
