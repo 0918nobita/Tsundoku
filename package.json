@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
-    "start": "ng build --prod && npm run ngsw-config && static dist",
-    "release": "ng build --prod && npm run ngsw-config",
+    "start": "npm run release && static dist",
+    "release": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "retire": "retire",
