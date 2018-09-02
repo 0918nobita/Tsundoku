@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 
-declare var $;
+declare var $;  // jQuery
 
 interface ResolvedBook {
   desc: string;
