@@ -46,10 +46,16 @@ $ npm i
 $ npm run start
 ```
 
-## ビルド
+## デバッグビルド
 
 ```bash
 $ npm run build
+```
+
+## リリースビルド
+
+```bash
+$ npm run release
 ```
 
 ## ng generate コマンド
