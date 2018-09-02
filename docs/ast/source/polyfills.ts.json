@@ -1,0 +1,2084 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 3171,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 66,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 3171,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 66,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 1760,
+        "end": 1789,
+        "loc": {
+          "start": {
+            "line": 40,
+            "column": 0
+          },
+          "end": {
+            "line": 40,
+            "column": 29
+          }
+        },
+        "specifiers": [],
+        "source": {
+          "type": "StringLiteral",
+          "start": 1767,
+          "end": 1788,
+          "loc": {
+            "start": {
+              "line": 40,
+              "column": 7
+            },
+            "end": {
+              "line": 40,
+              "column": 28
+            }
+          },
+          "extra": {
+            "rawValue": "core-js/es7/reflect",
+            "raw": "'core-js/es7/reflect'"
+          },
+          "value": "core-js/es7/reflect",
+          "leadingComments": null
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * This file includes polyfills needed by Angular and is loaded before the app.\n * You can add your own extra polyfills to this file.\n *\n * This file is divided into 2 sections:\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n *      file.\n *\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\n * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n *\n * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html\n ",
+            "start": 0,
+            "end": 728,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "**************************************************************************************************\n * BROWSER POLYFILLS\n ",
+            "start": 729,
+            "end": 854,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 0
+              },
+              "end": {
+                "line": 18,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "* IE9, IE10 and IE11 requires all of the following polyfills. *",
+            "start": 855,
+            "end": 922,
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 19,
+                "column": 67
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/symbol';",
+            "start": 923,
+            "end": 954,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/object';",
+            "start": 955,
+            "end": 986,
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/function';",
+            "start": 987,
+            "end": 1020,
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0
+              },
+              "end": {
+                "line": 22,
+                "column": 33
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/parse-int';",
+            "start": 1021,
+            "end": 1055,
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 23,
+                "column": 34
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/parse-float';",
+            "start": 1056,
+            "end": 1092,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0
+              },
+              "end": {
+                "line": 24,
+                "column": 36
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/number';",
+            "start": 1093,
+            "end": 1124,
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/math';",
+            "start": 1125,
+            "end": 1154,
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 0
+              },
+              "end": {
+                "line": 26,
+                "column": 29
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/string';",
+            "start": 1155,
+            "end": 1186,
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0
+              },
+              "end": {
+                "line": 27,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/date';",
+            "start": 1187,
+            "end": 1216,
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0
+              },
+              "end": {
+                "line": 28,
+                "column": 29
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/array';",
+            "start": 1217,
+            "end": 1247,
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 30
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/regexp';",
+            "start": 1248,
+            "end": 1279,
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/map';",
+            "start": 1280,
+            "end": 1308,
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 0
+              },
+              "end": {
+                "line": 31,
+                "column": 28
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/weak-map';",
+            "start": 1309,
+            "end": 1342,
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 32,
+                "column": 33
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/set';",
+            "start": 1343,
+            "end": 1371,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 33,
+                "column": 28
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "* IE10 and IE11 requires the following for NgClass support on SVG elements ",
+            "start": 1372,
+            "end": 1451,
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
+                "column": 79
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'classlist.js';  // Run `npm install --save classlist.js`.",
+            "start": 1452,
+            "end": 1520,
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 0
+              },
+              "end": {
+                "line": 35,
+                "column": 68
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "* IE10 and IE11 requires the following for the Reflect API. ",
+            "start": 1521,
+            "end": 1585,
+            "loc": {
+              "start": {
+                "line": 36,
+                "column": 0
+              },
+              "end": {
+                "line": 36,
+                "column": 64
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'core-js/es6/reflect';",
+            "start": 1586,
+            "end": 1618,
+            "loc": {
+              "start": {
+                "line": 37,
+                "column": 0
+              },
+              "end": {
+                "line": 37,
+                "column": 32
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "* Evergreen browsers require these. *",
+            "start": 1619,
+            "end": 1660,
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 0
+              },
+              "end": {
+                "line": 38,
+                "column": 41
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.",
+            "start": 1661,
+            "end": 1759,
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 0
+              },
+              "end": {
+                "line": 39,
+                "column": 98
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Web Animations `@angular/platform-browser/animations`\n * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.\n * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).\n *",
+            "start": 1790,
+            "end": 2045,
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 0
+              },
+              "end": {
+                "line": 45,
+                "column": 4
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'web-animations-js';  // Run `npm install --save web-animations-js`.",
+            "start": 2046,
+            "end": 2124,
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 0
+              },
+              "end": {
+                "line": 46,
+                "column": 78
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "*\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n ",
+            "start": 2125,
+            "end": 2285,
+            "loc": {
+              "start": {
+                "line": 47,
+                "column": 0
+              },
+              "end": {
+                "line": 50,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame",
+            "start": 2286,
+            "end": 2388,
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 0
+              },
+              "end": {
+                "line": 51,
+                "column": 102
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick",
+            "start": 2389,
+            "end": 2486,
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 0
+              },
+              "end": {
+                "line": 52,
+                "column": 97
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames",
+            "start": 2487,
+            "end": 2605,
+            "loc": {
+              "start": {
+                "line": 53,
+                "column": 0
+              },
+              "end": {
+                "line": 53,
+                "column": 118
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "\n* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n* with the following flag, it will bypass `zone.js` patch for IE/Edge\n",
+            "start": 2606,
+            "end": 2764,
+            "loc": {
+              "start": {
+                "line": 54,
+                "column": 0
+              },
+              "end": {
+                "line": 57,
+                "column": 2
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_enable_cross_context_check = true;",
+            "start": 2765,
+            "end": 2825,
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 0
+              },
+              "end": {
+                "line": 58,
+                "column": 60
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "**************************************************************************************************\n * Zone JS is required by default for Angular itself.\n ",
+            "start": 2826,
+            "end": 2984,
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 0
+              },
+              "end": {
+                "line": 61,
+                "column": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 2985,
+        "end": 3012,
+        "loc": {
+          "start": {
+            "line": 62,
+            "column": 0
+          },
+          "end": {
+            "line": 62,
+            "column": 27
+          }
+        },
+        "specifiers": [],
+        "source": {
+          "type": "StringLiteral",
+          "start": 2992,
+          "end": 3011,
+          "loc": {
+            "start": {
+              "line": 62,
+              "column": 7
+            },
+            "end": {
+              "line": 62,
+              "column": 26
+            }
+          },
+          "extra": {
+            "rawValue": "zone.js/dist/zone",
+            "raw": "'zone.js/dist/zone'"
+          },
+          "value": "zone.js/dist/zone",
+          "leadingComments": null
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Web Animations `@angular/platform-browser/animations`\n * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.\n * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).\n *",
+            "start": 1790,
+            "end": 2045,
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 0
+              },
+              "end": {
+                "line": 45,
+                "column": 4
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " import 'web-animations-js';  // Run `npm install --save web-animations-js`.",
+            "start": 2046,
+            "end": 2124,
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 0
+              },
+              "end": {
+                "line": 46,
+                "column": 78
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "*\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n ",
+            "start": 2125,
+            "end": 2285,
+            "loc": {
+              "start": {
+                "line": 47,
+                "column": 0
+              },
+              "end": {
+                "line": 50,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame",
+            "start": 2286,
+            "end": 2388,
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 0
+              },
+              "end": {
+                "line": 51,
+                "column": 102
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick",
+            "start": 2389,
+            "end": 2486,
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 0
+              },
+              "end": {
+                "line": 52,
+                "column": 97
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames",
+            "start": 2487,
+            "end": 2605,
+            "loc": {
+              "start": {
+                "line": 53,
+                "column": 0
+              },
+              "end": {
+                "line": 53,
+                "column": 118
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "\n* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n* with the following flag, it will bypass `zone.js` patch for IE/Edge\n",
+            "start": 2606,
+            "end": 2764,
+            "loc": {
+              "start": {
+                "line": 54,
+                "column": 0
+              },
+              "end": {
+                "line": 57,
+                "column": 2
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " (window as any).__Zone_enable_cross_context_check = true;",
+            "start": 2765,
+            "end": 2825,
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 0
+              },
+              "end": {
+                "line": 58,
+                "column": 60
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "**************************************************************************************************\n * Zone JS is required by default for Angular itself.\n ",
+            "start": 2826,
+            "end": 2984,
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 0
+              },
+              "end": {
+                "line": 61,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentLine",
+            "value": " Included with Angular CLI.",
+            "start": 3013,
+            "end": 3042,
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 28
+              },
+              "end": {
+                "line": 62,
+                "column": 57
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "**************************************************************************************************\n * APPLICATION IMPORTS\n ",
+            "start": 3043,
+            "end": 3170,
+            "loc": {
+              "start": {
+                "line": 63,
+                "column": 0
+              },
+              "end": {
+                "line": 65,
+                "column": 3
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * This file includes polyfills needed by Angular and is loaded before the app.\n * You can add your own extra polyfills to this file.\n *\n * This file is divided into 2 sections:\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n *      file.\n *\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\n * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n *\n * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html\n ",
+      "start": 0,
+      "end": 728,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * BROWSER POLYFILLS\n ",
+      "start": 729,
+      "end": 854,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 18,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE9, IE10 and IE11 requires all of the following polyfills. *",
+      "start": 855,
+      "end": 922,
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 67
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/symbol';",
+      "start": 923,
+      "end": 954,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/object';",
+      "start": 955,
+      "end": 986,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/function';",
+      "start": 987,
+      "end": 1020,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/parse-int';",
+      "start": 1021,
+      "end": 1055,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/parse-float';",
+      "start": 1056,
+      "end": 1092,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/number';",
+      "start": 1093,
+      "end": 1124,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/math';",
+      "start": 1125,
+      "end": 1154,
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 26,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/string';",
+      "start": 1155,
+      "end": 1186,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/date';",
+      "start": 1187,
+      "end": 1216,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/array';",
+      "start": 1217,
+      "end": 1247,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/regexp';",
+      "start": 1248,
+      "end": 1279,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/map';",
+      "start": 1280,
+      "end": 1308,
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/weak-map';",
+      "start": 1309,
+      "end": 1342,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/set';",
+      "start": 1343,
+      "end": 1371,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE10 and IE11 requires the following for NgClass support on SVG elements ",
+      "start": 1372,
+      "end": 1451,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 79
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'classlist.js';  // Run `npm install --save classlist.js`.",
+      "start": 1452,
+      "end": 1520,
+      "loc": {
+        "start": {
+          "line": 35,
+          "column": 0
+        },
+        "end": {
+          "line": 35,
+          "column": 68
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE10 and IE11 requires the following for the Reflect API. ",
+      "start": 1521,
+      "end": 1585,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 64
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/reflect';",
+      "start": 1586,
+      "end": 1618,
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 0
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* Evergreen browsers require these. *",
+      "start": 1619,
+      "end": 1660,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 0
+        },
+        "end": {
+          "line": 38,
+          "column": 41
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.",
+      "start": 1661,
+      "end": 1759,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 0
+        },
+        "end": {
+          "line": 39,
+          "column": 98
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Web Animations `@angular/platform-browser/animations`\n * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.\n * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).\n *",
+      "start": 1790,
+      "end": 2045,
+      "loc": {
+        "start": {
+          "line": 41,
+          "column": 0
+        },
+        "end": {
+          "line": 45,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'web-animations-js';  // Run `npm install --save web-animations-js`.",
+      "start": 2046,
+      "end": 2124,
+      "loc": {
+        "start": {
+          "line": 46,
+          "column": 0
+        },
+        "end": {
+          "line": 46,
+          "column": 78
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n ",
+      "start": 2125,
+      "end": 2285,
+      "loc": {
+        "start": {
+          "line": 47,
+          "column": 0
+        },
+        "end": {
+          "line": 50,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame",
+      "start": 2286,
+      "end": 2388,
+      "loc": {
+        "start": {
+          "line": 51,
+          "column": 0
+        },
+        "end": {
+          "line": 51,
+          "column": 102
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick",
+      "start": 2389,
+      "end": 2486,
+      "loc": {
+        "start": {
+          "line": 52,
+          "column": 0
+        },
+        "end": {
+          "line": 52,
+          "column": 97
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames",
+      "start": 2487,
+      "end": 2605,
+      "loc": {
+        "start": {
+          "line": 53,
+          "column": 0
+        },
+        "end": {
+          "line": 53,
+          "column": 118
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "\n* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n* with the following flag, it will bypass `zone.js` patch for IE/Edge\n",
+      "start": 2606,
+      "end": 2764,
+      "loc": {
+        "start": {
+          "line": 54,
+          "column": 0
+        },
+        "end": {
+          "line": 57,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_enable_cross_context_check = true;",
+      "start": 2765,
+      "end": 2825,
+      "loc": {
+        "start": {
+          "line": 58,
+          "column": 0
+        },
+        "end": {
+          "line": 58,
+          "column": 60
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * Zone JS is required by default for Angular itself.\n ",
+      "start": 2826,
+      "end": 2984,
+      "loc": {
+        "start": {
+          "line": 59,
+          "column": 0
+        },
+        "end": {
+          "line": 61,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Included with Angular CLI.",
+      "start": 3013,
+      "end": 3042,
+      "loc": {
+        "start": {
+          "line": 62,
+          "column": 28
+        },
+        "end": {
+          "line": 62,
+          "column": 57
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * APPLICATION IMPORTS\n ",
+      "start": 3043,
+      "end": 3170,
+      "loc": {
+        "start": {
+          "line": 63,
+          "column": 0
+        },
+        "end": {
+          "line": 65,
+          "column": 3
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * This file includes polyfills needed by Angular and is loaded before the app.\n * You can add your own extra polyfills to this file.\n *\n * This file is divided into 2 sections:\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n *      file.\n *\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\n * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n *\n * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html\n ",
+      "start": 0,
+      "end": 728,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * BROWSER POLYFILLS\n ",
+      "start": 729,
+      "end": 854,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 18,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE9, IE10 and IE11 requires all of the following polyfills. *",
+      "start": 855,
+      "end": 922,
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 67
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/symbol';",
+      "start": 923,
+      "end": 954,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/object';",
+      "start": 955,
+      "end": 986,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/function';",
+      "start": 987,
+      "end": 1020,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/parse-int';",
+      "start": 1021,
+      "end": 1055,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/parse-float';",
+      "start": 1056,
+      "end": 1092,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/number';",
+      "start": 1093,
+      "end": 1124,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/math';",
+      "start": 1125,
+      "end": 1154,
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 26,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/string';",
+      "start": 1155,
+      "end": 1186,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/date';",
+      "start": 1187,
+      "end": 1216,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/array';",
+      "start": 1217,
+      "end": 1247,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/regexp';",
+      "start": 1248,
+      "end": 1279,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/map';",
+      "start": 1280,
+      "end": 1308,
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/weak-map';",
+      "start": 1309,
+      "end": 1342,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/set';",
+      "start": 1343,
+      "end": 1371,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE10 and IE11 requires the following for NgClass support on SVG elements ",
+      "start": 1372,
+      "end": 1451,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 79
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'classlist.js';  // Run `npm install --save classlist.js`.",
+      "start": 1452,
+      "end": 1520,
+      "loc": {
+        "start": {
+          "line": 35,
+          "column": 0
+        },
+        "end": {
+          "line": 35,
+          "column": 68
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IE10 and IE11 requires the following for the Reflect API. ",
+      "start": 1521,
+      "end": 1585,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 64
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'core-js/es6/reflect';",
+      "start": 1586,
+      "end": 1618,
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 0
+        },
+        "end": {
+          "line": 37,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* Evergreen browsers require these. *",
+      "start": 1619,
+      "end": 1660,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 0
+        },
+        "end": {
+          "line": 38,
+          "column": 41
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.",
+      "start": 1661,
+      "end": 1759,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 0
+        },
+        "end": {
+          "line": 39,
+          "column": 98
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 1760,
+      "end": 1766,
+      "loc": {
+        "start": {
+          "line": 40,
+          "column": 0
+        },
+        "end": {
+          "line": 40,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "core-js/es7/reflect",
+      "start": 1767,
+      "end": 1788,
+      "loc": {
+        "start": {
+          "line": 40,
+          "column": 7
+        },
+        "end": {
+          "line": 40,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1788,
+      "end": 1789,
+      "loc": {
+        "start": {
+          "line": 40,
+          "column": 28
+        },
+        "end": {
+          "line": 40,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Web Animations `@angular/platform-browser/animations`\n * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.\n * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).\n *",
+      "start": 1790,
+      "end": 2045,
+      "loc": {
+        "start": {
+          "line": 41,
+          "column": 0
+        },
+        "end": {
+          "line": 45,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " import 'web-animations-js';  // Run `npm install --save web-animations-js`.",
+      "start": 2046,
+      "end": 2124,
+      "loc": {
+        "start": {
+          "line": 46,
+          "column": 0
+        },
+        "end": {
+          "line": 46,
+          "column": 78
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n ",
+      "start": 2125,
+      "end": 2285,
+      "loc": {
+        "start": {
+          "line": 47,
+          "column": 0
+        },
+        "end": {
+          "line": 50,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame",
+      "start": 2286,
+      "end": 2388,
+      "loc": {
+        "start": {
+          "line": 51,
+          "column": 0
+        },
+        "end": {
+          "line": 51,
+          "column": 102
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick",
+      "start": 2389,
+      "end": 2486,
+      "loc": {
+        "start": {
+          "line": 52,
+          "column": 0
+        },
+        "end": {
+          "line": 52,
+          "column": 97
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames",
+      "start": 2487,
+      "end": 2605,
+      "loc": {
+        "start": {
+          "line": 53,
+          "column": 0
+        },
+        "end": {
+          "line": 53,
+          "column": 118
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "\n* in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n* with the following flag, it will bypass `zone.js` patch for IE/Edge\n",
+      "start": 2606,
+      "end": 2764,
+      "loc": {
+        "start": {
+          "line": 54,
+          "column": 0
+        },
+        "end": {
+          "line": 57,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " (window as any).__Zone_enable_cross_context_check = true;",
+      "start": 2765,
+      "end": 2825,
+      "loc": {
+        "start": {
+          "line": 58,
+          "column": 0
+        },
+        "end": {
+          "line": 58,
+          "column": 60
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * Zone JS is required by default for Angular itself.\n ",
+      "start": 2826,
+      "end": 2984,
+      "loc": {
+        "start": {
+          "line": 59,
+          "column": 0
+        },
+        "end": {
+          "line": 61,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 2985,
+      "end": 2991,
+      "loc": {
+        "start": {
+          "line": 62,
+          "column": 0
+        },
+        "end": {
+          "line": 62,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "zone.js/dist/zone",
+      "start": 2992,
+      "end": 3011,
+      "loc": {
+        "start": {
+          "line": 62,
+          "column": 7
+        },
+        "end": {
+          "line": 62,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3011,
+      "end": 3012,
+      "loc": {
+        "start": {
+          "line": 62,
+          "column": 26
+        },
+        "end": {
+          "line": 62,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Included with Angular CLI.",
+      "start": 3013,
+      "end": 3042,
+      "loc": {
+        "start": {
+          "line": 62,
+          "column": 28
+        },
+        "end": {
+          "line": 62,
+          "column": 57
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "**************************************************************************************************\n * APPLICATION IMPORTS\n ",
+      "start": 3043,
+      "end": 3170,
+      "loc": {
+        "start": {
+          "line": 63,
+          "column": 0
+        },
+        "end": {
+          "line": 65,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3171,
+      "end": 3171,
+      "loc": {
+        "start": {
+          "line": 66,
+          "column": 0
+        },
+        "end": {
+          "line": 66,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

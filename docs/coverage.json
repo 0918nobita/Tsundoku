@@ -1,0 +1,105 @@
+{
+  "coverage": "46.93%",
+  "expectCount": 49,
+  "actualCount": 23,
+  "files": {
+    "src/app/app.component.ts": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/app.module.ts": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        1,
+        22
+      ]
+    },
+    "src/app/book/book.component.ts": {
+      "expectCount": 7,
+      "actualCount": 5,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/bookshelf/bookshelf.component.ts": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/firebase.service.ts": {
+      "expectCount": 4,
+      "actualCount": 1,
+      "undocumentLines": [
+        1,
+        18,
+        20
+      ]
+    },
+    "src/app/login/login.component.ts": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/profile/profile.component.ts": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/register/register.component.ts": {
+      "expectCount": 4,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        15
+      ]
+    },
+    "src/app/search/search.component.ts": {
+      "expectCount": 9,
+      "actualCount": 5,
+      "undocumentLines": [
+        1,
+        16,
+        17,
+        42
+      ]
+    },
+    "src/app/top/top.component.ts": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        15,
+        16
+      ]
+    },
+    "src/environments/environment.prod.ts": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/environments/environment.ts": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    }
+  }
+}

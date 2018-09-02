@@ -1,0 +1,1573 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/app/app.component.ts",
+    "content": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\n\nexport class AppComponent {\n  constructor() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/app.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/app.component.ts",
+    "static": true,
+    "longname": "src/app/app.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/app.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "class",
+    "name": "AppComponent",
+    "memberof": "src/app/app.component.ts",
+    "static": true,
+    "longname": "src/app/app.component.ts~AppComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/app.component.ts",
+    "importStyle": "{AppComponent}",
+    "description": "",
+    "lineNumber": 9,
+    "interface": false
+  },
+  {
+    "__docId__": 51,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/app.component.ts~AppComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/app.component.ts~AppComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "src/app/app.module.ts",
+    "content": "import { AppComponent } from './app.component';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FormsModule } from '@angular/forms';\nimport { NgModule } from '@angular/core';\nimport { ServiceWorkerModule } from '@angular/service-worker';\nimport { RouterModule } from '@angular/router';\nimport { environment } from '../environments/environment';\nimport { BookComponent } from './book/book.component';\nimport { BookshelfComponent } from './bookshelf/bookshelf.component';\nimport { ProfileComponent } from './profile/profile.component';\nimport { LoginComponent } from './login/login.component';\nimport { RegisterComponent } from './register/register.component';\nimport { SearchComponent } from './search/search.component';\nimport { TopComponent } from './top/top.component';\nimport { FirebaseService } from './firebase.service';\n\nexport const AppRoutes = [\n    { path: '', component: TopComponent },\n    { path: 'login', component: LoginComponent },\n    { path: 'register', component: RegisterComponent },\n    { path: 'search', component: SearchComponent }\n];\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    BookComponent,\n    BookshelfComponent,\n    ProfileComponent,\n    LoginComponent,\n    RegisterComponent,\n    SearchComponent,\n    TopComponent\n  ],\n  imports: [\n    RouterModule.forRoot(AppRoutes),\n    BrowserModule,\n    FormsModule,\n    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),\n  ],\n  providers: [\n    // FirebaseService のインスタンスを、アプリ全体で共有されるサービスとして登録する\n    FirebaseService\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/app.module.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/app.module.ts",
+    "static": true,
+    "longname": "src/app/app.module.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/app.module.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "variable",
+    "name": "AppRoutes",
+    "memberof": "src/app/app.module.ts",
+    "static": true,
+    "longname": "src/app/app.module.ts~AppRoutes",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/app.module.ts",
+    "importStyle": "{AppRoutes}",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "class",
+    "name": "AppModule",
+    "memberof": "src/app/app.module.ts",
+    "static": true,
+    "longname": "src/app/app.module.ts~AppModule",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/app.module.ts",
+    "importStyle": "{AppModule}",
+    "description": "",
+    "lineNumber": 47,
+    "interface": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "src/app/book/book.component.ts",
+    "content": "import { Component, OnInit, Input } from '@angular/core';\n\ndeclare var $;\n\n@Component({\n  selector: 'app-book',\n  templateUrl: './book.component.html',\n  styleUrls: ['./book.component.css']\n})\n\nexport class BookComponent implements OnInit {\n  @Input() public title: string;\n  @Input() public author: string;\n  @Input() public desc: string;\n  @Input() public isbn: string;\n  @Input() public image: string;\n\n  visible = false;\n\n  constructor() {}\n\n  ngOnInit() {}\n\n  show() {\n    if (this.visible === false) {\n      $('#bg').show();\n      $('#filter').show();\n      $('#details').show();\n      this.visible = true;\n    }\n  }\n\n  close() {\n    $('#details').hide();\n    $('#filter').hide();\n    $('#bg').hide();\n    this.visible = false;\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/book/book.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/book/book.component.ts",
+    "static": true,
+    "longname": "src/app/book/book.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/book/book.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "BookComponent",
+    "memberof": "src/app/book/book.component.ts",
+    "static": true,
+    "longname": "src/app/book/book.component.ts~BookComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/book/book.component.ts",
+    "importStyle": "{BookComponent}",
+    "description": "",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/book/book.component.ts~BookComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/book/book.component.ts~BookComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "visible",
+    "memberof": "src/app/book/book.component.ts~BookComponent",
+    "static": false,
+    "longname": "src/app/book/book.component.ts~BookComponent#visible",
+    "access": "public",
+    "description": "",
+    "lineNumber": 18,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/book/book.component.ts~BookComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/book/book.component.ts~BookComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 22,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "show",
+    "memberof": "src/app/book/book.component.ts~BookComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/book/book.component.ts~BookComponent#show",
+    "access": "public",
+    "description": "",
+    "lineNumber": 24,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "close",
+    "memberof": "src/app/book/book.component.ts~BookComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/book/book.component.ts~BookComponent#close",
+    "access": "public",
+    "description": "",
+    "lineNumber": 33,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
+    "name": "src/app/bookshelf/bookshelf.component.ts",
+    "content": "import { Component, OnInit } from '@angular/core';\n\n/**\n * 積読本棚画面\n */\n@Component({\n  selector: 'app-bookshelf',\n  templateUrl: './bookshelf.component.html',\n  styleUrls: ['./bookshelf.component.css']\n})\nexport class BookshelfComponent implements OnInit {\n  constructor() {}\n  ngOnInit() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/bookshelf/bookshelf.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 67,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/bookshelf/bookshelf.component.ts",
+    "static": true,
+    "longname": "src/app/bookshelf/bookshelf.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/bookshelf/bookshelf.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "class",
+    "name": "BookshelfComponent",
+    "memberof": "src/app/bookshelf/bookshelf.component.ts",
+    "static": true,
+    "longname": "src/app/bookshelf/bookshelf.component.ts~BookshelfComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/bookshelf/bookshelf.component.ts",
+    "importStyle": "{BookshelfComponent}",
+    "description": "積読本棚画面",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 69,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/bookshelf/bookshelf.component.ts~BookshelfComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/bookshelf/bookshelf.component.ts~BookshelfComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/bookshelf/bookshelf.component.ts~BookshelfComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/bookshelf/bookshelf.component.ts~BookshelfComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 13,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 71,
+    "kind": "file",
+    "name": "src/app/firebase.service.ts",
+    "content": "import { Injectable } from '@angular/core';\nimport * as firebase from 'firebase/app';\nimport 'firebase/functions';\nimport * as config from './config.json';\n\n@Injectable({\n  providedIn: 'root'\n})\n\nexport class FirebaseService {\n\n  /**\n   * FirebaseService を DI したコンポーネントで参照されるプロパティ\n   * @type {firebase.functions.Functions}\n   * @memberof FirebaseService\n   */\n  public functions: firebase.functions.Functions;\n\n  constructor() {\n    firebase.initializeApp(config);\n    this.functions = firebase.functions();\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/firebase.service.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 72,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/firebase.service.ts",
+    "static": true,
+    "longname": "src/app/firebase.service.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/firebase.service.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "class",
+    "name": "FirebaseService",
+    "memberof": "src/app/firebase.service.ts",
+    "static": true,
+    "longname": "src/app/firebase.service.ts~FirebaseService",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/firebase.service.ts",
+    "importStyle": "{FirebaseService}",
+    "description": "",
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 74,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/firebase.service.ts~FirebaseService",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/firebase.service.ts~FirebaseService#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "name": "functions",
+    "memberof": "src/app/firebase.service.ts~FirebaseService",
+    "static": false,
+    "longname": "src/app/firebase.service.ts~FirebaseService#functions",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "file",
+    "name": "src/app/login/login.component.ts",
+    "content": "import { Component, OnInit } from '@angular/core';\n\n/**\n * ログイン画面\n */\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.css']\n})\nexport class LoginComponent implements OnInit {\n  constructor() {}\n  ngOnInit() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/login/login.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/login/login.component.ts",
+    "static": true,
+    "longname": "src/app/login/login.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/login/login.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "class",
+    "name": "LoginComponent",
+    "memberof": "src/app/login/login.component.ts",
+    "static": true,
+    "longname": "src/app/login/login.component.ts~LoginComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/login/login.component.ts",
+    "importStyle": "{LoginComponent}",
+    "description": "ログイン画面",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 79,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/login/login.component.ts~LoginComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/login/login.component.ts~LoginComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/login/login.component.ts~LoginComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/login/login.component.ts~LoginComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 13,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 81,
+    "kind": "file",
+    "name": "src/app/profile/profile.component.ts",
+    "content": "import { Component, OnInit } from '@angular/core';\n\n/**\n * プロフィール画面\n */\n@Component({\n  selector: 'app-profile',\n  templateUrl: './profile.component.html',\n  styleUrls: ['./profile.component.css']\n})\nexport class ProfileComponent implements OnInit {\n  constructor() {}\n  ngOnInit() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/profile/profile.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 82,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/profile/profile.component.ts",
+    "static": true,
+    "longname": "src/app/profile/profile.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/profile/profile.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "class",
+    "name": "ProfileComponent",
+    "memberof": "src/app/profile/profile.component.ts",
+    "static": true,
+    "longname": "src/app/profile/profile.component.ts~ProfileComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/profile/profile.component.ts",
+    "importStyle": "{ProfileComponent}",
+    "description": "プロフィール画面",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 84,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/profile/profile.component.ts~ProfileComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/profile/profile.component.ts~ProfileComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/profile/profile.component.ts~ProfileComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/profile/profile.component.ts~ProfileComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 13,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 86,
+    "kind": "file",
+    "name": "src/app/register/register.component.ts",
+    "content": "import { Component, OnInit } from '@angular/core';\n\n/**\n * ユーザー登録画面\n */\n@Component({\n  selector: 'app-register',\n  templateUrl: './register.component.html',\n  styleUrls: ['./register.component.css']\n})\nexport class RegisterComponent implements OnInit {\n  constructor() {}\n  ngOnInit() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/register/register.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/register/register.component.ts",
+    "static": true,
+    "longname": "src/app/register/register.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/register/register.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "class",
+    "name": "RegisterComponent",
+    "memberof": "src/app/register/register.component.ts",
+    "static": true,
+    "longname": "src/app/register/register.component.ts~RegisterComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/register/register.component.ts",
+    "importStyle": "{RegisterComponent}",
+    "description": "ユーザー登録画面",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 89,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/register/register.component.ts~RegisterComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/register/register.component.ts~RegisterComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/register/register.component.ts~RegisterComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/register/register.component.ts~RegisterComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 13,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 91,
+    "kind": "file",
+    "name": "src/app/search/search.component.ts",
+    "content": "import axios from 'axios';\nimport { Component, OnInit, Input } from '@angular/core';\nimport { FirebaseService } from '../firebase.service';\n\ndeclare var $;\n\ninterface ResolvedBook {\n  desc: string;\n  donor: string;\n  image: string;\n  isbn: string;\n  title: string;\n}\n\n/**\n * 本の検索画面\n */\n@Component({\n  selector: 'app-search',\n  templateUrl: './search.component.html',\n  styleUrls: ['./search.component.css']\n})\n\nexport class SearchComponent implements OnInit {\n\n  hitBooks: Array<ResolvedBook> = [];\n  content = '';\n\n  /**\n   * FirebaseService のプロパティの参照を取得するプロパティ\n   * @type {firebase.functions.Functions}\n   * @memberof TopComponent\n   */\n  public functions: firebase.functions.Functions;\n\n  constructor(private firebaseService: FirebaseService) {}\n\n  ngOnInit() {\n    this.functions = this.firebaseService.functions;\n  }\n\n  search(isbn: string) {\n    if ((isbn.length !== 10) && (isbn.length !== 13)) {\n      $('#errorModal').modal();\n      return;\n    }\n\n    const searchBooksByISBN = (clue: string): Promise<Array<ResolvedBook>> =>\n      this.functions.httpsCallable('searchBooksByISBN')(clue)\n        .then(result => result.data)\n        .catch(error => error);\n\n    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)\n      .then(async result => {\n        this.hitBooks = [];\n\n        if (result.data.items !== void 0) {\n          // ヒットした場合は取り出してサムネを出力する\n          result.data.items.map((item, index) =>\n            this.hitBooks.push({\n              desc: item.volumeInfo.description,\n              donor: 'none',\n              image: 'https' + item.volumeInfo.imageLinks.smallThumbnail.slice(4),\n              isbn: isbn,\n              title: item.volumeInfo.title\n            }));\n        } else {\n          // ヒットしなかった場合は resolvedBooks で検索する\n          this.hitBooks = await searchBooksByISBN(isbn);\n        }\n      })\n      .catch(error => 'Error: ' + error);\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/search/search.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/search/search.component.ts",
+    "static": true,
+    "longname": "src/app/search/search.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/search/search.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "class",
+    "name": "SearchComponent",
+    "memberof": "src/app/search/search.component.ts",
+    "static": true,
+    "longname": "src/app/search/search.component.ts~SearchComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/search/search.component.ts",
+    "importStyle": "{SearchComponent}",
+    "description": "本の検索画面",
+    "lineNumber": 24,
+    "interface": false
+  },
+  {
+    "__docId__": 94,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "member",
+    "name": "firebaseService",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#firebaseService",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "name": "hitBooks",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#hitBooks",
+    "access": "public",
+    "description": "",
+    "lineNumber": 26,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "member",
+    "name": "content",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#content",
+    "access": "public",
+    "description": "",
+    "lineNumber": 27,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 38,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "name": "functions",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#functions",
+    "access": "public",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "method",
+    "name": "search",
+    "memberof": "src/app/search/search.component.ts~SearchComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/search/search.component.ts~SearchComponent#search",
+    "access": "public",
+    "description": "",
+    "lineNumber": 42,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "isbn",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 103,
+    "kind": "file",
+    "name": "src/app/top/top.component.ts",
+    "content": "import { Component, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\n\ndeclare var $;\n\n/**\n * トップページ\n */\n@Component({\n  selector: 'app-top',\n  templateUrl: './top.component.html',\n  styleUrls: ['./top.component.css']\n})\nexport class TopComponent implements OnInit {\n  constructor(private router: Router) {}\n\n  ngOnInit() {}\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/app/top/top.component.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 104,
+    "kind": "variable",
+    "name": "__decorate",
+    "memberof": "src/app/top/top.component.ts",
+    "static": true,
+    "longname": "src/app/top/top.component.ts~__decorate",
+    "access": "private",
+    "export": false,
+    "importPath": "tsundoku/src/app/top/top.component.ts",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "class",
+    "name": "TopComponent",
+    "memberof": "src/app/top/top.component.ts",
+    "static": true,
+    "longname": "src/app/top/top.component.ts~TopComponent",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/app/top/top.component.ts",
+    "importStyle": "{TopComponent}",
+    "description": "トップページ",
+    "lineNumber": 14,
+    "interface": false
+  },
+  {
+    "__docId__": 106,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/app/top/top.component.ts~TopComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/top/top.component.ts~TopComponent#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 107,
+    "kind": "member",
+    "name": "router",
+    "memberof": "src/app/top/top.component.ts~TopComponent",
+    "static": false,
+    "longname": "src/app/top/top.component.ts~TopComponent#router",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 108,
+    "kind": "method",
+    "name": "ngOnInit",
+    "memberof": "src/app/top/top.component.ts~TopComponent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/app/top/top.component.ts~TopComponent#ngOnInit",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 109,
+    "kind": "file",
+    "name": "src/environments/environment.prod.ts",
+    "content": "export const environment = {\n  production: true\n};\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/environments/environment.prod.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 110,
+    "kind": "variable",
+    "name": "environment",
+    "memberof": "src/environments/environment.prod.ts",
+    "static": true,
+    "longname": "src/environments/environment.prod.ts~environment",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/environments/environment.prod.ts",
+    "importStyle": "{environment}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"production\": boolean}"
+      ]
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "file",
+    "name": "src/environments/environment.ts",
+    "content": "export const environment = {\n  production: false\n};\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/environments/environment.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 112,
+    "kind": "variable",
+    "name": "environment",
+    "memberof": "src/environments/environment.ts",
+    "static": true,
+    "longname": "src/environments/environment.ts~environment",
+    "access": "public",
+    "export": true,
+    "importPath": "tsundoku/src/environments/environment.ts",
+    "importStyle": "{environment}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"production\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "file",
+    "name": "src/main.ts",
+    "content": "import { enableProdMode } from '@angular/core';\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n\nimport { AppModule } from './app/app.module';\nimport { environment } from './environments/environment';\n\nif (environment.production) {\n  enableProdMode();\n}\n\nplatformBrowserDynamic().bootstrapModule(AppModule)\n  .catch(err => console.log(err));\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/main.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 114,
+    "kind": "file",
+    "name": "src/polyfills.ts",
+    "content": "/**\n * This file includes polyfills needed by Angular and is loaded before the app.\n * You can add your own extra polyfills to this file.\n *\n * This file is divided into 2 sections:\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\n *      file.\n *\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\n * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\n * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n *\n * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html\n */\n\n/***************************************************************************************************\n * BROWSER POLYFILLS\n */\n\n/** IE9, IE10 and IE11 requires all of the following polyfills. **/\n// import 'core-js/es6/symbol';\n// import 'core-js/es6/object';\n// import 'core-js/es6/function';\n// import 'core-js/es6/parse-int';\n// import 'core-js/es6/parse-float';\n// import 'core-js/es6/number';\n// import 'core-js/es6/math';\n// import 'core-js/es6/string';\n// import 'core-js/es6/date';\n// import 'core-js/es6/array';\n// import 'core-js/es6/regexp';\n// import 'core-js/es6/map';\n// import 'core-js/es6/weak-map';\n// import 'core-js/es6/set';\n\n/** IE10 and IE11 requires the following for NgClass support on SVG elements */\n// import 'classlist.js';  // Run `npm install --save classlist.js`.\n\n/** IE10 and IE11 requires the following for the Reflect API. */\n// import 'core-js/es6/reflect';\n\n\n/** Evergreen browsers require these. **/\n// Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.\nimport 'core-js/es7/reflect';\n\n\n/**\n * Web Animations `@angular/platform-browser/animations`\n * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.\n * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).\n **/\n// import 'web-animations-js';  // Run `npm install --save web-animations-js`.\n\n/**\n * By default, zone.js will patch all possible macroTask and DomEvents\n * user can disable parts of macroTask/DomEvents patch by setting following flags\n */\n\n // (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame\n // (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick\n // (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames\n\n /*\n * in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\n * with the following flag, it will bypass `zone.js` patch for IE/Edge\n */\n// (window as any).__Zone_enable_cross_context_check = true;\n\n/***************************************************************************************************\n * Zone JS is required by default for Angular itself.\n */\nimport 'zone.js/dist/zone';  // Included with Angular CLI.\n\n\n\n/***************************************************************************************************\n * APPLICATION IMPORTS\n */\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/polyfills.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 115,
+    "kind": "file",
+    "name": "src/types/config.d.ts",
+    "content": "declare module '*/config.json' {\n  interface Config {\n    apiKey: string;\n    authDomain: string;\n    databaseURL: string;\n    projectId: string;\n    storageBucket: string;\n    messagingSenderId: string;\n  }\n\n  const value: Config;\n  export = value;\n}\n",
+    "static": true,
+    "longname": "/Users/kodai/GitHub/Tsundoku/src/types/config.d.ts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "kind": "index",
+    "content": "# Tsundoku.tech\n\n「さぁ、今日も積読を消化しよう」\n\n- 積読の消化の進捗を可視化・共有できる PWA (Progressive Web App)\n- GitHub リポジトリと技術書を紐づけることで、読書記録と GitHub 上のコミットの対応関係を保存することができる\n- Twitter と連携可能\n- 積読本棚に追加する本は、ISBN の直接入力または QR コード読み取りで検索する\n- ユーザー認証/管理には Firebase Authentication を用いる\n- 積読本棚に追加できる冊数には制限があり、申請をすることで段階的に上限を解放することができる  \n  その代わり、上限を解放したことが強制的に連携 SNS で共有される\n\n## 環境構築\n\n```bash\n$ git clone https://github.com/0918nobita/Tsundoku.git\n$ cd Tsundoku\n$ npm i\n```\n\n## 各画面の詳細\n\n- ログイン画面\n  - メールアドレス入力欄\n  - パスワード入力欄\n  - 「ログイン」ボタン\n  - 「SNS連携ログイン」ボタン\n- 新規登録画面\n- 積読本棚\n- 本のISBN検索結果\n- タイムライン画面\n- 新規投稿画面\n- プロフィール画面\n- プロフィール編集画面\n\n### コンポーネント\n\n- 本の詳細\n\n## Webサーバーの起動\n\n下のコマンドを実行すると ``localhost:4200`` でWebサーバーが起動する。  \nファイルの更新を検知して自動でページがリロードされる。\n\n```bash\n$ npm run start\n```\n\n## ビルド\n\n```bash\n$ npm run build\n```\n\n## ng generate コマンド\n\n以下のコマンドを実行することで、component-name コンポーネントが生成される。\n\n```bash\n$ ng generate component component-name\n```\n\n同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` を用いることができる\n",
+    "longname": "/Users/kodai/GitHub/Tsundoku/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"tsundoku\",\n  \"version\": \"0.0.0\",\n  \"scripts\": {\n    \"ng\": \"ng\",\n    \"build\": \"ng build\",\n    \"start\": \"npm run release && static dist\",\n    \"release\": \"ng build --prod\",\n    \"test\": \"ng test\",\n    \"lint\": \"ng lint\",\n    \"retire\": \"retire\",\n    \"firebase\": \"firebase\"\n  },\n  \"private\": true,\n  \"dependencies\": {\n    \"@angular/animations\": \"^6.1.4\",\n    \"@angular/common\": \"^6.1.4\",\n    \"@angular/compiler\": \"^6.1.4\",\n    \"@angular/core\": \"^6.1.4\",\n    \"@angular/forms\": \"^6.1.4\",\n    \"@angular/http\": \"^6.1.4\",\n    \"@angular/platform-browser\": \"^6.1.4\",\n    \"@angular/platform-browser-dynamic\": \"^6.1.4\",\n    \"@angular/pwa\": \"^0.7.5\",\n    \"@angular/router\": \"^6.1.4\",\n    \"@angular/service-worker\": \"^6.1.0\",\n    \"axios\": \"^0.18.0\",\n    \"bootstrap\": \"^4.1.3\",\n    \"bootstrap-honoka\": \"^4.1.3\",\n    \"color.js\": \"^0.1.3\",\n    \"core-js\": \"^2.5.4\",\n    \"firebase\": \"^5.4.0\",\n    \"firebase-functions\": \"^2.0.5\",\n    \"jquery\": \"^3.3.1\",\n    \"popper.js\": \"^1.14.4\",\n    \"rxjs\": \"^6.0.0\",\n    \"zone.js\": \"^0.8.26\"\n  },\n  \"devDependencies\": {\n    \"@angular-devkit/build-angular\": \"^0.7.4\",\n    \"@angular/cli\": \"^6.1.4\",\n    \"@angular/compiler-cli\": \"^6.1.4\",\n    \"@angular/language-service\": \"^6.1.4\",\n    \"@types/node\": \"^10.5.8\",\n    \"codelyzer\": \"^4.4.4\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"esdoc-typescript-plugin\": \"^1.0.1\",\n    \"firebase-functions-test\": \"^0.1.3\",\n    \"firebase-tools\": \"^4.2.0\",\n    \"mermaid\": \"^8.0.0-rc.8\",\n    \"node-static\": \"^0.7.10\",\n    \"protractor\": \"~5.4.0\",\n    \"retire\": \"^1.6.2\",\n    \"ts-node\": \"^7.0.1\",\n    \"tslint\": \"~5.11.0\",\n    \"typescript\": \"^2.9.2\",\n    \"yarn\": \"^1.9.4\"\n  },\n  \"main\": \"index.js\",\n  \"repository\": \"https://github.com/0918nobita/Tsundoku.git\",\n  \"author\": \"0918nobita <nobita.0918@gmail.com>\",\n  \"license\": \"MIT\"\n}\n",
+    "longname": "/Users/kodai/GitHub/Tsundoku/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]
