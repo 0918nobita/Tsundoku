@@ -14,6 +14,10 @@ import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
 
+/**
+ * ルーティングの設定
+ * @type {{path: string, component: function}[]}
+ */
 export const AppRoutes = [
     { path: '', component: TopComponent },
     { path: 'login', component: LoginComponent },
