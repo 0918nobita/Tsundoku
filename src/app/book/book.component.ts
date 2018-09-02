@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-declare var $;
+declare var $; // jQuery
 
 @Component({
   selector: 'app-book',
