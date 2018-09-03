@@ -46,6 +46,11 @@ export class Progress {
     return this.simplify();
   }
 
+  /**
+   * @private
+   * @desc フラグメントを数値の配列に変換して返す
+   * @return {number[]}
+   */
   private toArray(): Array<number> {
     let numbers: Array<number> = [];
 
