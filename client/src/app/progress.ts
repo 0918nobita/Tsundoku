@@ -4,37 +4,9 @@ type Fragment = Range | number;
 
 type Fragments = Array<Fragment>;
 
-/**
- * @desc 読書の進捗状況を表すクラス<br>読んだページを断片的に記録する
- * @example
- * const p1 = Progress.parse('1,3, 4-5'),
- *       p2 = Progress.parse('6, 2');
- * 
- * console.log(p1.toString());  // => '1, 3-5'
- * console.log(p2.toString());  // => '2, 6'
- * 
- * console.log(p1.add(p2).toString());  // '1-6'
- */
 export class Progress {
-  private fragments: Fragments;
+  constructor(private fragments: Fragments) {}
 
-  /**
-   * Progress インスタンスを生成する
-   * @param {Fragments} fragments - 読んだページを表す、Range または number を要素とする配列
-   */
-  constructor(fragments: Fragments) {
-    /**
-     * @private
-     * @type {Fragments}
-     */
-    this.fragments = fragments;
-  }
-
-  /**
-   * @desc Progress インスタンス同士を合成する
-   * @param {Progress} right - 合成する Progress インスタンス
-   * @return {Progress} - 合成後の Progress インスタンス
-   */
   add(right: Progress): Progress {
     if (right.fragments.length === 0) return this.simplify();
 
@@ -46,11 +18,6 @@ export class Progress {
     return this.simplify();
   }
 
-  /**
-   * @private
-   * @desc フラグメントを数値の配列に変換して返す
-   * @return {number[]}
-   */
   private toArray(): Array<number> {
     let numbers: Array<number> = [];
 
@@ -68,11 +35,6 @@ export class Progress {
     return numbers;
   }
 
-  /**
-   * @private
-   * @desc 冗長な表現を修正する
-   * @return {Progress}
-   */
   private simplify(): Progress {
     this.fragments = this.toArray();
 
@@ -116,9 +78,6 @@ export class Progress {
     return this;
   }
 
-  /**
-   * Progress インスタンスを文字列に変換する
-   */
   toString(): string {
     let result = '';
     
@@ -135,9 +94,6 @@ export class Progress {
     return result;
   }
 
-  /**
-   * 文字列から Progress インスタンスを生成する
-   */
   static parse(str: string): Progress {
     const parts: Array<string> = str.replace(/\s/g, '').split(',');
     const result: Fragments = [];
