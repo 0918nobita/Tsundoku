@@ -23,35 +23,6 @@ admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
-/*
-export const getBooks = functions.https.onCall(data =>
-  db.collection('books').get()
-    .then(result => {
-      let response = [];
-      result.forEach(doc => {
-        const docData = doc.data(),
-              number = (docData.asin !== void 0) ? docData.asin : docData.isbn10;
-        response.push({
-          id: doc.id,
-          title: docData.title,
-          author: docData.author,
-          number: number
-        });
-      });
-      return response;
-    })
-    .catch(error => error)
-);
-*/
-
-/*
-// ISBN 検索でヒットしなかった本を記録する
-const registerBook = (isbn: string) =>
-  db.collection('unresolvedBooks').add({
-    isbn
-  }).then().catch();
-*/
-
 // resolvedBooks コレクションで本を検索する
 export const searchBooksByISBN = functions.https.onCall((isbn: string) =>
   db.collection('resolvedBooks')
