@@ -15,6 +15,7 @@
     "@types/axios": "^0.14.0",
     "axios": "^0.18.0",
     "cors": "^2.8.4",
+    "firebase": "^5.4.2",
     "firebase-admin": "^5.13.1",
     "firebase-functions": "^2.0.2",
     "x-ray": "^2.3.3"
