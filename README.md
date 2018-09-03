@@ -68,14 +68,6 @@ $ ng generate component component-name
 
 同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` が使用可能です。
 
-## ドキュメントの生成方法
-
-以下のコマンドを実行すると、ソースコード中のコメントを元に、各クラスの仕様をまとめたドキュメントが ``docs`` フォルダ内に自動生成されます。
-
-```bash
-$ npx esdoc
-```
-
 ## DBについて
 
 Cloud Firestore の NoSQL データベースを採用しています。
