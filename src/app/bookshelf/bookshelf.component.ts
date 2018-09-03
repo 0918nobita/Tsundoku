@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Progress } from '../progress';
+import { FirebaseService } from '../firebase.service';
+import * as firebase from 'firebase';
+
+interface RegisteredBook {
+  deadline: firebase.firestore.Timestamp;
+  favorite: boolean;
+  isbn: string;
+  progress: Progress;
+}
 
 /**
  * 積読本棚画面
@@ -9,6 +19,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookshelf.component.css']
 })
 export class BookshelfComponent implements OnInit {
-  constructor() {}
-  ngOnInit() {}
+
+  books: Array<RegisteredBook> = [];
+
+  public functions: firebase.functions.Functions;
+
+  constructor(private firebaseService: FirebaseService) {}
+
+  ngOnInit() {
+    this.functions = this.firebaseService.functions;
+    this.getBookshelf('0918nobita').then(result => {
+      this.books = result;
+    }).catch(error => console.log(error));
+  }
 }
