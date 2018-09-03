@@ -39,8 +39,8 @@ $ npm i
 
 ## Webサーバーの起動
 
-下のコマンドを実行すると ``localhost:4200`` でWebサーバーが起動する。  
-ファイルの更新を検知して自動でページがリロードされる。
+下のコマンドを実行すると ``localhost:4200`` でWebサーバーが起動します。  
+ファイルの更新を検知して自動でページがリロードされます。
 
 ```bash
 $ npm run start
@@ -60,13 +60,13 @@ $ npm run release
 
 ## ng generate コマンド
 
-以下のコマンドを実行することで、component-name コンポーネントが生成される。
+以下のコマンドを実行することで、component-name コンポーネントが生成されます。
 
 ```bash
 $ ng generate component component-name
 ```
 
-同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` を用いることができる
+同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` が使用可能です。
 
 ## ドキュメントの生成方法
 
@@ -75,3 +75,36 @@ $ ng generate component component-name
 ```bash
 $ npx esdoc
 ```
+
+## DBについて
+
+Cloud Firestore の NoSQL データベースを採用しています。
+
+コレクションとドキュメントの構成は以下のようになります。
+
+- bookshelf
+  - deadline: timestamp
+  - favorite: boolean
+  - isbn: string
+  - progress: string
+  - user: string
+- records
+  - created: timestamp
+  - desc: string
+  - isbn: string
+  - range: string
+  - user: string
+- resolvedBooks
+  - desc: string
+  - donor: string
+  - image: string
+  - isbn: string
+  - title: string
+- unresolvedBooks
+  - client: string
+  - desc: string
+  - isbn: string
+- users
+  - bio: string
+  - image: string
+  - name: string
