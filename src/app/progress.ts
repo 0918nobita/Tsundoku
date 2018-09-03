@@ -4,6 +4,9 @@ type Fragment = Range | number;
 
 type Fragments = Array<Fragment>;
 
+/**
+ * @desc 読書の進捗状況を表すクラス<br>読んだページを断片的に記録する
+ */
 export class Progress {
   private fragments: Fragments;
 
