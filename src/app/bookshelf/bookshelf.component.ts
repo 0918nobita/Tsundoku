@@ -32,4 +32,10 @@ export class BookshelfComponent implements OnInit {
       this.books = result;
     }).catch(error => console.log(error));
   }
+
+  private async getBookshelf(user: string): Promise<Array<RegisteredBook>> {
+    return this.functions.httpsCallable('getBookshelf')(user)
+      .then(result => result.data)
+      .catch(error => error);
+  }
 }
