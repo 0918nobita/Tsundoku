@@ -30,6 +30,11 @@ export class Progress {
     this.fragments = fragments;
   }
 
+  /**
+   * @desc Progress インスタンス同士を合成する
+   * @param {Progress} right - 合成する Progress インスタンス
+   * @return {Progress} - 合成後の Progress インスタンス
+   */
   add(right: Progress): Progress {
     if (right.fragments.length === 0) return this.simplify();
 
