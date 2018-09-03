@@ -135,6 +135,9 @@ export class Progress {
     return result;
   }
 
+  /**
+   * 文字列から Progress インスタンスを生成する
+   */
   static parse(str: string): Progress {
     const parts: Array<string> = str.replace(/\s/g, '').split(',');
     const result: Fragments = [];
