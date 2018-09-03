@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Progress } from '../progress';
+import { Progress } from 'shared/progress';
 import { FirebaseService } from '../firebase.service';
 import * as firebase from 'firebase';
 

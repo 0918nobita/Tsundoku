@@ -10,7 +10,7 @@
     "logs": "firebase functions:log",
     "retire": "retire"
   },
-  "main": "lib/index.js",
+  "main": "lib/functions/src/index.js",
   "dependencies": {
     "@types/axios": "^0.14.0",
     "axios": "^0.18.0",
@@ -23,8 +23,10 @@
   "devDependencies": {
     "@types/cors": "^2.8.4",
     "retire": "^1.6.2",
+    "tsconfig-paths": "^3.5.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.5.3",
+    "yarn": "^1.9.4"
   },
   "engines": {
     "node": "8"
