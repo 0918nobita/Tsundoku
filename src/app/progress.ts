@@ -116,6 +116,9 @@ export class Progress {
     return this;
   }
 
+  /**
+   * Progress インスタンスを文字列に変換する
+   */
   toString(): string {
     let result = '';
     
