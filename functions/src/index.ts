@@ -50,7 +50,6 @@ export const searchBooksByISBN = functions.https.onCall((isbn: string) =>
     .where('isbn', '==', isbn)
     .get()
     .then(querySnapshot => {
-      console.log(isbn);
       const response: Array<ResolvedBook> = [];
       querySnapshot.forEach(doc => {
         const docData = doc.data();
