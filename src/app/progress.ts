@@ -6,6 +6,14 @@ type Fragments = Array<Fragment>;
 
 /**
  * @desc 読書の進捗状況を表すクラス<br>読んだページを断片的に記録する
+ * @example
+ * const p1 = Progress.parse('1,3, 4-5'),
+ *       p2 = Progress.parse('6, 2');
+ * 
+ * console.log(p1.toString());  // => '1, 3-5'
+ * console.log(p2.toString());  // => '2, 6'
+ * 
+ * console.log(p1.add(p2).toString());  // '1-6'
  */
 export class Progress {
   private fragments: Fragments;
