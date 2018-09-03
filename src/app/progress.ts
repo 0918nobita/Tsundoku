@@ -68,6 +68,11 @@ export class Progress {
     return numbers;
   }
 
+  /**
+   * @private
+   * @desc 冗長な表現を修正する
+   * @return {Progress}
+   */
   private simplify(): Progress {
     this.fragments = this.toArray();
 
