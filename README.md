@@ -11,14 +11,6 @@
 - 積読本棚に追加できる冊数には制限があり、申請をすることで段階的に上限を解放することができる  
   その代わり、上限を解放したことが強制的に連携 SNS で共有される
 
-## 環境構築
-
-```bash
-$ git clone https://github.com/0918nobita/Tsundoku.git
-$ cd Tsundoku
-$ npm i
-```
-
 ## 各画面の詳細
 
 - ログイン画面
@@ -33,6 +25,16 @@ $ npm i
 - 新規投稿画面
 - プロフィール画面
 - プロフィール編集画面
+
+___
+
+## 環境構築
+
+```bash
+$ git clone https://github.com/0918nobita/Tsundoku.git
+$ cd Tsundoku/client
+$ npm i
+```
 
 ### コンポーネント
 
