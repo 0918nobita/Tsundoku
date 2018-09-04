@@ -17,7 +17,7 @@ export class BookComponent implements OnInit {
   @Input() public isbn: string;
   @Input() public image: string;
 
-  visible = false;
+  private visible = false;
 
   constructor() {}
 
