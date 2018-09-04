@@ -14,15 +14,13 @@ import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
 
-/**
- * ルーティングの設定
- * @type {{path: string, component: function}[]}
- */
+// ルーティングの設定
 export const AppRoutes = [
     { path: '', component: TopComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'search', component: SearchComponent }
+    { path: 'search', component: SearchComponent },
+    { path: 'bookshelf', component: BookshelfComponent }
 ];
 
 @NgModule({
