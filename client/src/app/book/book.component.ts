@@ -31,6 +31,7 @@ export class BookComponent implements OnInit {
     }
   }
 
+  /** 本の詳細の表示を終了する */
   close() {
     $('#details').hide();
     $('#filter').hide();
