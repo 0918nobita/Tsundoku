@@ -49,13 +49,15 @@ $ npm i
 $ npm run start
 ```
 
-## デバッグビルド
+## ビルド方法
+
+- デバッグビルド
 
 ```bash
 $ npm run build
 ```
 
-## リリースビルド
+- リリースビルド
 
 ```bash
 $ npm run release
