@@ -2,22 +2,8 @@ import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import * as firebase from 'firebase';
 import { Progress } from '../../shared/progress';
+import { ResolvedBook, RegisteredBook } from '../../shared/entity';
 import { ehb } from './ehb';
-
-interface ResolvedBook {
-  desc: string;
-  donor: string;
-  image: string;
-  isbn: string;
-  title: string;
-}
-
-interface RegisteredBook {
-  deadline: firebase.firestore.Timestamp;
-  favorite: boolean;
-  isbn: string;
-  progress: Progress;
-}
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();

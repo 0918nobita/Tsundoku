@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Progress } from 'shared/progress';
+import { RegisteredBook } from 'shared/entity';
 import { FirebaseService } from '../firebase.service';
 import * as firebase from 'firebase';
-
-interface RegisteredBook {
-  deadline: firebase.firestore.Timestamp;
-  favorite: boolean;
-  isbn: string;
-  progress: Progress;
-}
 
 /**
  * 積読本棚画面
