@@ -98,6 +98,7 @@ Cloud Firestore の NoSQL データベースを採用しています。
   - desc: string
   - isbn: string
 - users
+  - uid: string
   - bio: string
   - image: string
   - name: string
