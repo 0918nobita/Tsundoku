@@ -21,6 +21,7 @@ export class BookComponent implements OnInit {
 
   ngOnInit() {}
 
+  /** 本の詳細を表示する */
   show() {
     if (this.visible === false) {
       $('#bg').show();
