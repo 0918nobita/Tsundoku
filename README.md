@@ -62,7 +62,13 @@ $ npm i
 
 ## コンポーネント
 
-- 本の詳細
+- 本の詳細  ``client/src/app/book``
+- 本棚  ``client/src/app/bookshelf``
+- ログイン画面  ``client/src/app/login``
+- プロフィール画面  ``client/src/app/profile``
+- 登録画面  ``client/src/app/register``
+- 検索画面  ``client/src/app/search``
+- トップ画面  ``client/src/app/top``
 
 <a name="launch_server">
 
