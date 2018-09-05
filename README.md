@@ -3,13 +3,15 @@
 - [概要](#overview)
 - [各画面の詳細](#pages)
 - [環境構築](#set_up_an_environment)
-- [コンポーネント](#components)
-- [Webサーバーの起動](#launch_server)
-- [ビルド方法](#how_to_build)
-  - [デバッグビルド](#debug_build)
-  - [リリースビルド](#release_build)
-- [コンポーネントの生成](#generate_components)
-- [DBについて](#db)
+- [クライアントサイド](#client_side)
+  - [コンポーネント](#components)
+  - [静的サーバーの起動](#launch_server)
+  - [ビルド方法](#how_to_build)
+    - [デバッグビルド](#debug_build)
+    - [リリースビルド](#release_build)
+  - [コンポーネントの生成](#generate_components)
+- [サーバーサイド](#server_side)
+  - [DBについて](#db)
 
 <a name="overview">
 
@@ -58,9 +60,13 @@ $ cd Tsundoku/client
 $ npm i
 ```
 
+<a name="client_side">
+
+## クライアントサイド
+
 <a name="components">
 
-## コンポーネント
+### コンポーネント
 
 - 本の詳細  ``client/src/app/book``
 - 本棚  ``client/src/app/bookshelf``
@@ -72,7 +78,7 @@ $ npm i
 
 <a name="launch_server">
 
-## Webサーバーの起動
+### 静的サーバーの起動
 
 下のコマンドを実行すると ``localhost:4200`` でWebサーバーが起動します。  
 ファイルの更新を検知して自動でページがリロードされます。
@@ -83,7 +89,7 @@ $ npm run start
 
 <a name="how_to_build">
 
-## ビルド方法
+### ビルド方法
 
 <a name="debug_build">
 
@@ -103,7 +109,7 @@ $ npm run release
 
 <a name="generate_components">
 
-## コンポーネントの生成
+### コンポーネントの生成
 
 以下のコマンドを実行することで、component-name コンポーネントが生成されます。
 
@@ -113,9 +119,13 @@ $ ng generate component component-name
 
 同様に、``ng generate directive|pipe|service|class|guard|interface|enum|module`` が使用可能です。
 
+<a name="server_side">
+
+## サーバーサイド
+
 <a name="db">
 
-## DBについて
+### DBについて
 
 Cloud Firestore の NoSQL データベースを採用しています。
 
