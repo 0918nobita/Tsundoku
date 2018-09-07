@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
+import * as bootstrap from 'bootstrap';
 
 // ルーティングの設定
 export const AppRoutes = [
