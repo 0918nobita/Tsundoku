@@ -49,14 +49,16 @@ export class SearchComponent implements OnInit {
 
         if (result.data.items !== void 0) {
           // ヒットした場合は取り出してサムネを出力する
-          result.data.items.map((item, index) =>
+          const items = result.data.items;
+          for (let i = 0; i < items.length; i++) {
             this.hitBooks.push({
-              desc: item.volumeInfo.description,
+              desc: items[i].volumeInfo.description,
               donor: 'none',
-              image: 'https' + item.volumeInfo.imageLinks.smallThumbnail.slice(4),
+              image: 'https' + items[i].volumeInfo.imageLinks.smallThumbnail.slice(4),
               isbn: isbn,
-              title: item.volumeInfo.title
-            }));
+              title: items[i].volumeInfo.title
+            });
+          }
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
           this.hitBooks = await searchBooksInFirestore(isbn);
