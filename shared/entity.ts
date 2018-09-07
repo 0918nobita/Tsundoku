@@ -1,3 +1,4 @@
+import * as firebase from '../functions/node_modules/firebase';
 import { Progress } from './progress';
 
 export interface ResolvedBook {
