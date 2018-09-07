@@ -10,7 +10,7 @@
     "ban-comma-operator": true,
 
     // Do not allow internal modules or namespaces . These are deprecated in favor of ES6 modules.
-    "no-namespace": true,
+    "no-namespace": false,
 
     // Do not allow parameters to be reassigned. To avoid bugs, developers should instead assign new values to new vars.
     "no-parameter-reassignment": true,
