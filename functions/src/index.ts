@@ -79,8 +79,12 @@ namespace localFunctions {
           if (book.length !== 0) response.push({
               deadline: docData.deadline,
               favorite: docData.favorite,
-              bookData: book[0],
-              progress: Progress.parse(docData.progress)
+              progress: Progress.parse(docData.progress),
+              desc: book[0].desc,
+              donor: book[0].donor,
+              image: book[0].image,
+              isbn: docData.isbn,
+              title: book[0].title
           });
         }
 
