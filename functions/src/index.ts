@@ -32,10 +32,13 @@ namespace localFunctions {
       .catch(error => error);
 
   // resolvedBooks コレクションで本を検索する
-  export const searchBooksByISBN = (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<Array<ResolvedBook>> => {
-    
-    if (args.usingGoogleBooksAPI === true)
-      return searchBooksUsingGoogleBooksAPI(args.isbn);
+  export const searchBooksByISBN = async (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<Array<ResolvedBook>> => {
+    let response: Array<ResolvedBook> = [];
+
+    if (args.usingGoogleBooksAPI === true) {
+      const books = await searchBooksUsingGoogleBooksAPI(args.isbn);
+      if (books.length !== 0) response = books;
+    }
 
     return db.collection('resolvedBooks')
       .where('isbn', '==', args.isbn)
