@@ -37,8 +37,8 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-      this.functions.httpsCallable('searchBooksByISBN')(clue)
     const searchBooksInFirestore = (clue: string): Promise<Array<ResolvedBook>> =>
+      this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
         .then(result => result.data)
         .catch(error => error);
 
