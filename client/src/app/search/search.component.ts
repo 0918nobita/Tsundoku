@@ -37,8 +37,8 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const searchBooksByISBN = (clue: string): Promise<Array<ResolvedBook>> =>
       this.functions.httpsCallable('searchBooksByISBN')(clue)
+    const searchBooksInFirestore = (clue: string): Promise<Array<ResolvedBook>> =>
         .then(result => result.data)
         .catch(error => error);
 
@@ -58,7 +58,7 @@ export class SearchComponent implements OnInit {
             }));
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
-          this.hitBooks = await searchBooksByISBN(isbn);
+          this.hitBooks = await searchBooksInFirestore(isbn);
         }
       })
       .catch(error => 'Error: ' + error);
