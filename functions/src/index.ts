@@ -1,6 +1,5 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
-import * as firebase from 'firebase';
 import { Progress } from '../../shared/progress';
 import { ResolvedBook, RegisteredBook } from '../../shared/entity';
 import { ehb } from './ehb';
