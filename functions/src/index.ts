@@ -3,6 +3,7 @@ import * as functions from 'firebase-functions';
 import axios from 'axios';
 import { Progress } from '../../shared/progress';
 import { ResolvedBook, RegisteredBook } from '../../shared/entity';
+import { apiKey } from './config'
 import { ehb } from './ehb';
 
 admin.initializeApp(functions.config().firebase);
@@ -13,7 +14,7 @@ namespace localFunctions {
 
   // GoogleBooksAPI を用いて、ISBN で本を検索する
   const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<Array<ResolvedBook>> =>
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + clue)
+    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + clue + '&key=' + apiKey + '&country=JP')
       .then(async result => {
         const response: Array<ResolvedBook> = [];
         if (result.data.items !== void 0) {
