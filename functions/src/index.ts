@@ -63,7 +63,7 @@ namespace localFunctions {
   }
 
   // 本棚の情報を取得する
-  export const getBookshelf = (user: string): Promise<Array<RegisteredBook>> =>
+  export const getBookshelf = async (user: string): Promise<Array<RegisteredBook>> =>
     db.collection('bookshelf')
       .where('user', '==', user)
       .get()
