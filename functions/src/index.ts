@@ -46,7 +46,6 @@ namespace localFunctions {
       .where('isbn', '==', args.isbn)
       .get()
       .then(querySnapshot => {
-        const response: Array<ResolvedBook> = [];
         querySnapshot.forEach(doc => {
           const docData = doc.data();
           response.push({
