@@ -11,6 +11,6 @@ export interface ResolvedBook {
 export interface RegisteredBook {
   deadline: firebase.firestore.Timestamp;
   favorite: boolean;
-  isbn: string;
+  bookData: ResolvedBook;
   progress: Progress;
 }

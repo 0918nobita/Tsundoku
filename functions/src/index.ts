@@ -47,7 +47,7 @@ namespace localFunctions {
             response.push({
               deadline: docData.deadline,
               favorite: docData.favorite,
-              isbn: docData.isbn,
+              bookData: book[0],
               progress: Progress.parse(docData.progress)
             });
           }
