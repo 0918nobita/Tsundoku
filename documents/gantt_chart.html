@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Gantt chart</title>
+  </head>
+  <body>
+    <h1>ガントチャート</h1>
+    <div class="mermaid">
+    gantt
+        title Gantt Chart
+        dateFormat YYYY-MM-DD
+        section Section
+        A task       :a1, 2018-09-07, 10d
+        Another task :after a1, 20d
+    </div>
+    <script src="../client/node_modules/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({startOnLoad: true});
+    </script>
+  </body>
+</html>
