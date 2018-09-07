@@ -71,7 +71,7 @@ namespace localFunctions {
         const response: Array<RegisteredBook> = [];
 
         for (let i = 0; i < querySnapshot.size; i++) {
-          const docData = querySnapshot[i].data();
+          const docData = querySnapshot.docs[i].data();
 
           // ISBNを元に本の詳細情報を取得する
           const book = await localFunctions.searchBooksByISBN({isbn: docData.isbn, usingGoogleBooksAPI: true});
