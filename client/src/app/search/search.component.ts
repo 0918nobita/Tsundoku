@@ -2,7 +2,8 @@ import axios from 'axios';
 import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 import { ResolvedBook } from 'shared/entity';
-import * as $ from 'jquery';
+
+declare var $: any;
 
 /**
  * 本の検索画面
