@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 })
 export class BookshelfComponent implements OnInit {
 
-  books: Array<RegisteredBook> = [];
+  registeredBooks: Array<RegisteredBook> = [];
 
   public functions: firebase.functions.Functions;
 
@@ -23,7 +23,7 @@ export class BookshelfComponent implements OnInit {
   ngOnInit() {
     this.functions = this.firebaseService.functions;
     this.getBookshelf('0918nobita').then(result => {
-      this.books = result;
+      this.registeredBooks = result;
     }).catch(error => console.log(error));
   }
 
