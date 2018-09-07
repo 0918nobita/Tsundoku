@@ -9,9 +9,8 @@ export interface ResolvedBook {
   title: string;
 }
 
-export interface RegisteredBook {
+export interface RegisteredBook extends ResolvedBook {
   deadline: firebase.firestore.Timestamp;
   favorite: boolean;
-  bookData: ResolvedBook;
   progress: Progress;
 }
