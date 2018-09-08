@@ -31,32 +31,30 @@ namespace localFunctions {
       .catch(error => error);
 
   // resolvedBooks コレクションで本を検索する
-  export const searchBooksByISBN = async (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<Array<ResolvedBook>> => {
-    let response: Array<ResolvedBook> = [];
-
-    if (args.usingGoogleBooksAPI === true) {
-      const books = await searchBooksUsingGoogleBooksAPI(args.isbn);
-      if (books.length !== 0) response = books;
-    }
-
-    return db.collection('resolvedBooks')
-      .where('isbn', '==', args.isbn)
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          const docData = doc.data();
-          response.push({
-            desc: docData.desc,
-            donor: docData.donor,
-            image: docData.image,
-            isbn: docData.isbn,
-            title: docData.title
+  export const searchBooksByISBN =
+    async (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<ResolvedBook[]> =>
+      db.collection('resolvedBooks')
+        .where('isbn', '==', args.isbn)
+        .get()
+        .then(async querySnapshot => {
+          let response: Array<ResolvedBook> = [];
+          querySnapshot.forEach(doc => {
+            const docData = doc.data();
+            response.push({
+              desc: docData.desc,
+              donor: docData.donor,
+              image: docData.image,
+              isbn: docData.isbn,
+              title: docData.title
+            });
           });
-        });
-        return response;
-      })
-      .catch(error => error);
-  }
+
+          if (response.length === 0 && args.usingGoogleBooksAPI === true)
+            response = await searchBooksUsingGoogleBooksAPI(args.isbn);
+
+          return response;
+        })
+        .catch(error => error);
 
   // 本棚の情報を取得する
   export const getBookshelf = async (user: string): Promise<RegisteredBook[]> =>
