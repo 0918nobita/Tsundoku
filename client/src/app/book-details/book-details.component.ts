@@ -25,6 +25,7 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookshelfService.getBookByISBN(isbn)
       .then(result => {
+        $('#now_loading').hide();
         if (result === null) return;
 
         this.title = result.title;
