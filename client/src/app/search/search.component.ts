@@ -47,10 +47,10 @@ export class SearchComponent implements OnInit {
       .then(async result => {
         if (result.data.totalItems > 0) {
           // ヒットした場合は取り出してサムネを出力する
-          this.hitBooks = result.data.items.map(({ volumeInfo }) => ({
+          result.data.items.forEach(({ volumeInfo }) => this.hitBooks.push({
             desc: volumeInfo.description,
             donor: 'none',
-            image: 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4),
+            image: (volumeInfo.imageLinks !== void 0) ? 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4) : './assets/image_not_found.png',
             isbn: isbn,
             title: volumeInfo.title
           }));
