@@ -16,7 +16,7 @@ declare var $: any;
 
 export class SearchComponent implements OnInit {
 
-  hitBooks: Array<ResolvedBook> = [];
+  hitBooks: ResolvedBook[] = [];
   content = '';
 
   /**
@@ -38,7 +38,7 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const searchBooksInFirestore = (clue: string): Promise<Array<ResolvedBook>> =>
+    const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
       this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
         .then(result => result.data)
         .catch(error => error);

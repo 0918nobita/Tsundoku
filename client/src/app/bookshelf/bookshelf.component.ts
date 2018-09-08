@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 })
 export class BookshelfComponent implements OnInit {
 
-  registeredBooks: Array<RegisteredBook> = [];
+  registeredBooks: RegisteredBook[] = [];
 
   public functions: firebase.functions.Functions;
 
@@ -27,7 +27,7 @@ export class BookshelfComponent implements OnInit {
     }).catch(error => console.log(error));
   }
 
-  private async getBookshelf(user: string): Promise<Array<RegisteredBook>> {
+  private async getBookshelf(user: string): Promise<RegisteredBook[]> {
     return this.functions.httpsCallable('getBookshelf')(user)
       .then(result => result.data)
       .catch(error => error);
