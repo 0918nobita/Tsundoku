@@ -43,14 +43,16 @@ export class SearchComponent implements OnInit {
         .then(result => result.data)
         .catch(error => error);
 
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
       .then(async result => {
         if (result.data.totalItems > 0) {
           // ヒットした場合は取り出してサムネを出力する
           result.data.items.forEach(({ volumeInfo }) => this.hitBooks.push({
             desc: volumeInfo.description,
             donor: 'none',
-            image: (volumeInfo.imageLinks !== void 0) ? 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4) : './assets/image_not_found.png',
+            image: (volumeInfo.imageLinks !== void 0) ?
+                `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
+                './assets/image_not_found.png',
             isbn: isbn,
             title: volumeInfo.title
           }));
@@ -59,6 +61,6 @@ export class SearchComponent implements OnInit {
           this.hitBooks = await searchBooksInFirestore(isbn);
         }
       })
-      .catch(error => 'Error: ' + error);
+      .catch(error => `Error: ${error}`);
   }
 }
