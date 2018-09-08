@@ -48,15 +48,27 @@ export class SearchComponent implements OnInit {
         if (result.data.totalItems > 0) {
           // ヒットした場合は取り出してサムネを出力する
           this.hitBooks = [];
-          result.data.items.forEach(({ volumeInfo }) => this.hitBooks.push({
-            desc: volumeInfo.description,
-            donor: 'none',
-            image: (volumeInfo.imageLinks !== void 0) ?
-                `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
-                './assets/image_not_found.png',
-            isbn: isbn,
-            title: volumeInfo.title
-          }));
+
+          for (let i = 0; i < result.data.items.length; i++) {
+            const volumeInfo = result.data.items[i].volumeInfo,
+                  hitBook: ResolvedBook = {
+                    desc: volumeInfo.description,
+                    donor: 'none',
+                    image: './assets/image_not_found.png',
+                    isbn,
+                    title: volumeInfo.title
+                  };
+
+            if (volumeInfo.imageLinks === void 0) {
+              const books = await searchBooksInFirestore(isbn);
+              if (books.length > 0) {
+                hitBook.donor = books[0].donor;
+                hitBook.image = books[0].image;
+              }
+            }
+
+            this.hitBooks.push(hitBook);
+          }
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
           this.hitBooks = await searchBooksInFirestore(isbn);
