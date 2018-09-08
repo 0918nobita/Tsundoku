@@ -87,6 +87,15 @@ namespace localFunctions {
         return response;
       })
       .catch(error => error);
+
+  export const postResolvedBook = (resolvedBook: ResolvedBook): Promise<string> =>
+    db.collection('resolvedBooks')
+      .add(resolvedBook)
+      .then(docRef => docRef.id)
+      .catch(error => {
+        console.error(error);
+        return 'Error';
+      });
 }
 
 export const searchBooksByISBN = functions.https.onCall(localFunctions.searchBooksByISBN);
@@ -94,3 +103,5 @@ export const searchBooksByISBN = functions.https.onCall(localFunctions.searchBoo
 export const getBookshelf = functions.https.onCall(localFunctions.getBookshelf);
 
 export const getContributions = functions.https.onRequest(ehb);
+
+export const postResolvedBook = functions.https.onCall(localFunctions.postResolvedBook);
