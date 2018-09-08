@@ -4,6 +4,7 @@
 - [各画面の詳細](#pages)
 - [環境構築](#set_up_an_environment)
 - [クライアントサイド](#client_side)
+  - [デプロイ方法](#how_to_deploy_client_side)
   - [コンポーネント](#components)
   - [静的サーバーの起動](#launch_server)
   - [ビルド方法](#how_to_build)
@@ -64,6 +65,16 @@ $ npm i
 <a name="client_side">
 
 ## クライアントサイド
+
+<a name="how_to_deploy_client_side">
+
+### デプロイ方法
+
+npm で配布されている ``firebase-tools`` を用いて行います。
+
+```bash
+$ firebase deploy --only hosting
+```
 
 <a name="components">
 
