@@ -22,7 +22,6 @@ export class BookshelfComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
-    $('#now_loading').show();
     this.functions = this.firebaseService.functions;
     this.getBookshelf('0918nobita').then(result => {
       $('#now_loading').hide();
