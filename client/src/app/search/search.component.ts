@@ -65,6 +65,8 @@ export class SearchComponent implements OnInit {
                 hitBook.donor = books[0].donor;
                 hitBook.image = books[0].image;
               }
+            } else {
+              hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
             }
 
             this.hitBooks.push(hitBook);
