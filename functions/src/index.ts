@@ -13,7 +13,7 @@ db.settings({ timestampsInSnapshots: true });
 namespace localFunctions {
 
   // GoogleBooksAPI を用いて、ISBN で本を検索する
-  const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<Array<ResolvedBook>> =>
+  const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<ResolvedBook[]> =>
     axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + clue + '&key=' + apiKey + '&country=JP')
       .then(async result => {
         let response: Array<ResolvedBook> = [];
@@ -59,7 +59,7 @@ namespace localFunctions {
   }
 
   // 本棚の情報を取得する
-  export const getBookshelf = async (user: string): Promise<Array<RegisteredBook>> =>
+  export const getBookshelf = async (user: string): Promise<RegisteredBook[]> =>
     db.collection('bookshelf')
       .where('user', '==', user)
       .get()
