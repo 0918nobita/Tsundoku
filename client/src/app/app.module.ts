@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
+import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
 
 // ルーティングの設定
@@ -33,6 +34,7 @@ export const AppRoutes = [
     LoginComponent,
     RegisterComponent,
     SearchComponent,
+    UserDetailsComponent,
     TopComponent
   ],
   imports: [
