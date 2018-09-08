@@ -2,3 +2,11 @@ button {
   margin: 5px;
   box-shadow: 2px 2px 10px black;
 }
+
+@media (max-width: 420px) {
+  #logo {
+    width: 50vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
+  }
+}
