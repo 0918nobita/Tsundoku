@@ -47,13 +47,13 @@ export class SearchComponent implements OnInit {
       .then(async result => {
         if (result.data.totalItems > 0) {
           // ヒットした場合は取り出してサムネを出力する
-          this.hitBooks = result.data.items.map(({ volumeInfo }) => {
-            desc: items[i].volumeInfo.description,
+          this.hitBooks = result.data.items.map(({ volumeInfo }) => ({
+            desc: volumeInfo.description,
             donor: 'none',
-            image: 'https' + items[i].volumeInfo.imageLinks.smallThumbnail.slice(4),
+            image: 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4),
             isbn: isbn,
-            title: items[i].volumeInfo.title
-          });
+            title: volumeInfo.title
+          }));
         } else {
           // ヒットしなかった場合は resolvedBooks で検索する
           this.hitBooks = await searchBooksInFirestore(isbn);
