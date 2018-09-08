@@ -16,19 +16,15 @@ namespace localFunctions {
   const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<Array<ResolvedBook>> =>
     axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + clue + '&key=' + apiKey + '&country=JP')
       .then(async result => {
-        const response: Array<ResolvedBook> = [];
-        if (result.data.items !== void 0) {
-          // ヒットした場合は取り出してサムネを出力する
-          const items = result.data.items;
-          for (let i = 0; i < items.length; i++) {
-            response.push({
-              desc: items[i].volumeInfo.description,
-              donor: 'none',
-              image: 'https' + items[i].volumeInfo.imageLinks.smallThumbnail.slice(4),
-              isbn: clue,
-              title: items[i].volumeInfo.title
-            });
-          }
+        let response: Array<ResolvedBook> = [];
+        if (result.data.totalItems > 0) {
+          response = result.data.items.map(({ volumeInfo }) => ({
+            desc: volumeInfo.description,
+            donor: 'none',
+            image: 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4),
+            isbn: clue,
+            title: volumeInfo.title
+          }));
         }
         return response;
       })
