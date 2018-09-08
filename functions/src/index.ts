@@ -14,7 +14,7 @@ namespace localFunctions {
 
   // GoogleBooksAPI を用いて、ISBN で本を検索する
   const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<ResolvedBook[]> =>
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + clue + '&key=' + apiKey + '&country=JP')
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${clue}&key=${apiKey}&country=JP`)
       .then(async result => {
         let response: Array<ResolvedBook> = [];
         if (result.data.totalItems > 0) {
