@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  constructor() {}
+export class AppComponent implements AfterViewInit {
+  constructor(private elementRef: ElementRef) {}
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#333333';
+  }
 }
