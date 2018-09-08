@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build",
+    "serve": "ng serve",
     "start": "npm run release && static dist",
     "release": "ng build --prod",
     "test": "ng test",
