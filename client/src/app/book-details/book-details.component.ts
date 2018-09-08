@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { BookshelfService } from '../bookshelf.service';
+import { ActivatedRoute } from '@angular/router';
+import { ResolvedBook } from 'shared/entity';
 
 @Component({
   selector: 'app-book-details',
@@ -6,12 +10,33 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  @Input() public title: string;
-  @Input() public author: string;
-  @Input() public desc: string;
-  @Input() public isbn: string;
-  @Input() public image: string;
+  title: string;
+  desc: string;
+  donor: string;
+  isbn: string;
+  image: string;
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(private location: Location,
+              private bookshelfService: BookshelfService,
+              private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit() {
+    const isbn: string = this.activatedRoute.snapshot.params['isbn'];
+
+    this.bookshelfService.getBookByISBN(isbn)
+      .then(result => {
+        if (result === null) return;
+
+        this.title = result.title;
+        this.desc = result.desc;
+        this.donor = result.donor;
+        this.isbn = result.isbn;
+        this.image = result.image;
+      })
+      .catch(error => console.log(error));
+  }
+
+  back() {
+    this.location.back();
+  }
 }

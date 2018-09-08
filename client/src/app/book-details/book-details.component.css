@@ -1,0 +1,9 @@
+#title {
+  text-align: center;
+  font-size: 2em;
+}
+
+#back {
+  margin: 5px;
+  box-shadow: 2px 2px 10px black;
+}
