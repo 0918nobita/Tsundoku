@@ -26,7 +26,6 @@ export class BookComponent implements OnInit {
   /** 本の詳細を表示する */
   show(isbn: string) {
     if (this.visible === false) {
-      console.log(isbn);
       $('.bg' + isbn).show();
       $('.filter' + isbn).show();
       $('.details' + isbn).show();
