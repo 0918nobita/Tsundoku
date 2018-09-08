@@ -11,6 +11,7 @@
     - [リリースビルド](#release_build)
   - [コンポーネントの生成](#generate_components)
 - [サーバーサイド](#server_side)
+  - [デプロイ方法](#how_to_deploy_server_side)
   - [DBについて](#db)
 
 <a name="overview">
@@ -122,6 +123,17 @@ $ ng generate component component-name
 <a name="server_side">
 
 ## サーバーサイド
+
+<a name="how_to_deploy_server_side">
+
+### デプロイ方法
+
+npm で配布されている ``firebase-tools`` を用いて行います。
+
+```bash
+$ cd functions
+$ yarn deploy
+```
 
 <a name="db">
 
