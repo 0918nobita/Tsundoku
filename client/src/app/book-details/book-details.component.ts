@@ -30,7 +30,7 @@ export class BookDetailsComponent implements OnInit {
         this.title = result.title;
         this.desc = result.desc;
         this.donor = result.donor;
-        this.isbn = result.isbn;
+        this.isbn = 'ISBN: ' + result.isbn;
         this.image = result.image;
       })
       .catch(error => console.log(error));
