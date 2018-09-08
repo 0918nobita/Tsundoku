@@ -43,8 +43,9 @@ namespace localFunctions {
         .get()
         .then(async querySnapshot => {
           let response: Array<ResolvedBook> = [];
-          querySnapshot.forEach(doc => {
-            const docData = doc.data();
+
+          for (let i = 0; i < querySnapshot.size; i++) {
+            const docData = querySnapshot.docs[i].data();
             response.push({
               desc: docData.desc,
               donor: docData.donor,
@@ -52,7 +53,7 @@ namespace localFunctions {
               isbn: docData.isbn,
               title: docData.title
             });
-          });
+          }
 
           if (response.length === 0 && args.usingGoogleBooksAPI === true)
             response = await searchBooksUsingGoogleBooksAPI(args.isbn);
