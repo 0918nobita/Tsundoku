@@ -47,6 +47,7 @@ export class SearchComponent implements OnInit {
       .then(async result => {
         if (result.data.totalItems > 0) {
           // ヒットした場合は取り出してサムネを出力する
+          this.hitBooks = [];
           result.data.items.forEach(({ volumeInfo }) => this.hitBooks.push({
             desc: volumeInfo.description,
             donor: 'none',
