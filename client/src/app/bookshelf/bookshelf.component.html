@@ -2,6 +2,8 @@
 
 <p id="title">積読本棚</p>
 
+<div id="now_loading">Now Loading...</div>
+
 <ng-container *ngFor="let registeredBook of registeredBooks">
   <app-book [title]="registeredBook.title"
       [author]="registeredBook.author"

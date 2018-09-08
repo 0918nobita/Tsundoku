@@ -7,3 +7,27 @@
   margin: 5px;
   box-shadow: 2px 2px 10px black;
 }
+
+#now_loading {
+  color: white;
+  background: linear-gradient(90deg, #424242, #424242, #AAAAAA, #424242, #424242);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  animation: change-gradient 3s linear infinite;
+}
+
+@keyframes change-gradient {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}

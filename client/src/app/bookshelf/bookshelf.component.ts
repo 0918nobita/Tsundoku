@@ -3,6 +3,7 @@ import { Progress } from 'shared/progress';
 import { RegisteredBook } from 'shared/entity';
 import { FirebaseService } from '../firebase.service';
 import * as firebase from 'firebase';
+import * as $ from 'jquery';
 
 /**
  * 積読本棚画面
@@ -21,8 +22,10 @@ export class BookshelfComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
+    $('#now_loading').show();
     this.functions = this.firebaseService.functions;
     this.getBookshelf('0918nobita').then(result => {
+      $('#now_loading').hide();
       this.registeredBooks = result;
     }).catch(error => console.log(error));
   }
