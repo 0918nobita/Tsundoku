@@ -1,12 +1,12 @@
-<img id="thumbnail" src="{{ image }}" (click)="show()">
+<img id="thumbnail" src="{{ image }}" (click)="show(isbn)">
 
-<div id="bg">
+<div id="bg" class="bg{{ isbn }}">
   <img id="image" src="{{ image }}">
 </div>
 
-<div id="filter" (click)="close()"></div>
+<div id="filter" class="filter{{ isbn }}" (click)="close(isbn)"></div>
 
-<div id="details">
+<div id="details" class="details{{ isbn }}">
   <p>本の詳細</p>
   <img src="{{ image }}">
   <p>{{ title }}</p>

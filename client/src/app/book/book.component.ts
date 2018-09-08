@@ -24,20 +24,21 @@ export class BookComponent implements OnInit {
   ngOnInit() {}
 
   /** 本の詳細を表示する */
-  show() {
+  show(isbn: string) {
     if (this.visible === false) {
-      $('#bg').show();
-      $('#filter').show();
-      $('#details').show();
+      console.log(isbn);
+      $('.bg' + isbn).show();
+      $('.filter' + isbn).show();
+      $('.details' + isbn).show();
       this.visible = true;
     }
   }
 
   /** 本の詳細の表示を終了する */
-  close() {
-    $('#details').hide();
-    $('#filter').hide();
-    $('#bg').hide();
+  close(isbn: string) {
+    $('.details' + isbn).hide();
+    $('.filter' + isbn).hide();
+    $('.bg' + isbn).hide();
     this.visible = false;
   }
 }
