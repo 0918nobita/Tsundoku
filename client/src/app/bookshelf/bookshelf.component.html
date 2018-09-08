@@ -1,6 +1,6 @@
 <button id="back" class="btn btn-dark" routerLink="/">戻る</button>
 
-<p>積読本棚</p>
+<p id="title">積読本棚</p>
 
 <ng-container *ngFor="let registeredBook of registeredBooks">
   <app-book [title]="registeredBook.title"
