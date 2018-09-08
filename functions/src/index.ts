@@ -21,10 +21,15 @@ namespace localFunctions {
           response = result.data.items.map(({ volumeInfo }) => ({
             desc: volumeInfo.description,
             donor: 'none',
-            image: 'https' + volumeInfo.imageLinks.smallThumbnail.slice(4),
+            image: (volumeInfo.imageLinks !== void 0) ?
+                `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
+                './assets/image_not_found.png',
             isbn: clue,
             title: volumeInfo.title
           }));
+
+          for (let i = 0; i < response.length; i++)
+            await localFunctions.postResolvedBook(response[i]);
         }
         return response;
       })
