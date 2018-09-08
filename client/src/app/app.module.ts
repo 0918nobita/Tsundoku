@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
+import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
 
@@ -34,6 +35,7 @@ export const AppRoutes = [
     LoginComponent,
     RegisterComponent,
     SearchComponent,
+    BookDetailsComponent,
     UserDetailsComponent,
     TopComponent
   ],
