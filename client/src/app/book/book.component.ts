@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as $ from 'jquery';
+import { Router } from '@angular/router';
 
 /**
  * 本棚画面や検索画面で表示される、<br>
@@ -19,25 +19,12 @@ export class BookComponent implements OnInit {
 
   private visible = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  /** 本の詳細を表示する */
+  /** 本の詳細ページに遷移する */
   show(isbn: string) {
-    if (this.visible === false) {
-      $('.bg' + isbn).show();
-      $('.filter' + isbn).show();
-      $('.details' + isbn).show();
-      this.visible = true;
-    }
-  }
-
-  /** 本の詳細の表示を終了する */
-  close(isbn: string) {
-    $('.details' + isbn).hide();
-    $('.filter' + isbn).hide();
-    $('.bg' + isbn).hide();
-    this.visible = false;
+    this.router.navigate([`/bookDetails/${isbn}`]);
   }
 }
