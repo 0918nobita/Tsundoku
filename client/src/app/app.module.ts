@@ -18,6 +18,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
 import { BackComponent } from './back/back.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 // ルーティングの設定
 export const AppRoutes = [
@@ -42,6 +43,7 @@ export const AppRoutes = [
     BookDetailsComponent,
     UserDetailsComponent,
     BackComponent,
+    TimelineComponent,
     TopComponent
   ],
   imports: [
