@@ -56,7 +56,8 @@ export class SearchComponent implements OnInit {
                     donor: 'none',
                     image: './assets/image_not_found.png',
                     isbn,
-                    title: volumeInfo.title
+                    title: volumeInfo.title,
+                    pageCount: volumeInfo.pageCount
                   };
 
             if (volumeInfo.imageLinks === void 0) {

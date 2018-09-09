@@ -18,14 +18,15 @@ namespace localFunctions {
       .then(async result => {
         let response: Array<ResolvedBook> = [];
         if (result.data.totalItems > 0) {
-          response = result.data.items.map(({ volumeInfo }) => ({
+          response = result.data.items.map(({ volumeInfo }): ResolvedBook => ({
             desc: volumeInfo.description,
             donor: 'none',
             image: (volumeInfo.imageLinks !== void 0) ?
                 `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
                 './assets/image_not_found.png',
             isbn: clue,
-            title: volumeInfo.title
+            title: volumeInfo.title,
+            pageCount: volumeInfo.pageCount
           }));
 
           for (let i = 0; i < response.length; i++)
@@ -51,7 +52,8 @@ namespace localFunctions {
               donor: docData.donor,
               image: docData.image,
               isbn: docData.isbn,
-              title: docData.title
+              title: docData.title,
+              pageCount: docData.pageCount
             });
           }
 
@@ -84,7 +86,8 @@ namespace localFunctions {
               donor: book[0].donor,
               image: book[0].image,
               isbn: docData.isbn,
-              title: book[0].title
+              title: book[0].title,
+              pageCount: book[0].pageCount
           });
         }
 

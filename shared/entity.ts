@@ -7,6 +7,7 @@ export interface ResolvedBook {
   image: string;
   isbn: string;
   title: string;
+  pageCount: number;
 }
 
 export interface RegisteredBook extends ResolvedBook {
