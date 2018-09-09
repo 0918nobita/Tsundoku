@@ -1,8 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { ResolvedBook } from 'shared/entity';
-
-declare var $: any;
 
 /**
  * 本の検索画面
