@@ -26,7 +26,7 @@ export const AppRoutes = [
     { path: 'search', component: SearchComponent },
     { path: 'bookshelf', component: BookshelfComponent },
     { path: 'bookDetails/:isbn', component: BookDetailsComponent },
-    { path: 'userDetails/:id', component: UserDetailsComponent }
+    { path: 'userDetails/:name', component: UserDetailsComponent }
 ];
 
 @NgModule({
