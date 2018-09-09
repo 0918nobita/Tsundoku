@@ -3,11 +3,6 @@
   font-size: 2em;
 }
 
-#back {
-  margin: 5px;
-  box-shadow: 2px 2px 10px black;
-}
-
 #now_loading {
   color: white;
   background: linear-gradient(90deg, #424242, #424242, #AAAAAA, #424242, #424242);
