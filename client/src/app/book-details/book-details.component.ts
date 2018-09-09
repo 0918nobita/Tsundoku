@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { BookshelfService } from '../bookshelf.service';
+import { BookService } from '../book.service';
 import { ActivatedRoute } from '@angular/router';
 import { ResolvedBook } from 'shared/entity';
 
@@ -17,13 +17,13 @@ export class BookDetailsComponent implements OnInit {
   image: string;
 
   constructor(private location: Location,
-              private bookshelfService: BookshelfService,
+              private bookService: BookService,
               private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
 
-    this.bookshelfService.getBookByISBN(isbn)
+    this.bookService.getBookByISBN(isbn)
       .then(result => {
         $('#now_loading').hide();
         if (result === null) return;

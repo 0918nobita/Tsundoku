@@ -6,7 +6,7 @@ import axios from 'axios';
 @Injectable({
   providedIn: 'root'
 })
-export class BookshelfService {
+export class BookService {
   private functions: firebase.functions.Functions;
 
   constructor(private firebaseService: FirebaseService) {
