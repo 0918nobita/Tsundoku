@@ -15,6 +15,7 @@ export class BookDetailsComponent implements OnInit {
   donor: string;
   isbn: string;
   image: string;
+  pageCount: string;
 
   constructor(private location: Location,
               private bookService: BookService,
@@ -33,6 +34,7 @@ export class BookDetailsComponent implements OnInit {
         this.donor = result.donor;
         this.isbn = 'ISBN: ' + result.isbn;
         this.image = result.image;
+        this.pageCount = `ページ数: ${ result.pageCount }`;
       })
       .catch(error => console.log(error));
   }
