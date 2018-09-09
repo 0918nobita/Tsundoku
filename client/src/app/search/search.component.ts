@@ -30,6 +30,7 @@ export class SearchComponent implements OnInit {
       .then(result => {
         if (result === null) return;
 
+        this.hitBooks.pop();
         this.hitBooks.push(result);
       })
       .catch(error => console.log(error));
