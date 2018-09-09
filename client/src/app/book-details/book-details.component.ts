@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Location } from '@angular/common';
 import { BookService } from '../book.service';
 import { ActivatedRoute } from '@angular/router';
 import { ResolvedBook } from 'shared/entity';
@@ -17,8 +16,7 @@ export class BookDetailsComponent implements OnInit {
   image: string;
   pageCount: string;
 
-  constructor(private location: Location,
-              private bookService: BookService,
+  constructor(private bookService: BookService,
               private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
@@ -37,9 +35,5 @@ export class BookDetailsComponent implements OnInit {
         this.pageCount = `ページ数: ${ result.pageCount }`;
       })
       .catch(error => console.log(error));
-  }
-
-  back() {
-    this.location.back();
   }
 }
