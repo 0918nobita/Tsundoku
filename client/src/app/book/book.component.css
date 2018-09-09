@@ -1,6 +1,23 @@
-#thumbnail {
+.thumbnail {
   width: 128px;
   height: 167px;
   margin: 5px;
   box-shadow: 2px 2px 10px black;
+  z-index: 0;
+}
+
+.thumbnail_image {
+  width: 128px;
+  height: 167px;
+}
+
+.star {
+  display: none;
+  position: relative;
+  top: -167px;
+  left: 100px;
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.4));
+  z-index: 1;
 }

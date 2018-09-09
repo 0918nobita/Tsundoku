@@ -1,1 +1,4 @@
-<img id="thumbnail" src="{{ image }}" (click)="show(isbn)">
+<div class="thumbnail" style="float: left;">
+  <img class="thumbnail_image" src="{{ image }}" (click)="show(isbn)">
+  <img id="star{{ isbn }}" class="star" src="./assets/star.svg">
+</div>
