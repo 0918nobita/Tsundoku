@@ -6,8 +6,6 @@
 
 <ng-container *ngFor="let registeredBook of registeredBooks">
   <app-book [title]="registeredBook.title"
-      [author]="registeredBook.author"
-      [desc]="registeredBook.desc"
       [isbn]="registeredBook.isbn"
       [image]="registeredBook.image"
       [favorite]="registeredBook.favorite"></app-book>

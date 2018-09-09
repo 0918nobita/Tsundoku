@@ -13,8 +13,6 @@ import * as $ from 'jquery';
 })
 export class BookComponent implements OnInit, AfterViewInit {
   @Input() public title: string;
-  @Input() public author: string;
-  @Input() public desc: string;
   @Input() public isbn: string;
   @Input() public image: string;
   @Input() public favorite: boolean;
@@ -32,7 +30,7 @@ export class BookComponent implements OnInit, AfterViewInit {
   }
 
   /** 本の詳細ページに遷移する */
-  show(isbn: string) {
-    this.router.navigate([`/bookDetails/${isbn}`]);
+  show() {
+    this.router.navigate([`/bookDetails/${this.isbn}`]);
   }
 }
