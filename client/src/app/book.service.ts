@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
+import { DexieService } from './dexie.service';
 import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
+import Dexie from 'dexie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private functions: firebase.functions.Functions;
+  private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private dexieService: DexieService,
+              private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
+    this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
-  getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
+  async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
+    const localHitBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
+    console.log('localHitBooks', localHitBooks);
+
     const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
       this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
         .then(result => result.data)
@@ -52,7 +60,12 @@ export class BookService {
           hitBooks = await searchBooksInFirestore(isbn);
         }
 
-        return (hitBooks.length > 0) ? hitBooks[0] : null;
+        if (hitBooks.length > 0) {
+          await this.resolvedBooks.add(hitBooks[0]);
+          return hitBooks[0];
+        } else {
+          return null;
+        }
       })
       .catch(error => {
         console.error(error);
