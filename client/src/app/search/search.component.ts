@@ -1,6 +1,5 @@
-import axios from 'axios';
 import { Component, OnInit, Input } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
+import { BookService } from '../book.service';
 import { ResolvedBook } from 'shared/entity';
 
 declare var $: any;
@@ -19,18 +18,9 @@ export class SearchComponent implements OnInit {
   hitBooks: ResolvedBook[] = [];
   content = '';
 
-  /**
-   * FirebaseService のプロパティの参照を取得するプロパティ
-   * @type {firebase.functions.Functions}
-   * @memberof TopComponent
-   */
-  public functions: firebase.functions.Functions;
+  constructor(private bookService: BookService) {}
 
-  constructor(private firebaseService: FirebaseService) {}
-
-  ngOnInit() {
-    this.functions = this.firebaseService.functions;
-  }
+  ngOnInit() {}
 
   search(isbn: string) {
     if ((isbn.length !== 10) && (isbn.length !== 13)) {
@@ -38,45 +28,12 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
-      this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
-        .then(result => result.data)
-        .catch(error => error);
+    this.bookService.getBookByISBN(isbn)
+      .then(result => {
+        if (result === null) return;
 
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
-      .then(async result => {
-        if (result.data.totalItems > 0) {
-          // ヒットした場合は取り出してサムネを出力する
-          this.hitBooks = [];
-
-          for (let i = 0; i < result.data.items.length; i++) {
-            const volumeInfo = result.data.items[i].volumeInfo,
-                  hitBook: ResolvedBook = {
-                    desc: volumeInfo.description,
-                    donor: 'none',
-                    image: './assets/image_not_found.png',
-                    isbn,
-                    title: volumeInfo.title,
-                    pageCount: volumeInfo.pageCount
-                  };
-
-            if (volumeInfo.imageLinks === void 0) {
-              const books = await searchBooksInFirestore(isbn);
-              if (books.length > 0) {
-                hitBook.donor = books[0].donor;
-                hitBook.image = books[0].image;
-              }
-            } else {
-              hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
-            }
-
-            this.hitBooks.push(hitBook);
-          }
-        } else {
-          // ヒットしなかった場合は resolvedBooks で検索する
-          this.hitBooks = await searchBooksInFirestore(isbn);
-        }
+        this.hitBooks.push(result);
       })
-      .catch(error => `Error: ${error}`);
+      .catch(error => console.log(error));
   }
 }
