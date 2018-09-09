@@ -1,26 +1,19 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
-import { DexieService } from './dexie.service';
 import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
-import Dexie from 'dexie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private functions: firebase.functions.Functions;
-  private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private dexieService: DexieService,
-              private firebaseService: FirebaseService) {
+  constructor(private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
-    this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
-    const localHitBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
-    console.log('localHitBooks', localHitBooks);
 
     const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
       this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
@@ -61,7 +54,7 @@ export class BookService {
         }
 
         if (hitBooks.length > 0) {
-          await this.resolvedBooks.add(hitBooks[0]);
+          // データベースに本の情報を登録する
           return hitBooks[0];
         } else {
           return null;
