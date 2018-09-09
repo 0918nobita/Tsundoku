@@ -14,6 +14,18 @@ export class BookService {
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
+    const idbReq = indexedDB.open('local-database', 11);
+
+    idbReq.addEventListener('upgradeneeded', (event: IDBVersionChangeEvent) => {
+      const oldVersion = event.oldVersion,
+            db = idbReq.result,
+            store = db.createObjectStore('resolved-books');
+      console.log('Upgradeneed', db);
+    });
+
+    idbReq.addEventListener('success', (event) => {
+      console.log('Success', idbReq.result);
+    });
 
     const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
       this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
