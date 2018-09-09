@@ -27,7 +27,7 @@ export class BookComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (this.favorite === true) {
-      $('#star' + this.isbn).css('display': 'block');
+      $('#star' + this.isbn).css('display', 'block');
     }
   }
 
