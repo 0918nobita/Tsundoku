@@ -16,7 +16,8 @@ export class BookService {
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
-    return new Promise(async (resolve: (value? : ResolvedBook) => void, reject: (reason? :any) => void) => {
+    return new Promise(async (resolve: (value?:  ResolvedBook) => void,
+                              reject:  (reason?: any)          => void) => {
       const transaction = this.databaseService.db.transaction(['resolved-books'], 'readonly');
       transaction.oncomplete = () => console.log('トランザクションが完了しました');
       transaction.onerror = () => console.log('トランザクションが失敗しました');
