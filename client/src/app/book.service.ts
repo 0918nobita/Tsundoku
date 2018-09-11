@@ -83,7 +83,6 @@ export class BookService {
             }
           })
           .catch(error => reject(error));
-      }
-    });
+        });
   }
 }

@@ -5,9 +5,7 @@ import { FirebaseService } from '../firebase.service';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
 
-/**
- * 積読本棚画面
- */
+/** 積読本棚画面 */
 @Component({
   selector: 'app-bookshelf',
   templateUrl: './bookshelf.component.html',
