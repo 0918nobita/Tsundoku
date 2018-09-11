@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DatabaseService } from './database.service';
 import { FirebaseService } from './firebase.service';
 import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
@@ -9,72 +10,80 @@ import axios from 'axios';
 export class BookService {
   private functions: firebase.functions.Functions;
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private databaseService: DatabaseService,
+              private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
-    const idbReq = indexedDB.open('local-database', 11);
+    return new Promise(async (resolve: (value? : ResolvedBook) => void, reject: (reason? :any) => void) => {
+      const transaction = this.databaseService.db.transaction(['resolved-books'], 'readonly');
+      transaction.oncomplete = () => console.log('トランザクションが完了しました');
+      transaction.onerror = () => console.log('トランザクションが失敗しました');
 
-    idbReq.addEventListener('upgradeneeded', (event: IDBVersionChangeEvent) => {
-      const oldVersion = event.oldVersion,
-            db = idbReq.result,
-            store = db.createObjectStore('resolved-books');
-      console.log('Upgradeneed', db);
-    });
+      const resolvedBooks = transaction.objectStore('resolved-books');
+      const request = resolvedBooks.get(isbn);
+      request.onsuccess = async event => {
+        const result = (<IDBRequest>event.target).result;
+        console.log('hitBook: ', result);
+        if (result !== void 0) resolve(<ResolvedBook>result);
+        else await searchBooksOnline();
+      };
+      request.onerror = () => reject();
 
-    idbReq.addEventListener('success', (event) => {
-      console.log('Success', idbReq.result);
-    });
+      // console.log(this.databaseService.resolvedBooks.index('image'));
 
-    const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
-      this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
-        .then(result => result.data)
-        .catch(error => error);
+      const searchBooksOnline = async () =>
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+          .then(async result => {
+            console.log('Google Book API を用いて検索します');
 
-    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
-      .then(async result => {
-        let hitBooks: ResolvedBook[] = [];
-        if (result.data.totalItems > 0) {
-          // ヒットした場合は取り出してサムネを出力する
-          for (let i = 0; i < result.data.items.length; i++) {
-            const volumeInfo = result.data.items[i].volumeInfo,
-                  hitBook: ResolvedBook = {
-                    desc: volumeInfo.description,
-                    donor: 'none',
-                    image: './assets/image_not_found.png',
-                    isbn,
-                    title: volumeInfo.title,
-                    pageCount: volumeInfo.pageCount
-                  };
+            const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
+              this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
+                .then(result => result.data)
+                .catch(error => error);
 
-            if (volumeInfo.imageLinks === void 0) {
-              const books = await searchBooksInFirestore(isbn);
-              if (books.length > 0) {
-                hitBook.donor = books[0].donor;
-                hitBook.image = books[0].image;
+            let hitBooks: ResolvedBook[] = [];
+
+            if (result.data.totalItems > 0) {
+              // ヒットした場合は取り出してサムネを出力する
+              for (let i = 0; i < result.data.items.length; i++) {
+                const volumeInfo = result.data.items[i].volumeInfo,
+                      hitBook: ResolvedBook = {
+                        desc: volumeInfo.description,
+                        donor: 'none',
+                        image: './assets/image_not_found.png',
+                        isbn,
+                        title: volumeInfo.title,
+                        pageCount: volumeInfo.pageCount
+                      };
+
+                if (volumeInfo.imageLinks === void 0) {
+                  const books = await searchBooksInFirestore(isbn);
+                  if (books.length > 0) {
+                    hitBook.donor = books[0].donor;
+                    hitBook.image = books[0].image;
+                  }
+                } else {
+                  hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
+                }
+
+                hitBooks.push(hitBook);
               }
             } else {
-              hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
+              // ヒットしなかった場合は resolvedBooks で検索する
+              hitBooks = await searchBooksInFirestore(isbn);
             }
 
-            hitBooks.push(hitBook);
-          }
-        } else {
-          // ヒットしなかった場合は resolvedBooks で検索する
-          hitBooks = await searchBooksInFirestore(isbn);
-        }
-
-        if (hitBooks.length > 0) {
-          // データベースに本の情報を登録する
-          return hitBooks[0];
-        } else {
-          return null;
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        return null;
-      });
+            if (hitBooks.length > 0) {
+              // データベースに本の情報を登録する
+              resolve(hitBooks[0]);
+            } else {
+              resolve(null);
+            }
+          })
+          .catch(error => reject(error));
+      }
+    });
   }
 }
