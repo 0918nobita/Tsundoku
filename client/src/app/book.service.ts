@@ -74,8 +74,11 @@ export class BookService {
       const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
       if (localBooks.length > 0) {
         resolve(localBooks[0]);
-      } else {
+      } else if (navigator.onLine === true) {
         await searchBooksOnline();
+      } else {
+        console.log('オフライン状態なので、検索ができませんでした');
+        resolve(null);
       }
     });
   }
