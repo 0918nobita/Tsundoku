@@ -62,6 +62,7 @@ $ cd Tsundoku/client
 $ npm i
 $ npm i -g firebase-tools
 $ firebase login
+# Google アカウントでログインしてください
 $ cd ../functions
 $ npm i
 ```
