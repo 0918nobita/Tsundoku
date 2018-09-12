@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { TopComponent } from './top/top.component';
 import { FirebaseService } from './firebase.service';
-import { DatabaseService } from './database.service';
+import { DexieService } from './dexie.service';
 import { BookService } from './book.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -56,7 +56,7 @@ export const AppRoutes = [
   providers: [
     // FirebaseService のインスタンスを、アプリ全体で共有されるサービスとして登録する
     FirebaseService,
-    DatabaseService,
+    DexieService,
     BookService
   ],
   bootstrap: [AppComponent]
