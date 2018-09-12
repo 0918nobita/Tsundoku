@@ -67,6 +67,7 @@ export class BookService {
 
             if (hitBooks.length > 0) {
               // データベースに本の情報を登録する
+              this.resolvedBooks.add(hitBooks[0]);
               resolve(hitBooks[0]);
             } else {
               resolve(null);
