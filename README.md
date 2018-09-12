@@ -57,7 +57,7 @@ ___
 ## 環境構築
 
 ```bash
-$ git clone https://github.com/0918nobita/Tsundoku
+$ git clone https://github.com/TsundokuApp/Tsundoku
 $ cd Tsundoku/client
 $ npm i
 ```
