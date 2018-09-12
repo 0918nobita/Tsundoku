@@ -60,6 +60,8 @@ ___
 $ git clone https://github.com/TsundokuApp/Tsundoku
 $ cd Tsundoku/client
 $ npm i
+$ npm i -g firebase-tools
+$ firebase login
 $ cd ../functions
 $ npm i
 ```
