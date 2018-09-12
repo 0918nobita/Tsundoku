@@ -9,7 +9,7 @@ export class DexieService extends Dexie {
     super('local-database');
     this.version(1).stores({
       resolvedBooks: '++id, desc, donor, image, &isbn, title, pageCount',
-      bookshelf: '++id, deadline, favorite, progress, [isbn + user]'
+      registeredBooks: '++id, deadline, desc, donor, favorite, image, title, pageCount, progress, [isbn+user]'
     });
   }
 }
