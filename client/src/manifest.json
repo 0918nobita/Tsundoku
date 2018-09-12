@@ -2,7 +2,7 @@
   "name": "Tsundoku.tech",
   "short_name": "Tsundoku",
   "theme_color": "#000000",
-  "background_color": "#e0e0e0",
+  "background_color": "#424242",
   "start_url": "/?utm_source=homescreen",
   "display": "standalone",
   "orientation": "portrait",
