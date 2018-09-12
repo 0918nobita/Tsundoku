@@ -1,41 +1,40 @@
 import { Injectable } from '@angular/core';
-import { DatabaseService } from './database.service';
+import { DexieService } from './dexie.service';
 import { FirebaseService } from './firebase.service';
 import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
+import Dexie from 'dexie';
+
+interface ResolvedBookWithID extends ResolvedBook {
+  id: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private functions: firebase.functions.Functions;
+  private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private databaseService: DatabaseService,
+  constructor(private dexieService: DexieService,
+              /*private databaseService: DatabaseService,*/
               private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
+    this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
     return new Promise(async (resolve: (value?:  ResolvedBook) => void,
                               reject:  (reason?: any)          => void) => {
-      const transaction = this.databaseService.db.transaction(['resolved-books'], 'readonly');
-      transaction.oncomplete = () => console.log('トランザクションが完了しました');
-      transaction.onerror = () => console.log('トランザクションが失敗しました');
+      const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
+      if (localBooks.length > 0) {
+        resolve(localBooks[0]);
+      } else {
+        await searchBooksOnline();
+      }
 
-      const resolvedBooks = transaction.objectStore('resolved-books');
-      const request = resolvedBooks.get(isbn);
-      request.onsuccess = async event => {
-        const result = (<IDBRequest>event.target).result;
-        console.log('hitBook: ', result);
-        if (result !== void 0) resolve(<ResolvedBook>result);
-        else await searchBooksOnline();
-      };
-      request.onerror = () => reject();
-
-      // console.log(this.databaseService.resolvedBooks.index('image'));
-
-      const searchBooksOnline = async () =>
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+      function searchBooksOnline() {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
           .then(async result => {
             console.log('Google Book API を用いて検索します');
 
@@ -84,6 +83,7 @@ export class BookService {
             }
           })
           .catch(error => reject(error));
-        });
+        }
+    });
   }
 }
