@@ -60,6 +60,8 @@ ___
 $ git clone https://github.com/TsundokuApp/Tsundoku
 $ cd Tsundoku/client
 $ npm i
+$ cd ../functions
+$ npm i
 ```
 
 <a name="client_side">
