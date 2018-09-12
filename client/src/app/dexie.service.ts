@@ -8,7 +8,7 @@ export class DexieService extends Dexie {
   constructor() {
     super('local-database');
     this.version(1).stores({
-      resolvedBooks: '++, isbn'
+      resolvedBooks: '++id, desc, donor, image, &isbn, title, pageCount'
     });
   }
 }
