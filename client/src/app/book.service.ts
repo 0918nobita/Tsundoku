@@ -5,10 +5,6 @@ import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
 import Dexie from 'dexie';
 
-interface ResolvedBookWithID extends ResolvedBook {
-  id: number;
-}
-
 @Injectable({
   providedIn: 'root'
 })
