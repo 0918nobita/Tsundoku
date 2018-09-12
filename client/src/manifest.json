@@ -1,7 +1,7 @@
 {
   "name": "Tsundoku.tech",
   "short_name": "Tsundoku",
-  "theme_color": "#000000",
+  "theme_color": "#4db6ac",
   "background_color": "#424242",
   "start_url": "/?utm_source=homescreen",
   "display": "standalone",
