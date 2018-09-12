@@ -17,7 +17,6 @@ export class BookService {
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
   constructor(private dexieService: DexieService,
-              /*private databaseService: DatabaseService,*/
               private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
@@ -26,15 +25,8 @@ export class BookService {
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
     return new Promise(async (resolve: (value?:  ResolvedBook) => void,
                               reject:  (reason?: any)          => void) => {
-      const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
-      if (localBooks.length > 0) {
-        resolve(localBooks[0]);
-      } else {
-        await searchBooksOnline();
-      }
-
-      function searchBooksOnline() {
-        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+      const searchBooksOnline = async () =>
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
           .then(async result => {
             console.log('Google Book API を用いて検索します');
 
@@ -60,10 +52,8 @@ export class BookService {
 
                 if (volumeInfo.imageLinks === void 0) {
                   const books = await searchBooksInFirestore(isbn);
-                  if (books.length > 0) {
-                    hitBook.donor = books[0].donor;
-                    hitBook.image = books[0].image;
-                  }
+                  if (books.length > 0)
+                    Object.assign(hitBook, { donor: books[0].donor, image: books[0].image });
                 } else {
                   hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
                 }
@@ -83,7 +73,13 @@ export class BookService {
             }
           })
           .catch(error => reject(error));
-        }
+
+      const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
+      if (localBooks.length > 0) {
+        resolve(localBooks[0]);
+      } else {
+        await searchBooksOnline();
+      }
     });
   }
 }
