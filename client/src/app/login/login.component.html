@@ -11,5 +11,5 @@
     <label>パスワード</label>
     <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="パスワード">
   </div>
-  <button class="btn btn-primary">ログイン</button>
+  <button class="btn btn-primary" (click)="login(email, password)">ログイン</button>
 </form>
