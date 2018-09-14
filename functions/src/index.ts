@@ -12,7 +12,7 @@ db.settings({ timestampsInSnapshots: true });
 
 namespace localFunctions {
 
-  export const getUserByUID = (uid: string): Promise<Array<User>> =>
+  export const getUsersByUID = (uid: string): Promise<Array<User>> =>
     db.collection('users')
       .where('uid', '==', uid)
       .get()
