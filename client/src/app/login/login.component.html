@@ -5,11 +5,11 @@
 <form>
   <div class="form-group">
     <label>メールアドレス</label>
-    <input type="email" class="form-control" placeholder="メールアドレス">
+    <input type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="メールアドレス">
   </div>
   <div class="form-group">
     <label>パスワード</label>
-    <input type="password" class="form-control" placeholder="パスワード">
+    <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="パスワード">
   </div>
   <button class="btn btn-primary">ログイン</button>
 </form>
