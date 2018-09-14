@@ -12,7 +12,7 @@ db.settings({ timestampsInSnapshots: true });
 
 namespace localFunctions {
 
-  export const getUserByUID = (uid: string): Promise<User> =>
+  export const getUserByUID = (uid: string): Promise<Array<User>> =>
     db.collection('users')
       .where('uid', '==', uid)
       .get()
@@ -28,7 +28,7 @@ namespace localFunctions {
             screenName: docData.screenName
           });
         }
-        return hitUsers[0];
+        return hitUsers;
       })
       .catch(error => error);
 
