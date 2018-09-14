@@ -125,6 +125,8 @@ namespace localFunctions {
       });
 }
 
+export const getUsersByUID = functions.https.onCall(localFunctions.getUsersByUID);
+
 export const searchBooksByISBN = functions.https.onCall(localFunctions.searchBooksByISBN);
 
 export const getBookshelf = functions.https.onCall(localFunctions.getBookshelf);
