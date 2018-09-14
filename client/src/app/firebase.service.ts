@@ -17,10 +17,6 @@ export class FirebaseService {
    */
   constructor() {
     firebase.initializeApp(config);
-    /**
-     * FirebaseService を DI したコンポーネントで参照されるプロパティ
-     * @type {firebase.functions.Functions}
-     */
     this.functions = firebase.functions();
   }
 }
