@@ -59,6 +59,7 @@ export class AccountService {
           const hitUser = await this.getUserByUID(result.user.uid);
           if (hitUser !== null) {
             this.myself = hitUser;
+            localStorage.setItem('myself', JSON.stringify(hitUser));
             resolve(true);
           } else {
             // TODO: Firestore 側で uid でユーザーを検索してヒットしなかった場合の挙動を決める
