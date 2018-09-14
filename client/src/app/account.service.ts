@@ -9,4 +9,6 @@ export class AccountService {
   private myself: User;
 
   constructor() {}
+
+  get uid() { return this.myself && this.myself.uid; }
 }
