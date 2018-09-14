@@ -7,7 +7,6 @@ import { FirebaseService } from './firebase.service';
   providedIn: 'root'
 })
 export class AccountService {
-  private myself: User;
   private myself: User = null;
   private auth: firebase.auth.Auth;
   private userCredential: firebase.auth.UserCredential;
@@ -29,7 +28,7 @@ export class AccountService {
         });
     });
 
-  login = (email: string, password: string) =>
+  login = (email: string, password: string): Promise<void> =>
     new Promise(async (resolve, reject) => {
       if (this.myself !== null) reject();
       await this.auth.signInWithEmailAndPassword(email, password)
