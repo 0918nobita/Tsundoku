@@ -11,4 +11,6 @@ export class AccountService {
   constructor() {}
 
   get uid() { return this.myself && this.myself.uid; }
+
+  get name() { return this.myself && this.myself.name; }
 }
