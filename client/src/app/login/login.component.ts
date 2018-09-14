@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../account.service';
 
 /**
  * ログイン画面
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private accountService: AccountService) {}
+
   ngOnInit() {}
 }
