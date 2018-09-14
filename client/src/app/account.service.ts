@@ -28,6 +28,21 @@ export class AccountService {
           reject();
         });
     });
+
+  login = (email: string, password: string) =>
+    new Promise(async (resolve, reject) => {
+      if (this.myself !== null) reject();
+      await this.auth.signInWithEmailAndPassword(email, password)
+        .then(result => {
+          this.userCredential = result;
+          resolve();
+        })
+        .catch(error => {
+          console.log(error);
+          reject();
+        });
+    });
+
   get uid() { return this.myself && this.myself.uid; }
 
   get name() { return this.myself && this.myself.name; }
