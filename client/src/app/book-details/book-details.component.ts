@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BookService } from '../book.service';
+import { BookService } from '../services/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { ResolvedBook } from 'shared/entity';
 
