@@ -9,7 +9,6 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User = null;
   private auth: firebase.auth.Auth;
-  private userCredential: firebase.auth.UserCredential;
   private functions: firebase.functions.Functions;
 
   constructor(private firebaseService: FirebaseService) {
@@ -40,16 +39,22 @@ export class AccountService {
         return null;
       });
 
-  register = (email: string, password: string): Promise<void> =>
+  register = (email: string, password: string): Promise<boolean> =>
     new Promise(async (resolve, reject) => {
       if (this.isLoggedIn() === true) reject();
       await this.auth.createUserWithEmailAndPassword(email, password)
-        .then(result => {
-          this.userCredential = result;
+        .then(async result => {
+          const hitUser = await this.getUserByUID(result.user.uid);
+          if (hitUser !== null) {
+            this.myself = hitUser;
+            resolve(true);
+          } else {
+            // TODO: Firestore 側で uid でユーザーを検索してヒットしなかった場合の挙動を決める
+          }
         })
         .catch(error => {
           console.log(error);
-          reject();
+          reject(false);
         });
     });
 
