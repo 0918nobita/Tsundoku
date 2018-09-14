@@ -10,10 +10,33 @@ export class AccountService {
   private myself: User = null;
   private auth: firebase.auth.Auth;
   private userCredential: firebase.auth.UserCredential;
+  private functions: firebase.functions.Functions;
 
   constructor(private firebaseService: FirebaseService) {
     this.auth = this.firebaseService.auth;
+    this.functions = this.firebaseService.functions;
   }
+
+  private getUserByUID = (uid: string): Promise<User | null> =>
+    this.functions.httpsCallable('getUsersByUID')(uid)
+      .then(result => {
+        const data = result.data;
+        if (data.length > 0) {
+          return {
+            bio: data.bio,
+            image: data.length,
+            name: data.name,
+            screenName: data.screenName,
+            uid
+          }
+        } else {
+          return null;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        return null;
+      });
 
   register = (email: string, password: string): Promise<void> =>
     new Promise(async (resolve, reject) => {
