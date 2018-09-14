@@ -17,6 +17,8 @@ export class AccountService {
     this.functions = this.firebaseService.functions;
   }
 
+  isLoggedIn = () => (localStorage.getItem('myself') !== null);
+
   private getUserByUID = (uid: string): Promise<User | null> =>
     this.functions.httpsCallable('getUsersByUID')(uid)
       .then(result => {
@@ -40,7 +42,7 @@ export class AccountService {
 
   register = (email: string, password: string): Promise<void> =>
     new Promise(async (resolve, reject) => {
-      if (this.myself !== null) reject();
+      if (this.isLoggedIn() === true) reject();
       await this.auth.createUserWithEmailAndPassword(email, password)
         .then(result => {
           this.userCredential = result;
@@ -53,7 +55,7 @@ export class AccountService {
 
   login = (email: string, password: string): Promise<boolean> =>
     new Promise(async (resolve, reject) => {
-      if (this.myself !== null) reject();
+      if (this.isLoggedIn() === true) reject(false);
       await this.auth.signInWithEmailAndPassword(email, password)
         .then(async result => {
           const hitUser = await this.getUserByUID(result.user.uid);
