@@ -8,6 +8,7 @@ import { FirebaseService } from './firebase.service';
 })
 export class AccountService {
   private myself: User;
+  private myself: User = null;
   private auth: firebase.auth.Auth;
   private userCredential: firebase.auth.UserCredential;
 
