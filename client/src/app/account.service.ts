@@ -9,11 +9,25 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User;
   private auth: firebase.auth.Auth;
+  private userCredential: firebase.auth.UserCredential;
 
   constructor(private firebaseService: FirebaseService) {
     this.auth = this.firebaseService.auth;
   }
 
+  register = (email: string, password: string): Promise<void> =>
+    new Promise(async (resolve, reject) => {
+      if (this.myself !== null) reject();
+      await this.auth.createUserWithEmailAndPassword(email, password)
+        .then(result => {
+          this.userCredential = result;
+          resolve();
+        })
+        .catch(error => {
+          console.log(error);
+          reject();
+        });
+    });
   get uid() { return this.myself && this.myself.uid; }
 
   get name() { return this.myself && this.myself.name; }
