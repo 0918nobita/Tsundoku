@@ -22,7 +22,6 @@ export class AccountService {
       await this.auth.createUserWithEmailAndPassword(email, password)
         .then(result => {
           this.userCredential = result;
-          resolve();
         })
         .catch(error => {
           console.log(error);
@@ -36,7 +35,6 @@ export class AccountService {
       await this.auth.signInWithEmailAndPassword(email, password)
         .then(result => {
           this.userCredential = result;
-          resolve();
         })
         .catch(error => {
           console.log(error);
