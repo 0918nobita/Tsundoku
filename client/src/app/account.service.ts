@@ -17,4 +17,6 @@ export class AccountService {
   get screenName() { return this.myself && this.myself.screenName; }
 
   get image() { return this.myself && this.myself.image; }
+
+  get bio() { return this.myself && this.myself.bio; }
 }
