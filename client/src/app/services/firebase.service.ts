@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/functions';
 import 'firebase/auth';
-import * as config from './config.json';
+import * as config from '../config.json';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
