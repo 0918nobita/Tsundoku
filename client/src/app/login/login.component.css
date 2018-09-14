@@ -1,3 +1,8 @@
+#title {
+  text-align: center;
+  font-size: 2em;
+}
+
 input, button {
   margin: 5px;
   box-shadow: 2px 2px 10px black;
