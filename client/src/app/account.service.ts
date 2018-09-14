@@ -23,10 +23,10 @@ export class AccountService {
         const data = result.data;
         if (data.length > 0) {
           return {
-            bio: data.bio,
-            image: data.length,
-            name: data.name,
-            screenName: data.screenName,
+            bio: data[0].bio,
+            image: data[0].image,
+            name: data[0].name,
+            screenName: data[0].screenName,
             uid
           }
         } else {
