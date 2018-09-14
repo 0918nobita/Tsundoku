@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Progress } from 'shared/progress';
 import { RegisteredBook } from 'shared/entity';
-import { FirebaseService } from '../firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
 
