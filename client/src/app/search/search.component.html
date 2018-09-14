@@ -3,8 +3,8 @@
 <form class="form-group">
   <input id="isbn" class="form-control" type="text"
       required autofocus minlength="10" maxlength="13"
-      name="text" [(ngModel)]="content" placeholder="ISBN(10 or 13文字)">
-  <button id="search" type="submit" class="btn btn-primary" (click)="search(content)">検索</button>
+      name="text" [(ngModel)]="isbn" placeholder="ISBN(10 or 13文字)">
+  <button id="search" type="submit" class="btn btn-primary" (click)="search(isbn)">検索</button>
 </form>
 
 <div class="modal fade" id="errorModal">

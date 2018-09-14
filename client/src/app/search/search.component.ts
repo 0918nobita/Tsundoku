@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { ResolvedBook } from 'shared/entity';
 
-/**
- * 本の検索画面
- */
+/** 本の検索画面 */
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,8 +11,10 @@ import { ResolvedBook } from 'shared/entity';
 
 export class SearchComponent implements OnInit {
 
+  /** ISBN 入力欄のモデル */
+  isbn = '';
+
   hitBooks: ResolvedBook[] = [];
-  content = '';
 
   constructor(private bookService: BookService) {}
 
