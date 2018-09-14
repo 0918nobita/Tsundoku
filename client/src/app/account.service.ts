@@ -13,4 +13,6 @@ export class AccountService {
   get uid() { return this.myself && this.myself.uid; }
 
   get name() { return this.myself && this.myself.name; }
+
+  get screenName() { return this.myself && this.myself.screenName; }
 }
