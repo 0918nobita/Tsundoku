@@ -2,7 +2,7 @@ import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import axios from 'axios';
 import { Progress } from '../../shared/progress';
-import { ResolvedBook, RegisteredBook } from '../../shared/entity';
+import { ResolvedBook, RegisteredBook, User } from '../../shared/entity';
 import { apiKey } from './config'
 import { ehb } from './ehb';
 
@@ -11,6 +11,26 @@ const db = admin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
 namespace localFunctions {
+
+  export const getUserByUID = (uid: string): Promise<User> =>
+    db.collection('users')
+      .where('uid', '==', uid)
+      .get()
+      .then(querySnapshot => {
+        const hitUsers: Array<User> = [];
+        for (let i = 0; i < querySnapshot.size; i++) {
+          const docData = querySnapshot.docs[i].data();
+          hitUsers.push({
+            uid,
+            bio: docData.bio,
+            image: docData.image,
+            name: docData.name,
+            screenName: docData.screenName
+          });
+        }
+        return hitUsers[0];
+      })
+      .catch(error => error);
 
   // GoogleBooksAPI を用いて、ISBN で本を検索する
   const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<ResolvedBook[]> =>
