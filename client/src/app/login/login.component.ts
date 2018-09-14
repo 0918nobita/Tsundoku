@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   async login(email, password) {
-    console.log({email, password});
+    const result = await this.accountService.login(email, password);
+    if (result === true) console.log(this.accountService.bio);
   }
 }
