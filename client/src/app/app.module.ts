@@ -15,7 +15,7 @@ import { TopComponent } from './top/top.component';
 import { FirebaseService } from './services/firebase.service';
 import { DexieService } from './services/dexie.service';
 import { AccountService } from './services/account.service';
-import { BookService } from './book.service';
+import { BookService } from './services/book.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
