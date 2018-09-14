@@ -11,9 +11,6 @@ import { ResolvedBook } from 'shared/entity';
 
 export class SearchComponent implements OnInit {
 
-  /** ISBN 入力欄のモデル */
-  isbn = '';
-
   hitBooks: ResolvedBook[] = [];
 
   constructor(private bookService: BookService) {}
