@@ -12,8 +12,12 @@ import "firebase/auth"*/
 export class TwistampComponent implements OnInit, AfterViewInit {
   functions: firebase.functions.Functions;
 
+  links: Array<string> = [];
+
   constructor(private elementRef: ElementRef,
-              private firebaseService: FirebaseService) {}
+              private firebaseService: FirebaseService) {
+    this.functions = firebaseService.functions;
+  }
 
   ngOnInit() {}
 
@@ -30,5 +34,9 @@ export class TwistampComponent implements OnInit, AfterViewInit {
       .catch(error => console.log(error));*/
     $('#login').hide();
     $('#myself').show();
+
+    this.functions.httpsCallable('getLinks')('0918nobita')
+      .then(result => { this.links = result.data; })
+      .catch(error => console.log(error));
   }
 }
