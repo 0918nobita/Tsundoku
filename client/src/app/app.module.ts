@@ -21,6 +21,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
 import { BackComponent } from './back/back.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { TwistampComponent } from './twistamp/twistamp.component';
 
 // ルーティングの設定
 export const AppRoutes = [
@@ -30,7 +31,8 @@ export const AppRoutes = [
     { path: 'search', component: SearchComponent },
     { path: 'bookshelf', component: BookshelfComponent },
     { path: 'bookDetails/:isbn', component: BookDetailsComponent },
-    { path: 'userDetails/:name', component: UserDetailsComponent }
+    { path: 'userDetails/:name', component: UserDetailsComponent },
+    { path: 'twistamp', component: TwistampComponent }
 ];
 
 @NgModule({
@@ -46,6 +48,7 @@ export const AppRoutes = [
     UserDetailsComponent,
     BackComponent,
     TimelineComponent,
+    TwistampComponent,
     TopComponent
   ],
   imports: [
