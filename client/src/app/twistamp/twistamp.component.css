@@ -31,7 +31,7 @@ body {
   color: #1997F0;
 }
 
-#login {
+.account {
   position: fixed;
   top: 0;
   right: 60px;
@@ -41,8 +41,15 @@ body {
   color: #1997F0;
 }
 
-#login:hover {
+.account:hover {
   background-color: #EEEEEE;
+}
+
+#myself { display: none; }
+
+#myself img {
+  width: 50px;
+  margin-right: 10px;
 }
 
 #main {
