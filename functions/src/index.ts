@@ -123,6 +123,18 @@ namespace localFunctions {
         console.error(error);
         return 'Error';
       });
+
+  export const getLinks = (user: string): Promise<Array<string>> =>
+    db.collection('links')
+      .where('user', '==', user)
+      .get()
+      .then(querySnapshot => {
+        const response: Array<string> = [];
+        for (let i = 0; i < querySnapshot.size; i++)
+          response.push(querySnapshot.docs[i].data().link);
+        return response;
+      })
+      .catch(error => { console.log(error); return []; });
 }
 
 export const getUsersByUID = functions.https.onCall(localFunctions.getUsersByUID);
@@ -134,3 +146,5 @@ export const getBookshelf = functions.https.onCall(localFunctions.getBookshelf);
 export const getContributions = functions.https.onRequest(ehb);
 
 export const postResolvedBook = functions.https.onCall(localFunctions.postResolvedBook);
+
+export const getLinks = functions.https.onCall(localFunctions.getLinks);
