@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AccountService } from '../services/account.service';
 
 /**
  * プロフィール画面
@@ -9,6 +11,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
-  ngOnInit() {}
+  name: string;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private accountService: AccountService) {}
+
+  ngOnInit() {
+    this.name = this.activatedRoute.snapshot.params['name'];
+  }
 }
