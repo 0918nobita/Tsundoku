@@ -17,7 +17,6 @@ import { DexieService } from './services/dexie.service';
 import { AccountService } from './services/account.service';
 import { BookService } from './services/book.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
 import * as bootstrap from 'bootstrap';
 import { BackComponent } from './back/back.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -43,7 +42,6 @@ export const AppRoutes = [
     RegisterComponent,
     SearchComponent,
     BookDetailsComponent,
-    UserDetailsComponent,
     BackComponent,
     TimelineComponent,
     TopComponent
