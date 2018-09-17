@@ -3,10 +3,10 @@ import { Progress } from '../../shared/progress';
 import { _searchBooksByISBN } from './book';
 
 // 本棚の情報を取得する
-export const _getBookshelf = (db: FirebaseFirestore.Firestore) =>
-  async (user: string): Promise<RegisteredBook[]> =>
+export const _getBookshelfBy = (field: 'name' | 'uid', db: FirebaseFirestore.Firestore) =>
+  async (value: string): Promise<RegisteredBook[]> =>
     db.collection('bookshelf')
-      .where('user', '==', user)
+      .where(field, '==', value)
       .get()
       .then(async querySnapshot => {
         const response: Array<RegisteredBook> = [];
