@@ -23,8 +23,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 
 // ルーティングの設定
 export const AppRoutes = [
-    { path: '', component: TopComponent },
-    { path: 'login', component: LoginComponent },
+    { path: '', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'search', component: SearchComponent },
     { path: 'bookshelf', component: BookshelfComponent },
