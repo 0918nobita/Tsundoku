@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
               private firebaseService: FirebaseService) {}
 
   async ngOnInit() {
-    this.name = this.activatedRoute.snapshot.params['name'];
+    const nameParam = this.activatedRoute.snapshot.params['name'];
 
     const getUserByName = (name: string): Promise<User> =>
       this.firebaseService.functions.httpsCallable('getUsersByName')(name)
@@ -39,7 +39,8 @@ export class ProfileComponent implements OnInit {
         });
 
     try {
-      const user = await getUserByName(this.name);
+      const user = await getUserByName(nameParam);
+      this.name = user.name;
       this.screenName = user.screenName;
       this.bio = user.bio;
       this.image = user.image;
