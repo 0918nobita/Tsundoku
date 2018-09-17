@@ -20,6 +20,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import * as bootstrap from 'bootstrap';
 import { BackComponent } from './back/back.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { NowLoadingComponent } from './now-loading/now-loading.component'
 
 // ルーティングの設定
 export const AppRoutes = [
@@ -44,7 +45,8 @@ export const AppRoutes = [
     BookDetailsComponent,
     BackComponent,
     TimelineComponent,
-    TopComponent
+    TopComponent,
+    NowLoadingComponent
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),
