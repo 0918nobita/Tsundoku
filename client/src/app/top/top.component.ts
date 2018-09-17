@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 declare var $;  // jQuery
 
@@ -12,7 +11,7 @@ declare var $;  // jQuery
   styleUrls: ['./top.component.css']
 })
 export class TopComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {}
 }
