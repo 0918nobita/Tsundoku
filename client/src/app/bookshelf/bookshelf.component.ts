@@ -27,8 +27,8 @@ export class BookshelfComponent implements OnInit {
     }).catch(error => console.log(error));
   }
 
-  private getBookshelf(user: string): Promise<RegisteredBook[]> {
-    return this.functions.httpsCallable('getBookshelf')(user)
+  private getBookshelf(name: string): Promise<RegisteredBook[]> {
+    return this.functions.httpsCallable('getBookshelf')(name)
       .then(result => result.data)
       .catch(error => error);
   }
