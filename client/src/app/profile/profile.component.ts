@@ -12,11 +12,17 @@ import { AccountService } from '../services/account.service';
 })
 export class ProfileComponent implements OnInit {
   name: string;
+  screenName: string;
+  image: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private accountService: AccountService) {}
 
   ngOnInit() {
     this.name = this.activatedRoute.snapshot.params['name'];
+    if (this.accountService.isLoggedIn() === false) return;
+    this.image = this.accountService.image;
+    this.screenName = this.accountService.screenName;
+    console.log([this.image, this.screenName]);
   }
 }
