@@ -16,7 +16,6 @@ export class AccountService {
     this.functions = this.firebaseService.functions;
   }
 
-  currentUser = () => this.auth.currentUser;
 
   private getUserByUID = (uid: string): Promise<User | null> =>
     this.functions.httpsCallable('getUsersByUID')(uid)
