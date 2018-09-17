@@ -1,6 +1,11 @@
 #title {
+  display: none;
   text-align: center;
   font-size: 2em;
+}
+
+form {
+  display: none;
 }
 
 input, button {

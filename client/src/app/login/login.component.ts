@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 import { AccountService } from '../services/account.service';
 
@@ -18,6 +19,8 @@ export class LoginComponent implements OnInit {
       if (user) {
         this.router.navigate(['/bookshelf']);
       } else {
+        $('#title').show();
+        $('form').show();
       }
     });
   }
