@@ -2,8 +2,8 @@ import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
 import { _searchBooksByISBN, _postResolvedBook } from './book';
-import { Progress } from '../../shared/progress';
-import { RegisteredBook, User } from '../../shared/entity';
+import { _getBookshelf } from './bookshelf';
+import { User } from '../../shared/entity';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -30,43 +30,12 @@ namespace localFunctions {
         return hitUsers;
       })
       .catch(error => error);
-
-  // 本棚の情報を取得する
-  export const getBookshelf = async (user: string): Promise<RegisteredBook[]> =>
-    db.collection('bookshelf')
-      .where('user', '==', user)
-      .get()
-      .then(async querySnapshot => {
-        const response: Array<RegisteredBook> = [];
-
-        for (let i = 0; i < querySnapshot.size; i++) {
-          const docData = querySnapshot.docs[i].data();
-
-          // ISBNを元に本の詳細情報を取得する
-          const book = await _searchBooksByISBN(db)({isbn: docData.isbn, usingGoogleBooksAPI: true});
-
-          if (book.length !== 0) response.push({
-              deadline: docData.deadline,
-              favorite: docData.favorite,
-              progress: Progress.parse(docData.progress),
-              desc: book[0].desc,
-              donor: book[0].donor,
-              image: book[0].image,
-              isbn: docData.isbn,
-              title: book[0].title,
-              pageCount: book[0].pageCount
-          });
-        }
-
-        return response;
-      })
-      .catch(error => error);
 }
 
 export const getUsersByUID = functions.https.onCall(localFunctions.getUsersByUID);
 
 export const searchBooksByISBN = functions.https.onCall(_searchBooksByISBN(db));
 
-export const getBookshelf = functions.https.onCall(localFunctions.getBookshelf);
+export const getBookshelf = functions.https.onCall(_getBookshelf(db));
 
 export const postResolvedBook = functions.https.onCall(_postResolvedBook(db));
