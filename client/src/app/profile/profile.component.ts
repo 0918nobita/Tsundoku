@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.name = this.activatedRoute.snapshot.params['name'];
-    if (this.accountService.isLoggedIn() === false) return;
+    if (this.accountService.currentUser === null) return;
     this.image = this.accountService.image;
     this.screenName = this.accountService.screenName;
     console.log([this.image, this.screenName]);
