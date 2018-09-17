@@ -58,25 +58,25 @@ export class AccountService {
         });
     });*/
 
-  /*login = (email: string, password: string): Promise<boolean> =>
+  login = (email: string, password: string): Promise<void> =>
     new Promise(async (resolve, reject) => {
-      if (this.isLoggedIn() === true) reject(false);
+      if (this.auth.currentUser) resolve();
       await this.auth.signInWithEmailAndPassword(email, password)
         .then(async result => {
           const hitUser = await this.getUserByUID(result.user.uid);
           if (hitUser !== null) {
             this.myself = hitUser;
             localStorage.setItem('myself', JSON.stringify(hitUser));
-            resolve(true);
+            resolve();
           } else {
             // TODO: Firestore 側で uid でユーザーを検索してヒットしなかった場合の挙動を決める
           }
         })
         .catch(error => {
           console.log(error);
-          reject(false);
+          reject();
         });
-    });*/
+    });
 
   get uid() { return this.myself && this.myself.uid; }
 
