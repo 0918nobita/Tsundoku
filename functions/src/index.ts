@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Progress } from '../../shared/progress';
 import { ResolvedBook, RegisteredBook, User } from '../../shared/entity';
 import { apiKey } from './config'
-import { ehb } from './ehb';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -142,8 +141,6 @@ export const getUsersByUID = functions.https.onCall(localFunctions.getUsersByUID
 export const searchBooksByISBN = functions.https.onCall(localFunctions.searchBooksByISBN);
 
 export const getBookshelf = functions.https.onCall(localFunctions.getBookshelf);
-
-export const getContributions = functions.https.onRequest(ehb);
 
 export const postResolvedBook = functions.https.onCall(localFunctions.postResolvedBook);
 
