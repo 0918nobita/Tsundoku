@@ -12,7 +12,6 @@ db.settings({ timestampsInSnapshots: true });
 export const getUsersByUID = functions.https.onCall(_getUsersByUID(db));
 
 export const searchBooksByISBN = functions.https.onCall(_searchBooksByISBN(db));
+export const postResolvedBook = functions.https.onCall(_postResolvedBook(db));
 
 export const getBookshelf = functions.https.onCall(_getBookshelf(db));
-
-export const postResolvedBook = functions.https.onCall(_postResolvedBook(db));
