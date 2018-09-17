@@ -34,7 +34,8 @@ export const AppRoutes = [
     { path: 'search', component: SearchComponent },
     { path: 'bookshelf', component: BookshelfComponent },
     { path: 'bookDetails/:isbn', component: BookDetailsComponent },
-    { path: 'profile/:name', component: ProfileComponent }
+    { path: 'profile/:name', component: ProfileComponent },
+    { path: 'timeline', component: TimelineComponent }
 ];
 
 @NgModule({
