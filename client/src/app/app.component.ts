@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 import { AccountService } from './services/account.service';
 
@@ -21,6 +22,7 @@ export class AppComponent implements AfterViewInit {
         if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
           this.router.navigate(['/']);
       }
+      $('#routerOutlet').show();
     });
   }
 
