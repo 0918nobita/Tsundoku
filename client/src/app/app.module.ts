@@ -4,23 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
+import * as bootstrap from 'bootstrap';
+
 import { environment } from '../environments/environment';
-import { BookComponent } from './book/book.component';
-import { BookshelfComponent } from './bookshelf/bookshelf.component';
-import { ProfileComponent } from './profile/profile.component';
+
+import { TopComponent } from './top/top.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
-import { TopComponent } from './top/top.component';
-import { FirebaseService } from './services/firebase.service';
-import { DexieService } from './services/dexie.service';
-import { AccountService } from './services/account.service';
-import { BookService } from './services/book.service';
+import { BookComponent } from './book/book.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
-import * as bootstrap from 'bootstrap';
-import { BackComponent } from './back/back.component';
+import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { NowLoadingComponent } from './now-loading/now-loading.component'
+import { BackComponent } from './back/back.component';
+
+import { AccountService } from './services/account.service';
+import { BookService } from './services/book.service';
+import { DexieService } from './services/dexie.service';
+import { FirebaseService } from './services/firebase.service';
 
 // ルーティングの設定
 export const AppRoutes = [
