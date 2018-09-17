@@ -4,28 +4,29 @@ import { ResolvedBook } from '../../shared/entity';
 import { apiKey } from './config';
 
 // GoogleBooksAPI を用いて、ISBN で本を検索する
-const searchBooksUsingGoogleBooksAPI = (clue: string): Promise<ResolvedBook[]> =>
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${clue}&key=${apiKey}&country=JP`)
-    .then(async result => {
-      let response: Array<ResolvedBook> = [];
-      if (result.data.totalItems > 0) {
-        response = result.data.items.map(({ volumeInfo }): ResolvedBook => ({
-          desc: volumeInfo.description,
-          donor: 'none',
-          image: (volumeInfo.imageLinks !== void 0) ?
-              `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
-              './assets/image_not_found.png',
-          isbn: clue,
-          title: volumeInfo.title,
-          pageCount: volumeInfo.pageCount
-        }));
+const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
+  (clue: string): Promise<ResolvedBook[]> =>
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${clue}&key=${apiKey}&country=JP`)
+      .then(async result => {
+        let response: Array<ResolvedBook> = [];
+        if (result.data.totalItems > 0) {
+          response = result.data.items.map(({ volumeInfo }): ResolvedBook => ({
+            desc: volumeInfo.description,
+            donor: 'none',
+            image: (volumeInfo.imageLinks !== void 0) ?
+                `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
+                './assets/image_not_found.png',
+            isbn: clue,
+            title: volumeInfo.title,
+            pageCount: volumeInfo.pageCount
+          }));
 
-        for (let i = 0; i < response.length; i++)
-          await postResolvedBook(response[i]);
-      }
-      return response;
-    })
-    .catch(error => error);
+          for (let i = 0; i < response.length; i++)
+            await _postResolvedBook(db)(response[i]);
+        }
+        return response;
+      })
+      .catch(error => error);
 
 // resolvedBooks コレクションで本を検索する
 export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
@@ -49,7 +50,7 @@ export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
         }
 
         if (response.length === 0 && args.usingGoogleBooksAPI === true)
-          response = await searchBooksUsingGoogleBooksAPI(args.isbn);
+          response = await searchBooksUsingGoogleBooksAPI(db)(args.isbn);
 
         return response;
       })
