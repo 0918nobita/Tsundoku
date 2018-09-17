@@ -15,13 +15,8 @@ export class AppComponent implements AfterViewInit {
               private elementRef: ElementRef,
               private accountService: AccountService) {
     this.accountService.afterLogin(user => {
-      if (user) {
-        if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
-          this.router.navigate(['/bookshelf']);
-      } else {
-        if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
-          this.router.navigate(['/']);
-      }
+      if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
+        this.router.navigate(['/bookshelf']);
       $('#routerOutlet').show();
     });
   }

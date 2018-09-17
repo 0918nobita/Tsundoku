@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
 
@@ -9,25 +10,31 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User = null;
   private functions: firebase.functions.Functions;
-  private listeners: Array<(a: firebase.User) => any> = [];
+  private listeners: Array<(a: firebase.User, b: User) => any> = [];
   auth: firebase.auth.Auth;
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(private router: Router,
+              private firebaseService: FirebaseService) {
     this.auth = this.firebaseService.auth;
     this.functions = this.firebaseService.functions;
 
     this.afterLogin(user => {
-      if (user) this.myself = <User> JSON.parse(localStorage.getItem('myself'));
+      this.myself = <User> JSON.parse(localStorage.getItem('myself'));
     });
 
     this.auth.onAuthStateChanged(user => {
-      for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user);
+      if (user) {
+        for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user, this.myself);
+      } else {
+        if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
+          this.router.navigate(['/']);
+      }
     });
   }
 
-  afterLogin(listener: (a: firebase.User) => any) {
+  afterLogin(listener: (a: firebase.User, b: User) => any) {
     if (this.auth.currentUser) {
-      listener(this.auth.currentUser);
+      listener(this.auth.currentUser, this.myself);
       return;
     }
     this.listeners.push(listener);
