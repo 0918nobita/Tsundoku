@@ -39,7 +39,7 @@ export class AccountService {
         return null;
       });
 
-  register = (email: string, password: string): Promise<boolean> =>
+  /*register = (email: string, password: string): Promise<boolean> =>
     new Promise(async (resolve, reject) => {
       if (this.isLoggedIn() === true) reject();
       await this.auth.createUserWithEmailAndPassword(email, password)
@@ -56,9 +56,9 @@ export class AccountService {
           console.log(error);
           reject(false);
         });
-    });
+    });*/
 
-  login = (email: string, password: string): Promise<boolean> =>
+  /*login = (email: string, password: string): Promise<boolean> =>
     new Promise(async (resolve, reject) => {
       if (this.isLoggedIn() === true) reject(false);
       await this.auth.signInWithEmailAndPassword(email, password)
@@ -76,7 +76,7 @@ export class AccountService {
           console.log(error);
           reject(false);
         });
-    });
+    });*/
 
   get uid() { return this.myself && this.myself.uid; }
 
