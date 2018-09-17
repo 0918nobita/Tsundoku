@@ -3,6 +3,16 @@ import axios from 'axios';
 import { ResolvedBook } from '../../shared/entity';
 import { apiKey } from './config';
 
+export const _postResolvedBook = (db: FirebaseFirestore.Firestore) =>
+  (resolvedBook: ResolvedBook): Promise<string> =>
+    db.collection('resolvedBooks')
+      .add(resolvedBook)
+      .then(docRef => docRef.id)
+      .catch(error => {
+        console.error(error);
+        return 'Error';
+      });
+
 // GoogleBooksAPI を用いて、ISBN で本を検索する
 const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
   (clue: string): Promise<ResolvedBook[]> =>
@@ -55,13 +65,3 @@ export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
         return response;
       })
       .catch(error => error);
-
-export const _postResolvedBook = (db: FirebaseFirestore.Firestore) =>
-  (resolvedBook: ResolvedBook): Promise<string> =>
-    db.collection('resolvedBooks')
-      .add(resolvedBook)
-      .then(docRef => docRef.id)
-      .catch(error => {
-        console.error(error);
-        return 'Error';
-      });
