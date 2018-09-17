@@ -24,8 +24,8 @@ export class BookshelfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.accountSerice.afterLogin(user => {
-      this.getBookshelf(this.accountSerice.name)
+    this.accountSerice.afterLogin((_, user) => {
+      this.getBookshelf(user.name)
         .then(result => {
           $('app-now-loading').hide();
           this.registeredBooks = result;
