@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { DexieService } from './dexie.service';
-import { FirebaseService } from './firebase.service';
-import { ResolvedBook } from 'shared/entity';
 import axios from 'axios';
 import Dexie from 'dexie';
+
+import { ResolvedBook } from 'shared/entity';
+import { DexieService } from './dexie.service';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'

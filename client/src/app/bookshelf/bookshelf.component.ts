@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Progress } from 'shared/progress';
-import { RegisteredBook } from 'shared/entity';
-import { FirebaseService } from '../services/firebase.service';
-import { AccountService } from '../services/account.service';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
+
+import { Progress } from 'shared/progress';
+import { RegisteredBook } from 'shared/entity';
+import { AccountService } from '../services/account.service';
+import { FirebaseService } from '../services/firebase.service';
 
 /** 積読本棚画面 */
 @Component({

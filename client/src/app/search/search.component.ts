@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service';
+
 import { ResolvedBook } from 'shared/entity';
+import { BookService } from '../services/book.service';
 
 /** 本の検索画面 */
 @Component({

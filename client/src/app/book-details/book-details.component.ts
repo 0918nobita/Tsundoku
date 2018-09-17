@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BookService } from '../services/book.service';
 import { ActivatedRoute } from '@angular/router';
+
 import { ResolvedBook } from 'shared/entity';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-details',
