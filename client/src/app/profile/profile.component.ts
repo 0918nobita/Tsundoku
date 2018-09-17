@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
 
 import { User } from 'shared/entity';
 import { FirebaseService } from '../services/firebase.service';
@@ -40,6 +41,7 @@ export class ProfileComponent implements OnInit {
 
     try {
       const user = await getUserByName(nameParam);
+      $('app-now-loading').hide();
       this.name = user.name;
       this.screenName = user.screenName;
       this.bio = user.bio;
