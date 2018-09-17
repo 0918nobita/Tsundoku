@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router,
               private elementRef: ElementRef,
               private accountService: AccountService) {
-    this.accountService.auth.onAuthStateChanged(user => {
+    this.accountService.afterLogin(user => {
       if (user) {
         if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
           this.router.navigate(['/bookshelf']);

@@ -9,13 +9,29 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User = null;
   private functions: firebase.functions.Functions;
+  private listeners: Array<(a: firebase.User) => any> = [];
   auth: firebase.auth.Auth;
 
   constructor(private firebaseService: FirebaseService) {
     this.auth = this.firebaseService.auth;
     this.functions = this.firebaseService.functions;
+    this.afterLogin(user => {
+      if (user) this.myself = <User> JSON.parse(localStorage.getItem('myself'));
+    });
+    this.auth.onAuthStateChanged(this.onAuthStateChanged);
   }
 
+  afterLogin(listener: (a: firebase.User) => any) {
+    if (this.auth.currentUser) {
+      listener(this.auth.currentUser);
+      return;
+    }
+    this.listeners.push(listener);
+  }
+
+  private onAuthStateChanged = (user: firebase.User) => {
+    for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user);
+  };
 
   private getUserByUID = (uid: string): Promise<User | null> =>
     this.functions.httpsCallable('getUsersByUID')(uid)
