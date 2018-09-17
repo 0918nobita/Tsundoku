@@ -22,7 +22,7 @@ export class BookshelfComponent implements OnInit {
   ngOnInit() {
     this.functions = this.firebaseService.functions;
     this.getBookshelf('0918nobita').then(result => {
-      $('#now_loading').hide();
+      $('app-now-loading').hide();
       this.registeredBooks = result;
     }).catch(error => console.log(error));
   }
