@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 import axios from 'axios';
 import { Progress } from '../../shared/progress';
 import { ResolvedBook, RegisteredBook, User } from '../../shared/entity';
-import { apiKey } from './config'
+import { apiKey } from './config';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
