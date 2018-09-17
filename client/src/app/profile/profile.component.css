@@ -2,3 +2,13 @@
   text-align: center;
   font-size: 2em;
 }
+
+img {
+  width: 30vw;
+  margin-left: 35vw;
+  margin-right: 35vw;
+}
+
+h2, p {
+  margin: 10px;
+}
