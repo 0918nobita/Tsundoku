@@ -24,10 +24,14 @@ export class BookshelfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getBookshelf('0918nobita').then(result => {
-      $('app-now-loading').hide();
-      this.registeredBooks = result;
-    }).catch(error => console.log(error));
+    this.accountSerice.afterLogin(user => {
+      this.getBookshelf(this.accountSerice.name)
+        .then(result => {
+          $('app-now-loading').hide();
+          this.registeredBooks = result;
+        })
+        .catch(error => console.log(error));
+    });
   }
 
   private getBookshelf(name: string): Promise<RegisteredBook[]> {
