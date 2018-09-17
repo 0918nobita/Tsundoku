@@ -8,8 +8,8 @@ import { FirebaseService } from './firebase.service';
 })
 export class AccountService {
   private myself: User = null;
-  private auth: firebase.auth.Auth;
   private functions: firebase.functions.Functions;
+  auth: firebase.auth.Auth;
 
   constructor(private firebaseService: FirebaseService) {
     this.auth = this.firebaseService.auth;
