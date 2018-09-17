@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 
 import { _getUsersBy } from './user';
 import { _searchBooksByISBN, _postResolvedBook } from './book';
-import { _getBookshelfBy } from './bookshelf';
+import { _getBookshelf } from './bookshelf';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -15,5 +15,4 @@ export const getUsersByName = functions.https.onCall(_getUsersBy('name', db));
 export const searchBooksByISBN = functions.https.onCall(_searchBooksByISBN(db));
 export const postResolvedBook = functions.https.onCall(_postResolvedBook(db));
 
-export const getBookshelfByUID = functions.https.onCall(_getBookshelfBy('uid', db));
-export const getBookshelfByName = functions.https.onCall(_getBookshelfBy('name', db));
+export const getBookshelf = functions.https.onCall(_getBookshelf(db));
