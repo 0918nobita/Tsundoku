@@ -14,16 +14,7 @@ import { AccountService } from '../services/account.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private router: Router,
-              private accountService: AccountService) {
-    this.accountService.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.router.navigate(['/bookshelf']);
-      } else {
-        $('#title').show();
-        $('form').show();
-      }
-    });
-  }
+              private accountService: AccountService) {}
 
   ngOnInit() {}
 

@@ -1,4 +1,7 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AccountService } from './services/account.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,19 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 })
 
 export class AppComponent implements AfterViewInit {
-  constructor(private elementRef: ElementRef) {}
+  constructor(private router: Router,
+              private elementRef: ElementRef,
+              private accountService: AccountService) {
+    this.accountService.auth.onAuthStateChanged(user => {
+      if (user) {
+        if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
+          this.router.navigate(['/bookshelf']);
+      } else {
+        if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
+          this.router.navigate(['/']);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.color = '#EEEEEE';
