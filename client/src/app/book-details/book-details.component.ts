@@ -5,6 +5,7 @@ import { ResolvedBook, User, Record } from 'shared/entity';
 import { Progress } from 'shared/progress';
 import { BookService } from '../services/book.service';
 import { FirebaseService } from '../services/firebase.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-book-details',
@@ -22,22 +23,10 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private bookService: BookService,
-              private firebaseService: FirebaseService) {}
+              private firebaseService: FirebaseService,
+              private userService: UserService) {}
 
   async ngOnInit() {
-    const getUserByName = (name: string): Promise<User> =>
-      this.firebaseService.functions.httpsCallable('getUsersByName')(name)
-        .then(result => {
-          if (result.data.length > 0) {
-            return <User> result.data[0];
-          } else {
-            return null;
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          return null;
-        });
 
     const convertDateTime = timestamp => {
       const pad = input => (input < 10) ? '0' + input : input;
@@ -64,7 +53,7 @@ export class BookDetailsComponent implements OnInit {
           (new Progress(this.records[i].range.fragments)).toString()
             .replace(/-/g, '〜') + 'ページ';
         this.records[i].created = convertDateTime(this.records[i].created._seconds);
-        const user = await getUserByName(this.records[i].user);
+        const user = await this.userService.getUserByName(this.records[i].user);
         this.records[i].screenName = user.screenName;
         this.records[i].image = user.image;
       }
