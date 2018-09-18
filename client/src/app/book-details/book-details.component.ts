@@ -62,7 +62,7 @@ export class BookDetailsComponent implements OnInit {
         this.records[i].range =
           (new Progress(this.records[i].range.fragments)).toString()
             .replace(/-/g, '〜') + 'ページ';
-        this.records[i].created = convertDateTime(this.records[i].created._seconds));
+        this.records[i].created = convertDateTime(this.records[i].created._seconds);
         const user = await getUserByName(this.records[i].user);
         this.records[i].screenName = user.screenName;
         this.records[i].image = user.image;
