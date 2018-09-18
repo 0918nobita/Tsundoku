@@ -1,5 +1,5 @@
 import { User } from '../../shared/entity';
-import { _getUsersBy } from './user';
+import { _getUserBy } from './user';
 
 export const _checkConnectionFrom = (db: FirebaseFirestore.Firestore) =>
   (args: {name: string, to: string}) =>
