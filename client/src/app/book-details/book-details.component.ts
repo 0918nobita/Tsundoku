@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ResolvedBook } from 'shared/entity';
+import { ResolvedBook, Record } from 'shared/entity';
 import { BookService } from '../services/book.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-book-details',
@@ -17,8 +18,9 @@ export class BookDetailsComponent implements OnInit {
   image: string;
   pageCount: string;
 
-  constructor(private bookService: BookService,
-              private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute,
+              private bookService: BookService,
+              private firebaseService: FirebaseService) {}
 
   ngOnInit() {
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
@@ -37,4 +39,8 @@ export class BookDetailsComponent implements OnInit {
       })
       .catch(error => console.log(error));
   }
+
+  private getRecordsByISBN = (isbn: string) =>
+    this.firebaseService.functions.httpsCallable('getRecordsByISBN')(isbn)
+      .then(result => <Record[]> result.data);
 }
