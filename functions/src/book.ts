@@ -41,27 +41,27 @@ const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
 // resolvedBooks コレクションで本を検索する
 export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
   async (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<ResolvedBook[]> =>
-    db.collection('resolvedBooks')
-      .where('isbn', '==', args.isbn)
-      .get()
-      .then(async querySnapshot => {
-        let response: Array<ResolvedBook> = [];
+    new Promise(async (resolve: (value?:  ResolvedBook[]) => void,
+                       reject:  (reason?: any)            => void) => {
+      try {
+        resolve(await db.collection('db')
+          .where('isbn', '==', args.isbn)
+          .get()
+          .then(async querySnapshot => {
+            let response: ResolvedBook[] = [];
 
-        for (let i = 0; i < querySnapshot.size; i++) {
-          const docData = querySnapshot.docs[i].data();
-          response.push({
-            desc: docData.desc,
-            donor: docData.donor,
-            image: docData.image,
-            isbn: docData.isbn,
-            title: docData.title,
-            pageCount: docData.pageCount
-          });
-        }
+            for (let i = 0; i < querySnapshot.size; i++) {
+              const docData = querySnapshot.docs[i].data();
+              response.push(<ResolvedBook> docData);
+            }
 
-        if (response.length === 0 && args.usingGoogleBooksAPI === true)
-          response = await searchBooksUsingGoogleBooksAPI(db)(args.isbn);
+            if (response.length === 0 && args.usingGoogleBooksAPI === true)
+              response = await searchBooksUsingGoogleBooksAPI(db)(args.isbn);
 
-        return response;
-      })
-      .catch(error => error);
+            return response;
+          }));
+      } catch(error) {
+        console.error(error);
+        reject([]);
+      }
+    });
