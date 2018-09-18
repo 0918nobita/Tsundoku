@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ResolvedBook, Record } from 'shared/entity';
+import { ResolvedBook, User, Record } from 'shared/entity';
+import { Progress } from 'shared/progress';
 import { BookService } from '../services/book.service';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -17,12 +18,33 @@ export class BookDetailsComponent implements OnInit {
   isbn: string;
   image: string;
   pageCount: string;
+  records: any[];
 
   constructor(private activatedRoute: ActivatedRoute,
               private bookService: BookService,
               private firebaseService: FirebaseService) {}
 
   async ngOnInit() {
+    const getUserByName = (name: string): Promise<User> =>
+      this.firebaseService.functions.httpsCallable('getUsersByName')(name)
+        .then(result => {
+          if (result.data.length > 0) {
+            return <User> result.data[0];
+          } else {
+            return null;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          return null;
+        });
+
+    const convertDateTime = timestamp => {
+      const pad = input => (input < 10) ? "0" + input : input;
+      const date = timestamp ? new Date(timestamp * 1000) : new Date();
+      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+    };
+
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
 
     try {
@@ -35,7 +57,16 @@ export class BookDetailsComponent implements OnInit {
       this.isbn = 'ISBN: ' + book.isbn;
       this.image = book.image;
       this.pageCount = `ページ数: ${ book.pageCount }`;
-      console.log(await this.getRecordsByISBN(book.isbn));
+      this.records = await this.getRecordsByISBN(book.isbn);
+      for (let i = 0; i < this.records.length; i++) {
+        this.records[i].range =
+          (new Progress(this.records[i].range.fragments)).toString()
+            .replace(/-/g, '〜') + 'ページ';
+        this.records[i].created = convertDateTime(this.records[i].created._seconds));
+        const user = await getUserByName(this.records[i].user);
+        this.records[i].screenName = user.screenName;
+        this.records[i].image = user.image;
+      }
     } catch(error) {
       console.error(error);
     }
@@ -43,5 +74,5 @@ export class BookDetailsComponent implements OnInit {
 
   private getRecordsByISBN = (isbn: string) =>
     this.firebaseService.functions.httpsCallable('getRecordsByISBN')(isbn)
-      .then(result => <Record[]> result.data);
+      .then(result => result.data);
 }

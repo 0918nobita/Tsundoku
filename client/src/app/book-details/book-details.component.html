@@ -8,3 +8,12 @@
 <p id="desc">{{ desc }}</p>
 <p id="pageCount">{{ pageCount }}</p>
 <p id="isbn">{{ isbn }}</p>
+
+<ng-container *ngFor="let record of records">
+  <app-progress-card [name]="record.user"
+      [screenName]="record.screenName"
+      [desc]="record.desc"
+      [range]="record.range"
+      [image]="record.image"
+      [created]="record.created"></app-progress-card>
+</ng-container>
