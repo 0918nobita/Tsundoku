@@ -40,15 +40,16 @@ export class BookDetailsComponent implements OnInit {
         });
 
     const convertDateTime = timestamp => {
-      const pad = input => (input < 10) ? "0" + input : input;
+      const pad = input => (input < 10) ? '0' + input : input;
       const date = timestamp ? new Date(timestamp * 1000) : new Date();
-      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ` +
+          `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
     };
 
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
 
     try {
-      const book = await this.bookService.getBookByISBN(isbn)
+      const book = await this.bookService.getBookByISBN(isbn);
       $('app-now-loading').hide();
       if (book === null) return;
       this.title = book.title;
@@ -67,12 +68,12 @@ export class BookDetailsComponent implements OnInit {
         this.records[i].screenName = user.screenName;
         this.records[i].image = user.image;
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error);
     }
   }
 
   private getRecordsByISBN = (isbn: string) =>
     this.firebaseService.functions.httpsCallable('getRecordsByISBN')(isbn)
-      .then(result => result.data);
+      .then(result => result.data)
 }
