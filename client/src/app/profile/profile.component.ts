@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
       this.screenName = user.screenName;
       this.bio = user.bio;
       this.image = user.image;
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
   }
