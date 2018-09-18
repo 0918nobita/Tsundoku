@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
-import { _getUsersBy } from './user';
+import { _getUserBy } from './user';
 import { _checkConnectionFrom, _getUsersConnectedFrom } from './connection';
 import { _searchBooksByISBN, _postResolvedBook } from './book';
 import { _getBookshelf } from './bookshelf';
@@ -11,8 +11,8 @@ admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
-export const getUsersByUID = functions.https.onCall(_getUsersBy('uid', db));
-export const getUsersByName = functions.https.onCall(_getUsersBy('name', db));
+export const getUserByUID = functions.https.onCall(_getUserBy('uid', db));
+export const getUserByName = functions.https.onCall(_getUserBy('name', db));
 
 export const checkConnectionFrom = functions.https.onCall(_checkConnectionFrom(db));
 export const getUsersConnectedFrom = functions.https.onCall(_getUsersConnectedFrom(db));
