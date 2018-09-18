@@ -27,7 +27,7 @@ export const _getUsersConnectedFrom = (db: FirebaseFirestore.Firestore) =>
         });
 
       for (let i = 0; i < names.length; i++)
-        users.concat(await _getUsersBy('name', db)(names[i]));
+        users.concat(await _getUserBy('name', db)(names[i]));
 
       resolve(users);
     } catch(error) {
