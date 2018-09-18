@@ -35,6 +35,7 @@ export class BookDetailsComponent implements OnInit {
       this.isbn = 'ISBN: ' + book.isbn;
       this.image = book.image;
       this.pageCount = `ページ数: ${ book.pageCount }`;
+      console.log(await this.getRecordsByISBN(book.isbn));
     } catch(error) {
       console.error(error);
     }
