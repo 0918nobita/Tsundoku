@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
       this.bio = user.bio;
       this.image = user.image;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
