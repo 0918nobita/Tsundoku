@@ -4,7 +4,7 @@ import { _searchBooksByISBN } from './book';
 
 // 本棚の情報を取得する
 export const _getBookshelf = (db: FirebaseFirestore.Firestore) =>
-  async (name: string): Promise<RegisteredBook[]> =>
+  async (name: string) =>
     new Promise(async (resolve: (value?:  RegisteredBook[]) => void,
                        reject:  (reason?: any)              => void) => {
       try {

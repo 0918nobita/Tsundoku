@@ -40,7 +40,7 @@ const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
 
 // resolvedBooks コレクションで本を検索する
 export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
-  async (args: {isbn: string, usingGoogleBooksAPI: boolean}): Promise<ResolvedBook[]> =>
+  async (args: {isbn: string, usingGoogleBooksAPI: boolean}) =>
     new Promise(async (resolve: (value?:  ResolvedBook[]) => void,
                        reject:  (reason?: any)            => void) => {
       try {
