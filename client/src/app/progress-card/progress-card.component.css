@@ -1,0 +1,10 @@
+.progress-card {
+  margin: 10px;
+  color: black;
+  background-color: #EEEEEE;
+}
+
+.progress-card img {
+  width: 60px;
+  height: 60px;
+}

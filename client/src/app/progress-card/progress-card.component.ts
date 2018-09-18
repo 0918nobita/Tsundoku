@@ -9,8 +9,10 @@ export class ProgressCardComponent implements OnInit {
   @Input() public created: string;
   @Input() public desc: string;
   @Input() public isbn: string;
-  @Input() public userName: string;
+  @Input() public name: string;
+  @Input() public screenName: string;
   @Input() public range: string;
+  @Input() public image: string;
 
   constructor() {}
   ngOnInit() {}
