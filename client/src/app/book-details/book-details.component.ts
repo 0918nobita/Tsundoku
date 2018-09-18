@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ResolvedBook, User, Record } from 'shared/entity';
 import { Progress } from 'shared/progress';
 import { BookService } from '../services/book.service';
 import { FirebaseService } from '../services/firebase.service';
