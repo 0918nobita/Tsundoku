@@ -25,6 +25,7 @@ import { AccountService } from './services/account.service';
 import { BookService } from './services/book.service';
 import { DexieService } from './services/dexie.service';
 import { FirebaseService } from './services/firebase.service';
+import { UserService } from './services/user.service';
 
 // ルーティングの設定
 export const AppRoutes = [
@@ -65,7 +66,8 @@ export const AppRoutes = [
     FirebaseService,
     DexieService,
     AccountService,
-    BookService
+    BookService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
