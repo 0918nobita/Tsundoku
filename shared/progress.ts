@@ -5,7 +5,11 @@ type Fragment = Range | number;
 type Fragments = Array<Fragment>;
 
 export class Progress {
-  constructor(private fragments: Fragments) {}
+  fragments: Fragments;
+
+  constructor(fragments: Fragments) {
+    this.fragments = fragments;
+  }
 
   add(right: Progress): Progress {
     if (right.fragments.length === 0) return this.simplify();
