@@ -22,22 +22,22 @@ export class BookDetailsComponent implements OnInit {
               private bookService: BookService,
               private firebaseService: FirebaseService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
 
-    this.bookService.getBookByISBN(isbn)
-      .then(result => {
-        $('app-now-loading').hide();
-        if (result === null) return;
-
-        this.title = result.title;
-        this.desc = result.desc;
-        this.donor = result.donor;
-        this.isbn = 'ISBN: ' + result.isbn;
-        this.image = result.image;
-        this.pageCount = `ページ数: ${ result.pageCount }`;
-      })
-      .catch(error => console.log(error));
+    try {
+      const book = await this.bookService.getBookByISBN(isbn)
+      $('app-now-loading').hide();
+      if (book === null) return;
+      this.title = book.title;
+      this.desc = book.desc;
+      this.donor = book.donor;
+      this.isbn = 'ISBN: ' + book.isbn;
+      this.image = book.image;
+      this.pageCount = `ページ数: ${ book.pageCount }`;
+    } catch(error) {
+      console.error(error);
+    }
   }
 
   private getRecordsByISBN = (isbn: string) =>
