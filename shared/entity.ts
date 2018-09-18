@@ -23,3 +23,11 @@ export interface RegisteredBook extends ResolvedBook {
   favorite: boolean;
   progress: Progress;
 }
+
+export interface Record {
+  created: firebase.firestore.Timestamp;
+  desc: string;
+  isbn: string;
+  range: Progress;
+  user: string;
+}
