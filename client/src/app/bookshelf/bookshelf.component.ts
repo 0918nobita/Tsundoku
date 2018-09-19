@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
 
-import { Progress } from 'shared/progress';
 import { RegisteredBook } from 'shared/entity';
 import { AccountService } from '../services/account.service';
 import { FirebaseService } from '../services/firebase.service';
