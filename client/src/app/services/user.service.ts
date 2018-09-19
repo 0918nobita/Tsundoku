@@ -13,7 +13,8 @@ export class UserService {
     try {
       const response =
           await this.firebaseService.functions.httpsCallable('getUserByName')(name);
-      return (response.data.length > 0) ? <User> response.data[0] : null;
+      if (response.data !== null) return <User> response.data;
+      throw new Error('ユーザーが見つかりません');
     } catch (error) {
       throw new Error(error);
     }
