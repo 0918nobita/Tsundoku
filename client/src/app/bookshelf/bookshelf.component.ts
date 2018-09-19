@@ -19,13 +19,13 @@ export class BookshelfComponent implements OnInit {
 
   public functions: firebase.functions.Functions;
 
-  constructor(private accountSerice: AccountService,
+  constructor(private accountService: AccountService,
               private firebaseService: FirebaseService) {
     this.functions = this.firebaseService.functions;
   }
 
   ngOnInit() {
-    this.accountSerice.afterLogin((_, user) => {
+    this.accountService.afterLogin((_, user) => {
       this.getBookshelf(user.name)
         .then(result => {
           $('app-now-loading').hide();
