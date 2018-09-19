@@ -46,6 +46,7 @@ export class BookDetailsComponent implements OnInit {
       this.isbn = 'ISBN: ' + book.isbn;
       this.image = book.image;
       this.pageCount = `ページ数: ${ book.pageCount }`;
+
       this.records = await this.getRecordsByISBN(book.isbn);
       for (let i = 0; i < this.records.length; i++) {
         this.records[i].range =
