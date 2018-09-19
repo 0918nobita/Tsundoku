@@ -17,8 +17,6 @@ export class BookComponent implements OnInit, AfterViewInit {
   @Input() public image: string;
   @Input() public favorite: boolean;
 
-  private visible = false;
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
