@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     try {
       const result = await this.accountService.login(email, password);
       this.router.navigate(['/bookshelf']);
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
   }
