@@ -29,7 +29,7 @@ export class BookService {
 
             const searchBooksInFirestore = (clue: string): Promise<ResolvedBook[]> =>
               this.functions.httpsCallable('searchBooksByISBN')({isbn: clue, usingGoogleBooksAPI: false})
-                .then(result => result.data)
+                .then(response => response.data)
                 .catch(error => error);
 
             let hitBooks: ResolvedBook[] = [];
@@ -75,7 +75,7 @@ export class BookService {
       const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
       if (localBooks.length > 0) {
         resolve(localBooks[0]);
-      } else if (navigator.onLine === true) {
+      } else if (navigator.onLine) {
         await searchBooksOnline();
       } else {
         console.log('オフライン状態なので、検索ができませんでした');
