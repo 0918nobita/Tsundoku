@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
+import * as firebase from 'firebase';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
