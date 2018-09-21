@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import Dexie from 'dexie';
+import * as firebase from 'firebase';
 
 import { ResolvedBook } from 'shared/entity';
 import { DexieService } from './dexie.service';
