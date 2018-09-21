@@ -19,22 +19,24 @@ export class AccountService {
     this.auth = this.firebaseService.auth;
     this.functions = this.firebaseService.functions;
 
-    this.afterLogin(user => {
-      this.myself = <User> JSON.parse(localStorage.getItem('myself'));
+    this.afterLogin(() => {
+      const localMyself = localStorage.getItem('myself');
+      if (localMyself !== null) this.myself = <User> JSON.parse(localMyself);
     });
 
-    this.auth.onAuthStateChanged(user => {
+    this.auth.onAuthStateChanged(async user => {
       if (user) {
-        for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user, this.myself);
+        if (this.myself !== null)
+          for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user, this.myself);
       } else {
         if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
-          this.router.navigate(['/']);
+          await this.router.navigate(['/']);
       }
     });
   }
 
   afterLogin(listener: (a: firebase.User, b: User) => any) {
-    if (this.auth.currentUser) {
+    if (this.auth.currentUser && this.myself) {
       listener(this.auth.currentUser, this.myself);
       return;
     }
@@ -52,7 +54,7 @@ export class AccountService {
             name: data[0].name,
             screenName: data[0].screenName,
             uid
-          }
+          };
         } else {
           return null;
         }
@@ -86,6 +88,10 @@ export class AccountService {
       if (this.auth.currentUser) resolve();
       await this.auth.signInWithEmailAndPassword(email, password)
         .then(async result => {
+          if (result.user === null) {
+            reject();
+            return;
+          }
           const hitUser = await this.getUserByUID(result.user.uid);
           if (hitUser !== null) {
             this.myself = hitUser;
