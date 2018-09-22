@@ -20,8 +20,8 @@ export class BookService {
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
-  async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
-    return new Promise(async (resolve: (value?:  ResolvedBook) => void,
+  async getBookByISBN(isbn: string): Promise<ResolvedBook> {
+    return new Promise(async (resolve: (value:  ResolvedBook) => void,
                               reject:  (reason?: any)          => void) => {
       const searchBooksOnline = async () =>
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
@@ -65,10 +65,10 @@ export class BookService {
 
             if (hitBooks.length > 0) {
               // データベースに本の情報を登録する
-              this.resolvedBooks.add(hitBooks[0]);
+              await this.resolvedBooks.add(hitBooks[0]);
               resolve(hitBooks[0]);
             } else {
-              resolve(null);
+              reject();
             }
           })
           .catch(error => reject(error));
@@ -80,7 +80,7 @@ export class BookService {
         await searchBooksOnline();
       } else {
         console.log('オフライン状態なので、検索ができませんでした');
-        resolve(null);
+        reject();
       }
     });
   }
