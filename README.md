@@ -1,5 +1,8 @@
 # Tsundoku.tech
 
+
+![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/24df2547bd334d08558a/maintainability)](https://codeclimate.com/github/TsundokuApp/Tsundoku/maintainability)
+
 - [概要](#overview)
 - [各画面の詳細](#pages)
 - [環境構築](#set_up_an_environment)
