@@ -24,14 +24,14 @@ export class BookshelfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.accountService.afterLogin((_, user) => {
+    /*this.accountService.afterLogin((_, user) => {
       this.getBookshelf(user.name)
         .then(result => {
           $('app-now-loading').hide();
           this.registeredBooks = result;
         })
         .catch(error => console.log(error));
-    });
+    });*/
   }
 
   private getBookshelf(name: string): Promise<RegisteredBook[]> {

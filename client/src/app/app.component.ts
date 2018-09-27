@@ -14,11 +14,11 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router,
               private elementRef: ElementRef,
               private accountService: AccountService) {
-    this.accountService.afterLogin(() => {
+    /*this.accountService.afterLogin(() => {
       if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
         this.router.navigate(['/bookshelf']);
       $('#routerOutlet').show();
-    });
+    });*/
   }
 
   ngAfterViewInit() {

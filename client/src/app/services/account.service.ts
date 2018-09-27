@@ -17,15 +17,15 @@ export class AccountService {
 
   constructor(private router: Router,
               private firebaseService: FirebaseService) {
-    this.auth = this.firebaseService.auth;
-    this.functions = this.firebaseService.functions;
+    /*this.auth = this.firebaseService.auth;
+    this.functions = this.firebaseService.functions;*/
 
-    this.afterLogin(() => {
+    /*this.afterLogin(() => {
       const localMyself = localStorage.getItem('myself');
       if (localMyself !== null) this.myself = <User> JSON.parse(localMyself);
-    });
+    });*/
 
-    this.auth.onAuthStateChanged(async user => {
+    /*this.auth.onAuthStateChanged(async user => {
       if (user) {
         if (this.myself !== null)
           for (let i = 0; i < this.listeners.length; i++) this.listeners[i](user, this.myself);
@@ -33,16 +33,16 @@ export class AccountService {
         if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
           await this.router.navigate(['/']);
       }
-    });
+    });*/
   }
 
-  afterLogin(listener: (a: firebase.User, b: User) => any) {
+  /*afterLogin(listener: (a: firebase.User, b: User) => any) {
     if (this.auth.currentUser && this.myself) {
       listener(this.auth.currentUser, this.myself);
       return;
     }
     this.listeners.push(listener);
-  }
+  }*/
 
   private getUserByUID = (uid: string): Promise<User | null> =>
     this.functions.httpsCallable('getUsersByUID')(uid)
