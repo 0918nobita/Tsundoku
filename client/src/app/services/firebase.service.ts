@@ -4,7 +4,7 @@ import 'firebase/functions';
 import 'firebase/auth';
 
 import * as config from '../config.json';
-import { fromEvent, merge } from 'rxjs';
+import { fromEvent, merge, of } from 'rxjs';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -29,5 +29,7 @@ export class FirebaseService {
     observable.subscribe((event) => {
       console.log('接続状態が変化しました', event);
     });
+
+    of(1, 2, 3).subscribe(console.log);
   }
 }
