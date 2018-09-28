@@ -4,7 +4,7 @@ import 'firebase/functions';
 import 'firebase/auth';
 
 import * as config from '../config.json';
-import { concat, fromEvent, /*interval,*/ merge, of } from 'rxjs';
+import { concat, fromEvent, /*interval,*/ merge, Observable, of } from 'rxjs';
 import { map, mergeMap, pluck, tap } from 'rxjs/operators';
 
 /**
@@ -57,5 +57,24 @@ export class FirebaseService {
     of('Hello').pipe(
         mergeMap(val => of(val + ', world!'))
     ).subscribe(x => console.log('mergeMap: ' + x));
+
+    // Observable, observer を自作する
+    Observable.create(observer => {
+      try {
+        observer.next(1);
+        observer.next(2);
+
+        // 50 % の確率で例外発生
+        if (Math.random() < 0.5) throw new Error('エラー');
+
+        observer.complete();
+      } catch (err) {
+        observer.error();
+      }
+    }).subscribe({ /* observer */
+      next: (x) => console.log('next: ' + x),
+      error: () => console.log('error!'),
+      complete: () => console.log('complete!')
+    });
   }
 }
