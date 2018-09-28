@@ -31,9 +31,12 @@ export class FirebaseService {
     });
 
     // 指定した複数の値を Observable に変換する
-    of(1, 2, 3).subscribe(console.log);
+    of(1, 2, 3).subscribe(x => console.log('of: ' + x));
 
     // 指定した時間ごとに値を流す
-    interval(1000).subscribe(console.log);
+    // interval(1000).subscribe(console.log);
+
+    // Observable 同士を、ストリームの順序を保ったまま結合
+    concat(of(1, 2), of(3, 4)).subscribe(x => console.log('concat: ' + x));
   }
 }
