@@ -30,8 +30,10 @@ export class FirebaseService {
       console.log('接続状態が変化しました', event);
     });
 
+    // 指定した複数の値を Observable に変換する
     of(1, 2, 3).subscribe(console.log);
 
+    // 指定した時間ごとに値を流す
     interval(1000).subscribe(console.log);
   }
 }
