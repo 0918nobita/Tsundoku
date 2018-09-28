@@ -5,7 +5,7 @@ import 'firebase/auth';
 
 import * as config from '../config.json';
 import { concat, fromEvent, /*interval,*/ merge, of } from 'rxjs';
-import { map, pluck, tap } from 'rxjs/operators';
+import { map, mergeMap, pluck, tap } from 'rxjs/operators';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -52,5 +52,10 @@ export class FirebaseService {
     const observable1 = of({ userId: 1, body: 'hoge' });
     observable1.pipe(map(x => x.userId)).subscribe(x => console.log('map: ' + x));
     observable1.pipe(pluck('userId')).subscribe(x => console.log('pluck: ' + x));
+
+    // mergeMap: 引数を用いて新たな Observable を生成できる
+    of('Hello').pipe(
+        mergeMap(val => of(val + ', world!'))
+    ).subscribe(x => console.log('mergeMap: ' + x));
   }
 }
