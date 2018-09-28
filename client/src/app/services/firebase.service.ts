@@ -48,7 +48,8 @@ export class FirebaseService {
     ).subscribe(console.log);
 
     // map, pluck: ストリームの値を加工・変換・抽出する
-    const observable1 = of({userId: 1, body: 'hoge'});
+    // 利用シーン: API のレスポンスを加工する
+    const observable1 = of({ userId: 1, body: 'hoge' });
     observable1.pipe(map(x => x.userId)).subscribe(x => console.log('map: ' + x));
     observable1.pipe(pluck('userId')).subscribe(x => console.log('pluck: ' + x));
   }
