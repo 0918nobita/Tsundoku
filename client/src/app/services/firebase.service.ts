@@ -31,15 +31,16 @@ export class FirebaseService {
       console.log('接続状態が変化しました', event);
     });
 
-    // 指定した複数の値を Observable に変換する
+    // of: 指定した複数の値を Observable に変換する
     of(1, 2, 3).subscribe(x => console.log('of: ' + x));
 
-    // 指定した時間ごとに値を流す
+    // interval: 指定した時間ごとに値を流す
     // interval(1000).subscribe(console.log);
 
-    // Observable 同士を、ストリームの順序を保ったまま結合
+    // concat: Observable 同士を、ストリームの順序を保ったまま結合
     concat(of(1, 2), of(3, 4)).subscribe(x => console.log('concat: ' + x));
 
+    // tap: ストリームに影響を与えず、任意の処理を行う
     of(1 , 2, 3).pipe(
         tap(x => console.log('1st: ' + x)),
         tap(x => console.log('2nd: ' + (x * 2))),
