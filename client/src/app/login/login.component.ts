@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
   async login(email, password) {
     try {
       const result = await this.accountService.login(email, password);
-      this.router.navigate(['/bookshelf']);
+      await this.router.navigate(['/bookshelf']);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
