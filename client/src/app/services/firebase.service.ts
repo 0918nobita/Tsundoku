@@ -5,6 +5,7 @@ import 'firebase/auth';
 
 import * as config from '../config.json';
 import { concat, fromEvent, /*interval,*/ merge, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -38,5 +39,11 @@ export class FirebaseService {
 
     // Observable 同士を、ストリームの順序を保ったまま結合
     concat(of(1, 2), of(3, 4)).subscribe(x => console.log('concat: ' + x));
+
+    of(1 , 2, 3).pipe(
+        tap(x => console.log('1st: ' + x)),
+        tap(x => console.log('2nd: ' + (x * 2))),
+        tap(x => console.log('3rd: ' + (x * 3)))
+    ).subscribe(console.log);
   }
 }
