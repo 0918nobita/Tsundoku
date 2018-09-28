@@ -89,6 +89,7 @@ export class FirebaseService {
         .pipe(square).subscribe(x => console.log('square: ' + x));
 
     // skip: 値のスキップ
-    from([1, 2, 3, 4]).pipe(skip(2)).subscribe(x => console.log('skip: ' + x));
+    from([1, 2, 3, 4])
+        .pipe(skip(2)).subscribe(x => console.log('skip: ' + x));
   }
 }
