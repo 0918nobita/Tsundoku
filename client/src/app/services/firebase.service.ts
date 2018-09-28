@@ -4,7 +4,7 @@ import 'firebase/functions';
 import 'firebase/auth';
 
 import * as config from '../config.json';
-import { concat, fromEvent, /*interval,*/ merge, Observable, of } from 'rxjs';
+import { concat, from, fromEvent, /*interval,*/ merge, Observable, of } from 'rxjs';
 import { map, mergeMap, pluck, tap } from 'rxjs/operators';
 
 /**
@@ -76,5 +76,14 @@ export class FirebaseService {
       error() { console.log('error!'); },
       complete() { console.log('complete!'); }
     });
+
+    // pipe に渡せるオペレータを自作する
+    const square = (input: Observable<number>) => Observable.create(observer => input.subscribe({
+      next(x) { observer.next(x ** 2); },
+      error(error) { observer.error(error); },
+      complete() { observer.complete(); }
+    }));
+
+    from([1, 2, 3, 4]).pipe(square).subscribe(x => console.log('square: ' + x));
   }
 }
