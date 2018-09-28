@@ -78,11 +78,12 @@ export class FirebaseService {
     });
 
     // pipe に渡せるオペレータを自作する
-    const square = (input: Observable<number>) => Observable.create(observer => input.subscribe({
-      next(x) { observer.next(x ** 2); },
-      error(error) { observer.error(error); },
-      complete() { observer.complete(); }
-    }));
+    const square = (input: Observable<number>) =>
+        Observable.create(observer => input.subscribe({
+          next(x) { observer.next(x ** 2); },
+          error(error) { observer.error(error); },
+          complete() { observer.complete(); }
+        }));
 
     from([1, 2, 3, 4]).pipe(square).subscribe(x => console.log('square: ' + x));
 
