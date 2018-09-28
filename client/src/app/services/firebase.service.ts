@@ -5,7 +5,7 @@ import 'firebase/auth';
 
 import * as config from '../config.json';
 import { concat, from, fromEvent, /*interval,*/ merge, Observable, of } from 'rxjs';
-import { map, mergeMap, pluck, tap } from 'rxjs/operators';
+import { map, mergeMap, pluck, skip, tap } from 'rxjs/operators';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -85,5 +85,8 @@ export class FirebaseService {
     }));
 
     from([1, 2, 3, 4]).pipe(square).subscribe(x => console.log('square: ' + x));
+
+    // skip: 値のスキップ
+    from([1, 2, 3, 4]).pipe(skip(2)).subscribe(x => console.log('skip: ' + x));
   }
 }
