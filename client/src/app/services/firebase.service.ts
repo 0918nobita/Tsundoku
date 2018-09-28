@@ -72,9 +72,9 @@ export class FirebaseService {
         observer.error();
       }
     }).subscribe({ /* observer */
-      next: (x) => console.log('next: ' + x),
-      error: () => console.log('error!'),
-      complete: () => console.log('complete!')
+      next(x) { console.log('next: ' + x); },
+      error() { console.log('error!'); },
+      complete() { console.log('complete!'); }
     });
   }
 }
