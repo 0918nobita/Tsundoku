@@ -4,7 +4,7 @@ import 'firebase/functions';
 import 'firebase/auth';
 
 import * as config from '../config.json';
-import { fromEvent, interval, merge, of } from 'rxjs';
+import { concat, fromEvent, /*interval,*/ merge, of } from 'rxjs';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
