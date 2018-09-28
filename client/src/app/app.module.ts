@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import 'bootstrap';
 
 import { environment } from '../environments/environment';
@@ -60,6 +61,7 @@ export const AppRoutes = [
     BrowserModule,
     FormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    HttpClientModule,
   ],
   providers: [
     // FirebaseService のインスタンスを、アプリ全体で共有されるサービスとして登録する
