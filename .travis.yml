@@ -4,6 +4,11 @@ node_js:
 addons:
   code_climate:
     repo_token: d57db4426d9cd5567446cf1057c2a26de391c6686f4fe180b3df9dfce3408b0c
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
 script:
   - yarn ng test
 before_script:
