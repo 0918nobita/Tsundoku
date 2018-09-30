@@ -12,6 +12,9 @@ addons:
 script:
   - yarn ng test
 before_script:
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - cd client
   - npm i
   - npm install codeclimate-test-reporter istanbul -g
