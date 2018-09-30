@@ -11,7 +11,7 @@ addons:
     packages:
     - google-chrome-stable
 script:
-  - yarn ng test
+  - yarn ng test --code-coverage
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
