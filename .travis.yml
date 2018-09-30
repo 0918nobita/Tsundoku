@@ -5,7 +5,7 @@ addons:
   code_climate:
     repo_token: d57db4426d9cd5567446cf1057c2a26de391c6686f4fe180b3df9dfce3408b0c
 script:
-  - istanbul cover node_modules/mocha/bin/_mocha -- -R spec
+  - yarn ng test
 before_script:
   - cd client
   - npm install codeclimate-test-reporter istanbul -g
