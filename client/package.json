@@ -54,6 +54,7 @@
     "firebase-tools": "^4.2.0",
     "gulp": "^3.9.1",
     "gulp-typedoc": "^2.2.0",
+    "jasmine": "^3.2.0",
     "karma": "^3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage-istanbul-reporter": "^2.0.4",
