@@ -3,9 +3,9 @@ import * as firebase from 'firebase/app';
 import 'firebase/functions';
 import 'firebase/auth';
 
-import * as config from '../config.json';
-import { concat, from, fromEvent, /*interval,*/ merge, Observable, of } from 'rxjs';
-import { filter, map, mergeMap, pluck, skip, tap } from 'rxjs/operators';
+import { firebaseConfig } from '../config';
+import { /*concat, from,*/ fromEvent, /*interval,*/ merge/*, Observable, of*/ } from 'rxjs';
+// import { filter, map, mergeMap, pluck, skip, tap } from 'rxjs/operators';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -19,7 +19,7 @@ export class FirebaseService {
 
   /** Firebase SDK の設定 */
   constructor() {
-    firebase.initializeApp(config);
+    firebase.initializeApp(firebaseConfig);
     this.auth = firebase.auth();
     this.functions = firebase.functions();
 
