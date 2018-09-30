@@ -19,8 +19,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { ProgressCardComponent } from './progress-card/progress-card.component';
-import { NowLoadingComponent } from './now-loading/now-loading.component'
+import { NowLoadingComponent } from './now-loading/now-loading.component';
 import { BackComponent } from './back/back.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 
 import { AccountService } from './services/account.service';
 import { BookService } from './services/book.service';
@@ -54,7 +55,8 @@ export const AppRoutes = [
     TimelineComponent,
     TopComponent,
     NowLoadingComponent,
-    ProgressCardComponent
+    ProgressCardComponent,
+    StatusBarComponent
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),
