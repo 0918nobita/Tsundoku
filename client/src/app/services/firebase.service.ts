@@ -4,8 +4,8 @@ import 'firebase/functions';
 import 'firebase/auth';
 
 import { firebaseConfig } from '../config';
-import { /*concat, from,*/ fromEvent, /*interval,*/ merge/*, Observable, of*/ } from 'rxjs';
-// import { filter, map, mergeMap, pluck, skip, tap } from 'rxjs/operators';
+import { /*concat, from,*/ fromEvent, /*interval,*/ merge, of/*, Observable, of*/ } from 'rxjs';
+import { filter/*, map, mergeMap, pluck, skip, tap*/ } from 'rxjs/operators';
 
 /**
  * Firebase SDK の設定を各コンポーネントで共有するための、Angular の Service
@@ -19,16 +19,15 @@ export class FirebaseService {
 
   /** Firebase SDK の設定 */
   constructor() {
-    firebase.initializeApp(firebaseConfig);
-    this.auth = firebase.auth();
-    this.functions = firebase.functions();
-
     const observable = merge(
-        fromEvent(window, 'online'),
-        fromEvent(window, 'offline'));
+        of(navigator.onLine),
+        fromEvent(window, 'online'))
+          .pipe(filter(x => (x !== false)));
 
-    observable.subscribe((event) => {
-      console.log('接続状態が変化しました', event);
+    observable.subscribe(() => {
+      firebase.initializeApp(firebaseConfig);
+      this.auth = firebase.auth();
+      this.functions = firebase.functions();
     });
 
     // of: 指定した複数の値を Observable に変換する
