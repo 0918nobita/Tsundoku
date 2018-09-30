@@ -1,4 +1,5 @@
 client/src/app/config.json
+client/coverage
 .firebase/
 docs/
 
