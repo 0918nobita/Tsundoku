@@ -44,35 +44,23 @@ export class Progress {
 
     if (this.fragments.length >= 2) {
       for (let i = 1; i < this.fragments.length;) {
-        const former: Fragment = this.fragments[i-1],
-              latter: Fragment = this.fragments[i],
+        const former = this.fragments[i-1],
+              latter = this.fragments[i],
               formerT = typeof former,
               latterT = typeof latter;
 
-        if (formerT === 'number' && latterT === 'number') {
-          if ((latter as number) - (former as number) === 1) {
-            this.fragments.splice(i, 1);
-            this.fragments[i-1] = { start: former, end: latter } as Fragment;
-            continue;
-          }
-        } else if (formerT === 'number' && latterT === 'object') {
-          if ((latter as Range).start - (former as number) === 1) {
-            this.fragments.splice(i, 1);
-            this.fragments[i-1] = { start: former, end: (latter as Range).end } as Fragment;
-            continue;
-          }
-        } else if (formerT === 'object' && latterT === 'number') {
-          if ((latter as number) - (former as Range).end === 1) {
-            this.fragments.splice(i, 1);
-            this.fragments[i-1] = { start: (former as Range).start, end: latter } as Fragment;
-            continue;
-          }
-        } else {
-          if ((latter as Range).start - (former as Range).end === 1) {
-            this.fragments.splice(i, 1);
-            this.fragments[i-1] = { start: (former as Range).start, end: (latter as Range).end };
-            continue;
-          }
+        if (formerT === 'number' && latterT === 'number' && (latter as number) - (former as number) === 1) {
+          this.concatNumberAndNumber(i);
+          continue;
+        } else if (formerT === 'number' && latterT === 'object' && (latter as Range).start - (former as number) === 1) {
+          this.concatNumberAndObject(i);
+          continue;
+        } else if (formerT === 'object' && latterT === 'number' && (latter as number) - (former as Range).end === 1) {
+          this.concatObjectAndNumber(i);
+          continue;
+        } else if (formerT === 'object' && latterT === 'number' && (latter as Range).start - (former as Range).end === 1) {
+          this.concatObjectAndObject(i);
+          continue;
         }
 
         i++;
@@ -80,6 +68,26 @@ export class Progress {
     }
 
     return this;
+  }
+
+  private concatNumberAndNumber(index: number) {
+    this.fragments.splice(index, 1);
+    this.fragments[index-1] = { start: this.fragments[index-1], end: this.fragments[index] } as Fragment;
+  }
+
+  private concatNumberAndObject(index: number) {
+    this.fragments.splice(index, 1);
+    this.fragments[index-1] = { start: this.fragments[index-1], end: (this.fragments[index] as Range).end } as Fragment;
+  }
+
+  private concatObjectAndNumber(index: number) {
+    this.fragments.splice(index, 1);
+    this.fragments[index-1] = { start: (this.fragments[index-1] as Range).start, end: this.fragments[index] } as Fragment;
+  }
+
+  private concatObjectAndObject(index: number) {
+    this.fragments.splice(index, 1);
+    this.fragments[index-1] = { start: (this.fragments[index-1] as Range).start, end: (this.fragments[index] as Range).end };
   }
 
   toString(): string {
