@@ -16,15 +16,15 @@ import { filter/*, map, mergeMap, pluck, skip, tap*/ } from 'rxjs/operators';
 export class FirebaseService {
   public auth: firebase.auth.Auth;
   public functions: firebase.functions.Functions;
+  public observable: Observable<boolean | Event>;
 
   /** Firebase SDK の設定 */
   constructor() {
-    const observable = merge(
-        of(navigator.onLine),
-        fromEvent(window, 'online'))
-          .pipe(filter(x => (x !== false)));
+    this.observable = merge(
+        of(navigator.onLine), fromEvent(window, 'online'))
+            .pipe(filter(x => (x !== false)));
 
-    observable.subscribe(() => {
+    this.observable.subscribe(() => {
       firebase.initializeApp(firebaseConfig);
       this.auth = firebase.auth();
       this.functions = firebase.functions();
