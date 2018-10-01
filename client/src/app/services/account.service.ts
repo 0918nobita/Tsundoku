@@ -65,25 +65,6 @@ export class AccountService {
         return null;
       });
 
-  /*register = (email: string, password: string): Promise<boolean> =>
-    new Promise(async (resolve, reject) => {
-      if (this.isLoggedIn() === true) reject();
-      await this.auth.createUserWithEmailAndPassword(email, password)
-        .then(async result => {
-          const hitUser = await this.getUserByUID(result.user.uid);
-          if (hitUser !== null) {
-            this.myself = hitUser;
-            resolve(true);
-          } else {
-            // TODO: Firestore 側で uid でユーザーを検索してヒットしなかった場合の挙動を決める
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          reject(false);
-        });
-    });*/
-
   login = (email: string, password: string): Promise<void> =>
     new Promise(async (resolve, reject) => {
       if (this.auth.currentUser) resolve();
