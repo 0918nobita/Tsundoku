@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
 
-import { RegisteredBook } from 'shared/entity';
+import { RegisteredBook, User } from 'shared/entity';
 import { AccountService } from '../services/account.service';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -24,14 +24,15 @@ export class BookshelfComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*this.accountService.afterLogin((_, user) => {
-      this.getBookshelf(user.name)
-        .then(result => {
-          $('app-now-loading').hide();
-          this.registeredBooks = result;
-        })
-        .catch(error => console.log(error));
-    });*/
+    this.accountService.loginSubject.subscribe(async (user: User) => {
+      try {
+        const result = await this.getBookshelf(user.name);
+        $('app-now-loading').hide();
+        this.registeredBooks = result;
+      } catch (error) {
+        console.error(error);
+      }
+    });
   }
 
   private async getBookshelf(name: string) {
