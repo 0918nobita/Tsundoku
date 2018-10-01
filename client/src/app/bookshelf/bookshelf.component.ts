@@ -34,9 +34,11 @@ export class BookshelfComponent implements OnInit {
     });*/
   }
 
-  private getBookshelf(name: string): Promise<RegisteredBook[]> {
-    return this.functions.httpsCallable('getBookshelf')(name)
-      .then(result => result.data)
-      .catch(error => error);
+  private async getBookshelf(name: string) {
+    try {
+      return (await this.functions.httpsCallable('getBookshelf')(name)).data;
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
