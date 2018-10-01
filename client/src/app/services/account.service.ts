@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
+import { Subject } from 'rxjs';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
@@ -12,11 +13,27 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User | null = null;
   private functions: firebase.functions.Functions;
+  public loginSubject: Subject<User> = new Subject();
   auth: firebase.auth.Auth;
 
   constructor(private router: Router,
               private firebaseService: FirebaseService) {
+    this.auth = this.firebaseService.auth;
+    this.functions = this.firebaseService.functions;
+
+    this.firebaseService.observable.subscribe(() => {
+      this.auth.onAuthStateChanged(async user => {
+        if (user) {
+          const account = await this.getUserByUID(user.uid);
+          if (account == null) await this.router.navigate(['/']);
+
+          this.myself = account;
+          this.loginSubject.next(<User> account);
+        } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
           await this.router.navigate(['/']);
+        }
+      });
+    });
   }
 
   private async getUserByUID(uid: string): Promise<User | null> {
