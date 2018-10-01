@@ -20,27 +20,25 @@ export class AccountService {
           await this.router.navigate(['/']);
   }
 
+  private async getUserByUID(uid: string): Promise<User | null> {
+    try {
+      const result = await this.functions.httpsCallable('getUserByUID')(uid);
+      const data = result.data;
+
+      if (data.length === 0) throw new Error();
+
+      return {
+        bio: data.bio,
+        image: data.image,
+        name: data.name,
+        screenName: data.screenName,
+        uid
+      };
+    } catch (error) {
+      console.error(error);
+      return null;
     }
-  private getUserByUID = (uid: string): Promise<User | null> =>
-    this.functions.httpsCallable('getUsersByUID')(uid)
-      .then(result => {
-        const data = result.data;
-        if (data.length > 0) {
-          return {
-            bio: data[0].bio,
-            image: data[0].image,
-            name: data[0].name,
-            screenName: data[0].screenName,
-            uid
-          };
-        } else {
-          return null;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        return null;
-      });
+  }
 
   async login(email: string, password: string) {
     try {
