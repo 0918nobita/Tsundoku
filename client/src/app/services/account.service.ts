@@ -12,7 +12,6 @@ import { FirebaseService } from './firebase.service';
 export class AccountService {
   private myself: User | null = null;
   private functions: firebase.functions.Functions;
-  private listeners: Array<(a: firebase.User, b: User) => any> = [];
   auth: firebase.auth.Auth;
 
   constructor(private router: Router,
