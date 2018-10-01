@@ -1,6 +1,5 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 
 import { AccountService } from './services/account.service';
 
