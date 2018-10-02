@@ -17,11 +17,10 @@ export class UserService {
   }
 
   async getUserByUID(uid: string): Promise<User> {
-    try {
-      const result = await this.firebaseService.functions.httpsCallable('getUserByUID')(uid);
-      const data = result.data;
+    const result = await this.firebaseService.functions.httpsCallable('getUserByUID')(uid);
+    const data = result.data;
 
-      if (data.length === 0) throw new Error('ユーザーが見つかりません');
+    if (data.length === 0) throw new Error('ユーザーが見つかりません');
 
     return {
       bio: data.bio,
