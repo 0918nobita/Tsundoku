@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
@@ -18,14 +19,15 @@ export class AccountService {
   auth: firebase.auth.Auth;
 
   constructor(private router: Router,
-              private firebaseService: FirebaseService) {
+              private firebaseService: FirebaseService,
+              private userService: UserService) {
     this.auth = this.firebaseService.auth;
     this.functions = this.firebaseService.functions;
 
     this.firebaseService.observable.subscribe(() => {
       this.auth.onAuthStateChanged(async user => {
         if (user) {
-          const account = await this.getUserByUID(user.uid);
+          const account = await this.userService.getUserByUID(user.uid);
           if (account == null) await this.router.navigate(['/']);
 
           this.myself = account;
@@ -37,26 +39,6 @@ export class AccountService {
     });
   }
 
-  private async getUserByUID(uid: string): Promise<User | null> {
-    try {
-      const result = await this.functions.httpsCallable('getUserByUID')(uid);
-      const data = result.data;
-
-      if (data.length === 0) throw new Error();
-
-      return {
-        bio: data.bio,
-        image: data.image,
-        name: data.name,
-        screenName: data.screenName,
-        uid
-      };
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  }
-
   async login(email: string, password: string) {
     try {
       if (this.auth.currentUser) return;
@@ -65,7 +47,7 @@ export class AccountService {
 
       if (result == null || result.user == null) throw new Error();
 
-      const hitUser = await this.getUserByUID(result.user.uid);
+      const hitUser = await this.userService.getUserByUID(result.user.uid);
 
       if (hitUser !== null) {
         this.myself = hitUser;
