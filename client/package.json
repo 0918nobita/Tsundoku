@@ -18,6 +18,7 @@
     "@angular/common": "^6.1.4",
     "@angular/compiler": "^6.1.4",
     "@angular/core": "^6.1.4",
+    "@angular/fire": "^5.0.2",
     "@angular/forms": "^6.1.4",
     "@angular/http": "^6.1.4",
     "@angular/platform-browser": "^6.1.4",
