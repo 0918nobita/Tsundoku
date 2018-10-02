@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
 
 import { RegisteredBook, User } from 'shared/entity';
 import { AccountService } from '../services/account.service';
 import { FirebaseService } from '../services/firebase.service';
+import { Subscription } from 'rxjs';
 
 /** 積読本棚画面 */
 @Component({
@@ -12,11 +13,12 @@ import { FirebaseService } from '../services/firebase.service';
   templateUrl: './bookshelf.component.html',
   styleUrls: ['./bookshelf.component.css']
 })
-export class BookshelfComponent implements OnInit {
+export class BookshelfComponent implements OnInit, OnDestroy {
 
   registeredBooks: RegisteredBook[] = [];
 
-  public functions: firebase.functions.Functions;
+  private functions: firebase.functions.Functions;
+  private subscription: Subscription;
 
   constructor(private accountService: AccountService,
               private firebaseService: FirebaseService) {
@@ -24,7 +26,7 @@ export class BookshelfComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.accountService.loginSubject.subscribe(async (user: User) => {
+    this.subscription = this.accountService.login$.subscribe(async (user: User) => {
       try {
         const result = await this.getBookshelf(user.name);
         $('app-now-loading').hide();
@@ -33,6 +35,10 @@ export class BookshelfComponent implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private async getBookshelf(name: string) {

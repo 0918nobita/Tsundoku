@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router,
               private elementRef: ElementRef,
               private accountService: AccountService) {
-    this.accountService.loginSubject.subscribe(async () => {
+    this.accountService.login$.subscribe(async () => {
       if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
           await this.router.navigate(['/bookshelf']);
     });

@@ -13,7 +13,8 @@ import { Subject } from 'rxjs';
 export class AccountService {
   private myself: User | null = null;
   private functions: firebase.functions.Functions;
-  public loginSubject: Subject<User> = new Subject();
+  private loginSubject = new Subject<User>();
+  login$ = this.loginSubject.asObservable();
   auth: firebase.auth.Auth;
 
   constructor(private router: Router,
