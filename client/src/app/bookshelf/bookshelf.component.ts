@@ -30,7 +30,6 @@ export class BookshelfComponent implements OnInit, OnDestroy {
       if (user == null) return;
       try {
         const result = await this.getBookshelf(user.name);
-        console.log('result: ', result);
         $('app-now-loading').hide();
         this.registeredBooks = result;
       } catch (error) {
