@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 import * as $ from 'jquery';
+import { FirebaseFunctions } from '@angular/fire';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { RegisteredBook, User } from 'shared/entity';
 import { AccountService } from '../services/account.service';
-import { FirebaseService } from '../services/firebase.service';
 import { Subscription } from 'rxjs';
 
 /** 積読本棚画面 */
@@ -17,12 +17,12 @@ export class BookshelfComponent implements OnInit, OnDestroy {
 
   registeredBooks: RegisteredBook[] = [];
 
-  private functions: firebase.functions.Functions;
+  private functions: FirebaseFunctions;
   private subscription: Subscription;
 
   constructor(private accountService: AccountService,
-              private firebaseService: FirebaseService) {
-    this.functions = this.firebaseService.functions;
+              private afFunctions: AngularFireFunctions) {
+    this.functions = this.afFunctions.functions;
   }
 
   ngOnInit() {
@@ -30,6 +30,7 @@ export class BookshelfComponent implements OnInit, OnDestroy {
       if (user == null) return;
       try {
         const result = await this.getBookshelf(user.name);
+        console.log('result: ', result);
         $('app-now-loading').hide();
         this.registeredBooks = result;
       } catch (error) {
@@ -43,10 +44,6 @@ export class BookshelfComponent implements OnInit, OnDestroy {
   }
 
   private async getBookshelf(name: string) {
-    try {
-      return (await this.functions.httpsCallable('getBookshelf')(name)).data;
-    } catch (error) {
-      console.error(error);
-    }
+    return (await this.functions.httpsCallable('getBookshelf')(name)).data;
   }
 }
