@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import Dexie from 'dexie';
-import * as firebase from 'firebase';
 
 import { ResolvedBook } from 'shared/entity';
 import { DexieService } from './dexie.service';
-import { FirebaseService } from './firebase.service';
+import { FirebaseFunctions } from '@angular/fire';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private functions: firebase.functions.Functions;
+  private functions: FirebaseFunctions;
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
   constructor(private dexieService: DexieService,
-              private firebaseService: FirebaseService) {
-    this.functions = this.firebaseService.functions;
+              private afFunctions: AngularFireFunctions) {
+    this.functions = this.afFunctions.functions;
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
