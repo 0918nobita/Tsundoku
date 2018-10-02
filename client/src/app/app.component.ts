@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AccountService } from './services/account.service';
+import { User } from 'shared/entity';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router,
               private elementRef: ElementRef,
               private accountService: AccountService) {
-    this.accountService.login$.subscribe(async () => {
+    this.accountService.login$.subscribe(async (user: User | null): Promise<void> => {
+      if (user == null) return;
       if (['/', '/login', '/register'].indexOf(location.pathname) !== -1)
           await this.router.navigate(['/bookshelf']);
     });

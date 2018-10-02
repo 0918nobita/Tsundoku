@@ -26,7 +26,8 @@ export class BookshelfComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.accountService.login$.subscribe(async (user: User) => {
+    this.subscription = this.accountService.login$.subscribe(async (user: User | null): Promise<void> => {
+      if (user == null) return;
       try {
         const result = await this.getBookshelf(user.name);
         $('app-now-loading').hide();

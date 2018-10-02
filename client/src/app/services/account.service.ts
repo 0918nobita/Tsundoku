@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
 export class AccountService {
   private myself: User | null = null;
   private functions: firebase.functions.Functions;
-  private loginSubject = new Subject<User>();
+  private loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
   auth: firebase.auth.Auth;
 
