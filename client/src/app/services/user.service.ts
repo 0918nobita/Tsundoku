@@ -10,14 +10,10 @@ export class UserService {
   constructor(private firebaseService: FirebaseService) {}
 
   async getUserByName(name: string): Promise<User> {
-    try {
-      const response =
-          await this.firebaseService.functions.httpsCallable('getUserByName')(name);
-      if (response.data !== null) return <User> response.data;
-      throw new Error('ユーザーが見つかりません');
-    } catch (error) {
-      throw new Error(error);
-    }
+    const response =
+        await this.firebaseService.functions.httpsCallable('getUserByName')(name);
+    if (response.data === null) throw new Error('ユーザーが見つかりません');
+    return <User> response.data;
   }
 
   async getUserByUID(uid: string): Promise<User> {
@@ -27,15 +23,12 @@ export class UserService {
 
       if (data.length === 0) throw new Error('ユーザーが見つかりません');
 
-      return {
-        bio: data.bio,
-        image: data.image,
-        name: data.name,
-        screenName: data.screenName,
-        uid
-      };
-    } catch (error) {
-      throw new Error(error);
-    }
+    return {
+      bio: data.bio,
+      image: data.image,
+      name: data.name,
+      screenName: data.screenName,
+      uid
+    };
   }
 }
