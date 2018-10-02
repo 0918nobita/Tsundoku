@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { User } from 'shared/entity';
-import { FirebaseService } from './firebase.service';
 import { BehaviorSubject } from 'rxjs';
-import { UserService } from './user.service';
 import { FirebaseAuth, FirebaseFunctions } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
+
+import { User } from 'shared/entity';
+import { FirebaseService } from './firebase.service';
+import { UserService } from './user.service';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
