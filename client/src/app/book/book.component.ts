@@ -22,13 +22,12 @@ export class BookComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    if (this.favorite === true) {
-      $('#star' + this.isbn).css('display', 'block');
-    }
+    if (this.favorite)
+        $('#star' + this.isbn).css('display', 'block');
   }
 
   /** 本の詳細ページに遷移する */
-  show() {
-    this.router.navigate([`/bookDetails/${this.isbn}`]);
+  async show() {
+    await this.router.navigate([`/bookDetails/${this.isbn}`]);
   }
 }
