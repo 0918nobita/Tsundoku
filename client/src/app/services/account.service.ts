@@ -31,7 +31,7 @@ export class AccountService {
           this.myself = account;
           this.loginSubject.next(<User> account);
         } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
-          await this.router.navigate(['/']);
+          await this.router.navigate(['/login']);
         }
       });
     });
