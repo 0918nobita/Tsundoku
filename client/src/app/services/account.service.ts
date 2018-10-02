@@ -15,10 +15,10 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 })
 export class AccountService {
   private myself: User | null = null;
+  private auth: FirebaseAuth;
   private functions: FirebaseFunctions;
   private loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
-  auth: FirebaseAuth;
 
   constructor(private router: Router,
               private firebaseService: FirebaseService,
