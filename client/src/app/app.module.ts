@@ -6,6 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import 'bootstrap';
 
@@ -67,6 +68,7 @@ export const AppRoutes = [
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFireFunctionsModule
   ],
   providers: [
