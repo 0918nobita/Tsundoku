@@ -39,13 +39,13 @@ export class AccountService {
     });
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string): Promise<void> {
     try {
       if (this.auth.currentUser) return;
 
       const result = await this.auth.signInWithEmailAndPassword(email, password);
 
-      if (result == null || result.user == null) throw new Error();
+      if (result == null || result.user == null) throw new Error('ログインに失敗しました');
 
       const hitUser = await this.userService.getUserByUID(result.user.uid);
 

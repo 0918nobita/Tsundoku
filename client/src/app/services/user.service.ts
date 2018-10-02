@@ -9,7 +9,7 @@ import { FirebaseService } from './firebase.service';
 export class UserService {
   constructor(private firebaseService: FirebaseService) {}
 
-  async getUserByName(name: string) {
+  async getUserByName(name: string): Promise<User> {
     try {
       const response =
           await this.firebaseService.functions.httpsCallable('getUserByName')(name);
