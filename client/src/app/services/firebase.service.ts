@@ -14,8 +14,6 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class FirebaseService {
-  public auth: firebase.auth.Auth;
-  public functions: firebase.functions.Functions;
   public observable: Observable<boolean | Event>;
 
   /** Firebase SDK の設定 */
@@ -26,8 +24,6 @@ export class FirebaseService {
 
     this.observable.subscribe(() => {
       firebase.initializeApp(firebaseConfig);
-      this.auth = firebase.auth();
-      this.functions = firebase.functions();
     });
   }
 }
