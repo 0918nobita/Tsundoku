@@ -40,25 +40,18 @@ export class AccountService {
   }
 
   async login(email: string, password: string): Promise<void> {
-    try {
-      if (this.auth.currentUser) return;
+    if (this.auth.currentUser) return;
 
-      const result = await this.auth.signInWithEmailAndPassword(email, password);
+    const result = await this.auth.signInWithEmailAndPassword(email, password);
 
-      if (result == null || result.user == null) throw new Error('ログインに失敗しました');
+    if (result == null || result.user == null) throw new Error('ログインに失敗しました');
 
-      const hitUser = await this.userService.getUserByUID(result.user.uid);
+    const hitUser = await this.userService.getUserByUID(result.user.uid);
 
-      if (hitUser !== null) {
-        this.myself = hitUser;
-        localStorage.setItem('myself', JSON.stringify(hitUser));
-        return;
-      }
+    if (hitUser === null) throw new Error('指定した UID に対応するユーザーが見つかりません');
 
-      throw new Error();
-    } catch (error) {
-      console.error(error);
-    }
+    this.myself = hitUser;
+    localStorage.setItem('myself', JSON.stringify(hitUser));
   }
 
   get uid() { return this.myself && this.myself.uid; }
