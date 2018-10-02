@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
 
 import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
 import { BehaviorSubject } from 'rxjs';
 import { UserService } from './user.service';
+import { FirebaseAuth, FirebaseFunctions } from '@angular/fire';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
@@ -13,16 +15,18 @@ import { UserService } from './user.service';
 })
 export class AccountService {
   private myself: User | null = null;
-  private functions: firebase.functions.Functions;
+  private functions: FirebaseFunctions;
   private loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
-  auth: firebase.auth.Auth;
+  auth: FirebaseAuth;
 
   constructor(private router: Router,
               private firebaseService: FirebaseService,
-              private userService: UserService) {
-    this.auth = this.firebaseService.auth;
-    this.functions = this.firebaseService.functions;
+              private userService: UserService,
+              private afAuth: AngularFireAuth,
+              private afFunctions: AngularFireFunctions) {
+    this.auth = this.afAuth.auth;
+    this.functions = this.afFunctions.functions;
 
     this.firebaseService.observable.subscribe(() => {
       this.auth.onAuthStateChanged(async user => {
