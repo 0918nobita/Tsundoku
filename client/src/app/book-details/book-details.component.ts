@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { Record } from 'shared/entity';
 import { BookService } from '../services/book.service';
-import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-book-details',
@@ -21,7 +21,7 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private bookService: BookService,
-              private firebaseService: FirebaseService) {}
+              private afFunctions: AngularFireFunctions) {}
 
   async ngOnInit() {
 
@@ -46,6 +46,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   private getRecordsByISBN = (isbn: string) =>
-    this.firebaseService.functions.httpsCallable('getRecordsByISBN')(isbn)
+    this.afFunctions.functions.httpsCallable('getRecordsByISBN')(isbn)
       .then(result => result.data)
 }
