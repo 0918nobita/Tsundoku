@@ -9,6 +9,10 @@ import { User } from 'shared/entity';
 import { FirebaseService } from './firebase.service';
 import { UserService } from './user.service';
 
+export enum AccountState {
+  INITIAL, LOGGED_IN
+}
+
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
   providedIn: 'root'
