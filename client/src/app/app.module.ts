@@ -39,11 +39,11 @@ export const AppRoutes = [
     { path: '', component: TopComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'timeline', component: TimelineComponent }
     { path: 'search', component: SearchComponent, canActivate: [ AuthGuard ] },
     { path: 'bookshelf', component: BookshelfComponent, canActivate: [ AuthGuard ] },
     { path: 'bookDetails/:isbn', component: BookDetailsComponent, canActivate: [ AuthGuard ] },
     { path: 'profile/:name', component: ProfileComponent, canActivate: [ AuthGuard ] },
+    { path: 'timeline', component: TimelineComponent, canActivate: [ AuthGuard ] }
 ];
 
 @NgModule({
