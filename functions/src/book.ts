@@ -24,8 +24,7 @@ const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
           pageCount: volumeInfo.pageCount
         }));
 
-        for (let i = 0; i < response.length; i++)
-            await _postResolvedBook(db)(response[i]);
+        for (const item of response) await _postResolvedBook(db)(item);
       }
 
       return response;
