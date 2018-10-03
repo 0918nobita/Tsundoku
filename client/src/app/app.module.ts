@@ -77,7 +77,8 @@ export const AppRoutes = [
     DexieService,
     AccountService,
     BookService,
-    UserService
+    UserService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })
