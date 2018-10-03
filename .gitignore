@@ -2,8 +2,11 @@ client/src/app/config.ts
 client/coverage
 .firebase/
 docs/
+
 client/.idea/*
 !runConfigurations
+
+functions/.idea/*
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
