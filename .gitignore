@@ -2,6 +2,8 @@ client/src/app/config.ts
 client/coverage
 .firebase/
 docs/
+client/.idea/*
+!runConfigurations
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -14,7 +16,6 @@ dist
 node_modules
 
 # IDEs and editors
-.idea
 .project
 .classpath
 .c9/
