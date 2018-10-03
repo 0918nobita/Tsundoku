@@ -8,30 +8,28 @@ export const _postResolvedBook = (db: FirebaseFirestore.Firestore) =>
       return (await db.collection('resolvedBook').add(resolvedBook)).id;
     };
 
-// GoogleBooksAPI を用いて、ISBN で本を検索する
 const searchBooksUsingGoogleBooksAPI = (db: FirebaseFirestore.Firestore) =>
-  (clue: string): Promise<ResolvedBook[]> =>
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${clue}&key=${apiKey}&country=JP`)
-      .then(async result => {
-        let response: Array<ResolvedBook> = [];
-        if (result.data.totalItems > 0) {
-          response = result.data.items.map(({ volumeInfo }): ResolvedBook => ({
-            desc: volumeInfo.description,
-            donor: 'none',
-            image: (volumeInfo.imageLinks !== void 0) ?
-                `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
-                './assets/image_not_found.png',
-            isbn: clue,
-            title: volumeInfo.title,
-            pageCount: volumeInfo.pageCount
-          }));
+    async (clue: string): Promise<ResolvedBook[]> => {
+      const result = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${clue}&key=${apiKey}&country=JP`);
+      let response: ResolvedBook[] = [];
+      if (result.data.totalItems > 0) {
+        response = result.data.items.map(({ volumeInfo }): ResolvedBook => ({
+          desc: volumeInfo.description,
+          donor: 'none',
+          image: (volumeInfo.imageLinks !== void 0) ?
+              `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}` :
+              './assets/image_not_found.png',
+          isbn: clue,
+          title: volumeInfo.title,
+          pageCount: volumeInfo.pageCount
+        }));
 
-          for (let i = 0; i < response.length; i++)
+        for (let i = 0; i < response.length; i++)
             await _postResolvedBook(db)(response[i]);
-        }
-        return response;
-      })
-      .catch(error => error);
+      }
+
+      return response;
+    };
 
 // resolvedBooks コレクションで本を検索する
 export const _searchBooksByISBN = (db: FirebaseFirestore.Firestore) =>
