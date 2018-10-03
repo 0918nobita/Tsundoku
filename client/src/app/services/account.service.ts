@@ -20,7 +20,7 @@ export enum AccountState {
 export class AccountService {
   private auth: FirebaseAuth;
   private functions: FirebaseFunctions;
-  private loginSubject = new BehaviorSubject<User | null>(null);
+  loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
   state: AccountState = AccountState.INITIAL;
 
