@@ -2,12 +2,12 @@ import { User } from '../../shared/entity';
 import { _getUserBy } from './user';
 
 export const _checkConnectionFrom = (db: FirebaseFirestore.Firestore) =>
-  (args: {name: string, to: string}) =>
-    db.collection('connections')
-      .where('from', '==', args.name)
-      .where('to', '==', args.to)
-      .get()
-      .then(querySnapshot => querySnapshot.size > 0);
+    async (args: {name: string, to: string}) => {
+      return (await db.collection('connections')
+          .where('from', '==', args.name)
+          .where('to', '==', args.to)
+          .get()).size > 0;
+    };
 
 export const _getUsersConnectedFrom = (db: FirebaseFirestore.Firestore) =>
   (name: string) => new Promise(async (resolve: (value: User[]) => void,
