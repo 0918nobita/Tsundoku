@@ -18,7 +18,6 @@ export enum AccountState {
   providedIn: 'root'
 })
 export class AccountService {
-  private myself: User | null = null;
   private auth: FirebaseAuth;
   private functions: FirebaseFunctions;
   private loginSubject = new BehaviorSubject<User | null>(null);
@@ -39,7 +38,6 @@ export class AccountService {
           const account = await this.userService.getUserByUID(user.uid);
           if (account == null) await this.router.navigate(['/']);
 
-          this.myself = account;
           this.loginSubject.next(<User> account);
           this.state = AccountState.LOGGED_IN;
         } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
@@ -60,19 +58,17 @@ export class AccountService {
 
     if (hitUser === null) throw new Error('指定した UID に対応するユーザーが見つかりません');
 
-    this.myself = hitUser;
     localStorage.setItem('myself', JSON.stringify(hitUser));
-
     this.state = AccountState.LOGGED_IN;
   }
 
-  get uid() { return this.myself && this.myself.uid; }
+  get uid() { return this.loginSubject.value && this.loginSubject.value.uid; }
 
-  get name() { return this.myself && this.myself.name; }
+  get name() { return this.loginSubject.value && this.loginSubject.value.name; }
 
-  get screenName() { return this.myself && this.myself.screenName; }
+  get screenName() { return this.loginSubject.value && this.loginSubject.value.screenName; }
 
-  get image() { return this.myself && this.myself.image; }
+  get image() { return this.loginSubject.value && this.loginSubject.value.image; }
 
-  get bio() { return this.myself && this.myself.bio; }
+  get bio() { return this.loginSubject.value && this.loginSubject.value.bio; }
 }
