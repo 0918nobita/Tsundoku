@@ -29,7 +29,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
 import { AccountService } from './services/account.service';
 import { BookService } from './services/book.service';
 import { DexieService } from './services/dexie.service';
-import { NetworkService } from './services/firebase.service';
+import { NetworkService } from './services/network.service';
 import { UserService } from './services/user.service';
 
 import { AuthGuard } from './guard/auth.guard';

@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { User } from 'shared/entity';
-import { NetworkService } from './firebase.service';
+import { NetworkService } from './network.service';
 import { UserService } from './user.service';
 
 export enum AccountState {
