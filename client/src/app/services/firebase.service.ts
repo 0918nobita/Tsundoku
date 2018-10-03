@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseService {
+export class NetworkService {
   public observable: Observable<boolean | Event>;
 
   /** Firebase SDK の設定 */

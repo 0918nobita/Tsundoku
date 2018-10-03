@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { User } from 'shared/entity';
-import { FirebaseService } from './firebase.service';
+import { NetworkService } from './firebase.service';
 import { UserService } from './user.service';
 
 export enum AccountState {
@@ -26,14 +26,14 @@ export class AccountService {
   state: AccountState = AccountState.INITIAL;
 
   constructor(private router: Router,
-              private firebaseService: FirebaseService,
+              private networkService: NetworkService,
               private userService: UserService,
               private afAuth: AngularFireAuth,
               private afFunctions: AngularFireFunctions) {
     this.auth = this.afAuth.auth;
     this.functions = this.afFunctions.functions;
 
-    this.firebaseService.observable.subscribe(() => {
+    this.networkService.observable.subscribe(() => {
       this.auth.onAuthStateChanged(async user => {
         if (user) {
           const account = await this.userService.getUserByUID(user.uid);
