@@ -9,10 +9,6 @@ import { User } from 'shared/entity';
 import { NetworkService } from './network.service';
 import { UserService } from './user.service';
 
-export enum AccountState {
-  INITIAL, LOGGED_IN
-}
-
 /** 登録 / ログイン / ログアウト / 退会処理, ログイン中のアカウントの情報の保持 を担当する */
 @Injectable({
   providedIn: 'root'
@@ -22,7 +18,6 @@ export class AccountService {
   private functions: FirebaseFunctions;
   loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
-  state: AccountState = AccountState.INITIAL;
 
   constructor(private router: Router,
               private networkService: NetworkService,
@@ -36,10 +31,10 @@ export class AccountService {
       this.auth.onAuthStateChanged(async user => {
         if (user) {
           const account = await this.userService.getUserByUID(user.uid);
+
           if (account == null) await this.router.navigate(['/']);
 
           this.loginSubject.next(<User> account);
-          this.state = AccountState.LOGGED_IN;
         } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
           await this.router.navigate(['/login']);
         }
@@ -59,7 +54,6 @@ export class AccountService {
     if (hitUser === null) throw new Error('指定した UID に対応するユーザーが見つかりません');
 
     localStorage.setItem('myself', JSON.stringify(hitUser));
-    this.state = AccountState.LOGGED_IN;
   }
 
   get uid() { return this.loginSubject.value && this.loginSubject.value.uid; }
