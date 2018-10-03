@@ -23,6 +23,7 @@ export class AccountService {
   private functions: FirebaseFunctions;
   private loginSubject = new BehaviorSubject<User | null>(null);
   login$ = this.loginSubject.asObservable();
+  state: AccountState = AccountState.INITIAL;
 
   constructor(private router: Router,
               private firebaseService: FirebaseService,
@@ -40,6 +41,7 @@ export class AccountService {
 
           this.myself = account;
           this.loginSubject.next(<User> account);
+          this.state = AccountState.LOGGED_IN;
         } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
           await this.router.navigate(['/login']);
         }
@@ -60,6 +62,8 @@ export class AccountService {
 
     this.myself = hitUser;
     localStorage.setItem('myself', JSON.stringify(hitUser));
+
+    this.state = AccountState.LOGGED_IN;
   }
 
   get uid() { return this.myself && this.myself.uid; }
