@@ -32,6 +32,8 @@ import { DexieService } from './services/dexie.service';
 import { FirebaseService } from './services/firebase.service';
 import { UserService } from './services/user.service';
 
+import { AuthGuard } from './guard/auth.guard';
+
 // ルーティングの設定
 export const AppRoutes = [
     { path: '', component: TopComponent },
@@ -78,7 +80,8 @@ export const AppRoutes = [
     AccountService,
     BookService,
     UserService,
-    BookService
+    BookService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
