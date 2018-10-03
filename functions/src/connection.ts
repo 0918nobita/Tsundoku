@@ -10,27 +10,16 @@ export const _checkConnectionFrom = (db: FirebaseFirestore.Firestore) =>
     };
 
 export const _getUsersConnectedFrom = (db: FirebaseFirestore.Firestore) =>
-  (name: string) => new Promise(async (resolve: (value: User[]) => void,
-                                       reject:  (reason?: any)  => void) => {
-    try {
+    async (name: string) => {
       const users: User[] = [];
-      const names = await db.collection('connections')
-        .where('from', '==', name)
-        .get()
-        .then(querySnapshot => {
-          const response: string[] = [];
+      const querySnapshot = await db.collection('connections')
+          .where('from', '==', name)
+          .get();
+      const names: string[] = [];
 
-          for (let i = 0; i < querySnapshot.size; i++)
-            response.push(querySnapshot.docs[i].data().to);
+      for (const doc of querySnapshot.docs) names.push(doc.data().to);
 
-          return response;
-        });
+      for (const name of names) users.concat(await _getUserBy('name', db)(name));
 
-      for (let i = 0; i < names.length; i++)
-        users.concat(await _getUserBy('name', db)(names[i]));
-
-      resolve(users);
-    } catch(error) {
-      reject(error);
-    }
-  });
+      return users;
+    };
