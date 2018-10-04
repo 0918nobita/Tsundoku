@@ -25,7 +25,7 @@ export class BookService {
     if (localBooks.length > 0) {
       return localBooks[0];
     } else if (navigator.onLine) {
-      return await this.searchBookOnline(isbn);
+      return await this.getBookOnline(isbn);
     } else {
       throw new Error('オフライン状態なので、検索ができませんでした');
     }
@@ -36,7 +36,7 @@ export class BookService {
         {isbn: clue, usingGoogleBooksAPI: false})).data;
   }
 
-  private async searchBookOnline(isbn: string): Promise<ResolvedBook> {
+  private async getBookOnline(isbn: string): Promise<ResolvedBook> {
     const result = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
 
     let hitBooks: ResolvedBook[] = [];
