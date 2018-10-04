@@ -20,15 +20,14 @@ export class BookService {
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
-  async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
+  async getBookByISBN(isbn: string): Promise<ResolvedBook> {
     const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
     if (localBooks.length > 0) {
       return localBooks[0];
     } else if (navigator.onLine) {
       return await this.searchBookOnline(isbn);
     } else {
-      console.log('オフライン状態なので、検索ができませんでした');
-      return null;
+      throw new Error('オフライン状態なので、検索ができませんでした');
     }
   }
 
