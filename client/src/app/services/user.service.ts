@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { take } from 'rxjs/operators';
 
 import { User } from 'shared/entity';
 
@@ -22,7 +23,7 @@ export class UserService {
   async getUserByUID(uid: string): Promise<User | null> {
     const result = await this.afFirestore
         .collection<User>('users', ref => ref.where('uid', '==', uid))
-        .valueChanges()
+        .valueChanges().pipe(take(1))
         .toPromise();
     return (result.length > 0) ? {
       bio: result[0].bio,
