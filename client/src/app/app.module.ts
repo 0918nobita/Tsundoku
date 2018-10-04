@@ -31,6 +31,7 @@ import { BookService } from './services/book.service';
 import { DexieService } from './services/dexie.service';
 import { NetworkService } from './services/network.service';
 import { UserService } from './services/user.service';
+import { RecordService } from './services/record.service';
 
 import { AuthGuard } from './guard/auth.guard';
 
@@ -81,6 +82,7 @@ export const AppRoutes = [
     BookService,
     UserService,
     BookService,
+    RecordService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
