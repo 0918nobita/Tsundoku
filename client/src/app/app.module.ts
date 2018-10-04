@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import 'bootstrap';
 
 import { environment } from '../environments/environment';
@@ -72,7 +73,8 @@ export const AppRoutes = [
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    AngularFirestoreModule
   ],
   providers: [
     // FirebaseService のインスタンスを、アプリ全体で共有されるサービスとして登録する
