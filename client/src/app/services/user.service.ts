@@ -20,17 +20,18 @@ export class UserService {
     return <User> response.data;
   }
 
-  async getUserByUID(uid: string): Promise<User | null> {
+  async getUserByUID(uid: string): Promise<User> {
     const result = await this.afFirestore
         .collection<User>('users', ref => ref.where('uid', '==', uid))
         .valueChanges().pipe(take(1))
         .toPromise();
-    return (result.length > 0) ? {
+    if (result.length === 0) throw new Error('ユーザーが見つかりません');
+    return {
       bio: result[0].bio,
       image: result[0].image,
       name: result[0].name,
       screenName: result[0].screenName,
       uid
-    } : null;
+    };
   }
 }
