@@ -36,7 +36,7 @@ export class BookService {
         {isbn: clue, usingGoogleBooksAPI: false})).data;
   }
 
-  private async searchBookOnline(isbn: string): Promise<ResolvedBook | null> {
+  private async searchBookOnline(isbn: string): Promise<ResolvedBook> {
     const result = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
 
     let hitBooks: ResolvedBook[] = [];
@@ -71,7 +71,7 @@ export class BookService {
       await this.resolvedBooks.add(hitBooks[0]);
       return hitBooks[0];
     } else {
-      return null;
+      throw new Error('本がヒットしませんでした');
     }
   }
 }
