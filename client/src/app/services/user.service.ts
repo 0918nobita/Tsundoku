@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { User } from 'shared/entity';
 
@@ -7,7 +8,9 @@ import { User } from 'shared/entity';
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private afFunctions: AngularFireFunctions) {}
+  constructor(private afFunctions: AngularFireFunctions,
+              private afFirestore: AngularFirestore) {
+  }
 
   async getUserByName(name: string): Promise<User> {
     const response =
@@ -16,18 +19,17 @@ export class UserService {
     return <User> response.data;
   }
 
-  async getUserByUID(uid: string): Promise<User> {
-    const result = await this.afFunctions.functions.httpsCallable('getUserByUID')(uid);
-    const data = result.data;
-
-    if (data.length === 0) throw new Error('ユーザーが見つかりません');
-
-    return {
-      bio: data.bio,
-      image: data.image,
-      name: data.name,
-      screenName: data.screenName,
+  async getUserByUID(uid: string): Promise<User | null> {
+    const result = await this.afFirestore
+        .collection<User>('users', ref => ref.where('uid', '==', uid))
+        .valueChanges()
+        .toPromise();
+    return (result.length > 0) ? {
+      bio: result[0].bio,
+      image: result[0].image,
+      name: result[0].name,
+      screenName: result[0].screenName,
       uid
-    };
+    } : null;
   }
 }
