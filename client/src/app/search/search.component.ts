@@ -18,19 +18,18 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  search(isbn: string) {
+  async search(isbn: string) {
     if ((isbn.length !== 10) && (isbn.length !== 13)) {
       $('#errorModal').modal();
       return;
     }
 
-    this.bookService.getBookByISBN(isbn)
-      .then(result => {
-        if (result === null) return;
-
-        this.hitBooks.pop();
-        this.hitBooks.push(result);
-      })
-      .catch(error => console.log(error));
+    try {
+      const result = await this.bookService.getBookByISBN(isbn);
+      this.hitBooks.pop();
+      this.hitBooks.push(result);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
