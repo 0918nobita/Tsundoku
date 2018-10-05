@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {flatMap, map, tap } from 'rxjs/operators';
+import { flatMap } from 'rxjs/operators';
 
 import { RegisteredBook } from 'shared/entity';
 import { BookService } from './book.service';
-import { Progress } from 'shared/progress';
 
 @Injectable({
   providedIn: 'root'
