@@ -1,15 +1,14 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AccountService } from './services/account.service';
 import { User } from 'shared/entity';
+import { AccountService } from './services/account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent implements AfterViewInit {
   constructor(private router: Router,
               private elementRef: ElementRef,
