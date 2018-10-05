@@ -10,8 +10,7 @@ import { User } from 'shared/entity';
 })
 export class UserService {
   constructor(private afFunctions: AngularFireFunctions,
-              private afFirestore: AngularFirestore) {
-  }
+              private afFirestore: AngularFirestore) {}
 
   async getUserByName(name: string): Promise<User> {
     const result = await this.afFirestore
@@ -30,8 +29,7 @@ export class UserService {
   async getUserByUID(uid: string): Promise<User> {
     const result = await this.afFirestore
         .collection<User>('users', ref => ref.where('uid', '==', uid))
-        .valueChanges().pipe(take(1))
-        .toPromise();
+        .valueChanges().pipe(take(1)).toPromise();
     if (result.length === 0) throw new Error('ユーザーが見つかりません');
     return {
       bio: result[0].bio,
