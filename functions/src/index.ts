@@ -10,7 +10,6 @@ admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
-export const getUserByUID = functions.https.onCall(_getUserBy('uid', db));
 export const getUserByName = functions.https.onCall(_getUserBy('name', db));
 
 export const checkConnectionFrom = functions.https.onCall(_checkConnectionFrom(db));
