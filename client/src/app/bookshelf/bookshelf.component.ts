@@ -1,11 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { FirebaseFunctions } from '@angular/fire';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { take } from 'rxjs/operators';
 
-import { RegisteredBook, User } from 'shared/entity';
+import { RegisteredBook } from 'shared/entity';
 import { AccountService } from '../services/account.service';
-import { Subscription } from 'rxjs';
+import { BookshelfService } from '../services/bookshelf.service';
 
 /** 積読本棚画面 */
 @Component({
@@ -13,36 +14,30 @@ import { Subscription } from 'rxjs';
   templateUrl: './bookshelf.component.html',
   styleUrls: ['./bookshelf.component.css']
 })
-export class BookshelfComponent implements OnInit, OnDestroy {
+export class BookshelfComponent implements OnInit {
 
   registeredBooks: RegisteredBook[] = [];
 
   private functions: FirebaseFunctions;
-  private subscription: Subscription;
 
   constructor(private accountService: AccountService,
+              private bookshelfService: BookshelfService,
               private afFunctions: AngularFireFunctions) {
     this.functions = this.afFunctions.functions;
   }
 
   ngOnInit() {
-    this.subscription = this.accountService.login$.subscribe(async (user: User | null): Promise<void> => {
-      if (user == null) return;
-      try {
-        const result = await this.getBookshelf(user.name);
-        $('app-now-loading').hide();
-        this.registeredBooks = result;
-      } catch (error) {
-        console.error(error);
-      }
+    const user = this.accountService.loginSubject.value;
+    if (user == null) return;
+    const getBookshelf$ = this.bookshelfService.getBookshelf(user.name);
+
+    getBookshelf$.pipe(take(1)).subscribe(() => {
+      $('app-now-loading').hide();
     });
-  }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  private async getBookshelf(name: string) {
-    return (await this.functions.httpsCallable('getBookshelf')(name)).data;
+    getBookshelf$.subscribe(book => {
+      if (this.registeredBooks.indexOf(book) === -1)
+          this.registeredBooks.push(book);
+    });
   }
 }
