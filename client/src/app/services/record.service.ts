@@ -27,11 +27,8 @@ export class RecordService {
         .valueChanges()
         .pipe(
             map(records => records.map(record => (<Record> {
-              created: record.created,
-              desc: record.desc,
-              isbn: record.isbn,
-              range: Progress.parse(record.range),
-              user: record.user
+              ...record,
+              range: Progress.parse(record.range)
             }))));
   }
 }
