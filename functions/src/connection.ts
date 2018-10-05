@@ -1,5 +1,5 @@
 import { User } from '../../shared/entity';
-import { _getUserBy } from './user';
+import { getUserBy } from './user';
 
 export const _checkConnectionFrom = (db: FirebaseFirestore.Firestore) =>
     async (args: {name: string, to: string}) => {
@@ -19,7 +19,7 @@ export const _getUsersConnectedFrom = (db: FirebaseFirestore.Firestore) =>
 
       for (const doc of querySnapshot.docs) names.push(doc.data().to);
 
-      for (const name of names) users.concat(await _getUserBy('name', db)(name));
+      for (const name of names) users.concat(await getUserBy('name', db)(name));
 
       return users;
     };
