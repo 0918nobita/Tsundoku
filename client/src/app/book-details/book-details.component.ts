@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { Record } from 'shared/entity';
 import { BookService } from '../services/book.service';
+import { RecordService } from '../services/record.service';
 
 @Component({
   selector: 'app-book-details',
@@ -21,7 +21,7 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private bookService: BookService,
-              private afFunctions: AngularFireFunctions) {}
+              private recordService: RecordService) {}
 
   async ngOnInit() {
 
@@ -39,13 +39,9 @@ export class BookDetailsComponent implements OnInit {
       this.image = book.image;
       this.pageCount = `ページ数: ${ book.pageCount }`;
 
-      this.records = await this.getRecordsByISBN(book.isbn);
+      this.records = await this.recordService.getRecordsByISBN(book.isbn);
     } catch (error) {
       console.error(error);
     }
   }
-
-  private getRecordsByISBN = (isbn: string) =>
-    this.afFunctions.functions.httpsCallable('getRecordsByISBN')(isbn)
-      .then(result => result.data)
 }
