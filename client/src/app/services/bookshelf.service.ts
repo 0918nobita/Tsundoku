@@ -22,15 +22,8 @@ export class BookshelfService {
                 from(x).pipe(flatMap(book =>
                     from(this.bookService.getBookByISBN(book.isbn)
                         .then(resolvedBook => <RegisteredBook> ({
-                          desc: resolvedBook.desc,
-                          donor: resolvedBook.donor,
-                          image: resolvedBook.image,
-                          isbn: book.isbn,
-                          title: resolvedBook.title,
-                          pageCount: resolvedBook.pageCount,
-                          deadline: book.deadline,
-                          favorite: book.favorite,
-                          progress: book.progress
+                          ...resolvedBook,
+                          ...book
                         })))))));
   }
 }
