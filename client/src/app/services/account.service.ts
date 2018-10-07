@@ -34,14 +34,12 @@ export class AccountService {
 
       this.auth.onAuthStateChanged(async user => {
         if (user) {
-          const account = await this.userService.getUserByUID(user.uid);
-
-          if (account == null) await this.router.navigate(['/']);
-
-          this.loginSubject.next(<User> account);
-        } else if (['/', '/login', '/register'].indexOf(location.pathname) === -1) {
-          await this.router.navigate(['/login']);
+          this.loginSubject.next(await this.userService.getUserByUID(user.uid));
+          return;
         }
+
+        if (['/', '/login', '/register'].indexOf(location.pathname) === -1)
+            await this.router.navigate(['/login']);
       });
     });
   }
