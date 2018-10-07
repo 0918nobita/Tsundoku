@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Record } from 'shared/entity';
 import { UserService } from '../services/user.service';
@@ -19,7 +20,8 @@ export class ProgressCardComponent implements OnInit {
   range: string;
   created: string;
 
-  constructor(private userService: UserService) {}
+  constructor(private router: Router,
+              private userService: UserService) {}
 
   async ngOnInit() {
 
@@ -45,5 +47,9 @@ export class ProgressCardComponent implements OnInit {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  linkToProfile() {
+    this.router.navigate([`/profile/${this.name}`]);
   }
 }
