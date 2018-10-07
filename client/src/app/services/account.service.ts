@@ -29,6 +29,8 @@ export class AccountService {
 
     this.networkService.observable.subscribe((online) => {
       if (!online) {
+        const myself = localStorage.getItem('myself');
+        if (myself !== null) this.loginSubject.next(<User> JSON.parse(myself));
         return;
       }
 
