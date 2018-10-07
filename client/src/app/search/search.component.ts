@@ -12,6 +12,7 @@ import { BookService } from '../services/book.service';
 
 export class SearchComponent implements OnInit {
 
+  isbn: string;
   hitBooks: ResolvedBook[] = [];
 
   constructor(private bookService: BookService) {}
