@@ -27,7 +27,11 @@ export class AccountService {
     this.auth = this.afAuth.auth;
     this.functions = this.afFunctions.functions;
 
-    this.networkService.observable.subscribe(() => {
+    this.networkService.observable.subscribe((online) => {
+      if (!online) {
+        return;
+      }
+
       this.auth.onAuthStateChanged(async user => {
         if (user) {
           const account = await this.userService.getUserByUID(user.uid);
