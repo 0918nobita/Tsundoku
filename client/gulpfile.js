@@ -1,11 +1,10 @@
 const gulp = require('gulp'),
-      typedoc = require('gulp-typedoc'),
-      browserSync = require('browser-sync').create();
+  typedoc = require('gulp-typedoc'),
+  browserSync = require('browser-sync').create();
 
 gulp.task('typedoc', () =>
-  gulp
-    .src(['./src/**/*.ts'])
-    .pipe(typedoc({
+  gulp.src(['./src/**/*.ts']).pipe(
+    typedoc({
       name: 'Tsundoku',
       module: 'commonjs',
       mode: 'modules',
@@ -13,7 +12,9 @@ gulp.task('typedoc', () =>
       out: './docs',
       tsconfig: 'tsconfig.json',
       experimentalDecorators: true
-    })));
+    })
+  )
+);
 
 gulp.task('browser-sync', () =>
   browserSync.init({
@@ -21,7 +22,8 @@ gulp.task('browser-sync', () =>
       baseDir: './docs',
       index: 'index.html'
     }
-  }));
+  })
+);
 
 gulp.task('bs-reload', () => browserSync.reload());
 
