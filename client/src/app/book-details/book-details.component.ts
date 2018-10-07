@@ -19,12 +19,13 @@ export class BookDetailsComponent implements OnInit {
   pageCount: string;
   records: Record[];
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private bookService: BookService,
-              private recordService: RecordService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private bookService: BookService,
+    private recordService: RecordService
+  ) {}
 
   async ngOnInit() {
-
     const isbn: string = this.activatedRoute.snapshot.params['isbn'];
 
     try {
@@ -37,10 +38,11 @@ export class BookDetailsComponent implements OnInit {
       this.donor = book.donor;
       this.isbn = 'ISBN: ' + book.isbn;
       this.image = book.image;
-      this.pageCount = `ページ数: ${ book.pageCount }`;
+      this.pageCount = `ページ数: ${book.pageCount}`;
 
-      this.recordService.getRecordsByISBN(book.isbn)
-          .subscribe(records => { this.records = records; });
+      this.recordService.getRecordsByISBN(book.isbn).subscribe(records => {
+        this.records = records;
+      });
     } catch (error) {
       console.error(error);
     }

@@ -15,14 +15,15 @@ import { BookshelfService } from '../services/bookshelf.service';
   styleUrls: ['./bookshelf.component.css']
 })
 export class BookshelfComponent implements OnInit {
-
   registeredBooks: RegisteredBook[] = [];
 
   private functions: FirebaseFunctions;
 
-  constructor(private accountService: AccountService,
-              private bookshelfService: BookshelfService,
-              private afFunctions: AngularFireFunctions) {
+  constructor(
+    private accountService: AccountService,
+    private bookshelfService: BookshelfService,
+    private afFunctions: AngularFireFunctions
+  ) {
     this.functions = this.afFunctions.functions;
   }
 
@@ -37,7 +38,7 @@ export class BookshelfComponent implements OnInit {
 
     getBookshelf$.subscribe(book => {
       if (this.registeredBooks.indexOf(book) === -1)
-          this.registeredBooks.push(book);
+        this.registeredBooks.push(book);
     });
   }
 }

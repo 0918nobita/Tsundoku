@@ -11,7 +11,8 @@ import { Progress } from 'shared/progress';
   styleUrls: ['./progress-card.component.css']
 })
 export class ProgressCardComponent implements OnInit {
-  @Input() public record: Record;
+  @Input()
+  public record: Record;
   image: string;
   screenName: string;
   name: string;
@@ -20,16 +21,18 @@ export class ProgressCardComponent implements OnInit {
   range: string;
   created: string;
 
-  constructor(private router: Router,
-              private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   async ngOnInit() {
-
-    const convertDateTime = (timestamp) => {
-      const pad = input => (input < 10) ? '0' + input : input;
+    const convertDateTime = timestamp => {
+      const pad = input => (input < 10 ? '0' + input : input);
       const date = timestamp ? new Date(timestamp * 1000) : new Date();
-      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ` +
-          `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+      return (
+        `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ` +
+        `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+          date.getSeconds()
+        )}`
+      );
     };
 
     this.created = convertDateTime(this.record.created.seconds);
@@ -42,8 +45,9 @@ export class ProgressCardComponent implements OnInit {
       this.name = user.name;
       this.image = user.image;
       this.range =
-          (new Progress(this.record.range.fragments)).toString()
-              .replace(/-/g, '〜') + 'ページ';
+        new Progress(this.record.range.fragments)
+          .toString()
+          .replace(/-/g, '〜') + 'ページ';
     } catch (error) {
       console.error(error);
     }

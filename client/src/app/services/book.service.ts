@@ -14,14 +14,19 @@ export class BookService {
   private functions: FirebaseFunctions;
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private dexieService: DexieService,
-              private afFunctions: AngularFireFunctions) {
+  constructor(
+    private dexieService: DexieService,
+    private afFunctions: AngularFireFunctions
+  ) {
     this.functions = this.afFunctions.functions;
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook> {
-    const localBooks = await this.resolvedBooks.where('isbn').equals(isbn).toArray();
+    const localBooks = await this.resolvedBooks
+      .where('isbn')
+      .equals(isbn)
+      .toArray();
     if (localBooks.length > 0) {
       return localBooks[0];
     } else if (navigator.onLine) {
@@ -32,32 +37,41 @@ export class BookService {
   }
 
   private async searchBooksInFirestore(clue: string): Promise<ResolvedBook[]> {
-    return (await this.functions.httpsCallable('searchBooks')(
-        {isbn: clue, usingGoogleBooksAPI: false})).data;
+    return (await this.functions.httpsCallable('searchBooks')({
+      isbn: clue,
+      usingGoogleBooksAPI: false
+    })).data;
   }
 
   private async getBookOnline(isbn: string): Promise<ResolvedBook> {
-    const result = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
+    const result = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
+    );
 
     let hitBooks: ResolvedBook[] = [];
     if (result.data.totalItems > 0) {
       for (const item of result.data.items) {
         const volumeInfo = item.volumeInfo,
-            hitBook: ResolvedBook = {
-              desc: volumeInfo.description,
-              donor: 'none',
-              image: './assets/image_not_found.png',
-              isbn,
-              title: volumeInfo.title,
-              pageCount: volumeInfo.pageCount
-            };
+          hitBook: ResolvedBook = {
+            desc: volumeInfo.description,
+            donor: 'none',
+            image: './assets/image_not_found.png',
+            isbn,
+            title: volumeInfo.title,
+            pageCount: volumeInfo.pageCount
+          };
 
         if (volumeInfo.imageLinks === void 0) {
           const books = await this.searchBooksInFirestore(isbn);
           if (books.length > 0)
-            Object.assign(hitBook, { donor: books[0].donor, image: books[0].image });
+            Object.assign(hitBook, {
+              donor: books[0].donor,
+              image: books[0].image
+            });
         } else {
-          hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`;
+          hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(
+            4
+          )}`;
         }
 
         hitBooks.push(hitBook);

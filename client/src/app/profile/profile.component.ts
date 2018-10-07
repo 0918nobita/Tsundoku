@@ -18,8 +18,10 @@ export class ProfileComponent implements OnInit {
   bio: string;
   image: string;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private userService: UserService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
+  ) {}
 
   async ngOnInit() {
     const nameParam = this.activatedRoute.snapshot.params['name'];

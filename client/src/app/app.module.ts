@@ -38,14 +38,26 @@ import { AuthGuard } from './guard/auth.guard';
 
 // ルーティングの設定
 export const AppRoutes = [
-    { path: '', component: TopComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'search', component: SearchComponent, canActivate: [ AuthGuard ] },
-    { path: 'bookshelf', component: BookshelfComponent, canActivate: [ AuthGuard ] },
-    { path: 'bookDetails/:isbn', component: BookDetailsComponent, canActivate: [ AuthGuard ] },
-    { path: 'profile/:name', component: ProfileComponent, canActivate: [ AuthGuard ] },
-    { path: 'timeline', component: TimelineComponent, canActivate: [ AuthGuard ] }
+  { path: '', component: TopComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  {
+    path: 'bookshelf',
+    component: BookshelfComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'bookDetails/:isbn',
+    component: BookDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile/:name',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'timeline', component: TimelineComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -69,7 +81,9 @@ export const AppRoutes = [
     RouterModule.forRoot(AppRoutes),
     BrowserModule,
     FormsModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    }),
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -89,4 +103,4 @@ export const AppRoutes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

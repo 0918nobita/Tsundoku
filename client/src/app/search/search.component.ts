@@ -9,9 +9,7 @@ import { BookService } from '../services/book.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-
 export class SearchComponent implements OnInit {
-
   isbn: string;
   hitBooks: ResolvedBook[] = [];
 
@@ -20,7 +18,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {}
 
   async search(isbn: string) {
-    if ((isbn.length !== 10) && (isbn.length !== 13)) {
+    if (isbn.length !== 10 && isbn.length !== 13) {
       $('#errorModal').modal();
       return;
     }

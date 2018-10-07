@@ -10,20 +10,33 @@ import { BookService } from './book.service';
   providedIn: 'root'
 })
 export class BookshelfService {
-  constructor(private afFirestore: AngularFirestore,
-              private bookService: BookService) {}
+  constructor(
+    private afFirestore: AngularFirestore,
+    private bookService: BookService
+  ) {}
 
   getBookshelf(name: string): Observable<RegisteredBook> {
     return this.afFirestore
-        .collection<RegisteredBook>('bookshelf',
-            ref => ref.where('user', '==', name))
-        .valueChanges().pipe(
-            flatMap(x =>
-                from(x).pipe(flatMap(book =>
-                    from(this.bookService.getBookByISBN(book.isbn)
-                        .then(resolvedBook => <RegisteredBook> ({
-                          ...resolvedBook,
-                          ...book
-                        })))))));
+      .collection<RegisteredBook>('bookshelf', ref =>
+        ref.where('user', '==', name)
+      )
+      .valueChanges()
+      .pipe(
+        flatMap(x =>
+          from(x).pipe(
+            flatMap(book =>
+              from(
+                this.bookService.getBookByISBN(book.isbn).then(
+                  resolvedBook =>
+                    <RegisteredBook>{
+                      ...resolvedBook,
+                      ...book
+                    }
+                )
+              )
+            )
+          )
+        )
+      );
   }
 }

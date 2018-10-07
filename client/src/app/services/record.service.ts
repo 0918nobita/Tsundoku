@@ -23,12 +23,20 @@ export class RecordService {
 
   getRecordsByISBN(isbn: string): Observable<Record[]> {
     return this.afFirestore
-        .collection<RecordInFirestore>('records', ref => ref.where('isbn', '==', isbn))
-        .valueChanges()
-        .pipe(
-            map(records => records.map(record => (<Record> {
-              ...record,
-              range: Progress.parse(record.range)
-            }))));
+      .collection<RecordInFirestore>('records', ref =>
+        ref.where('isbn', '==', isbn)
+      )
+      .valueChanges()
+      .pipe(
+        map(records =>
+          records.map(
+            record =>
+              <Record>{
+                ...record,
+                range: Progress.parse(record.range)
+              }
+          )
+        )
+      );
   }
 }

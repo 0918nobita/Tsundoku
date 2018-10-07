@@ -12,18 +12,21 @@ import * as $ from 'jquery';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit, AfterViewInit {
-  @Input() public title: string;
-  @Input() public isbn: string;
-  @Input() public image: string;
-  @Input() public favorite: boolean;
+  @Input()
+  public title: string;
+  @Input()
+  public isbn: string;
+  @Input()
+  public image: string;
+  @Input()
+  public favorite: boolean;
 
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    if (this.favorite)
-        $('#star' + this.isbn).css('display', 'block');
+    if (this.favorite) $('#star' + this.isbn).css('display', 'block');
   }
 
   /** 本の詳細ページに遷移する */

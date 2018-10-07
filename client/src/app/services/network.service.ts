@@ -17,10 +17,11 @@ export class NetworkService {
 
   /** Firebase SDK の設定 */
   constructor() {
-    merge(fromEvent(window, 'online'),
-          fromEvent(window, 'offline')).subscribe(event => {
-            this.behaviorSubject.next(event.type === 'online');
-          });
+    merge(fromEvent(window, 'online'), fromEvent(window, 'offline')).subscribe(
+      event => {
+        this.behaviorSubject.next(event.type === 'online');
+      }
+    );
 
     this.observable.subscribe(online => {
       if (this.initialized || !online) return;
