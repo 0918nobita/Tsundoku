@@ -1,8 +1,8 @@
 {
   "name": "tsundoku",
   "version": "0.0.1",
-  "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
+  "author": "Kodai Matsumoto (0918nobita)",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
