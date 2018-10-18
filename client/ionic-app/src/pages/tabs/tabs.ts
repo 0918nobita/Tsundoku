@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AboutPage } from '../progress/about';
-import { ContactPage } from '../achievement/contact';
+import { ContactPage } from '../achievement/achievement';
 import { HomePage } from '../bookshelf/home';
 
 @Component({
