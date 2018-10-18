@@ -1,6 +1,6 @@
 {
-  "short_name": "Ionic",
   "name": "Tsundoku.tech",
+  "short_name": "Tsundoku",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
