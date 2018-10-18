@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { AboutPage } from '../pages/progress/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/bookshelf/home';
 import { TabsPage } from '../pages/tabs/tabs';
