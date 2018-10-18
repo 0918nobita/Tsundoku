@@ -8,7 +8,8 @@
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "lint": "ionic-app-scripts lint"
+    "lint": "ionic-app-scripts lint",
+    "static": "npm run build --prod --aot --minifyjs --minifycss --optimizejs && static ./www"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
