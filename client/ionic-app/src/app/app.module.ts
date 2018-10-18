@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule} from '@angular/fire/functions';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { firebaseConfig } from './config';
 
@@ -31,6 +32,7 @@ import { firebaseConfig } from './config';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireFunctionsModule,
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
