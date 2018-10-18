@@ -1,3 +1,3 @@
 cd client/ionic-app
-yarn install
+npm i
 npx ionic build
