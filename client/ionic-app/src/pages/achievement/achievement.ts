@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
   selector: 'page-contact',
   templateUrl: 'achievement.html'
 })
-export class ContactPage {
+export class AchievementPage {
 
   constructor(public navCtrl: NavController) {
 

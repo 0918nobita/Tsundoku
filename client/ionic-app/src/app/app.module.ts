@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/progress/progress';
-import { ContactPage } from '../pages/achievement/achievement';
+import { AchievementPage } from '../pages/achievement/achievement';
 import { HomePage } from '../pages/bookshelf/bookshelf';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -15,7 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    AchievementPage,
     HomePage,
     TabsPage
   ],
@@ -27,14 +27,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    AchievementPage,
     HomePage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
