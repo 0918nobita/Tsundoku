@@ -6,9 +6,5 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'bookshelf.html'
 })
 export class BookshelfPage {
-
-  constructor(public navCtrl: NavController) {
-
-  }
-
+  constructor(public navCtrl: NavController) {}
 }

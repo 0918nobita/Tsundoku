@@ -13,19 +13,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireFunctionsModule} from '@angular/fire/functions';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { firebaseConfig } from './config';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    ProgressPage,
-    AchievementPage,
-    BookshelfPage,
-    TabsPage
-  ],
+  declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),

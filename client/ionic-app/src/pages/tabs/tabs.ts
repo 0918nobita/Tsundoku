@@ -8,12 +8,9 @@ import { BookshelfPage } from '../bookshelf/bookshelf';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
   tab1Root = BookshelfPage;
   tab2Root = ProgressPage;
   tab3Root = AchievementPage;
 
-  constructor() {
-
-  }
+  constructor() {}
 }
