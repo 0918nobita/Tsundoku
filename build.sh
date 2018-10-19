@@ -1,5 +1,4 @@
 cd client/ionic-app
-touch src/app/config.ts
 {
   echo "export const firebaseConfig = {"
   echo "  apiKey: \"$API_KEY\","
