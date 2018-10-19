@@ -50,7 +50,7 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/fire@^5.0.2":
+"@angular/fire@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.0.2.tgz#3ca9c09aee924e129059c4bf8780aa4c99ebb631"
   integrity sha512-uNagq+cdFTXptWGjX3CzlYVRGBNFQCq04YEDaSVoTlezgqyEI0tWRcpAj68E28gvtdPm2qXruTiNIX2O/yXUWA==
@@ -132,10 +132,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-0.7.0.tgz#bded7892868cf6b189a121d0f0cec468f1609995"
   integrity sha512-jyKRcKnSh3CSEPL4xGOZNoOXEiv7YmFK/JEcdd/4cAH17/Xo+Pk67gk1E648LRKh6QPghgNvzNTY5R10mKbQNw==
 
-"@firebase/firestore@0.8.4":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-0.8.4.tgz#2cb35180c002b4ab49e822239c3868c16a645d94"
-  integrity sha512-4/luSVEkF+qbenp2LX+A6mvssSzbC11BMUJ9Zh0R809/MHAGW9JfQVHrz78q240pll5yJZOFb8A4Kh3ke7yRkQ==
+"@firebase/firestore@0.8.5":
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-0.8.5.tgz#fa11449654a9894237adb23ab8c5ae00f745a142"
+  integrity sha512-3+XIzTX8lGJuZ6mYo4tNmJF3kmdADBw2H2d0eiUHZLY4Hj3xW3UGhLOu4KWJlmYLcZj/C1o0w7N0GnVidIuXVQ==
   dependencies:
     "@firebase/firestore-types" "0.7.0"
     "@firebase/logger" "0.1.1"
@@ -326,6 +326,13 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
+
+angularfire2@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-5.0.2.tgz#7208bb07162a43334114ed9cabade3961b366160"
+  integrity sha512-qLTo3UfSLdcrTNMePEDxLdhbaAFELKN53JVelxzaYBlpiRHPKg6/CeV7YNyOc1XUF7iZGJbHsYtjeo1R2O4/CA==
+  dependencies:
+    "@angular/fire" "5.0.2"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -828,9 +835,9 @@ camelcase@^4.1.0:
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
 
 caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805:
-  version "1.0.30000892"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000892.tgz#344d2b51ee3ff5977537da4aa449c90eec40b759"
-  integrity sha512-X9rxMaWZNbJB5qjkDqPtNv/yfViTeUL6ILk0QJNxLV3OhKC5Acn5vxsuUvllR6B48mog8lmS+whwHq/QIYSL9w==
+  version "1.0.30000893"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000893.tgz#284b20932bd41b93e21626975f2050cb01561986"
+  integrity sha512-kOddHcTEef+NgN/fs0zmX2brHTNATVOWMEIhlZHCuwQRtXobjSw9pAECc44Op4bTBcavRjkLaPrGomknH7+Jvg==
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -1323,9 +1330,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.30:
-  version "1.3.79"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.79.tgz#774718f06284a4bf8f578ac67e74508fe659f13a"
-  integrity sha512-LQdY3j4PxuUl6xfxiFruTSlCniTrTrzAd8/HfsLEMi0PUpaQ0Iy+Pr4N4VllDYjs0Hyu2lkTbvzqlG+PX9NsNw==
+  version "1.3.80"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.80.tgz#e99ec7efe64c2c6a269d3885ff411ea88852fa53"
+  integrity sha512-WClidEWEUNx7OfwXehB0qaxCuetjbKjev2SmXWgybWPLKAThBiMTF/2Pd8GSUDtoGOavxVzdkKwfFAPRSWlkLw==
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -1732,14 +1739,14 @@ find-up@^2.0.0:
     locate-path "^2.0.0"
 
 firebase@^5.5.4:
-  version "5.5.4"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.5.4.tgz#6c6c9c829c1c223dd6bc9c5a7805a5ebcaf36ae2"
-  integrity sha512-4exmWUn2y6YQuavDPSnKrfUl/Bqu9qsLrhEtdM8VAskYa1pg85hC7rYtkjHBZjONTUvr9lEfYcKQbSdNWsvdMQ==
+  version "5.5.5"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.5.5.tgz#41584a15bf40e3ce474880bb82478de35cc21dbb"
+  integrity sha512-glnN/ru3CM3fTqsxbUEGyWbHYREZmC12tXYZ9q/l/qtHfLSN8hSOkVGNeSVuq7jfNmhGERhesMEu9jgdPyw02w==
   dependencies:
     "@firebase/app" "0.3.4"
     "@firebase/auth" "0.7.8"
     "@firebase/database" "0.3.6"
-    "@firebase/firestore" "0.8.4"
+    "@firebase/firestore" "0.8.5"
     "@firebase/functions" "0.3.1"
     "@firebase/messaging" "0.3.6"
     "@firebase/polyfill" "0.3.3"
