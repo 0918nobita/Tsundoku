@@ -10,6 +10,5 @@ touch src/app/config.ts
   echo "  storageBucket: \"$STORAGE_BUCKET\""
   echo "}"
 } >> src/app/config.ts
-cat src/app/config.ts
 npm i
 npm run release
