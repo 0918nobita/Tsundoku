@@ -10,7 +10,8 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "release": "npm run build --prod --aot --minifyjs --minifycss --optimizejs",
-    "static": "npm run release && static ./www"
+    "static": "npm run release && static ./www",
+    "format": "prettier ./**/*.ts --write"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
