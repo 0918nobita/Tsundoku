@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "retire": "retire",
-    "firebase": "firebase"
+    "firebase": "firebase",
+    "format": "prettier ./**/*.ts --write"
   },
   "private": true,
   "dependencies": {
