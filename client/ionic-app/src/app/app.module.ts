@@ -4,7 +4,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { SignUpPage } from '../pages/signup/signup';
+import { SignUpPageModule } from '../pages/signup/signup.module';
 import { LoginPage } from '../pages/login/login';
+import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
@@ -29,9 +31,7 @@ import { BookshelfService } from './services/bookshelf.service';
     ProgressPage,
     AchievementPage,
     BookshelfPage,
-    TabsPage,
-    SignUpPage,
-    LoginPage
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,9 @@ import { BookshelfService } from './services/bookshelf.service';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireFunctionsModule,
-    AngularFirestoreModule.enablePersistence()
+    AngularFirestoreModule.enablePersistence(),
+    SignUpPageModule,
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
