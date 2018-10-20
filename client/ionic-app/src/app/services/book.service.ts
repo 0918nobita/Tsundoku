@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { AngularFireFunctions } from 'angularfire2/functions';
+import { FirebaseFunctions } from '@angular/fire';
 import Dexie from 'dexie';
 import axios from 'axios';
 
 import { ResolvedBook } from '../../../../../shared/entity';
+import { DexieService } from './dexie.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
+  private functions: FirebaseFunctions;
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
   constructor(
-    private functions: AngularFireFunctions
-  ) {}
+    private dexieService: DexieService,
+    private afFunctions: AngularFireFunctions
+  ) {
+    this.functions = this.afFunctions.functions;
+    this.resolvedBooks = this.dexieService.table('resolvedBooks');
+  }
 
   async getBookByISBN(isbn: string): Promise<ResolvedBook> {
     const localBooks = await this.resolvedBooks
@@ -79,6 +86,6 @@ export class BookService {
     return (await this.functions.httpsCallable('searchBooks')({
       isbn: clue,
       usingGoogleBooksAPI: false
-    })).toPromise().then(result => result.data);
+    })).data;
   }
 }
