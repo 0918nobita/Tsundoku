@@ -30,7 +30,7 @@
     "angularfire2": "^5.0.2",
     "dexie": "^2.0.4",
     "firebase": "^5.5.4",
-    "ionic-angular": "3.9.2",
+    "ionic-angular": "git://github.com/rdlabo/ionic-angular-v6.git",
     "ionicons": "3.0.0",
     "rxjs": "^6.3.3",
     "sw-toolbox": "3.6.0",
