@@ -17,6 +17,9 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { firebaseConfig } from './config';
+import { DexieService } from './services/dexie.service';
+import { BookService } from './services/book.service';
+import { BookshelfService } from './services/bookshelf.service';
 
 @NgModule({
   declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
@@ -39,7 +42,10 @@ import { firebaseConfig } from './config';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DexieService,
+    BookService,
+    BookshelfService
   ]
 })
 export class AppModule {}
