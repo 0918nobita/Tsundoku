@@ -50,7 +50,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/fire@5.0.2":
+"@angular/fire@^5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.0.2.tgz#3ca9c09aee924e129059c4bf8780aa4c99ebb631"
   integrity sha512-uNagq+cdFTXptWGjX3CzlYVRGBNFQCq04YEDaSVoTlezgqyEI0tWRcpAj68E28gvtdPm2qXruTiNIX2O/yXUWA==
@@ -344,13 +344,6 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
-
-angularfire2@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-5.0.2.tgz#7208bb07162a43334114ed9cabade3961b366160"
-  integrity sha512-qLTo3UfSLdcrTNMePEDxLdhbaAFELKN53JVelxzaYBlpiRHPKg6/CeV7YNyOc1XUF7iZGJbHsYtjeo1R2O4/CA==
-  dependencies:
-    "@angular/fire" "5.0.2"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
