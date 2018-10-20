@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'page-sign-up',
-  templateUrl: 'sign-up.html',
+  templateUrl: 'sign-up.html'
 })
 export class SignUpPage {
   input: {
@@ -26,20 +26,26 @@ export class SignUpPage {
   async signUp() {
     try {
       const user = (await this.afAuth.auth.createUserWithEmailAndPassword(
-        this.input.email, this.input.password)).user;
+        this.input.email,
+        this.input.password
+      )).user;
       await user.updateProfile({ displayName: this.input.name, photoURL: '' });
       await Promise.all([
         this.goBack(),
-        this.toastCtrl.create({
-          message: `${user.displayName} さんを登録しました`,
-          duration: 3000
-        }).present()
+        this.toastCtrl
+          .create({
+            message: `${user.displayName} さんを登録しました`,
+            duration: 3000
+          })
+          .present()
       ]);
     } catch (error) {
-      await this.toastCtrl.create({
-        message: error,
-        duration: 5000
-      }).present();
+      await this.toastCtrl
+        .create({
+          message: error,
+          duration: 5000
+        })
+        .present();
     }
   }
 

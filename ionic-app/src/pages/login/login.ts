@@ -7,12 +7,12 @@ import { SignUpPage } from '../signup/signup';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
 })
 export class LoginPage {
   login: {
-    email: string,
-    password: string
+    email: string;
+    password: string;
   } = {
     email: '',
     password: ''
@@ -27,20 +27,26 @@ export class LoginPage {
   async userLogin() {
     try {
       const user = (await this.afAuth.auth.signInWithEmailAndPassword(
-        this.login.email, this.login.password)).user;
+        this.login.email,
+        this.login.password
+      )).user;
 
       await Promise.all([
-        this.toastCtrl.create({
-          message: `${user.displayName} さん、お帰りなさい`,
-          duration: 3000
-        }).present(),
+        this.toastCtrl
+          .create({
+            message: `${user.displayName} さん、お帰りなさい`,
+            duration: 3000
+          })
+          .present(),
         this.navCtrl.setRoot(TabsPage)
       ]);
     } catch (error) {
-      await this.toastCtrl.create({
-        message: error,
-        duration: 5000
-      }).present();
+      await this.toastCtrl
+        .create({
+          message: error,
+          duration: 5000
+        })
+        .present();
     }
   }
 

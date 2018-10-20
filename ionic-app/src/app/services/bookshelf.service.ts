@@ -21,18 +21,22 @@ export class BookshelfService {
         ref.where('user', '==', name)
       )
       .valueChanges()
-      .pipe(flatMap(x =>
-        from(x).pipe(
-          flatMap(book =>
-            from(
-              this.bookService.getBookByISBN(book.isbn).then(
-                resolvedBook =>
-                  <RegisteredBook>{
-                    ...resolvedBook,
-                    ...book
-                  }
+      .pipe(
+        flatMap(x =>
+          from(x).pipe(
+            flatMap(book =>
+              from(
+                this.bookService.getBookByISBN(book.isbn).then(
+                  resolvedBook =>
+                    <RegisteredBook>{
+                      ...resolvedBook,
+                      ...book
+                    }
+                )
               )
-            ))
-        )));
+            )
+          )
+        )
+      );
   }
 }

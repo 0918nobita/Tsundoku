@@ -26,13 +26,7 @@ import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    ProgressPage,
-    AchievementPage,
-    BookshelfPage,
-    TabsPage
-  ],
+  declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
