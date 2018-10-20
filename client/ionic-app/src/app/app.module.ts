@@ -47,7 +47,9 @@ import { BookshelfService } from './services/bookshelf.service';
     ProgressPage,
     AchievementPage,
     BookshelfPage,
-    TabsPage
+    TabsPage,
+    SignUpPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
