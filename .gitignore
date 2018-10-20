@@ -1,7 +1,7 @@
 client/src/app/config.ts
 client/coverage
 
-client/ionic-app/src/app/config.ts
+ionic-app/src/app/config.ts
 
 .firebase/
 docs/
