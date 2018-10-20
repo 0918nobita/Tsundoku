@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>アカウント登録</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form #f="ngForm">
+    <ion-grid class="formGrid">
+      <ion-row class="inputRow">
+        <ion-icon padding-top padding-left name="mail"></ion-icon>
+        <ion-input required email [(ngModel)]="input.email" type="email" name="input.email" placeholder="メールアドレス"></ion-input>
+      </ion-row>
+
+      <ion-row class="inputRow">
+        <ion-icon padding-top padding-left name="key"></ion-icon>
+        <ion-input required [(ngModel)]="input.password" type="password" name="input.password" placeholder="パスワード"></ion-input>
+      </ion-row>
+
+      <ion-row class="inputRow">
+        <ion-icon padding-top padding-left name="person"></ion-icon>
+        <ion-input required [(ngModel)]="input.name" type="text" name="input.name" placeholder="名前"></ion-input>
+      </ion-row>
+
+      <ion-row>
+        <button [disabled]="!f.form.valid" (click)="signUp()" type="button" ion-button block round>アカウント登録</button>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <button ion-button block clear (click)="goBack()">既にアカウントをお持ちの方はこちら</button>
+</ion-content>

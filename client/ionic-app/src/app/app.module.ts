@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { SignUpPage } from '../pages/signup/signup';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
@@ -22,7 +23,14 @@ import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
 
 @NgModule({
-  declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
+  declarations: [
+    MyApp,
+    ProgressPage,
+    AchievementPage,
+    BookshelfPage,
+    TabsPage,
+    SignUpPage,
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
