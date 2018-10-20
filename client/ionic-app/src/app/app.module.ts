@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { SignUpPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
@@ -30,6 +31,7 @@ import { BookshelfService } from './services/bookshelf.service';
     BookshelfPage,
     TabsPage,
     SignUpPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
