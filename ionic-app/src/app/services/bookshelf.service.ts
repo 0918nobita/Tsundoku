@@ -3,7 +3,7 @@ import { from, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { flatMap } from 'rxjs/operators';
 
-import { RegisteredBook } from '../../../../../shared/entity';
+import { RegisteredBook } from '../../../../shared/entity';
 import { BookService } from './book.service';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { RegisteredBook } from '../../../../../shared/entity';
+import { RegisteredBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 
 @Component({

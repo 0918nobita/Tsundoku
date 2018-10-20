@@ -4,7 +4,7 @@ import { FirebaseFunctions } from '@angular/fire';
 import Dexie from 'dexie';
 import axios from 'axios';
 
-import { ResolvedBook } from '../../../../../shared/entity';
+import { ResolvedBook } from '../../../../shared/entity';
 import { DexieService } from './dexie.service';
 
 @Injectable({
