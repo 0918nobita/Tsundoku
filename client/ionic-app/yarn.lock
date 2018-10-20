@@ -232,10 +232,12 @@
   dependencies:
     "@types/cordova" latest
 
-"@ionic-native/status-bar@~4.15.0":
-  version "4.15.0"
-  resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-4.15.0.tgz#21318be8c0f6339b116972011de69314da3a8232"
-  integrity sha512-90VC7KMzoTBNCikS81Uj4+Wa7HOadxDm63t+vdBQgGgOgmLj56+PY5DJBVvOOd0uKiUqsFlKIKg7nLjwSPHz3A==
+"@ionic-native/status-bar@5.0.0-beta.21":
+  version "5.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-5.0.0-beta.21.tgz#496b1172fb43a919af2825f0167d27048e62f7fd"
+  integrity sha512-XOioDzOJmjvTZmcCd08tJzzwgjGEHq5/ptueoTPjzjwmHJCrgyolqI5GT+1kLP87uhOEuxGSzNJbOrBORL7fKw==
+  dependencies:
+    "@types/cordova" latest
 
 "@ionic/app-scripts@3.2.0":
   version "3.2.0"
