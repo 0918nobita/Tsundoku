@@ -1,4 +1,6 @@
-cd ionic-app
+cd functions
+npm i
+cd ../ionic-app
 {
   echo "export const firebaseConfig = {"
   echo "  apiKey: \"$API_KEY\","
