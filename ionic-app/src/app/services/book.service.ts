@@ -48,7 +48,7 @@ export class BookService {
           hitBook: ResolvedBook = {
             desc: volumeInfo.description,
             donor: 'none',
-            image: './assets/image_not_found.png',
+            image: 'assets/imgs/image_not_found.png',
             isbn,
             title: volumeInfo.title,
             pageCount: volumeInfo.pageCount
