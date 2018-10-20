@@ -5,4 +5,7 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list *ngFor="let book of registeredBooks">
+    <img src="{{book.image}}">
+  </ion-list>
 </ion-content>
