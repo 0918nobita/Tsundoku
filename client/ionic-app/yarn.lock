@@ -26,15 +26,15 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/compiler-cli@5.2.11":
-  version "5.2.11"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.2.11.tgz#71a2885ac394a3c7a407c6ba0b920b52d73add99"
-  integrity sha512-dwrQ0yxoCM/XzKzlm7pTsyg4/6ECjT9emZufGj8t12bLMO8NDn1IJOsqXJA1+onEgQKhlr0Ziwi+96TvDTb1Cg==
+"@angular/compiler-cli@6.1.10":
+  version "6.1.10"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-6.1.10.tgz#df7c645017a73ee577f812d801ef1313b2097829"
+  integrity sha512-GCWdyeNQSnF4RfzO4A0+WHsNEgxKpl5arg4ldLSWMNkj/DrhMD4TnmxhR+IVY+7ieMkUBwpcuWRnjdOdnbmV+w==
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
-    tsickle "^0.27.2"
+    tsickle "^0.32.1"
 
 "@angular/compiler@6.1.10":
   version "6.1.10"
@@ -2484,6 +2484,13 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
+jasmine-diff@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/jasmine-diff/-/jasmine-diff-0.1.3.tgz#93ccc2dcc41028c5ddd4606558074839f2deeaa8"
+  integrity sha1-k8zC3MQQKMXd1GBlWAdIOfLe6qg=
+  dependencies:
+    diff "^3.2.0"
+
 js-base64@^2.1.8:
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.9.tgz#748911fb04f48a60c4771b375cac45a80df11c03"
@@ -4439,11 +4446,12 @@ trim-newlines@^1.0.0:
   dependencies:
     glob "^7.1.2"
 
-tsickle@^0.27.2:
-  version "0.27.5"
-  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.27.5.tgz#41e1a41a5acf971cbb2b0558a9590779234d591f"
-  integrity sha512-NP+CjM1EXza/M8mOXBLH3vkFEJiu1zfEAlC5WdJxHPn8l96QPz5eooP6uAgYtw1CcKfuSyIiheNUdKxtDWCNeg==
+tsickle@^0.32.1:
+  version "0.32.1"
+  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.32.1.tgz#f16e94ba80b32fc9ebe320dc94fbc2ca7f3521a5"
+  integrity sha512-JW9j+W0SaMSZGejIFZBk0AiPfnhljK3oLx5SaqxrJhjlvzFyPml5zqG1/PuScUj6yTe1muEqwk5CnDK0cOZmKw==
   dependencies:
+    jasmine-diff "^0.1.3"
     minimist "^1.2.0"
     mkdirp "^0.5.1"
     source-map "^0.6.0"
