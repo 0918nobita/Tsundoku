@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireFunctions } from 'angularfire2/functions';
+import { AngularFireFunctions } from '@angular/fire/functions';
 import { FirebaseFunctions } from '@angular/fire';
 import Dexie from 'dexie';
 import axios from 'axios';
