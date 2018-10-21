@@ -11,6 +11,8 @@ import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
 import { TabsPage } from '../pages/tabs/tabs';
+import { CallbackPage } from '../pages/callback/callback';
+import { CallbackModule } from '../pages/callback/callback.module';
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -35,7 +37,8 @@ import { BookshelfService } from './services/bookshelf.service';
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
     SignUpPageModule,
-    LoginPageModule
+    LoginPageModule,
+    CallbackModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +48,8 @@ import { BookshelfService } from './services/bookshelf.service';
     BookshelfPage,
     TabsPage,
     SignUpPage,
-    LoginPage
+    LoginPage,
+    CallbackPage
   ],
   providers: [
     StatusBar,
