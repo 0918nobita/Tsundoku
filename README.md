@@ -13,7 +13,7 @@
 
 まず、 ``yarn`` をインストールして下さい。
 
-その後、以下のコマンドを実行して Firebase CLI の初期設定を行ってください。
+その後、以下のコマンドを実行して Firebase CLI の初期設定を行って下さい。
 
 ```bash
 $ yarn global add firebase-tools
@@ -32,3 +32,5 @@ $ yarn install
 $ cd ../functions
 $ yarn install
 ```
+
+細かな仕様や DB の設計などについては、Reference リポジトリを参照して下さい。
