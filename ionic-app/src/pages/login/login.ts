@@ -31,15 +31,7 @@ export class LoginPage {
         this.login.password
       )).user;
 
-      await Promise.all([
-        this.toastCtrl
-          .create({
-            message: `${user.displayName} さん、お帰りなさい`,
-            duration: 3000
-          })
-          .present(),
-        this.navCtrl.setRoot(TabsPage)
-      ]);
+      await this.navCtrl.setRoot(TabsPage);
     } catch (error) {
       await this.toastCtrl
         .create({
