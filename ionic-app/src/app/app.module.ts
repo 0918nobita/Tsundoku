@@ -31,7 +31,19 @@ import { BookshelfService } from './services/bookshelf.service';
   declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(
+      MyApp,
+      {},
+      {
+        links: [
+          {
+            component: CallbackPage,
+            name: 'callback',
+            segment: 'callback'
+          }
+        ]
+      }
+    ),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireFunctionsModule,
