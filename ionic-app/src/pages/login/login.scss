@@ -2,12 +2,6 @@ page-login {
   .formGrid {
     width: 80%;
 
-    .inputRow {
-      border: 1px solid map-get($colors, primary);
-      margin-bottom: 20px;
-      border-radius: 20px;
-    }
-
     ion-icon: {
       color: map-get($colors, primary);
     }
