@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { SignUpPage } from '../pages/signup/signup';
-import { SignUpPageModule } from '../pages/signup/signup.module';
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
@@ -48,7 +46,6 @@ import { BookshelfService } from './services/bookshelf.service';
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
-    SignUpPageModule,
     LoginPageModule,
     CallbackModule
   ],
@@ -59,7 +56,6 @@ import { BookshelfService } from './services/bookshelf.service';
     AchievementPage,
     BookshelfPage,
     TabsPage,
-    SignUpPage,
     LoginPage,
     CallbackPage
   ],
