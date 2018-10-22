@@ -34,7 +34,7 @@ export class CallbackPage {
         console.log(
           await axios
             .create({
-              headers: { Authorization: result }
+              headers: { Authorization: `token ${result}` }
             })
             .get('https://api.github.com/user')
         );
