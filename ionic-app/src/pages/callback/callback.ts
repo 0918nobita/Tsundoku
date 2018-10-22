@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import axios from 'axios';
 
 @Component({
   selector: 'page-callback',
@@ -30,7 +31,13 @@ export class CallbackPage {
         const result = (await this.afFunctions.functions.httpsCallable(
           'getGitHubAccessToken'
         )(params['code'])).data;
-        console.log(result);
+        console.log(
+          await axios
+            .create({
+              headers: { Authorization: result }
+            })
+            .get('https://api.github.com/user')
+        );
       } catch (error) {
         await this.toastCtrl
           .create({
