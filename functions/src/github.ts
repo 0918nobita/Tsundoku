@@ -13,7 +13,8 @@ export const _getGitHubAccessToken = async (code: string) => {
       "https://github.com/login/oauth/access_token",
       {
         code,
-        ...githubConfig
+        'client_id': githubConfig.clientId,
+        'client_secret': githubConfig.clientSecret
       }
     )).data;
     return result["access_token"];
