@@ -31,12 +31,11 @@ export class CallbackPage {
         const result = (await this.afFunctions.functions.httpsCallable(
           'getGitHubAccessToken'
         )(params['code'])).data;
+        console.log(`token ${result}`);
         console.log(
-          await axios
-            .create({
-              headers: { Authorization: `token ${result}` }
-            })
-            .get('https://api.github.com/user')
+          await axios.get('https://api.github.com/0918nobita', {
+            headers: { Authorization: `token ${result}` }
+          })
         );
       } catch (error) {
         await this.toastCtrl
