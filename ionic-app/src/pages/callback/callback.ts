@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
-import axios from 'axios';
-
-import { gitHubConfig } from '../../app/config';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   selector: 'page-callback',
@@ -13,7 +11,8 @@ export class CallbackPage {
 
   constructor(
     public navCtrl: NavController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private afFunctions: AngularFireFunctions
   ) {}
 
   async ionViewWillEnter() {
@@ -28,14 +27,9 @@ export class CallbackPage {
     this.code = params['code'];
     if (params['code'] !== void 0) {
       try {
-        const result = (await axios.post(
-          'https://github.com/login/oauth/access_token',
-          {
-            code: params['code'],
-            client_id: gitHubConfig.clientId,
-            client_secret: gitHubConfig.clientSecret
-          }
-        )).data;
+        const result = (await this.afFunctions.functions.httpsCallable(
+          'getGitHubAccessToken'
+        )(params['code'])).data;
         console.log(result);
       } catch (error) {
         await this.toastCtrl
