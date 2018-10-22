@@ -1,17 +1,30 @@
 import { Component } from '@angular/core';
-
-import { gitHubConfig } from '../../app/config';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  constructor() {}
+  constructor(
+    private afFunctions: AngularFireFunctions,
+    private toastCtrl: ToastController
+  ) {}
 
-  userLogin() {
-    location.href = `https://github.com/login/oauth/authorize?client_id=${
-      gitHubConfig.clientId
-    }&scope=repo`;
+  async userLogin() {
+    try {
+      const result = (await this.afFunctions.functions.httpsCallable(
+        'getGitHubAuthorizationURL'
+      )()).data;
+      console.log(result);
+    } catch (error) {
+      await this.toastCtrl
+        .create({
+          message: error,
+          duration: 5000
+        })
+        .present();
+    }
   }
 }
