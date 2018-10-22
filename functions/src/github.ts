@@ -9,7 +9,8 @@ export const _getGitHubAuthorizationURL = () => {
 
 export const _getGitHubAccessToken = async (code: string) => {
   try {
-    const result = (await axios.post(
+    const result = {};
+    const str: string = (await axios.post(
       "https://github.com/login/oauth/access_token",
       {
         code,
@@ -17,7 +18,11 @@ export const _getGitHubAccessToken = async (code: string) => {
         'client_secret': githubConfig.clientSecret
       }
     )).data;
-    return result["access_token"];
+    str.split('&').forEach(item => {
+      const [key, value] = item.split('=');
+      result[key] = value;
+    });
+    return result['access_token'];
   } catch (error) {
     console.error(error);
     return null;
