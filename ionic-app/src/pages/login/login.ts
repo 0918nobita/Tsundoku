@@ -14,10 +14,9 @@ export class LoginPage {
 
   async userLogin() {
     try {
-      const result = (await this.afFunctions.functions.httpsCallable(
+      location.href = (await this.afFunctions.functions.httpsCallable(
         'getGitHubAuthorizationURL'
       )()).data;
-      console.log(result);
     } catch (error) {
       await this.toastCtrl
         .create({
