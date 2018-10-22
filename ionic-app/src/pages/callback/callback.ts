@@ -33,7 +33,7 @@ export class CallbackPage {
         )(params['code'])).data;
         console.log(`token ${result}`);
         console.log(
-          await axios.get('https://api.github.com/0918nobita', {
+          await axios.get('https://api.github.com/user', {
             headers: { Authorization: `token ${result}` }
           })
         );
