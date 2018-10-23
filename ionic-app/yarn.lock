@@ -51,9 +51,9 @@
     tslib "^1.9.0"
 
 "@angular/fire@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.0.2.tgz#3ca9c09aee924e129059c4bf8780aa4c99ebb631"
-  integrity sha512-uNagq+cdFTXptWGjX3CzlYVRGBNFQCq04YEDaSVoTlezgqyEI0tWRcpAj68E28gvtdPm2qXruTiNIX2O/yXUWA==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.1.0.tgz#23ed3f2d14e0a64583b338feb9f5e1fad16e71fe"
+  integrity sha512-nFsgq7R0XCIvy6ITb4KQ6t9uW3OVay9N8AqvzfTazHyvUnK329LD6AUd2jN3sUWfW3h6Tt8EgJ23IxrCe4sV1Q==
 
 "@angular/forms@6.1.10":
   version "6.1.10"
