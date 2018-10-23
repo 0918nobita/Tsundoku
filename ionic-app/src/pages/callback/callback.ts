@@ -8,7 +8,7 @@ import axios from 'axios';
   templateUrl: 'callback.html'
 })
 export class CallbackPage {
-  code: string = '';
+  userName: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -25,18 +25,18 @@ export class CallbackPage {
         const [key, value] = item.split('=');
         params[key] = value;
       });
-    this.code = params['code'];
+
     if (params['code'] !== void 0) {
       try {
         const result = (await this.afFunctions.functions.httpsCallable(
           'getGitHubAccessToken'
         )(params['code'])).data;
-        console.log(`token ${result}`);
-        console.log(
-          await axios.get('https://api.github.com/user', {
-            headers: { Authorization: `token ${result}` }
-          })
-        );
+
+        const { id, name } = (await axios.get('https://api.github.com/user', {
+          headers: { Authorization: `token ${result}` }
+        })).data;
+
+        this.userName = `${name} (${id})`;
       } catch (error) {
         await this.toastCtrl
           .create({
