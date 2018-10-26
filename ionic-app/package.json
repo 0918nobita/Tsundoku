@@ -45,5 +45,8 @@
     "prettier": "^1.14.3",
     "typescript": "2.8.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_copy": "./config/copy.config.js"
+  }
 }
