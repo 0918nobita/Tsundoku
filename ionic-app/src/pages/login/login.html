@@ -1,15 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>ログイン</ion-title>
+    <ion-title>サインイン</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form #f="ngForm">
-    <ion-grid class="formGrid">
-      <ion-row>
-        <button (click)="userLogin()" type="button" ion-button block round>GitHub でログイン</button>
-      </ion-row>
-    </ion-grid>
-  </form>
+  <div id="firebaseui-auth-container"></div>
 </ion-content>

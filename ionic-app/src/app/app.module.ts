@@ -26,6 +26,7 @@ import { firebaseConfig } from './config';
 import { DexieService } from './services/dexie.service';
 import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
+import { AuthService } from "./services/auth.service";
 
 @NgModule({
   declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
@@ -69,7 +70,8 @@ import { BookshelfService } from './services/bookshelf.service';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DexieService,
     BookService,
-    BookshelfService
+    BookshelfService,
+    AuthService
   ]
 })
 export class AppModule {}
