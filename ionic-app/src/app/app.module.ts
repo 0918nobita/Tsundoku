@@ -5,8 +5,6 @@ import { MyApp } from './app.component';
 
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
-import { SignUpPage } from "../pages/sign-up/sign-up";
-import { SignUpPageModule } from "../pages/sign-up/sign-up.module";
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
@@ -50,7 +48,6 @@ import { AuthService } from "./services/auth.service";
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
     LoginPageModule,
-    SignUpPageModule,
     CallbackModule
   ],
   bootstrap: [IonicApp],
@@ -61,7 +58,6 @@ import { AuthService } from "./services/auth.service";
     BookshelfPage,
     TabsPage,
     LoginPage,
-    SignUpPage,
     CallbackPage
   ],
   providers: [
