@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -6,14 +6,15 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import { LoginPage } from '../pages/login/login';
-import { TabsPage } from "../pages/tabs/tabs";
-import {firebaseConfig} from "./config";
+import { TabsPage } from '../pages/tabs/tabs';
+import { firebaseConfig } from './config';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild('rootNav') rootNav;
+  @ViewChild('rootNav')
+  rootNav;
   rootPage: any;
   firstRun: boolean = true;
 

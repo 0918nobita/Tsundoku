@@ -19,9 +19,11 @@ export class BookshelfPage {
   ) {}
 
   ionViewDidLoad() {
-    this.bookshelfService.getBookshelf(firebase.auth().currentUser.uid).subscribe(book => {
-      if (this.registeredBooks.indexOf(book) === -1)
-        this.registeredBooks.push(book);
-    });
+    this.bookshelfService
+      .getBookshelf(firebase.auth().currentUser.uid)
+      .subscribe(book => {
+        if (this.registeredBooks.indexOf(book) === -1)
+          this.registeredBooks.push(book);
+      });
   }
 }

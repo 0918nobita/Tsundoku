@@ -13,9 +13,7 @@ import { DexieService } from './dexie.service';
 export class BookService {
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(
-    private dexieService: DexieService
-  ) {
+  constructor(private dexieService: DexieService) {
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
@@ -79,7 +77,9 @@ export class BookService {
     }
   }
 
-  private static async searchBooksInFirestore(clue: string): Promise<ResolvedBook[]> {
+  private static async searchBooksInFirestore(
+    clue: string
+  ): Promise<ResolvedBook[]> {
     return (await firebase.functions().httpsCallable('searchBooksByISBN')({
       isbn: clue,
       usingGoogleBooksAPI: false

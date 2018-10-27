@@ -15,7 +15,9 @@ export class AuthService {
 
   public static getUIConfig = () => ({
     callbacks: {
-      signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential) => {
+      signInSuccessWithAuthResult: (
+        authResult: firebase.auth.UserCredential
+      ) => {
         // const user = authResult.user;
 
         if (authResult.additionalUserInfo.isNewUser) {
@@ -29,9 +31,7 @@ export class AuthService {
       }
     },
     credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-    signInOptions: [
-      firebase.auth.GithubAuthProvider.PROVIDER_ID
-    ],
+    signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
     tosUrl: 'https://tsundoku.tech',
     privacyPolicyUrl: 'https://tsundoku.tech'
   });
