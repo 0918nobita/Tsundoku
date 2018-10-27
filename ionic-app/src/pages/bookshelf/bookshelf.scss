@@ -29,5 +29,11 @@ page-bookshelf {
         width: 15vw;
       }
     }
+
+    @media screen and (min-width: 1300px) {
+      div.book {
+        width: 10vw;
+      }
+    }
   }
 }
