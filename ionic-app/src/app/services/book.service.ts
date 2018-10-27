@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { FirebaseFunctions } from '@angular/fire';
+import firebase from 'firebase/app';
+import 'firebase/functions';
 import Dexie from 'dexie';
 import axios from 'axios';
 
@@ -11,14 +11,11 @@ import { DexieService } from './dexie.service';
   providedIn: 'root'
 })
 export class BookService {
-  private functions: FirebaseFunctions;
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
   constructor(
-    private dexieService: DexieService,
-    private afFunctions: AngularFireFunctions
+    private dexieService: DexieService
   ) {
-    this.functions = this.afFunctions.functions;
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
@@ -83,7 +80,7 @@ export class BookService {
   }
 
   private async searchBooksInFirestore(clue: string): Promise<ResolvedBook[]> {
-    return (await this.functions.httpsCallable('searchBooks')({
+    return (await firebase.functions().httpsCallable('searchBooksByISBN')({
       isbn: clue,
       usingGoogleBooksAPI: false
     })).data;
