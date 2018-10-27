@@ -10,8 +10,15 @@
 <ion-content padding>
   <ion-item padding-bottom padding-right>
     <ion-label floating>ISBN (11 桁または 13 桁)</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="isbn" required></ion-input>
   </ion-item>
 
-  <button block ion-button>検索</button>
+  <button block ion-button (click)="search()">検索</button>
+
+  <div *ngIf="show; then thenBlock"></div>
+  <ng-template #thenBlock>
+    <div class="book" (click)="add()">
+      <img src="{{hitBook.image}}">
+    </div>
+  </ng-template>
 </ion-content>

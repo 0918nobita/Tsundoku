@@ -9,8 +9,9 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-import { RegisteredBook } from '../../../../shared/entity';
+import { RegisteredBook, ResolvedBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
+import { BookService } from "../../app/services/book.service";
 
 @Component({
   selector: 'page-bookshelf',
@@ -21,7 +22,6 @@ export class BookshelfPage {
 
   constructor(
     public navCtrl: NavController,
-    private toastCtrl: ToastController,
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
     private bookshelfService: BookshelfService
@@ -68,10 +68,36 @@ export class BookshelfPage {
   templateUrl: 'book-addition-modal.html'
 })
 export class BookAdditionModal {
-  constructor(private viewCtrl: ViewController) {}
+  isbn: string;
+  show: boolean = false;
+  hitBook: ResolvedBook;
+
+  constructor(
+    private toastCtrl: ToastController,
+    private viewCtrl: ViewController,
+    private bookService: BookService
+  ) {}
 
   async dismiss() {
     await this.viewCtrl.dismiss();
+  }
+
+  async search() {
+    try {
+      this.show = false;
+      this.hitBook = await this.bookService.getBookByISBN(this.isbn);
+      this.show = true;
+    } catch (error) {
+      await this.toastCtrl.create({
+        message: error,
+        duration: 5000,
+        position: 'top'
+      }).present();
+    }
+  }
+
+  add() {
+    console.log(this.hitBook);
   }
 }
 
