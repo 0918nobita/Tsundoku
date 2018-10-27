@@ -6,7 +6,7 @@ export const getUserBy = (
 ) => async (value: string): Promise<User> => {
   const querySnapshot = await db
     .collection("users")
-    .where("field", "==", value)
+    .where(field, "==", value)
     .get();
   if (querySnapshot.size === 0) {
     return null;
