@@ -52,7 +52,7 @@ export class BookService {
           };
 
         if (volumeInfo.imageLinks === void 0) {
-          const books = await this.searchBooksInFirestore(isbn);
+          const books = await BookService.searchBooksInFirestore(isbn);
           if (books.length > 0)
             Object.assign(hitBook, {
               donor: books[0].donor,
@@ -67,7 +67,7 @@ export class BookService {
         hitBooks.push(hitBook);
       }
     } else {
-      hitBooks = await this.searchBooksInFirestore(isbn);
+      hitBooks = await BookService.searchBooksInFirestore(isbn);
     }
 
     if (hitBooks.length > 0) {
@@ -79,7 +79,7 @@ export class BookService {
     }
   }
 
-  private async searchBooksInFirestore(clue: string): Promise<ResolvedBook[]> {
+  private static async searchBooksInFirestore(clue: string): Promise<ResolvedBook[]> {
     return (await firebase.functions().httpsCallable('searchBooksByISBN')({
       isbn: clue,
       usingGoogleBooksAPI: false
