@@ -8,6 +8,7 @@ import 'firebase/auth';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { firebaseConfig } from './config';
+import { DexieService } from './services/dexie.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,14 +22,24 @@ export class MyApp {
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
-    private splashScreen: SplashScreen
+    private splashScreen: SplashScreen,
+    private dexieService: DexieService
   ) {
     firebase.initializeApp(firebaseConfig);
   }
 
   ngAfterViewInit() {
     firebase.auth().onAuthStateChanged(async user => {
-      await this.setRootPage(user ? TabsPage : LoginPage);
+      if (!user) {
+        await Promise.all([
+          this.dexieService.table('resolvedBooks').clear(),
+          this.dexieService.table('registeredBooks').clear(),
+          this.setRootPage(LoginPage)
+        ]);
+        return;
+      }
+
+      await this.setRootPage(TabsPage);
     });
   }
 
