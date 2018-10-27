@@ -49,7 +49,9 @@ export class BookshelfPage {
           },
           {
             text: '本の情報を手動入力する',
-            handler: () => console.log('自分で情報を入力する')
+            handler: () => {
+              this.modalCtrl.create(BookCreationModal).present();
+            }
           },
           {
             text: 'キャンセル',
@@ -66,6 +68,18 @@ export class BookshelfPage {
   templateUrl: 'book-addition-modal.html'
 })
 export class BookAdditionModal {
+  constructor(private viewCtrl: ViewController) {}
+
+  async dismiss() {
+    await this.viewCtrl.dismiss();
+  }
+}
+
+@Component({
+  selector: 'book-creation-modal',
+  templateUrl: 'book-creation-modal.html'
+})
+export class BookCreationModal {
   constructor(private viewCtrl: ViewController) {}
 
   async dismiss() {

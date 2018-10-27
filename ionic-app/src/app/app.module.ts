@@ -9,6 +9,7 @@ import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import {
   BookAdditionModal,
+  BookCreationModal,
   BookshelfPage
 } from '../pages/bookshelf/bookshelf';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -35,6 +36,7 @@ import { AuthService } from './services/auth.service';
     BookshelfPage,
     TabsPage,
     BookAdditionModal,
+    BookCreationModal
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { AuthService } from './services/auth.service';
     TabsPage,
     LoginPage,
     BookAdditionModal,
+    BookCreationModal
   ],
   providers: [
     StatusBar,
