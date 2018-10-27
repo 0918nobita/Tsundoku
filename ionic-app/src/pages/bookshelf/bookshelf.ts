@@ -7,7 +7,7 @@ import { RegisteredBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 
 @Component({
-  selector: 'page-home',
+  selector: 'page-bookshelf',
   templateUrl: 'bookshelf.html'
 })
 export class BookshelfPage {
