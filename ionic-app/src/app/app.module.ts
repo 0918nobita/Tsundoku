@@ -7,7 +7,10 @@ import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
-import { BookshelfPage } from '../pages/bookshelf/bookshelf';
+import {
+  BookAdditionModal,
+  BookshelfPage
+} from '../pages/bookshelf/bookshelf';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -25,7 +28,14 @@ import { BookshelfService } from './services/bookshelf.service';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
-  declarations: [MyApp, ProgressPage, AchievementPage, BookshelfPage, TabsPage],
+  declarations: [
+    MyApp,
+    ProgressPage,
+    AchievementPage,
+    BookshelfPage,
+    TabsPage,
+    BookAdditionModal,
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -42,7 +52,8 @@ import { AuthService } from './services/auth.service';
     AchievementPage,
     BookshelfPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    BookAdditionModal,
   ],
   providers: [
     StatusBar,

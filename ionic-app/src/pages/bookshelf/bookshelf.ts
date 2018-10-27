@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {
   ActionSheetController,
+  ModalController,
   NavController,
-  ToastController
+  ToastController,
+  ViewController
 } from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -21,6 +23,7 @@ export class BookshelfPage {
     public navCtrl: NavController,
     private toastCtrl: ToastController,
     private actionSheetCtrl: ActionSheetController,
+    private modalCtrl: ModalController,
     private bookshelfService: BookshelfService
   ) {}
 
@@ -40,7 +43,9 @@ export class BookshelfPage {
         buttons: [
           {
             text: '本をISBNで検索する',
-            handler: () => console.log('ISBN')
+            handler: () => {
+              this.modalCtrl.create(BookAdditionModal).present();
+            }
           },
           {
             text: '本の情報を手動入力する',
@@ -53,5 +58,17 @@ export class BookshelfPage {
         ]
       })
       .present();
+  }
+}
+
+@Component({
+  selector: 'book-addition-modal',
+  templateUrl: 'book-addition-modal.html'
+})
+export class BookAdditionModal {
+  constructor(private viewCtrl: ViewController) {}
+
+  async dismiss() {
+    await this.viewCtrl.dismiss();
   }
 }
