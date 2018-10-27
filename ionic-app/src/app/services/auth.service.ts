@@ -13,7 +13,7 @@ export class AuthService {
     this.ui = new firebaseui.auth.AuthUI(firebase.auth());
   }
 
-  public static getUIconfig = () => ({
+  public static getUIConfig = () => ({
     callbacks: {
       signInSuccessWithAuthResult: (authResult: firebase.auth.UserCredential) => {
         // const user = authResult.user;

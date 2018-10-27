@@ -12,6 +12,6 @@ export class LoginPage {
   ) {}
 
   ionViewDidLoad() {
-    this.authService.ui.start('#firebaseui-auth-container', AuthService.getUIconfig());
+    this.authService.ui.start('#firebaseui-auth-container', AuthService.getUIConfig());
   }
 }
