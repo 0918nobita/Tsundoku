@@ -15,10 +15,10 @@ export class BookshelfService {
     private bookService: BookService
   ) {}
 
-  getBookshelf(name: string): Observable<RegisteredBook> {
+  getBookshelf(uid: string): Observable<RegisteredBook> {
     return this.afFirestore
       .collection<RegisteredBook>('bookshelf', ref =>
-        ref.where('user', '==', name)
+        ref.where('uid', '==', uid)
       )
       .valueChanges()
       .pipe(
