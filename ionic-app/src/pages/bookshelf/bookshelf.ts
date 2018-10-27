@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {
+  ActionSheetController,
+  NavController,
+  ToastController
+} from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -15,6 +19,8 @@ export class BookshelfPage {
 
   constructor(
     public navCtrl: NavController,
+    private toastCtrl: ToastController,
+    private actionSheetCtrl: ActionSheetController,
     private bookshelfService: BookshelfService
   ) {}
 
@@ -25,5 +31,27 @@ export class BookshelfPage {
         if (this.registeredBooks.indexOf(book) === -1)
           this.registeredBooks.push(book);
       });
+  }
+
+  async addBook() {
+    await this.actionSheetCtrl
+      .create({
+        title: '本を追加する',
+        buttons: [
+          {
+            text: '本をISBNで検索する',
+            handler: () => console.log('ISBN')
+          },
+          {
+            text: '本の情報を手動入力する',
+            handler: () => console.log('自分で情報を入力する')
+          },
+          {
+            text: 'キャンセル',
+            role: 'cancel'
+          }
+        ]
+      })
+      .present();
   }
 }
