@@ -8,10 +8,11 @@ import {
 } from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/functions';
 
 import { RegisteredBook, ResolvedBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
-import { BookService } from "../../app/services/book.service";
+import { BookService } from '../../app/services/book.service';
 
 @Component({
   selector: 'page-bookshelf',
@@ -31,7 +32,10 @@ export class BookshelfPage {
     this.bookshelfService
       .getBookshelf(firebase.auth().currentUser.uid)
       .subscribe(book => {
-        if (this.registeredBooks.indexOf(book) === -1)
+        if (
+          this.registeredBooks.filter(item => item.isbn == book.isbn).length ===
+          0
+        )
           this.registeredBooks.push(book);
       });
   }
@@ -88,16 +92,34 @@ export class BookAdditionModal {
       this.hitBook = await this.bookService.getBookByISBN(this.isbn);
       this.show = true;
     } catch (error) {
-      await this.toastCtrl.create({
-        message: error,
-        duration: 5000,
-        position: 'top'
-      }).present();
+      await this.toastCtrl
+        .create({
+          message: error,
+          duration: 5000,
+          position: 'top'
+        })
+        .present();
     }
   }
 
-  add() {
-    console.log(this.hitBook);
+  async add(isbn: string) {
+    try {
+      await Promise.all([
+        firebase.functions().httpsCallable('registerBook')({
+          uid: firebase.auth().currentUser.uid,
+          isbn
+        }),
+        this.dismiss()
+      ]);
+    } catch (error) {
+      await this.toastCtrl
+        .create({
+          message: error,
+          duration: 5000,
+          position: 'top'
+        })
+        .present();
+    }
   }
 }
 

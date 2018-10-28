@@ -17,7 +17,7 @@
 
   <div *ngIf="show; then thenBlock"></div>
   <ng-template #thenBlock>
-    <div class="book" (click)="add()">
+    <div class="book" (click)="add(hitBook.isbn)">
       <img src="{{hitBook.image}}">
     </div>
   </ng-template>
