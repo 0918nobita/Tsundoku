@@ -21,17 +21,16 @@ export class BookshelfService {
         .getBookByISBN(book.isbn)
         .then(resolvedBook => <RegisteredBook>{ ...resolvedBook, ...book });
 
+    const nextRegisteredBooks = (registeredBooks: RegisteredBook[]) =>
+      from(registeredBooks).pipe(
+        flatMap(registeredBook => from(attachBookDetails(registeredBook)))
+      );
+
     return this.afFirestore
       .collection<RegisteredBook>('bookshelf', ref =>
         ref.where('uid', '==', uid)
       )
       .valueChanges()
-      .pipe(
-        flatMap(registeredBooks =>
-          from(registeredBooks).pipe(
-            flatMap(registeredBook => from(attachBookDetails(registeredBook)))
-          )
-        )
-      );
+      .pipe(flatMap(nextRegisteredBooks));
   }
 }
