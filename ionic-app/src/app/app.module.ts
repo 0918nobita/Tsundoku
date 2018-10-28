@@ -27,6 +27,7 @@ import { DexieService } from './services/dexie.service';
 import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
 import { AuthService } from './services/auth.service';
+import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AuthService } from './services/auth.service';
     BookshelfPage,
     TabsPage,
     BookAdditionModal,
-    BookCreationModal
+    BookCreationModal,
+    BookDetailsModal
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { AuthService } from './services/auth.service';
     TabsPage,
     LoginPage,
     BookAdditionModal,
-    BookCreationModal
+    BookCreationModal,
+    BookDetailsModal
   ],
   providers: [
     StatusBar,

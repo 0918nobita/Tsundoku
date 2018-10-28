@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>本の詳細</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{title}}</h2>
+  <img src="{{image}}">
+  <p>{{desc}}</p>
+  <p>ISBN: {{isbn}}</p>
+</ion-content>
