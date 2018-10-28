@@ -13,7 +13,7 @@
 <ion-content padding>
   <div id="books">
     <ng-container *ngFor="let book of registeredBooks">
-      <div class="book">
+      <div class="book" (click)="showDetails(book.isbn)">
         <img src="{{book.image}}">
       </div>
     </ng-container>

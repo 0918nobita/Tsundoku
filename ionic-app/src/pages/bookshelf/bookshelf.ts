@@ -13,6 +13,7 @@ import 'firebase/functions';
 import { RegisteredBook, ResolvedBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookService } from '../../app/services/book.service';
+import { BookDetailsModal } from '../book-details-modal/book-details-modal';
 
 @Component({
   selector: 'page-bookshelf',
@@ -64,6 +65,10 @@ export class BookshelfPage {
         ]
       })
       .present();
+  }
+
+  showDetails(isbn: string) {
+    this.modalCtrl.create(BookDetailsModal, { isbn }).present();
   }
 }
 
