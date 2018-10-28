@@ -16,25 +16,20 @@ export class BookshelfService {
   ) {}
 
   getBookshelf(uid: string): Observable<RegisteredBook> {
+    const attachBookDetails = (book: RegisteredBook) =>
+      this.bookService
+        .getBookByISBN(book.isbn)
+        .then(resolvedBook => <RegisteredBook>{ ...resolvedBook, ...book });
+
     return this.afFirestore
       .collection<RegisteredBook>('bookshelf', ref =>
         ref.where('uid', '==', uid)
       )
       .valueChanges()
       .pipe(
-        flatMap(x =>
-          from(x).pipe(
-            flatMap(book =>
-              from(
-                this.bookService.getBookByISBN(book.isbn).then(
-                  resolvedBook =>
-                    <RegisteredBook>{
-                      ...resolvedBook,
-                      ...book
-                    }
-                )
-              )
-            )
+        flatMap(registeredBooks =>
+          from(registeredBooks).pipe(
+            flatMap(registeredBook => from(attachBookDetails(registeredBook)))
           )
         )
       );
