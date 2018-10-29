@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { flatMap } from 'rxjs/operators';
 import { from, Observable } from 'rxjs';
 
-import { Skill } from '../../../../shared/entity';
+import { Skill } from 'shared/entity';
 
 @Injectable({
   providedIn: 'root'

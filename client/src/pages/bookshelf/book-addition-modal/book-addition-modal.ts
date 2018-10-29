@@ -4,7 +4,7 @@ import { BookService } from '../../../app/services/book.service';
 import firebase from 'firebase';
 import 'firebase/functions';
 
-import { ResolvedBook } from '../../../../../shared/entity';
+import { ResolvedBook } from 'shared/entity';
 
 @Component({
   selector: 'book-addition-modal',
