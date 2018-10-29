@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {
   ActionSheetController,
   ModalController,
-  NavController
 } from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -22,7 +21,6 @@ export class BookshelfPage {
   registeredBooks: RegisteredBook[] = [];
 
   constructor(
-    public navCtrl: NavController,
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
     private bookshelfService: BookshelfService
