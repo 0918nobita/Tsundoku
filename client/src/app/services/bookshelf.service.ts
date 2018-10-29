@@ -5,6 +5,7 @@ import { flatMap } from 'rxjs/operators';
 
 import { RegisteredBook } from 'shared/entity';
 import { BookService } from './book.service';
+import { mine } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class BookshelfService {
     private bookService: BookService
   ) {}
 
-  getBookshelf(uid: string): Observable<RegisteredBook> {
+  getBookshelf(): Observable<RegisteredBook> {
     const attachBookDetails = (book: RegisteredBook) =>
       this.bookService
         .getBookByISBN(book.isbn)
@@ -27,9 +28,7 @@ export class BookshelfService {
       );
 
     return this.afFirestore
-      .collection<RegisteredBook>('bookshelf', ref =>
-        ref.where('uid', '==', uid)
-      )
+      .collection<RegisteredBook>('bookshelf', mine)
       .valueChanges()
       .pipe(flatMap(nextRegisteredBooks));
   }

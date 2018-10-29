@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Plan, ResolvedBook } from 'shared/entity';
 import { BookService } from './book.service';
+import { mine } from './firestore.service';
 
 export interface DetailedPlan extends Plan {
   book: ResolvedBook;
@@ -19,7 +20,7 @@ export class PlanService {
     private bookService: BookService
   ) {}
 
-  getPlans(uid: string): Observable<DetailedPlan> {
+  getPlans(): Observable<DetailedPlan> {
     const attachBookDetails = (plan: Plan) =>
       this.bookService
         .getBookByISBN(plan.isbn)
@@ -29,7 +30,7 @@ export class PlanService {
       from(plans).pipe(flatMap(plan => from(attachBookDetails(plan))));
 
     return this.afFirestore
-      .collection<Plan>('plans', ref => ref.where('uid', '==', uid))
+      .collection<Plan>('plans', mine)
       .valueChanges()
       .pipe(flatMap(nextDetailedPlans));
   }

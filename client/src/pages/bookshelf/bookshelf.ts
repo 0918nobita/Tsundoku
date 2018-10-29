@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  ActionSheetController,
-  ModalController,
-} from 'ionic-angular';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { ActionSheetController, ModalController } from 'ionic-angular';
 import 'firebase/functions';
 
 import { RegisteredBook } from 'shared/entity';
@@ -27,17 +22,14 @@ export class BookshelfPage {
   ) {}
 
   ionViewDidLoad() {
-    this.bookshelfService
-      .getBookshelf(firebase.auth().currentUser.uid)
-      .subscribe(book => {
-        if (
-          this.registeredBooks.filter(item => item.isbn == book.isbn).length ===
-          0
-        ) {
-          this.registeredBooks.push(book);
-          this.sortByModifiedDatetime();
-        }
-      });
+    this.bookshelfService.getBookshelf().subscribe(book => {
+      if (
+        this.registeredBooks.filter(item => item.isbn == book.isbn).length === 0
+      ) {
+        this.registeredBooks.push(book);
+        this.sortByModifiedDatetime();
+      }
+    });
   }
 
   sortByModifiedDatetime() {

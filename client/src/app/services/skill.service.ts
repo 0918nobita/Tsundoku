@@ -4,6 +4,7 @@ import { flatMap } from 'rxjs/operators';
 import { from, Observable } from 'rxjs';
 
 import { Skill } from 'shared/entity';
+import { mine } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ import { Skill } from 'shared/entity';
 export class SkillService {
   constructor(private afFirestore: AngularFirestore) {}
 
-  getSkills(uid: string): Observable<Skill> {
+  getSkills(): Observable<Skill> {
     return this.afFirestore
-      .collection<Skill>('skills', ref => ref.where('uid', '==', uid))
+      .collection<Skill>('skills', mine)
       .valueChanges()
       .pipe(flatMap(skills => from(skills)));
   }
