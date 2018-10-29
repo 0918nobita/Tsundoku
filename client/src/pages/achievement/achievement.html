@@ -5,14 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <div>Netlify に Ionic アプリをデプロイする</div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-content>
-      <div>Ionic CLI でテンプレートを生成する</div>
-    </ion-card-content>
-  </ion-card>
+  <div *ngFor="let skill of skills">
+    <ion-card>
+      <ion-card-content>
+        <div>{{skill.content}}</div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
