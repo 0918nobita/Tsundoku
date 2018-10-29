@@ -31,13 +31,7 @@ export class BookAdditionModal {
       this.hitBook = await this.bookService.getBookByISBN(this.isbn);
       this.show = true;
     } catch (error) {
-      await this.toastCtrl
-        .create({
-          message: error,
-          duration: 5000,
-          position: 'top'
-        })
-        .present();
+      this.showError(error);
     }
   }
 
@@ -51,13 +45,15 @@ export class BookAdditionModal {
         this.dismiss()
       ]);
     } catch (error) {
-      await this.toastCtrl
-        .create({
-          message: error,
-          duration: 5000,
-          position: 'top'
-        })
-        .present();
+      this.showError(error);
     }
+  }
+
+  showError(error) {
+    this.toastCtrl.create({
+      message: error,
+      duration: 5000,
+      position: 'top'
+    }).present();
   }
 }
