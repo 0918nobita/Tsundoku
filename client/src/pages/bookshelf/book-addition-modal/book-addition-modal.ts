@@ -50,10 +50,12 @@ export class BookAdditionModal {
   }
 
   showError(error) {
-    this.toastCtrl.create({
-      message: error,
-      duration: 5000,
-      position: 'top'
-    }).present();
+    this.toastCtrl
+      .create({
+        message: error,
+        duration: 5000,
+        position: 'top'
+      })
+      .present();
   }
 }
