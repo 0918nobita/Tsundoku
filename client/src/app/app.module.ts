@@ -7,11 +7,9 @@ import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
-import {
-  BookAdditionModal,
-  BookCreationModal,
-  BookshelfPage
-} from '../pages/bookshelf/bookshelf';
+import { BookshelfPage } from '../pages/bookshelf/bookshelf';
+import { BookAdditionModal } from '../pages/bookshelf/book-addition-modal';
+import { BookCreationModal } from '../pages/bookshelf/book-creation-modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';

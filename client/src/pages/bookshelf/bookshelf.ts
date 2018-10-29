@@ -2,18 +2,17 @@ import { Component } from '@angular/core';
 import {
   ActionSheetController,
   ModalController,
-  NavController,
-  ToastController,
-  ViewController
+  NavController
 } from 'ionic-angular';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/functions';
 
-import { RegisteredBook, ResolvedBook } from '../../../../shared/entity';
+import { RegisteredBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
-import { BookService } from '../../app/services/book.service';
 import { BookDetailsModal } from '../book-details-modal/book-details-modal';
+import { BookCreationModal } from './book-creation-modal';
+import { BookAdditionModal } from './book-addition-modal';
 
 @Component({
   selector: 'page-bookshelf',
@@ -82,73 +81,5 @@ export class BookshelfPage {
 
   showDetails(isbn: string) {
     this.modalCtrl.create(BookDetailsModal, { isbn }).present();
-  }
-}
-
-@Component({
-  selector: 'book-addition-modal',
-  templateUrl: 'book-addition-modal.html'
-})
-export class BookAdditionModal {
-  isbn: string;
-  show: boolean = false;
-  hitBook: ResolvedBook;
-
-  constructor(
-    private toastCtrl: ToastController,
-    private viewCtrl: ViewController,
-    private bookService: BookService
-  ) {}
-
-  async dismiss() {
-    await this.viewCtrl.dismiss();
-  }
-
-  async search() {
-    try {
-      this.show = false;
-      this.hitBook = await this.bookService.getBookByISBN(this.isbn);
-      this.show = true;
-    } catch (error) {
-      await this.toastCtrl
-        .create({
-          message: error,
-          duration: 5000,
-          position: 'top'
-        })
-        .present();
-    }
-  }
-
-  async add(isbn: string) {
-    try {
-      await Promise.all([
-        firebase.functions().httpsCallable('registerBook')({
-          uid: firebase.auth().currentUser.uid,
-          isbn
-        }),
-        this.dismiss()
-      ]);
-    } catch (error) {
-      await this.toastCtrl
-        .create({
-          message: error,
-          duration: 5000,
-          position: 'top'
-        })
-        .present();
-    }
-  }
-}
-
-@Component({
-  selector: 'book-creation-modal',
-  templateUrl: 'book-creation-modal.html'
-})
-export class BookCreationModal {
-  constructor(private viewCtrl: ViewController) {}
-
-  async dismiss() {
-    await this.viewCtrl.dismiss();
   }
 }
