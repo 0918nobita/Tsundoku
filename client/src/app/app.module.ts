@@ -27,6 +27,7 @@ import { BookshelfService } from './services/bookshelf.service';
 import { AuthService } from './services/auth.service';
 import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
 import { PlanService } from './services/plan.service';
+import { SkillService } from './services/skill.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PlanService } from './services/plan.service';
     BookService,
     BookshelfService,
     AuthService,
-    PlanService
+    PlanService,
+    SkillService
   ]
 })
 export class AppModule {}
