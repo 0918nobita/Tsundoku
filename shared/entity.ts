@@ -1,5 +1,4 @@
 import * as firebase from '../functions/node_modules/firebase';
-import { Progress } from './progress';
 
 export interface ResolvedBook {
   desc: string;
@@ -11,15 +10,6 @@ export interface ResolvedBook {
 }
 
 export interface RegisteredBook extends ResolvedBook {
-  deadline: firebase.firestore.Timestamp;
-  favorite: boolean;
-  progress: Progress;
-}
-
-export interface Record {
   created: firebase.firestore.Timestamp;
-  desc: string;
-  isbn: string;
-  range: Progress;
-  user: string;
+  modified: firebase.firestore.Timestamp;
 }
