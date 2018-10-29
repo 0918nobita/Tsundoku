@@ -14,6 +14,16 @@ export interface RegisteredBook extends ResolvedBook {
   modified: firebase.firestore.Timestamp;
 }
 
+export interface Plan {
+  title: string;
+  desc: string;
+  isbn: string;
+  progress: number;
+  uid: string;
+  created: firebase.firestore.Timestamp;
+  modified: firebase.firestore.Timestamp;
+}
+
 export interface Skill {
   content: string;
   created: firebase.firestore.Timestamp;
