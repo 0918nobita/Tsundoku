@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 import { DetailedPlan, PlanService } from '../../app/services/plan.service';
 import * as firebase from 'firebase';
@@ -11,10 +10,7 @@ import * as firebase from 'firebase';
 export class ProgressPage {
   plans: DetailedPlan[] = [];
 
-  constructor(
-    public navCtrl: NavController,
-    private planService: PlanService
-  ) {}
+  constructor(private planService: PlanService) {}
 
   ionViewWillEnter() {
     this.planService
