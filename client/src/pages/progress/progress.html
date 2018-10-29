@@ -11,5 +11,13 @@
 </ion-header>
 
 <ion-content padding>
-
+  <div *ngFor="let plan of plans">
+    <ion-card>
+      <ion-card-content>
+        <h2>{{plan.title}}</h2>
+        <p>{{plan.desc}}</p>
+        <img src="{{plan.book.image}}" style="width: 100px">
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
