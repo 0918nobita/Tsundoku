@@ -36,9 +36,22 @@ export class BookshelfPage {
         if (
           this.registeredBooks.filter(item => item.isbn == book.isbn).length ===
           0
-        )
+        ) {
           this.registeredBooks.push(book);
+          this.sortByModifiedDatetime();
+        }
       });
+  }
+
+  sortByModifiedDatetime() {
+    this.registeredBooks.sort((former, latter) => {
+      const formerMillis = former.modified.toMillis(),
+        latterMillis = latter.modified.toMillis();
+
+      if (formerMillis < latterMillis) return -1;
+      if (formerMillis > latterMillis) return 1;
+      return 0;
+    });
   }
 
   async addBook() {
