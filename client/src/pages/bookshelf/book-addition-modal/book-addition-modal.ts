@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ToastController, ViewController } from 'ionic-angular';
-import { BookService } from '../../app/services/book.service';
+import { BookService } from '../../../app/services/book.service';
 import firebase from 'firebase';
 import 'firebase/functions';
 
-import { ResolvedBook } from '../../../../shared/entity';
+import { ResolvedBook } from '../../../../../shared/entity';
 
 @Component({
   selector: 'book-addition-modal',

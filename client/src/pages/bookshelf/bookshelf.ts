@@ -11,8 +11,8 @@ import 'firebase/functions';
 import { RegisteredBook } from '../../../../shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookDetailsModal } from '../book-details-modal/book-details-modal';
-import { BookCreationModal } from './book-creation-modal';
-import { BookAdditionModal } from './book-addition-modal';
+import { BookCreationModal } from './book-creation-modal/book-creation-modal';
+import { BookAdditionModal } from './book-addition-modal/book-addition-modal';
 
 @Component({
   selector: 'page-bookshelf',
