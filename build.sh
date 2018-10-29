@@ -1,6 +1,6 @@
 cd functions
 npm i
-cd ../ionic-app
+cd ../client
 {
   echo "export const firebaseConfig = {"
   echo "  apiKey: \"$API_KEY\","
