@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController, ViewController } from 'ionic-angular';
 import { BookService } from '../../../app/services/book.service';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import 'firebase/functions';
 
 import { ResolvedBook } from 'shared/entity';
