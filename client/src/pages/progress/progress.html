@@ -16,7 +16,7 @@
       <ion-card-content>
         <h2>{{plan.title}}</h2>
         <p>{{plan.desc}}</p>
-        <img src="{{plan.book.image}}" style="width: 100px">
+        <book-widget [book]="plan.book"></book-widget>
       </ion-card-content>
     </ion-card>
   </div>
