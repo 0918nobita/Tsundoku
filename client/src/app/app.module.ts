@@ -28,6 +28,7 @@ import { AuthService } from './services/auth.service';
 import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
 import { PlanService } from './services/plan.service';
 import { SkillService } from './services/skill.service';
+import { Book } from '../pages/book/book';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SkillService } from './services/skill.service';
     TabsPage,
     BookAdditionModal,
     BookCreationModal,
-    BookDetailsModal
+    BookDetailsModal,
+    Book
   ],
   imports: [
     BrowserModule,
