@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import moment from 'moment';
 
 import { SkillService } from '../../app/services/skill.service';
 import { Skill } from 'shared/entity';
@@ -14,7 +15,9 @@ export class AchievementPage {
   constructor(
     public navCtrl: NavController,
     private skillService: SkillService
-  ) {}
+  ) {
+    moment.locale('ja');
+  }
 
   ionViewWillEnter() {
     this.skillService.getSkills().subscribe(skill => {
@@ -25,5 +28,9 @@ export class AchievementPage {
       )
         this.skills.push(skill);
     });
+  }
+
+  differenceTime(time: Date) {
+    return moment(time).fromNow();
   }
 }

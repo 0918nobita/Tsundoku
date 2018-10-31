@@ -8,7 +8,9 @@
   <div *ngFor="let skill of skills">
     <ion-card>
       <ion-card-content>
-        <div>{{skill.content}}</div>
+        <p>{{skill.content}}</p>
+        <p>ISBN: {{skill.isbn}}</p>
+        <p>{{differenceTime(skill.created.toDate())}}</p>
       </ion-card-content>
     </ion-card>
   </div>
