@@ -12,7 +12,8 @@
     "release": "npm run build --prod --aot --minifyjs --minifycss --optimizejs",
     "static": "npm run release && static ./www",
     "format": "prettier ./**/*.ts --write",
-    "test": "jest"
+    "test": "jest",
+    "test:w": "jest --watch"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
