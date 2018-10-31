@@ -49,8 +49,13 @@ export class BookshelfPage {
 
   adjustThumbnails() {
     const booksRow = document.getElementById('books-row'),
+      bookWidth = parseInt(
+        window.getComputedStyle(
+          document.getElementsByClassName('book-thumbnail')[0]
+        ).width
+      ),
       columns = Math.floor(
-        parseInt(window.getComputedStyle(booksRow).width) / 138
+        parseInt(window.getComputedStyle(booksRow).width) / (bookWidth + 10)
       );
 
     if (columns > this.registeredBooks.length) {
