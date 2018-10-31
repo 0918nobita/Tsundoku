@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'jest-preset-angular',
-  roots: [],
-  testRegex: '\\.spec\\.ts$',
+  roots: ['src'],
+  testMatch: ['\\.spec\\.ts$'],
   setupTestFrameworkScriptFile: '<rootDir>/src/setupJest.ts',
-  transfromIgnorePatterns: ['node_modules/(?!@ngrx|@ionic-native|@ionic)']
+  transformIgnorePatterns: ['node_modules/(?!@ngrx|@ionic-native|@ionic)']
 };
