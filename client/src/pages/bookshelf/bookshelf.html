@@ -11,11 +11,14 @@
 </ion-header>
 
 <ion-content padding>
-  <div id="books">
-    <ng-container *ngFor="let book of registeredBooks">
-      <div class="book" (click)="showDetails(book.isbn)">
-        <img src="{{book.image}}">
-      </div>
-    </ng-container>
-  </div>
+  <ion-grid>
+    <ion-row align-items-center justify-content-around id="books-row">
+      <ion-col *ngFor="let book of registeredBooks" col-auto>
+        <book-widget [book]="book"></book-widget>
+      </ion-col>
+      <ion-col *ngFor="let _ of additions" col-auto>
+        <div class="empty"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

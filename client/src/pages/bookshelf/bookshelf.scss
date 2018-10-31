@@ -1,39 +1,4 @@
-page-bookshelf {
-  #books {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    div.book {
-      width: 25vw;
-      box-sizing: border-box;
-      padding: 5px;
-
-      img {
-        display: block;
-        width: 128px;
-        height: auto;
-        margin: auto;
-      }
-    }
-
-    @media screen and (min-width: 700px) {
-      div.book {
-        width: 20vw;
-      }
-    }
-
-    @media screen and (min-width: 1000px) {
-      div.book {
-        width: 15vw;
-      }
-    }
-
-    @media screen and (min-width: 1300px) {
-      div.book {
-        width: 10vw;
-      }
-    }
-  }
+div.empty {
+  width: 128px;
+  height: 0;
 }

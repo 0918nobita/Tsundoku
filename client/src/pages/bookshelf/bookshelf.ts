@@ -4,7 +4,6 @@ import 'firebase/functions';
 
 import { RegisteredBook } from 'shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
-import { BookDetailsModal } from '../book-details-modal/book-details-modal';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
 import { BookAdditionModal } from './book-addition-modal/book-addition-modal';
 
@@ -14,6 +13,7 @@ import { BookAdditionModal } from './book-addition-modal/book-addition-modal';
 })
 export class BookshelfPage {
   registeredBooks: RegisteredBook[] = [];
+  additions = [];
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -22,6 +22,8 @@ export class BookshelfPage {
   ) {}
 
   ionViewDidLoad() {
+    window.addEventListener('resize', () => this.adjustThumbnails());
+
     this.bookshelfService.getBookshelf().subscribe(book => {
       if (
         this.registeredBooks.filter(item => item.isbn == book.isbn).length === 0
@@ -29,6 +31,8 @@ export class BookshelfPage {
         this.registeredBooks.push(book);
         this.sortByModifiedDatetime();
       }
+
+      this.adjustThumbnails();
     });
   }
 
@@ -41,6 +45,32 @@ export class BookshelfPage {
       if (formerMillis > latterMillis) return 1;
       return 0;
     });
+  }
+
+  adjustThumbnails() {
+    const booksRow = document.getElementById('books-row'),
+      columns = Math.floor(
+        parseInt(window.getComputedStyle(booksRow).width) / 138
+      );
+
+    if (columns > this.registeredBooks.length) {
+      this.additions = [];
+      return;
+    }
+
+    const rest = this.registeredBooks.length % columns;
+    if (rest === 0) return;
+
+    const diff = columns - rest;
+
+    if (diff > this.additions.length) {
+      Array.prototype.push.apply(
+        this.additions,
+        new Array(diff - this.additions.length)
+      );
+    } else if (diff < this.additions.length) {
+      this.additions.splice(0, this.additions.length - diff);
+    }
   }
 
   async addBook() {
@@ -67,9 +97,5 @@ export class BookshelfPage {
         ]
       })
       .present();
-  }
-
-  showDetails(isbn: string) {
-    this.modalCtrl.create(BookDetailsModal, { isbn }).present();
   }
 }
