@@ -1,8 +1,14 @@
 <ion-split-pane when="(min-width: 1000px)">
   <ion-menu [content]="content">
-    <ion-list>
-      <ion-item>Tsundoku</ion-item>
-    </ion-list>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Tsundoku</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+      </ion-list>
+    </ion-content>
   </ion-menu>
 
   <ion-nav #content [root]="root" main></ion-nav>
