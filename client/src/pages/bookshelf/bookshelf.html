@@ -1,18 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>本棚</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only clear (click)="addBook()">
-        <ion-icon name="add" [style.color]="'white'"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-grid>
     <ion-row align-items-center justify-content-around id="books-row">
+      <ion-col col-auto text-center>
+        <div class="book-addition-button" (click)="addBook()" padding-vertical>
+          <h2>本の追加</h2>
+          <ion-icon name="add-circle" color="white"></ion-icon>
+        </div>
+      </ion-col>
       <ion-col *ngFor="let book of registeredBooks" col-auto>
         <book-widget [book]="book"></book-widget>
       </ion-col>
