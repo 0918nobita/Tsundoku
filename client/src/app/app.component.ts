@@ -6,9 +6,9 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import { LoginPage } from '../pages/login/login';
-import { TabsPage } from '../pages/tabs/tabs';
 import { firebaseConfig } from './config';
 import { DexieService } from './services/dexie.service';
+import { SplitPane } from '../pages/split-pane/split-pane';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,7 +39,7 @@ export class MyApp {
         return;
       }
 
-      await this.setRootPage(TabsPage);
+      await this.setRootPage(SplitPane);
     });
   }
 

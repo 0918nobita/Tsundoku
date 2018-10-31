@@ -5,6 +5,7 @@ import { AchievementPage } from '../achievement/achievement';
 import { BookshelfPage } from '../bookshelf/bookshelf';
 
 @Component({
+  selector: 'tabs-page',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {

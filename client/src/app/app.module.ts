@@ -29,6 +29,7 @@ import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal
 import { PlanService } from './services/plan.service';
 import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
+import { SplitPane } from '../pages/split-pane/split-pane';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { Book } from '../pages/book/book';
     BookAdditionModal,
     BookCreationModal,
     BookDetailsModal,
-    Book
+    Book,
+    SplitPane
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { Book } from '../pages/book/book';
     LoginPage,
     BookAdditionModal,
     BookCreationModal,
-    BookDetailsModal
+    BookDetailsModal,
+    SplitPane
   ],
   providers: [
     StatusBar,
