@@ -9,6 +9,7 @@ import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
 import { SearchByIsbnModal } from '../pages/bookshelf/search-by-isbn-modal/search-by-isbn-modal';
+import { SearchBySkillModal } from '../pages/bookshelf/search-by-skill-modal/search-by-skill-modal';
 import { BookCreationModal } from '../pages/bookshelf/book-creation-modal/book-creation-modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -39,6 +40,7 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     BookshelfPage,
     TabsPage,
     SearchByIsbnModal,
+    SearchBySkillModal,
     BookCreationModal,
     BookDetailsModal,
     Book,
@@ -62,6 +64,7 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     TabsPage,
     LoginPage,
     SearchByIsbnModal,
+    SearchBySkillModal,
     BookCreationModal,
     BookDetailsModal,
     SplitPane

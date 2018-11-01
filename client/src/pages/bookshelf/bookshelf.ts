@@ -6,6 +6,7 @@ import { RegisteredBook } from 'shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
 import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
+import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-modal';
 
 @Component({
   selector: 'page-bookshelf',
@@ -92,7 +93,7 @@ export class BookshelfPage {
           {
             text: '本をスキルで検索する',
             handler: () => {
-              this.modalCtrl.create(BookCreationModal).present();
+              this.modalCtrl.create(SearchBySkillModal).present();
             }
           },
           {

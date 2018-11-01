@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>本をスキルで検索する</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item padding-bottom padding-right>
+    <ion-label floating>スキル</ion-label>
+    <ion-input type="text" [(ngModel)]="isbn" required></ion-input>
+  </ion-item>
+
+  <button block ion-button (click)="search()">検索</button>
+
+  <div *ngIf="show; then thenBlock"></div>
+  <ng-template #thenBlock>
+    <div class="book" (click)="add(hitBook.isbn)">
+      <img src="{{hitBook.image}}">
+    </div>
+  </ng-template>
+</ion-content>
