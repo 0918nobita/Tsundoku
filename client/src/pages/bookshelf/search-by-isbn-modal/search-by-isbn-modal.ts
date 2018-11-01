@@ -7,10 +7,10 @@ import 'firebase/functions';
 import { ResolvedBook } from 'shared/entity';
 
 @Component({
-  selector: 'book-addition-modal',
-  templateUrl: 'book-addition-modal.html'
+  selector: 'search-by-isbn-modal',
+  templateUrl: 'search-by-isbn-modal.html'
 })
-export class BookAdditionModal {
+export class SearchByIsbnModal {
   isbn: string;
   show: boolean = false;
   hitBook: ResolvedBook;

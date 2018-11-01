@@ -5,7 +5,7 @@ import 'firebase/functions';
 import { RegisteredBook } from 'shared/entity';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
-import { BookAdditionModal } from './book-addition-modal/book-addition-modal';
+import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
 
 @Component({
   selector: 'page-bookshelf',
@@ -86,7 +86,7 @@ export class BookshelfPage {
           {
             text: '本をISBNで検索する',
             handler: () => {
-              this.modalCtrl.create(BookAdditionModal).present();
+              this.modalCtrl.create(SearchByIsbnModal).present();
             }
           },
           {

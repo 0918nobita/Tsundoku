@@ -8,7 +8,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
-import { BookAdditionModal } from '../pages/bookshelf/book-addition-modal/book-addition-modal';
+import { SearchByIsbnModal } from '../pages/bookshelf/search-by-isbn-modal/search-by-isbn-modal';
 import { BookCreationModal } from '../pages/bookshelf/book-creation-modal/book-creation-modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -38,7 +38,7 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     AchievementPage,
     BookshelfPage,
     TabsPage,
-    BookAdditionModal,
+    SearchByIsbnModal,
     BookCreationModal,
     BookDetailsModal,
     Book,
@@ -61,7 +61,7 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     BookshelfPage,
     TabsPage,
     LoginPage,
-    BookAdditionModal,
+    SearchByIsbnModal,
     BookCreationModal,
     BookDetailsModal,
     SplitPane
