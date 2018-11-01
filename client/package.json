@@ -55,5 +55,12 @@
   "description": "An Ionic project",
   "config": {
     "ionic_copy": "./config/copy.config.js"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|@ionic-native|@ionic|moment)"
+    ]
   }
 }
