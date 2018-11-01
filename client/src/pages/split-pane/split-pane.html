@@ -7,9 +7,9 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item (click)="showProgressPage()"><ion-icon name="walk" padding-horizontal></ion-icon> 進捗</button>
-        <button ion-item (click)="showBookshelfPage()"><ion-icon name="bookmarks" padding-horizontal></ion-icon> 本棚</button>
-        <button ion-item (click)="showAchievementPage()"><ion-icon name="trophy" padding-horizontal></ion-icon> 達成</button>
+        <button ion-item #progress (click)="showProgressPage()"><ion-icon name="walk" padding-horizontal></ion-icon> 進捗</button>
+        <button ion-item #bookshelf (click)="showBookshelfPage()"><ion-icon name="bookmarks" padding-horizontal></ion-icon> 本棚</button>
+        <button ion-item #achievement (click)="showAchievementPage()"><ion-icon name="trophy" padding-horizontal></ion-icon> 達成</button>
       </ion-list>
     </ion-content>
   </ion-menu>

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { TabsPage } from '../tabs/tabs';
 import { Nav } from 'ionic-angular';
@@ -10,6 +10,16 @@ import { Nav } from 'ionic-angular';
 export class SplitPane {
   @ViewChild(Nav)
   navRef: Nav;
+
+  @ViewChild('progress', { read: ElementRef })
+  private progressButton: ElementRef;
+
+  @ViewChild('bookshelf', { read: ElementRef })
+  private bookshelfButton: ElementRef;
+
+  @ViewChild('achievement', { read: ElementRef })
+  private achievementButton: ElementRef;
+
   root = TabsPage;
 
   constructor() {}
@@ -17,14 +27,29 @@ export class SplitPane {
   ionViewWillEnter() {}
 
   showProgressPage() {
-    this.navRef.getActiveChildNav().select(1);
+    this.makeButtonSelected(1);
+    this.navRef.getActiveChildNavs()[0].select(1);
   }
 
   showBookshelfPage() {
-    this.navRef.getActiveChildNav().select(0);
+    this.makeButtonSelected(0);
+    this.navRef.getActiveChildNavs()[0].select(0);
   }
 
   showAchievementPage() {
-    this.navRef.getActiveChildNav().select(2);
+    this.makeButtonSelected(2);
+    this.navRef.getActiveChildNavs()[0].select(2);
+  }
+
+  makeButtonSelected(index: 0 | 1 | 2) {
+    const buttons = [
+      this.bookshelfButton,
+      this.progressButton,
+      this.achievementButton
+    ];
+    buttons[index].nativeElement.classList.add('selected-button');
+    buttons
+      .filter((_, i) => i !== index)
+      .forEach(item => item.nativeElement.classList.remove('selected-button'));
   }
 }
