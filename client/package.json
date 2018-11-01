@@ -11,7 +11,7 @@
     "lint": "ionic-app-scripts lint",
     "release": "npm run build --prod --aot --minifyjs --minifycss --optimizejs",
     "static": "npm run release && static ./www",
-    "format": "prettier ./**/*.ts --write",
+    "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest",
     "test:w": "jest --watch",
     "test:ci": "jest --runInBand"
