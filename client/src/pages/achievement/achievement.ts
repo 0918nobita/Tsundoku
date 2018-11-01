@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import moment from 'moment';
 
 import { SkillService } from '../../app/services/skill.service';
@@ -12,10 +11,7 @@ import { Skill } from 'shared/entity';
 export class AchievementPage {
   skills: Skill[] = [];
 
-  constructor(
-    public navCtrl: NavController,
-    private skillService: SkillService
-  ) {
+  constructor(private skillService: SkillService) {
     moment.locale('ja');
   }
 
