@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { TabsPage } from '../tabs/tabs';
-import { Nav } from 'ionic-angular';
+import { Events, Nav } from 'ionic-angular';
 
 @Component({
   selector: 'split-pane',
@@ -22,9 +22,13 @@ export class SplitPane {
 
   root = TabsPage;
 
-  constructor() {}
+  constructor(private events: Events) {}
 
-  ionViewWillEnter() {}
+  ionViewWillEnter() {
+    this.events.subscribe('tabs:changed', index =>
+      this.makeButtonSelected(index)
+    );
+  }
 
   showProgressPage() {
     this.makeButtonSelected(1);
