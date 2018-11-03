@@ -32,6 +32,7 @@ import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
+import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SettingsButton } from '../pages/settings-button/settings-button';
     BookDetailsModal,
     Book,
     SplitPane,
-    SettingsButton
+    SettingsButton,
+    SettingsModal
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { SettingsButton } from '../pages/settings-button/settings-button';
     BookCreationModal,
     BookDetailsModal,
     SplitPane,
-    SettingsButton
+    SettingsButton,
+    SettingsModal
   ],
   providers: [
     StatusBar,
