@@ -31,6 +31,7 @@ import { PlanService } from './services/plan.service';
 import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
+import { SettingsButton } from '../pages/settings-button/settings-button';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     BookCreationModal,
     BookDetailsModal,
     Book,
-    SplitPane
+    SplitPane,
+    SettingsButton
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { SplitPane } from '../pages/split-pane/split-pane';
     SearchBySkillModal,
     BookCreationModal,
     BookDetailsModal,
-    SplitPane
+    SplitPane,
+    SettingsButton
   ],
   providers: [
     StatusBar,
