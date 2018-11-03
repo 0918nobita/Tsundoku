@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { TabsPage } from '../tabs/tabs';
-import { Events, Nav } from 'ionic-angular';
+import { Events, ModalController, Nav } from 'ionic-angular';
+import { SettingsModal } from '../settings-button/settings-modal/settings-modal';
 
 @Component({
   selector: 'split-pane',
@@ -22,7 +23,7 @@ export class SplitPane {
 
   root = TabsPage;
 
-  constructor(private events: Events) {}
+  constructor(private events: Events, private modalCtrl: ModalController) {}
 
   ionViewWillEnter() {
     this.events.subscribe('tabs:changed', index =>
@@ -55,5 +56,9 @@ export class SplitPane {
     buttons
       .filter((_, i) => i !== index)
       .forEach(item => item.nativeElement.classList.remove('selected-button'));
+  }
+
+  openSettingsModal() {
+    this.modalCtrl.create(SettingsModal).present();
   }
 }
