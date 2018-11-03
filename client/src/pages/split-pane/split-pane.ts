@@ -32,12 +32,12 @@ export class SplitPane {
   }
 
   showPage(name: 'progress' | 'bookshelf' | 'achievement') {
-    const index = ['bookshelf', 'progress', 'achievement'].indexOf(name) as 0 | 1 | 2;
+    const index = ['bookshelf', 'progress', 'achievement'].indexOf(name);
     this.makeButtonSelected(index);
     this.navRef.getActiveChildNavs()[0].select(index);
   }
 
-  makeButtonSelected(index: 0 | 1 | 2) {
+  makeButtonSelected(index: number) {
     const buttons = [
       this.bookshelfButton,
       this.progressButton,

@@ -92,15 +92,11 @@ export class BookshelfPage {
           },
           {
             text: '本をスキルで検索する',
-            handler: () => {
-              this.modalCtrl.create(SearchBySkillModal).present();
-            }
+            handler: () => this.modalCtrl.create(SearchBySkillModal).present()
           },
           {
             text: '本の情報を手動入力する',
-            handler: () => {
-              this.modalCtrl.create(BookCreationModal).present();
-            }
+            handler: () => this.modalCtrl.create(BookCreationModal).present()
           },
           {
             text: 'キャンセル',
