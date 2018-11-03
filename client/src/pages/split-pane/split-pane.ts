@@ -31,19 +31,10 @@ export class SplitPane {
     );
   }
 
-  showProgressPage() {
-    this.makeButtonSelected(1);
-    this.navRef.getActiveChildNavs()[0].select(1);
-  }
-
-  showBookshelfPage() {
-    this.makeButtonSelected(0);
-    this.navRef.getActiveChildNavs()[0].select(0);
-  }
-
-  showAchievementPage() {
-    this.makeButtonSelected(2);
-    this.navRef.getActiveChildNavs()[0].select(2);
+  showPage(name: 'progress' | 'bookshelf' | 'achievement') {
+    const index = ['bookshelf', 'progress', 'achievement'].indexOf(name) as 0 | 1 | 2;
+    this.makeButtonSelected(index);
+    this.navRef.getActiveChildNavs()[0].select(index);
   }
 
   makeButtonSelected(index: 0 | 1 | 2) {
