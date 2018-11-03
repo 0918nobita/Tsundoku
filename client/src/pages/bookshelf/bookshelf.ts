@@ -59,12 +59,12 @@ export class BookshelfPage {
         parseInt(window.getComputedStyle(booksRow).width) / (bookWidth + 10)
       );
 
-    if (columns > this.registeredBooks.length) {
+    if (columns > this.registeredBooks.length + 1) {
       this.additions = [];
       return;
     }
 
-    const rest = (this.registeredBooks.length) % columns;
+    const rest = (this.registeredBooks.length + 1) % columns;
     if (rest === 0) return;
 
     const diff = columns - rest;

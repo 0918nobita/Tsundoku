@@ -7,6 +7,12 @@
 <ion-content padding>
   <ion-grid>
     <ion-row align-items-center justify-content-around id="books-row">
+      <ion-col col-auto text-center>
+        <div class="book-addition-button" (click)="addBook()" padding-vertical>
+          <h2>本の追加</h2>
+          <ion-icon name="add-circle" color="white"></ion-icon>
+        </div>
+      </ion-col>
       <ion-col *ngFor="let book of registeredBooks" col-auto>
         <book-widget [book]="book"></book-widget>
       </ion-col>
@@ -15,8 +21,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ion-fab bottom right>
-    <button ion-fab (click)="addBook()"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
 </ion-content>
