@@ -33,16 +33,10 @@ export function updateDynamicList(
 );
 
 export function updateDynamicList(list: any[], newElement) {
-  let index;
-  if (newElement.created !== void 0) {
-    index = list
-      .map(item => item.created.toMillis())
-      .indexOf(newElement.created.toMillis());
-  } else {
-    index = list
-      .map(item => item.modified.toMillis())
-      .indexOf(newElement.modified.toMillis());
-  }
+  const field = newElement.created !== void 0 ? 'created' : 'modified';
+  const index = list
+    .map(item => item[field].toMillis())
+    .indexOf(newElement[field].toMillis());
   if (index !== -1) list.splice(index, 1);
   list.push(newElement);
 }
