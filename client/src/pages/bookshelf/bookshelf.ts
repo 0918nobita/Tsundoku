@@ -7,7 +7,10 @@ import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
 import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
 import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-modal';
-import { sortByDatetime } from '../../app/services/firestore.service';
+import {
+  sortByDatetime,
+  updateDynamicList
+} from '../../app/services/firestore.service';
 
 @Component({
   selector: 'page-bookshelf',
@@ -27,11 +30,7 @@ export class BookshelfPage {
     window.addEventListener('resize', () => this.adjustThumbnails());
 
     this.bookshelfService.getBookshelf().subscribe(book => {
-      const index = this.registeredBooks
-        .map(item => item.modified.toMillis())
-        .indexOf(book.modified.toMillis());
-      if (index !== -1) this.registeredBooks.splice(index, 1);
-      this.registeredBooks.push(book);
+      updateDynamicList(this.registeredBooks, book);
       sortByDatetime({ key: 'modified', objects: this.registeredBooks }, 'asc');
       this.adjustThumbnails();
     });

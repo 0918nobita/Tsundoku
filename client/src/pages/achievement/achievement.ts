@@ -3,7 +3,10 @@ import moment from 'moment';
 
 import { SkillService } from '../../app/services/skill.service';
 import { Skill } from 'shared/entity';
-import { sortByDatetime } from '../../app/services/firestore.service';
+import {
+  sortByDatetime,
+  updateDynamicList
+} from '../../app/services/firestore.service';
 
 @Component({
   selector: 'page-contact',
@@ -18,11 +21,7 @@ export class AchievementPage {
 
   ionViewWillEnter() {
     this.skillService.getSkills().subscribe(skill => {
-      const index = this.skills
-        .map(item => item.created.toMillis())
-        .indexOf(skill.created.toMillis());
-      if (index !== -1) this.skills.splice(index, 1);
-      this.skills.push(skill);
+      updateDynamicList(this.skills, skill);
       sortByDatetime({ key: 'created', objects: this.skills }, 'desc');
     });
   }
