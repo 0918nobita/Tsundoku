@@ -17,14 +17,11 @@ export class BookshelfService {
   ) {}
 
   getBookshelf(): Observable<RegisteredBook> {
-    const attachBookDetails = (book: RegisteredBook) =>
-      this.bookService
-        .getBookByISBN(book.isbn)
-        .then(resolvedBook => <RegisteredBook>{ ...resolvedBook, ...book });
-
     const nextRegisteredBooks = (registeredBooks: RegisteredBook[]) =>
       from(registeredBooks).pipe(
-        flatMap(registeredBook => from(attachBookDetails(registeredBook)))
+        flatMap(registeredBook =>
+          from(this.bookService.embedBookDetails(registeredBook))
+        )
       );
 
     return this.afFirestore

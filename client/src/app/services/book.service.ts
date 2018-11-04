@@ -17,6 +17,12 @@ export class BookService {
     this.resolvedBooks = this.dexieService.table('resolvedBooks');
   }
 
+  embedBookDetails = async <T extends { isbn: string }>(item: T) =>
+    Object.assign({}, item, await this.getBookByISBN(item.isbn));
+
+  attachBookDetails = async <T extends { isbn: string }>(item: T) =>
+    Object.assign({}, item, { book: await this.getBookByISBN(item.isbn) });
+
   async getBookByISBN(isbn: string): Promise<ResolvedBook> {
     const localBooks = await this.resolvedBooks
       .where('isbn')

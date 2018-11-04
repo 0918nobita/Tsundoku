@@ -7,9 +7,7 @@ import { Plan, ResolvedBook } from 'shared/entity';
 import { BookService } from './book.service';
 import { mine } from './firestore.service';
 
-export interface DetailedPlan extends Plan {
-  book: ResolvedBook;
-}
+export type DetailedPlan = Plan & { book: ResolvedBook };
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +19,10 @@ export class PlanService {
   ) {}
 
   getPlans(): Observable<DetailedPlan> {
-    const attachBookDetails = (plan: Plan) =>
-      this.bookService
-        .getBookByISBN(plan.isbn)
-        .then(result => <DetailedPlan>{ ...plan, book: { ...result } });
-
     const nextDetailedPlans = (plans: Plan[]) =>
-      from(plans).pipe(flatMap(plan => from(attachBookDetails(plan))));
+      from(plans).pipe(
+        flatMap(plan => from(this.bookService.attachBookDetails<Plan>(plan)))
+      );
 
     return this.afFirestore
       .collection<Plan>('plans', mine)
