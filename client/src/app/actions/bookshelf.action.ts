@@ -32,3 +32,9 @@ export class RegisterResolvedBook implements Action {
 
   constructor(public payload: RegisteredBook) {}
 }
+
+export type BookshelfActions =
+  | CreateBook
+  | SearchBookByIsbn
+  | SearchBookBySkill
+  | RegisterResolvedBook;
