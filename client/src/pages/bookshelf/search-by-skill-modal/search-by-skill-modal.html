@@ -10,15 +10,8 @@
 <ion-content padding>
   <ion-item padding-bottom padding-right>
     <ion-label floating>スキル</ion-label>
-    <ion-input type="text" [(ngModel)]="isbn" required></ion-input>
+    <ion-input type="text" [(ngModel)]="skill" required></ion-input>
   </ion-item>
 
-  <button block ion-button (click)="search()">検索</button>
-
-  <div *ngIf="show; then thenBlock"></div>
-  <ng-template #thenBlock>
-    <div class="book" (click)="add(hitBook.isbn)">
-      <img src="{{hitBook.image}}">
-    </div>
-  </ng-template>
+  <button block ion-button>検索</button>
 </ion-content>
