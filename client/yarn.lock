@@ -297,6 +297,16 @@
     localforage-cordovasqlitedriver "1.7.0"
     tslib "^1.7.1"
 
+"@ngrx/effects@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.1.2.tgz#602f3ee9798e00179075ddef030ded88c28b1aa1"
+  integrity sha512-RUuQ5/7ofxGEZnRRdlC1oE9ugVlTYGm92MVj7c6IirHrVN9W5yQjjMTYEYceVCDOYsiXP7Pyw0dcPp6J5wD2EQ==
+
+"@ngrx/store@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-6.1.2.tgz#20fb5ab4d79571b804a348093aa11a167fe2946f"
+  integrity sha512-W9MbXrwhIRmN1BlINF9BT+rHR046e1HNk7GqykcDJrK9wW74PJW3aE5iuPb2sTPipBMjPHsXzc73E4U/+OTAyw==
+
 "@types/cordova@latest":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
