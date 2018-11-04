@@ -7,7 +7,7 @@ export const mine = (ref: firebase.firestore.Query) =>
 export const sortByModifiedDatetime = (
   items: { modified: firebase.firestore.Timestamp }[],
   order: 'asc' | 'desc'
-) => {
+) =>
   items.sort((former, latter) => {
     const asc = order === 'asc',
       formerMillis = former.modified.toMillis(),
@@ -21,4 +21,3 @@ export const sortByModifiedDatetime = (
 
     return 0;
   });
-};
