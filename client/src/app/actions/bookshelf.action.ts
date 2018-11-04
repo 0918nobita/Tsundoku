@@ -26,3 +26,9 @@ export class SearchBookBySkill implements Action {
 
   constructor(public payload: RegisteredBook) {}
 }
+
+export class RegisterResolvedBook implements Action {
+  readonly type = BookshelfActionTypes.RegisterResolvedBook;
+
+  constructor(public payload: RegisteredBook) {}
+}
