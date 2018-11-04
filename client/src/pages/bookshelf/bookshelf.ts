@@ -27,16 +27,12 @@ export class BookshelfPage {
     window.addEventListener('resize', () => this.adjustThumbnails());
 
     this.bookshelfService.getBookshelf().subscribe(book => {
-      if (
-        this.registeredBooks.filter(item => item.isbn == book.isbn).length === 0
-      ) {
-        this.registeredBooks.push(book);
-        sortByDatetime(
-          { key: 'modified', objects: this.registeredBooks },
-          'asc'
-        );
-      }
-
+      const index = this.registeredBooks
+        .map(item => item.modified.toMillis())
+        .indexOf(book.modified.toMillis());
+      if (index !== -1) this.registeredBooks.splice(index, 1);
+      this.registeredBooks.push(book);
+      sortByDatetime({ key: 'modified', objects: this.registeredBooks }, 'asc');
       this.adjustThumbnails();
     });
   }
