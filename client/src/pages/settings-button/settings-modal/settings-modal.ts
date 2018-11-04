@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
+import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
   selector: 'settings-modal',
   templateUrl: 'settings-modal.html'
 })
-export class SettingsModal {
-  constructor(private viewCtrl: ViewController) {}
-
-  async dismiss() {
-    await this.viewCtrl.dismiss();
+export class SettingsModal extends FundamentalModal {
+  constructor(protected viewCtrl: ViewController) {
+    super(viewCtrl);
   }
 }
