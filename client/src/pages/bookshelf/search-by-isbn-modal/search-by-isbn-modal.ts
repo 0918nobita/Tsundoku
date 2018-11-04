@@ -5,24 +5,23 @@ import * as firebase from 'firebase/app';
 import 'firebase/functions';
 
 import { ResolvedBook } from 'shared/entity';
+import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
   selector: 'search-by-isbn-modal',
   templateUrl: 'search-by-isbn-modal.html'
 })
-export class SearchByIsbnModal {
+export class SearchByIsbnModal extends FundamentalModal {
   isbn: string;
   show: boolean = false;
   hitBook: ResolvedBook;
 
   constructor(
     private toastCtrl: ToastController,
-    private viewCtrl: ViewController,
+    protected viewCtrl: ViewController,
     private bookService: BookService
-  ) {}
-
-  async dismiss() {
-    await this.viewCtrl.dismiss();
+  ) {
+    super(viewCtrl);
   }
 
   async search() {
