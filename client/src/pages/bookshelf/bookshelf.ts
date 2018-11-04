@@ -7,6 +7,7 @@ import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
 import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
 import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-modal';
+import { sortByModifiedDatetime } from '../../app/services/firestore.service';
 
 @Component({
   selector: 'page-bookshelf',
@@ -30,21 +31,10 @@ export class BookshelfPage {
         this.registeredBooks.filter(item => item.isbn == book.isbn).length === 0
       ) {
         this.registeredBooks.push(book);
-        this.sortByModifiedDatetime();
+        sortByModifiedDatetime(this.registeredBooks, 'asc');
       }
 
       this.adjustThumbnails();
-    });
-  }
-
-  sortByModifiedDatetime() {
-    this.registeredBooks.sort((former, latter) => {
-      const formerMillis = former.modified.toMillis(),
-        latterMillis = latter.modified.toMillis();
-
-      if (formerMillis < latterMillis) return -1;
-      if (formerMillis > latterMillis) return 1;
-      return 0;
     });
   }
 
