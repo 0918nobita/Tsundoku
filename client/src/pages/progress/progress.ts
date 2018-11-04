@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DetailedPlan, PlanService } from '../../app/services/plan.service';
+import { sortByModifiedDatetime } from '../../app/services/firestore.service';
 
 @Component({
   selector: 'page-about',
@@ -17,8 +18,10 @@ export class ProgressPage {
         this.plans.filter(
           item => item.modified.toMillis() === plan.modified.toMillis()
         ).length === 0
-      )
+      ) {
         this.plans.push(plan);
+        sortByModifiedDatetime(this.plans, 'desc');
+      }
     });
   }
 }
