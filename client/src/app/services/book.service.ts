@@ -50,11 +50,7 @@ export class BookService {
 
         if (volumeInfo.imageLinks === void 0) {
           const books = await BookService.searchBooksInFirestore(isbn);
-          if (books.length > 0)
-            Object.assign(hitBook, {
-              donor: books[0].donor,
-              image: books[0].image
-            });
+          if (books.length > 0) Object.assign(hitBook, books[0]);
         } else {
           hitBook.image = `https${volumeInfo.imageLinks.smallThumbnail.slice(
             4
