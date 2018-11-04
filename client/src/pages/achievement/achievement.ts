@@ -17,12 +17,11 @@ export class AchievementPage {
 
   ionViewWillEnter() {
     this.skillService.getSkills().subscribe(skill => {
-      if (
-        this.skills.filter(
-          item => item.created.toMillis() === skill.created.toMillis()
-        ).length === 0
-      )
-        this.skills.push(skill);
+      const index = this.skills
+        .map(item => item.created.toMillis())
+        .indexOf(skill.created.toMillis());
+      if (index !== -1) this.skills.splice(index, 1);
+      this.skills.push(skill);
     });
   }
 
