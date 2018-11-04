@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-import { ToastController, ViewController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
+import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
   selector: 'search-by-skill-modal',
   templateUrl: 'search-by-skill-modal.html'
 })
-export class SearchBySkillModal {
+export class SearchBySkillModal extends FundamentalModal {
   skill: string;
 
-  constructor(
-    private toastCtrl: ToastController,
-    private viewCtrl: ViewController
-  ) {}
-
-  async dismiss() {
-    await this.viewCtrl.dismiss();
-  }
-
-  async search() {
+  constructor(protected viewCtrl: ViewController) {
+    super(viewCtrl);
   }
 }
