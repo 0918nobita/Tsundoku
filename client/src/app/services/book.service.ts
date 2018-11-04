@@ -41,12 +41,11 @@ export class BookService {
       for (const item of result.data.items) {
         const volumeInfo = item.volumeInfo,
           hitBook: ResolvedBook = {
+            ...volumeInfo,
             desc: volumeInfo.description,
             donor: 'none',
             image: 'assets/imgs/image_not_found.png',
-            isbn,
-            title: volumeInfo.title,
-            pageCount: volumeInfo.pageCount
+            isbn
           };
 
         if (volumeInfo.imageLinks === void 0) {
