@@ -14,3 +14,9 @@ export class CreateBook implements Action {
 
   constructor(public payload: RegisteredBook) {}
 }
+
+export class SearchBookByIsbn implements Action {
+  readonly type = BookshelfActionTypes.SearchBookByIsbn;
+
+  constructor(public payload: RegisteredBook) {}
+}
