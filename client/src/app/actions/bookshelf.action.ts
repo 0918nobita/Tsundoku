@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { RegisteredBook } from '../models/registered-book';
+import { ManuallyAddedBook } from '../models/manually-added-book';
 
 // Action の種類
 export enum BookshelfActionTypes {
@@ -15,7 +16,7 @@ export enum BookshelfActionTypes {
 export class CreateBook implements Action {
   readonly type = BookshelfActionTypes.CreateBook;
 
-  constructor(public payload: RegisteredBook) {}
+  constructor(public payload: ManuallyAddedBook) {}
 }
 
 // 登録成功
