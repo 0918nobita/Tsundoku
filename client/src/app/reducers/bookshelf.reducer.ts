@@ -25,7 +25,8 @@ export function reducer(state = initialState, action: BookshelfActions): State {
     case BookshelfActionTypes.SearchBookBySkill:
       return { ...state };
     case BookshelfActionTypes.RegisterResolvedBook:
-      return { ...state };
+      const payload = action.payload;
+      return { ...state, loading: false, books: [ ...state.books, payload ] };
   }
 }
 
