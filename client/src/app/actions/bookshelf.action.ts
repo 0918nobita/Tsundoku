@@ -48,6 +48,8 @@ export class RegisterResolvedBook implements Action {
 
 export type BookshelfActions =
   | CreateBook
+  | CreateBookSuccess
+  | CreateBookFailed
   | SearchBookByIsbn
   | SearchBookBySkill
   | RegisterResolvedBook;

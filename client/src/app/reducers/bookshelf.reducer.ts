@@ -19,14 +19,18 @@ export const initialState: State = {
 export function reducer(state = initialState, action: BookshelfActions): State {
   switch (action.type) {
     case BookshelfActionTypes.CreateBook:
-      return { ...state };
+      return { ...state, loading: true };
+    case BookshelfActionTypes.CreateBookSuccess:
+      return { ...state, loading: false };
+    case BookshelfActionTypes.CreateBookFailed:
+      return { ...state, loading: false };
     case BookshelfActionTypes.SearchBookByIsbn:
-      return { ...state };
+      return { ...state, loading: true };
     case BookshelfActionTypes.SearchBookBySkill:
-      return { ...state };
+      return { ...state, loading: true };
     case BookshelfActionTypes.RegisterResolvedBook:
       const payload = action.payload;
-      return { ...state, loading: false, books: [ ...state.books, payload ] };
+      return { ...state, loading: true, books: [ ...state.books, payload ] };
   }
 }
 
