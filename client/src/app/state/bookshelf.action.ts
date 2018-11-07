@@ -25,4 +25,7 @@ export class DeleteBookshelf implements Action {
   readonly type = BookshelfActionTypes.DeleteBookshelf;
 }
 
-type BookshelfActions = RegisterManuallyAddedBook | RegisterResolvedBook | DeleteBookshelf;
+type BookshelfActions =
+  | RegisterManuallyAddedBook
+  | RegisterResolvedBook
+  | DeleteBookshelf;
