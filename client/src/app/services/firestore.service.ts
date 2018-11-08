@@ -33,7 +33,7 @@ export function updateDynamicList(
 );
 
 export function updateDynamicList(list: any[], newElement) {
-  const field = newElement.created !== void 0 ? 'created' : 'modified';
+  const field = newElement.modified !== void 0 ? 'modified' : 'created';
   const index = list
     .map(item => item[field].toMillis())
     .indexOf(newElement[field].toMillis());
