@@ -16,10 +16,7 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  constructor(
-    private platform: Platform,
-    private dexieService: DexieService
-  ) {}
+  constructor(private platform: Platform, private dexieService: DexieService) {}
 
   ngAfterViewInit() {
     firebase.auth().onAuthStateChanged(async user => {
