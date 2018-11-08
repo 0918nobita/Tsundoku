@@ -24,9 +24,7 @@ export class MyApp {
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private dexieService: DexieService
-  ) {
-    firebase.initializeApp(firebaseConfig);
-  }
+  ) {}
 
   ngAfterViewInit() {
     firebase.auth().onAuthStateChanged(async user => {
