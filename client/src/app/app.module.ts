@@ -33,6 +33,11 @@ import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
 import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import * as fromPlan from './state/plan.reducer';
+import { PlanEffects } from './state/plan.effect';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,9 @@ import { SettingsModal } from '../pages/settings-button/settings-modal/settings-
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
-    LoginPageModule
+    LoginPageModule,
+    StoreModule.forFeature('plan', fromPlan.reducer),
+    EffectsModule.forFeature([PlanEffects])
   ],
   bootstrap: [IonicApp],
   entryComponents: [
