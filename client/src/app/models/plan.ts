@@ -7,6 +7,7 @@ export interface Plan {
   book: ResolvedBook | RegisteredBook;
   progress: number;
   uid: string;
+  isbn: string;
   created: firebase.firestore.Timestamp;
   modified: firebase.firestore.Timestamp;
 }
