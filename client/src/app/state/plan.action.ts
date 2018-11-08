@@ -11,15 +11,15 @@ export class ReadPlan implements Action {
   readonly type = PlanActionTypes.ReadPlan;
 }
 
-class CreatePlan implements Action {
+export class CreatePlan implements Action {
   readonly type = PlanActionTypes.CreatePlan;
 }
 
-class UpdatePlan implements Action {
+export class UpdatePlan implements Action {
   readonly type = PlanActionTypes.UpdatePlan;
 }
 
-class DeletePlan implements Action {
+export class DeletePlan implements Action {
   readonly type = PlanActionTypes.DeletePlan;
 }
 
