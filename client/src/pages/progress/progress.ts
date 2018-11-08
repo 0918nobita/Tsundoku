@@ -20,7 +20,10 @@ export class ProgressPage {
   plans: DetailedPlan[] = [];
   plans$: Observable<Plan[]>;
 
-  constructor(private planService: PlanService, private store: Store<PlanState>) {
+  constructor(
+    private planService: PlanService,
+    private store: Store<PlanState>
+  ) {
     this.plans$ = store.select(getPlans);
     this.plans$.subscribe(plan => console.log(plan));
   }

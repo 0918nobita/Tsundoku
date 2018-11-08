@@ -13,9 +13,9 @@ export interface BookState {}
 export interface BookshelfState {}
 
 export interface PlanState {
-  plans: Plan[]
+  plans: Plan[];
 }
 
 export interface SkillState {
-  skills: Skill[]
+  skills: Skill[];
 }

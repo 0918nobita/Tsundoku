@@ -1,6 +1,6 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { State } from "./_state.interfaces";
+import { State } from './_state.interfaces';
 import * as fromPlan from './plan.reducer';
 
 export const getFeatureState = createFeatureSelector<State>('store');

@@ -1,4 +1,4 @@
-import { ActionReducerMap } from "@ngrx/store";
+import { ActionReducerMap } from '@ngrx/store';
 
 import { State } from './_state.interfaces';
 import * as fromBook from './book.reducer';

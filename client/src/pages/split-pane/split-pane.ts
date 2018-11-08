@@ -26,7 +26,11 @@ export class SplitPane {
 
   root = TabsPage;
 
-  constructor(private events: Events, private modalCtrl: ModalController, private store: Store<PlanState>) {
+  constructor(
+    private events: Events,
+    private modalCtrl: ModalController,
+    private store: Store<PlanState>
+  ) {
     this.store.dispatch(new WatchPlan());
   }
 

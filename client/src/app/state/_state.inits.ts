@@ -1,4 +1,9 @@
-import { PlanState, SkillState, BookState, BookshelfState } from './_state.interfaces';
+import {
+  PlanState,
+  SkillState,
+  BookState,
+  BookshelfState
+} from './_state.interfaces';
 
 export const initialBookState: BookState = {};
 
