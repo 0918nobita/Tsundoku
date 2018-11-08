@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { ResolvedBook } from '../models/resolved-book';
 
 /*
   本に関するアクション
@@ -10,6 +11,9 @@ import { Action } from '@ngrx/store';
   */
 
 export enum BookActionTypes {
+  GetBook = '[Book] Get',
+  GetBookSuccess = '[Book] Succeed in getting',
+  GetBookFail = '[Book] Fail in getting',
   SearchByIsbnAction = '[Book] Search by ISBN',
   SearchByIsbnSuccess = '[Book] Succeed in searching by ISBN',
   SearchByIsbnFailed = '[Book] Fail in searching by ISBN',
@@ -18,37 +22,44 @@ export enum BookActionTypes {
   SearchBySkillFailed = '[Book] Fail in searching by skill'
 }
 
-class SearchByIsbnAction implements Action {
-  readonly type = BookActionTypes.SearchByIsbnAction;
-  constructor(private payload: { isbn: string; length: 10 | 13 }) {}
+export class GetBook implements Action {
+  readonly type = BookActionTypes.GetBook;
+  constructor(public payload: { isbn: string }) {}
 }
 
-class SearchByIsbnSuccess implements Action {
+export class GetBookSuccess implements Action {
+  readonly type = BookActionTypes.GetBookSuccess;
+  constructor(public payload: { book: ResolvedBook }) {}
+}
+
+export class GetBookFail implements Action {
+  readonly type = BookActionTypes.GetBookFail;
+  constructor(public payload: { error: any }) {}
+}
+
+export class SearchByIsbnAction implements Action {
+  readonly type = BookActionTypes.SearchByIsbnAction;
+  constructor(public payload: { isbn: string }) {}
+}
+
+export class SearchByIsbnSuccess implements Action {
   readonly type = BookActionTypes.SearchByIsbnSuccess;
 }
 
-class SearchByIsbnFailed implements Action {
+export class SearchByIsbnFailed implements Action {
   readonly type = BookActionTypes.SearchByIsbnFailed;
-  constructor(private payload: {}) {}
+  constructor(public payload: {}) {}
 }
 
-class SearchBySkillAction implements Action {
+export class SearchBySkillAction implements Action {
   readonly type = BookActionTypes.SearchBySkillAction;
-  constructor(private payload: { skillID: string }) {}
+  constructor(public payload: { skillID: string }) {}
 }
 
-class SearchBySkillSuccess implements Action {
+export class SearchBySkillSuccess implements Action {
   readonly type = BookActionTypes.SearchBySkillSuccess;
 }
 
-class SearchBySkillFailed implements Action {
+export class SearchBySkillFailed implements Action {
   readonly type = BookActionTypes.SearchBySkillFailed;
 }
-
-type BookActions =
-  | SearchByIsbnAction
-  | SearchByIsbnSuccess
-  | SearchByIsbnFailed
-  | SearchBySkillAction
-  | SearchBySkillSuccess
-  | SearchBySkillFailed;
