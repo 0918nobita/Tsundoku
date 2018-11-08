@@ -35,7 +35,10 @@ export class PlanEffects {
             from(changes).pipe(
               map(
                 change =>
-                  new UpdatePlan({ id: change.payload.doc.id, plan: change.payload.doc.data() })
+                  new UpdatePlan({
+                    id: change.payload.doc.id,
+                    plan: change.payload.doc.data()
+                  })
               )
             )
           ),
