@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
 
+import { Plan } from '../models/plan';
+
 export enum PlanActionTypes {
   ReadPlan = '[Plan] Read',
   CreatePlan = '[Plan] Create',
@@ -17,6 +19,7 @@ export class CreatePlan implements Action {
 
 export class UpdatePlan implements Action {
   readonly type = PlanActionTypes.UpdatePlan;
+  constructor(public payload: { id: string; plan: Plan }) {}
 }
 
 export class DeletePlan implements Action {
