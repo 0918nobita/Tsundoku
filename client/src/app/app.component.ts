@@ -45,8 +45,6 @@ export class MyApp {
     if (this.firstRun) {
       await this.rootNav.setRoot(page);
       await this.platform.ready();
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
       this.firstRun = false;
     } else {
       await this.rootNav.setRoot(page);
