@@ -12,15 +12,13 @@ import {
   PlanActionTypes
 } from './plan.action';
 import { Plan } from '../models/plan';
-import { BookService } from '../services/book.service';
 import { mine } from '../services/firestore.service';
 
 @Injectable()
 export class PlanEffects {
   constructor(
     private actions$: Actions,
-    private afFirestore: AngularFirestore,
-    private bookService: BookService
+    private afFirestore: AngularFirestore
   ) {}
 
   @Effect()

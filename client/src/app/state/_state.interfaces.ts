@@ -1,10 +1,21 @@
-import { RegisteredBook } from '../models/registered-book';
 import { Plan } from '../models/plan';
 import { Skill } from '../models/skill';
 
 export interface State {
-  uid: string;
-  bookshelf: RegisteredBook[];
-  plans: Plan[];
-  skills: Skill[];
+  book: BookState;
+  bookshelf: BookshelfState;
+  plan: PlanState;
+  skill: SkillState;
+}
+
+export interface BookState {}
+
+export interface BookshelfState {}
+
+export interface PlanState {
+  plans: Plan[]
+}
+
+export interface SkillState {
+  skills: Skill[]
 }

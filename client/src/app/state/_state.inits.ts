@@ -1,8 +1,13 @@
-import { State } from './_state.interfaces';
+import { PlanState, SkillState, BookState, BookshelfState } from './_state.interfaces';
 
-export const initialState: State = {
-  uid: '',
-  bookshelf: [],
-  plans: [],
+export const initialBookState: BookState = {};
+
+export const initialBookshelfState: BookshelfState = {};
+
+export const initialPlanState: PlanState = {
+  plans: []
+};
+
+export const initialSkillState: SkillState = {
   skills: []
 };

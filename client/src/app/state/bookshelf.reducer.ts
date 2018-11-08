@@ -1,10 +1,10 @@
 import { Action } from '@ngrx/store';
 
-import { initialState } from './_state.inits';
-import { State } from './_state.interfaces';
+import { initialBookshelfState } from './_state.inits';
+import { BookshelfState } from './_state.interfaces';
 import { BookshelfActionTypes } from './bookshelf.action';
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialBookshelfState, action: Action): BookshelfState {
   switch (action.type) {
     case BookshelfActionTypes.RegisterManuallyAddedBook:
       return state;
