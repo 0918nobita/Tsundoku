@@ -63,7 +63,8 @@ import { PlanEffects } from './state/plan.effect';
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
     LoginPageModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('store', reducers),
     EffectsModule.forRoot([PlanEffects])
   ],
   bootstrap: [IonicApp],
