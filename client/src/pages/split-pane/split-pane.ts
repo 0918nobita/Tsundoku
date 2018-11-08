@@ -1,8 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 import { TabsPage } from '../tabs/tabs';
 import { Events, ModalController, Nav } from 'ionic-angular';
 import { SettingsModal } from '../settings-button/settings-modal/settings-modal';
+import { PlanState } from '../../app/state/_state.interfaces';
+import { WatchPlan } from '../../app/state/plan.action';
 
 @Component({
   selector: 'split-pane',
@@ -23,7 +26,9 @@ export class SplitPane {
 
   root = TabsPage;
 
-  constructor(private events: Events, private modalCtrl: ModalController) {}
+  constructor(private events: Events, private modalCtrl: ModalController, private store: Store<PlanState>) {
+    this.store.dispatch(new WatchPlan());
+  }
 
   ionViewWillEnter() {
     this.events.subscribe('tabs:changed', index =>
