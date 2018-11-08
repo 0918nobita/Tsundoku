@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of, from } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { concatMap, mergeMap, map, catchError } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import {
   WatchPlan,
-  WatchPlanFail,
   UpdatePlan,
-  PlanActionTypes
+  PlanActionTypes,
+  WatchPlanFail
 } from './plan.action';
 import { Plan } from '../models/plan';
 import { mine } from '../services/firestore.service';
@@ -47,7 +47,8 @@ export class PlanEffects {
                 )
               )
             )
-          )
+          ),
+          catchError(error => of(new WatchPlanFail({ error })))
         )
     )
   );
