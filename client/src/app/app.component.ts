@@ -21,8 +21,6 @@ export class MyApp {
 
   constructor(
     private platform: Platform,
-    private statusBar: StatusBar,
-    private splashScreen: SplashScreen,
     private dexieService: DexieService
   ) {}
 
