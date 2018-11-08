@@ -13,12 +13,14 @@ import {
 } from './plan.action';
 import { Plan } from '../models/plan';
 import { mine } from '../services/firestore.service';
+import { BookService } from '../services/book.service';
 
 @Injectable()
 export class PlanEffects {
   constructor(
     private actions$: Actions,
-    private afFirestore: AngularFirestore
+    private afFirestore: AngularFirestore,
+    private bookService: BookService
   ) {}
 
   @Effect()
@@ -31,16 +33,21 @@ export class PlanEffects {
         .pipe(
           mergeMap(changes =>
             from(changes).pipe(
-              map(
-                change =>
-                  new UpdatePlan({
-                    id: change.payload.doc.id,
-                    plan: change.payload.doc.data()
-                  })
+              mergeMap(change =>
+                from(
+                  this.bookService.getBookByISBN(change.payload.doc.data().isbn)
+                ).pipe(
+                  map(
+                    book =>
+                      new UpdatePlan({
+                        id: change.payload.doc.id,
+                        plan: { ...change.payload.doc.data(), book }
+                      })
+                  )
+                )
               )
             )
-          ),
-          catchError(err => of(new WatchPlanFail({ error: err })))
+          )
         )
     )
   );
