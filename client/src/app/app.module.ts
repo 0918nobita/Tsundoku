@@ -34,10 +34,11 @@ import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
 import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule, Actions } from '@ngrx/effects';
+import { EffectsModule } from '@ngrx/effects';
 
 import { reducers } from './state/_state.reducers';
 import { PlanEffects } from './state/plan.effect';
+import { BookEffects } from './state/book.effect';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { PlanEffects } from './state/plan.effect';
     LoginPageModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('store', reducers),
-    EffectsModule.forRoot([PlanEffects])
+    EffectsModule.forRoot([BookEffects, PlanEffects])
   ],
   bootstrap: [IonicApp],
   entryComponents: [
