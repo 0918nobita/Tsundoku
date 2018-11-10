@@ -34,7 +34,7 @@ export class GetBookSuccess implements Action {
 
 export class GetBookFail implements Action {
   readonly type = BookActionTypes.GetBookFail;
-  constructor(public payload: { error: any }) {}
+  constructor(public payload?: { error: any }) {}
 }
 
 export class SearchByIsbnAction implements Action {
