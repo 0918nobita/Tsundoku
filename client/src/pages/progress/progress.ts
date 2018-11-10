@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { PlanState } from '../../app/state/_state.interfaces';
+import { State } from '../../app/state/_state.interfaces';
 import { Plan } from '../../app/models/plan';
 import { getPlans } from '../../app/state/_state.selectors';
 
@@ -11,6 +11,7 @@ import {
   sortByDatetime,
   updateDynamicList
 } from '../../app/services/firestore-utils';
+import { WatchPlan } from '../../app/state/plan.action';
 
 @Component({
   selector: 'page-about',
@@ -22,8 +23,9 @@ export class ProgressPage {
 
   constructor(
     private planService: PlanService,
-    private store: Store<PlanState>
+    private store: Store<State>
   ) {
+    this.store.dispatch(new WatchPlan())
     this.plans$ = this.store.select(getPlans);
     this.plans$.subscribe(plan => console.log(plan));
   }
