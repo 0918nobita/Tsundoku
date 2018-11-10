@@ -8,14 +8,20 @@ export interface State {
   skill: SkillState;
 }
 
-export interface BookState {}
+export interface BookState {
+  loading: boolean;
+}
 
-export interface BookshelfState {}
+export interface BookshelfState {
+  loading: boolean;
+}
 
 export interface PlanState {
+  loading: boolean;
   plans: Plan[];
 }
 
 export interface SkillState {
+  loading: boolean;
   skills: Skill[];
 }
