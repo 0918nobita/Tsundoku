@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { GetBook, BookActionTypes } from './book.action';
-import { concatMap, take, map } from 'rxjs/operators';
+import { concatMap, take, map, catchError } from 'rxjs/operators';
 import { Dexie } from 'dexie';
 import { LocalDatabase } from '../services/local-database';
 import { ResolvedBook } from '../models/resolved-book';
@@ -35,19 +35,17 @@ export class BookEffects {
   getBook: Observable<Action> = this.actions$.pipe(
     ofType<GetBook>(BookActionTypes.GetBook),
     concatMap(async action => {
-      if (navigator.onLine == false) {
+      if (navigator.onLine === false) {
         const array = await this.resolvedBooks
           .where('isbn')
           .equals(action.payload.isbn)
           .toArray();
         return array.length > 0
           ? new GetBookSuccess({ book: array[0] })
-          : new GetBookFail({
-              error: 'オフラインで、ローカルDBで本が見つかりませんでした'
-            });
+          : new GetBookFail({ error: 'ローカルDBで本が見つかりませんでした' });
       }
 
-      this.afFirestore
+      return await this.afFirestore
         .collection<ResolvedBook>('resolvedBook', ref =>
           ref.where('isbn', '==', action.payload.isbn)
         )
@@ -62,7 +60,9 @@ export class BookEffects {
                     error: 'Firestore 上で本が見つかりませんでした'
                   })
           )
-        );
-    })
+        )
+        .toPromise();
+    }),
+    catchError(error => of(new GetBookFail({ error })))
   );
 }
