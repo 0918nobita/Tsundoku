@@ -3,10 +3,7 @@ import { Action } from '@ngrx/store';
 import { initialPlanState } from './_state.inits';
 import { PlanState } from './_state.interfaces';
 import { PlanActionTypes, UpdatePlan, WatchPlanFail } from './plan.action';
-import {
-  updateDynamicList,
-  sortByDatetime
-} from '../services/firestore-utils';
+import { updateDynamicList, sortByDatetime } from '../services/firestore-utils';
 
 export function reducer(state = initialPlanState, action: Action): PlanState {
   switch (action.type) {
