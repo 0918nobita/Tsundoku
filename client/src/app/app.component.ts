@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import { LoginPage } from '../pages/login/login';
-import { DexieService } from './services/dexie.service';
+import { LocalDatabase } from './services/local-database';
 import { SplitPane } from '../pages/split-pane/split-pane';
 
 @Component({
@@ -16,14 +16,14 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  constructor(private platform: Platform, private dexieService: DexieService) {}
+  constructor(private platform: Platform, private localDB: LocalDatabase) {}
 
   ngAfterViewInit() {
     firebase.auth().onAuthStateChanged(async user => {
       if (!user) {
         await Promise.all([
-          this.dexieService.table('resolvedBooks').clear(),
-          this.dexieService.table('registeredBooks').clear(),
+          this.localDB.table('resolvedBooks').clear(),
+          this.localDB.table('registeredBooks').clear(),
           this.setRootPage(LoginPage)
         ]);
         return;

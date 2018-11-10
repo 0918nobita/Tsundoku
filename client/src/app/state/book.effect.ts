@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { GetBook, BookActionTypes } from './book.action';
 import { concatMap, take, map } from 'rxjs/operators';
 import { Dexie } from 'dexie';
-import { DexieService } from '../services/dexie.service';
+import { LocalDatabase } from '../services/local-database';
 import { ResolvedBook } from '../models/resolved-book';
 
 import { GetBookSuccess, GetBookFail } from './book.action';
@@ -18,10 +18,10 @@ export class BookEffects {
 
   constructor(
     private actions$: Actions,
-    private dexieService: DexieService,
+    private localDB: LocalDatabase,
     private afFirestore: AngularFirestore
   ) {
-    this.resolvedBooks = this.dexieService.table('resolvedBooks');
+    this.resolvedBooks = this.localDB.table('resolvedBooks');
   }
 
   /*

@@ -5,7 +5,7 @@ import Dexie from 'dexie';
 import axios from 'axios';
 
 import { ResolvedBook } from 'shared/entity';
-import { DexieService } from './dexie.service';
+import { LocalDatabase } from './local-database';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ import { DexieService } from './dexie.service';
 export class BookService {
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private dexieService: DexieService) {
-    this.resolvedBooks = this.dexieService.table('resolvedBooks');
+  constructor(private localDB: LocalDatabase) {
+    this.resolvedBooks = this.localDB.table('resolvedBooks');
   }
 
   embedBookDetails = async <T extends { isbn: string }>(item: T) =>

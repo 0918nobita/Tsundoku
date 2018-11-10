@@ -22,7 +22,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { firebaseConfig } from './config';
-import { DexieService } from './services/dexie.service';
+import { LocalDatabase } from './services/local-database';
 import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
 import { AuthService } from './services/auth.service';
@@ -87,12 +87,12 @@ import { PlanEffects } from './state/plan.effect';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DexieService,
     BookService,
     BookshelfService,
     AuthService,
     PlanService,
-    SkillService
+    SkillService,
+    LocalDatabase
   ]
 })
 export class AppModule {}
