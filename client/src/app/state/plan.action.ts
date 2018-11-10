@@ -31,10 +31,3 @@ export class UpdatePlan implements Action {
 export class DeletePlan implements Action {
   readonly type = PlanActionTypes.DeletePlan;
 }
-
-type PlanActions =
-  | WatchPlan
-  | WatchPlanFail
-  | CreatePlan
-  | UpdatePlan
-  | DeletePlan;

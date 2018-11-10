@@ -12,5 +12,3 @@ class CreateSkill implements Action {
 class DeleteSkill implements Action {
   readonly type = SkillActionTypes.DeleteSkill;
 }
-
-type PlanActions = CreateSkill | DeleteSkill;
