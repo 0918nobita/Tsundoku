@@ -25,7 +25,7 @@ export class ProgressPage {
     private planService: PlanService,
     private store: Store<State>
   ) {
-    this.store.dispatch(new WatchPlan())
+    this.store.dispatch(new WatchPlan());
     this.plans$ = this.store.select(getPlans);
     this.plans$.subscribe(plan => console.log(plan));
   }
