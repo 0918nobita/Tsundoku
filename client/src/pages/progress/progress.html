@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let plan of plans">
+  <div *ngFor="let plan of plans$ | async">
     <ion-card>
       <ion-card-content>
         <h2>{{plan.title}}</h2>
