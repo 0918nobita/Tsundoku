@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Plan, ResolvedBook } from 'shared/entity';
 import { BookService } from './book.service';
-import { mine } from './firestore.service';
+import { mine } from './firestore-utils';
 
 export type DetailedPlan = Plan & { book: ResolvedBook };
 

@@ -12,7 +12,7 @@ import {
   WatchPlanFail
 } from './plan.action';
 import { Plan } from '../models/plan';
-import { mine } from '../services/firestore.service';
+import { mine } from '../services/firestore-utils';
 import { BookService } from '../services/book.service';
 
 @Injectable()

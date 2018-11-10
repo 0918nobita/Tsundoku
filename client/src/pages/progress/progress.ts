@@ -10,7 +10,7 @@ import { DetailedPlan, PlanService } from '../../app/services/plan.service';
 import {
   sortByDatetime,
   updateDynamicList
-} from '../../app/services/firestore.service';
+} from '../../app/services/firestore-utils';
 
 @Component({
   selector: 'page-about',

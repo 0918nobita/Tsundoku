@@ -6,7 +6,7 @@ import { Skill } from 'shared/entity';
 import {
   sortByDatetime,
   updateDynamicList
-} from '../../app/services/firestore.service';
+} from '../../app/services/firestore-utils';
 
 @Component({
   selector: 'page-contact',

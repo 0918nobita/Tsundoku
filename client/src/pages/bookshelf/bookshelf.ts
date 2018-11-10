@@ -10,7 +10,7 @@ import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-moda
 import {
   sortByDatetime,
   updateDynamicList
-} from '../../app/services/firestore.service';
+} from '../../app/services/firestore-utils';
 
 @Component({
   selector: 'page-bookshelf',

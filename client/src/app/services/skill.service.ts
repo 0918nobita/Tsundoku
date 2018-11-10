@@ -4,7 +4,7 @@ import { flatMap } from 'rxjs/operators';
 import { from, Observable } from 'rxjs';
 
 import { Skill } from 'shared/entity';
-import { mine } from './firestore.service';
+import { mine } from './firestore-utils';
 
 @Injectable({
   providedIn: 'root'

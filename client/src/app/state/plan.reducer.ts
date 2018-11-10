@@ -6,7 +6,7 @@ import { PlanActionTypes, UpdatePlan, WatchPlanFail } from './plan.action';
 import {
   updateDynamicList,
   sortByDatetime
-} from '../services/firestore.service';
+} from '../services/firestore-utils';
 
 export function reducer(state = initialPlanState, action: Action): PlanState {
   switch (action.type) {

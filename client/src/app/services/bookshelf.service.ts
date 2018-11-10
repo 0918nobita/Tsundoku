@@ -5,7 +5,7 @@ import { flatMap } from 'rxjs/operators';
 
 import { RegisteredBook } from 'shared/entity';
 import { BookService } from './book.service';
-import { mine } from './firestore.service';
+import { mine } from './firestore-utils';
 
 @Injectable({
   providedIn: 'root'
