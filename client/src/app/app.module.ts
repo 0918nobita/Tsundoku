@@ -64,8 +64,7 @@ import { BookEffects } from './state/book.effect';
     AngularFireFunctionsModule,
     AngularFirestoreModule.enablePersistence(),
     LoginPageModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('store', reducers),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([BookEffects, PlanEffects])
   ],
   bootstrap: [IonicApp],
