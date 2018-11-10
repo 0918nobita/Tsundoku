@@ -24,5 +24,3 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
       return Object.assign({}, { ...state, plans });
   }
 }
-
-export const getPlans = (state: PlanState) => state.plans;

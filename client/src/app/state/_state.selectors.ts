@@ -1,8 +1,7 @@
 import { createSelector } from '@ngrx/store';
 
-import { State } from './_state.interfaces';
-import * as fromPlan from './plan.reducer';
+import { State, PlanState } from './_state.interfaces';
 
 export const getPlan = (state: State) => state.plan;
 
-export const getPlans = createSelector(getPlan, fromPlan.getPlans);
+export const getPlans = createSelector(getPlan, (state: PlanState) => state.plans);
