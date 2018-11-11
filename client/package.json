@@ -16,6 +16,17 @@
     "test:w": "jest --watch",
     "test:ci": "jest --runInBand"
   },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --project ./ --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@angular/animations": "5.2.11",
     "@angular/common": "6.1.10",
