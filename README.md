@@ -22,12 +22,12 @@ $ firebase login
 ```
 
 最後に、以下のコマンドを実行して Tsundoku のソースコードの取得と依存パッケージのインストールを行って下さい。  
-``ionic-app`` ディレクトリと ``functions`` ディレクトリは分離された npm プロジェクトです。  
+``client`` ディレクトリと ``functions`` ディレクトリは分離された npm プロジェクトです。  
 ``shared`` ディレクトリ内の ``.ts`` 形式のソースファイルは、この 2 つの npm プロジェクトで共有されます。
 
 ```bash
 $ git clone https://github.com/TsundokuApp/Tsundoku
-$ cd Tsundoku/ionic-app
+$ cd Tsundoku/client
 $ yarn install
 $ cd ../functions
 $ yarn install
