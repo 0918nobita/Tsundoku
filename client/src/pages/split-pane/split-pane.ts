@@ -1,4 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  ApplicationRef
+} from '@angular/core';
 
 import { TabsPage } from '../tabs/tabs';
 import { Events, ModalController, Nav } from 'ionic-angular';
@@ -25,13 +30,15 @@ export class SplitPane {
 
   constructor(
     private events: Events,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private appRef: ApplicationRef
   ) {}
 
   ionViewWillEnter() {
-    this.events.subscribe('tabs:changed', index =>
-      this.makeButtonSelected(index)
-    );
+    this.events.subscribe('tabs:changed', index => {
+      this.makeButtonSelected(index);
+      this.appRef.tick();
+    });
   }
 
   showPage(name: 'progress' | 'bookshelf' | 'achievement') {
