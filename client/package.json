@@ -50,6 +50,7 @@
     "@types/jest": "^23.3.9",
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.1",
+    "lint-staged": "^8.0.4",
     "node-static": "^0.7.11",
     "prettier": "^1.14.3",
     "typescript": "2.8.3"
