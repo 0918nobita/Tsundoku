@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { BookState } from './_state.interfaces';
 import { initialBookState } from './_state.inits';
-import { BookActionTypes } from './book.action';
+import { BookActionTypes, GetBookSuccess } from './book.action';
 
 export function reducer(state = initialBookState, action: Action): BookState {
   switch (action.type) {
@@ -10,7 +10,14 @@ export function reducer(state = initialBookState, action: Action): BookState {
       return Object.assign({}, { ...state, loading: true });
 
     case BookActionTypes.GetBookSuccess:
-      return Object.assign({}, { ...state, loading: false });
+      return Object.assign(
+        {},
+        {
+          ...state,
+          bookDetail: (action as GetBookSuccess).payload.book,
+          loading: false
+        }
+      );
 
     case BookActionTypes.GetBookFail:
       console.log(action);
