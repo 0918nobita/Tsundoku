@@ -1,5 +1,6 @@
 import { Plan } from '../models/plan';
 import { Skill } from '../models/skill';
+import { ResolvedBook } from '../models/resolved-book';
 
 export interface State {
   book: BookState;
@@ -10,6 +11,7 @@ export interface State {
 
 export interface BookState {
   loading: boolean;
+  bookDetail: ResolvedBook;
 }
 
 export interface BookshelfState {

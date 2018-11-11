@@ -6,7 +6,8 @@ import {
 } from './_state.interfaces';
 
 export const initialBookState: BookState = {
-  loading: false
+  loading: false,
+  bookDetail: null
 };
 
 export const initialBookshelfState: BookshelfState = {
