@@ -22,6 +22,7 @@ export function reducer(state = initialBookState, action: Action): BookState {
     case BookActionTypes.SearchBySkillAction:
     case BookActionTypes.SearchBySkillSuccess:
     case BookActionTypes.SearchBySkillFailed:
+    default:
       return state;
   }
 }

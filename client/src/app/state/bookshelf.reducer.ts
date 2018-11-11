@@ -10,10 +10,9 @@ export function reducer(
 ): BookshelfState {
   switch (action.type) {
     case BookshelfActionTypes.RegisterManuallyAddedBook:
-      return state;
     case BookshelfActionTypes.RegisterResolvedBook:
-      return state;
     case BookshelfActionTypes.DeleteBookshelf:
+    default:
       return state;
   }
 }

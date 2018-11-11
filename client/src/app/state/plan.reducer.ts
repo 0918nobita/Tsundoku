@@ -22,5 +22,7 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
       updateDynamicList(plans, plan);
       sortByDatetime({ key: 'modified', objects: plans }, 'desc');
       return Object.assign({}, { ...state, plans });
+    default:
+      return state;
   }
 }
