@@ -1,11 +1,13 @@
 {
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+  "extends": [ "tslint-config-standard", "tslint-config-prettier" ],
   "rules": {
+    "prettier": true,
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true
     ]
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+  }
 }
