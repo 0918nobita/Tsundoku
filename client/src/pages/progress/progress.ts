@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../../app/state/_state.interfaces';
@@ -16,6 +16,6 @@ export class ProgressPage {
 
   constructor(private store: Store<State>) {
     this.store.dispatch(new WatchPlan());
-    this.plans$ = this.store.select(getPlans);
+    this.plans$ = this.store.pipe(select(getPlans));
   }
 }
