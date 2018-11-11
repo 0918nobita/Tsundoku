@@ -3,13 +3,17 @@ import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 
-import { GetBook, BookActionTypes } from './book.action';
+import {
+  GetBook,
+  GetBookSuccess,
+  GetBookFail,
+  BookActionTypes
+} from './book.action';
 import { concatMap, take, map, catchError } from 'rxjs/operators';
 import { Dexie } from 'dexie';
 import { LocalDatabase } from '../services/local-database';
 import { ResolvedBook } from '../models/resolved-book';
 
-import { GetBookSuccess, GetBookFail } from './book.action';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
@@ -45,7 +49,7 @@ export class BookEffects {
           : new GetBookFail({ error: 'ローカルDBで本が見つかりませんでした' });
       }
 
-      return await this.afFirestore
+      return this.afFirestore
         .collection<ResolvedBook>('resolvedBook', ref =>
           ref.where('isbn', '==', action.payload.isbn)
         )
