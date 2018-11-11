@@ -14,9 +14,7 @@ import { WatchPlan } from '../../app/state/plan.action';
 export class ProgressPage {
   plans$: Observable<Plan[]>;
 
-  constructor(
-    private store: Store<State>
-  ) {
+  constructor(private store: Store<State>) {
     this.store.dispatch(new WatchPlan());
     this.plans$ = this.store.select(getPlans);
   }

@@ -10,7 +10,7 @@ export function reducer(state = initialBookState, action: Action): BookState {
       return Object.assign({}, { ...state, loading: true });
 
     case BookActionTypes.GetBookSuccess:
-      return Object.assign({}, { ...state, loading: false});
+      return Object.assign({}, { ...state, loading: false });
 
     case BookActionTypes.GetBookFail:
       console.log(action);
