@@ -48,6 +48,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
     "@types/jest": "^23.3.9",
+    "husky": "^1.1.3",
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.1",
     "lint-staged": "^8.0.4",
