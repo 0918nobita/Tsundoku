@@ -54,6 +54,7 @@
     "lint-staged": "^8.0.4",
     "node-static": "^0.7.11",
     "prettier": "^1.14.3",
+    "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "2.8.3"
   },
