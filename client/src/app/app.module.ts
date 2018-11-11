@@ -27,7 +27,6 @@ import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
 import { AuthService } from './services/auth.service';
 import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
-import { PlanService } from './services/plan.service';
 import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
@@ -90,7 +89,6 @@ import { BookEffects } from './state/book.effect';
     BookService,
     BookshelfService,
     AuthService,
-    PlanService,
     SkillService,
     LocalDatabase
   ]
