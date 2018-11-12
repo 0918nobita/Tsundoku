@@ -8,8 +8,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "retire": "retire",
-    "format": "prettier ./**/*.ts --write"
+    "retire": "retire"
   },
   "main": "lib/functions/src/index.js",
   "dependencies": {
@@ -23,7 +22,6 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
-    "prettier": "^1.14.3",
     "retire": "^1.6.2",
     "tsconfig-paths": "^3.5.0",
     "tslint": "^5.8.0",
