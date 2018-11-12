@@ -9,7 +9,7 @@
   "private": true,
   "lint-staged": {
     "*.ts": [
-      "tslint --project ./ --fix",
+      "tslint --fix",
       "git add"
     ]
   },
