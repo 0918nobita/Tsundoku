@@ -59,7 +59,7 @@ export class SplitPane {
       .forEach(item => item.nativeElement.classList.remove('selected-button'));
   }
 
-  openSettingsModal() {
-    this.modalCtrl.create(SettingsModal).present();
+  async openSettingsModal() {
+    await this.modalCtrl.create(SettingsModal).present();
   }
 }
