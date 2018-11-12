@@ -6,5 +6,8 @@
   "repository": "https://github.com/TsundokuApp/Tsundoku.git",
   "author": "0918nobita <nobita.0918@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "prettier": "^1.15.2"
+  }
 }
