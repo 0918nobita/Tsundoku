@@ -56,13 +56,12 @@ export class BookEffects {
         .valueChanges()
         .pipe(
           take(1),
-          map(
-            books =>
-              books.length !== 0
-                ? new GetBookSuccess({ book: books[0] })
-                : new GetBookFail({
-                    error: 'Firestore 上で本が見つかりませんでした'
-                  })
+          map(books =>
+            books.length !== 0
+              ? new GetBookSuccess({ book: books[0] })
+              : new GetBookFail({
+                  error: 'Firestore 上で本が見つかりませんでした'
+                })
           )
         )
         .toPromise();

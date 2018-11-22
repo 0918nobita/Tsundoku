@@ -80,6 +80,7 @@ export class BookshelfPage {
           {
             text: '本をISBNで検索する',
             handler: () => {
+              // tslint:disable-next-line:no-floating-promises
               this.modalCtrl.create(SearchByIsbnModal).present();
             }
           },

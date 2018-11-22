@@ -48,8 +48,8 @@ export class SearchByIsbnModal extends FundamentalModal {
     }
   }
 
-  showError(error) {
-    this.toastCtrl
+  async showError(error) {
+    await this.toastCtrl
       .create({
         message: error,
         duration: 5000,

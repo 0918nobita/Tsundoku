@@ -31,7 +31,7 @@ export class BookService {
     if (localBooks.length > 0) {
       return localBooks[0];
     } else if (navigator.onLine) {
-      return await this.getBookOnline(isbn);
+      return this.getBookOnline(isbn);
     } else {
       throw new Error('本の情報の取得に失敗しました');
     }
