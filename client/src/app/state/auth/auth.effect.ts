@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { concatMap, catchError, mergeMap } from 'rxjs/operators';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -16,10 +16,10 @@ import { LocalDatabase } from '../../services/local-database';
 
 @Injectable()
 export class AuthEffects {
-  signInSubject: Subject<firebase.User | null>;
+  signInSubject: BehaviorSubject<firebase.User | null | undefined>;
 
   constructor(private actions$: Actions, private localDB: LocalDatabase) {
-    this.signInSubject = new Subject();
+    this.signInSubject = new BehaviorSubject(void 0);
     firebase.auth().onAuthStateChanged(this.signInSubject);
   }
 
