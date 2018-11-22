@@ -41,10 +41,15 @@ export class BookshelfPage {
       bookWidth = parseInt(
         window.getComputedStyle(
           document.getElementsByClassName('book-thumbnail')[0]
-        ).width
+        ).width as string,
+        10
       ),
       columns = Math.floor(
-        parseInt(window.getComputedStyle(booksRow).width) / (bookWidth + 10)
+        parseInt(
+          window.getComputedStyle(booksRow as HTMLElement).width as string,
+          10
+        ) /
+          (bookWidth + 10)
       );
 
     if (columns > this.registeredBooks.length + 1) {

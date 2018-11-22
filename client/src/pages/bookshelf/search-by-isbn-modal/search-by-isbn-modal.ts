@@ -38,7 +38,7 @@ export class SearchByIsbnModal extends FundamentalModal {
     try {
       await Promise.all([
         firebase.functions().httpsCallable('registerBook')({
-          uid: firebase.auth().currentUser.uid,
+          uid: (firebase.auth().currentUser as firebase.User).uid,
           isbn
         }),
         this.dismiss()
