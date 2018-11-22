@@ -14,7 +14,7 @@ export enum BookActionTypes {
   GetBook = '[Book] Get',
   GetBookSuccess = '[Book] Succeed in getting',
   GetBookFail = '[Book] Fail in getting',
-  SearchByIsbnAction = '[Book] Search by ISBN',
+  SearchByIsbn = '[Book] Search by ISBN',
   SearchByIsbnSuccess = '[Book] Succeed in searching by ISBN',
   SearchByIsbnFailed = '[Book] Fail in searching by ISBN',
   SearchBySkillAction = '[Book] Search by skill',
@@ -37,8 +37,8 @@ export class GetBookFail implements Action {
   constructor(public payload?: { error: any }) {}
 }
 
-export class SearchByIsbnAction implements Action {
-  readonly type = BookActionTypes.SearchByIsbnAction;
+export class SearchByIsbn implements Action {
+  readonly type = BookActionTypes.SearchByIsbn;
   constructor(public payload: { isbn: string }) {}
 }
 

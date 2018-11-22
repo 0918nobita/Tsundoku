@@ -20,10 +20,9 @@ export function reducer(state = initialBookState, action: Action): BookState {
       );
 
     case BookActionTypes.GetBookFail:
-      console.log(action);
       return Object.assign({}, { ...state, loading: false });
 
-    case BookActionTypes.SearchByIsbnAction:
+    case BookActionTypes.SearchByIsbn:
     case BookActionTypes.SearchByIsbnSuccess:
     case BookActionTypes.SearchByIsbnFailed:
     case BookActionTypes.SearchBySkillAction:
