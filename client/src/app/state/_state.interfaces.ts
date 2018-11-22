@@ -11,7 +11,7 @@ export interface State {
 
 export interface BookState {
   loading: boolean;
-  bookDetail: ResolvedBook;
+  bookDetail: ResolvedBook | null;
 }
 
 export interface BookshelfState {

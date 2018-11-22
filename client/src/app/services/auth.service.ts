@@ -20,7 +20,10 @@ export class AuthService {
       ) => {
         // const user = authResult.user;
 
-        if (authResult.additionalUserInfo.isNewUser) {
+        if (
+          (authResult.additionalUserInfo as firebase.auth.AdditionalUserInfo)
+            .isNewUser
+        ) {
           // Do initialization stuff here (ex. create profile)
           return false;
         }

@@ -13,7 +13,8 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
       return state;
 
     case PlanActionTypes.WatchPlanFail:
-      console.error((action as WatchPlanFail).payload.error);
+      const payload = (action as WatchPlanFail).payload;
+      if (payload !== void 0) console.error(payload.error);
       return state;
 
     case PlanActionTypes.UpdatePlan:

@@ -20,7 +20,7 @@ type ContainingDatetime =
     };
 
 export const mine = (ref: firebase.firestore.Query) =>
-  ref.where('uid', '==', firebase.auth().currentUser.uid);
+  ref.where('uid', '==', (firebase.auth().currentUser as firebase.User).uid);
 
 export function updateDynamicList(
   list: ContainingCreated[],
