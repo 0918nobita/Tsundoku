@@ -1,20 +1,56 @@
 import { Component } from '@angular/core';
+import { NavController, LoadingController, Loading } from 'ionic-angular';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import * as firebaseui from 'firebaseui';
+
+import { SplitPane } from '../split-pane/split-pane';
+import { State } from '../../app/state/_state.interfaces';
+import { SignIn } from '../../app/state/auth/auth.action';
+import { getUser } from '../../app/state/_state.selectors';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  user$: Observable<firebase.User | null | undefined>;
   ui: firebaseui.auth.AuthUI;
 
-  constructor() {
+  private loader: Loading;
+
+  constructor(
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
+    private store: Store<State>
+  ) {
+    this.loader = this.loadingCtrl.create({
+      content: 'サインイン中…'
+    });
+    this.user$ = this.store.pipe(select(getUser));
+
+    this.store.dispatch(new SignIn());
+    this.loader.present();
+
+    this.user$.subscribe(async user => {
+      if (user === void 0) return;
+
+      if (user !== null) {
+        await this.navCtrl.setRoot(SplitPane);
+        this.loader.dismiss();
+        return;
+      }
+
+      this.loader.dismiss();
+      this.showFirebaseUI();
+    });
+
     this.ui = new firebaseui.auth.AuthUI(firebase.auth());
   }
 
-  ionViewDidLoad() {
+  showFirebaseUI() {
     this.ui.start('#firebaseui-auth-container', {
       callbacks: {
         signInSuccessWithAuthResult: (
