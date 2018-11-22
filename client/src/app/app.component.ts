@@ -4,8 +4,12 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import { LoginPage } from '../pages/login/login';
-import { LocalDatabase } from './services/local-database';
 import { SplitPane } from '../pages/split-pane/split-pane';
+import { Store, select } from '@ngrx/store';
+import { State } from './state/_state.interfaces';
+import { SignIn } from './state/auth.action';
+import { Observable } from 'rxjs';
+import { getUser } from './state/_state.selectors';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,20 +20,15 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  constructor(private platform: Platform, private localDB: LocalDatabase) {}
+  private user$: Observable<firebase.User | null>;
+
+  constructor(private platform: Platform, private store: Store<State>) {}
 
   ngAfterViewInit() {
-    firebase.auth().onAuthStateChanged(async user => {
-      if (!user) {
-        await Promise.all([
-          this.localDB.table('resolvedBooks').clear(),
-          this.localDB.table('registeredBooks').clear(),
-          this.setRootPage(LoginPage)
-        ]);
-        return;
-      }
-
-      await this.setRootPage(SplitPane);
+    this.store.dispatch(new SignIn());
+    this.user$ = this.store.pipe(select(getUser));
+    this.user$.subscribe(async user => {
+      await this.setRootPage(!user ? LoginPage : SplitPane);
     });
   }
 
