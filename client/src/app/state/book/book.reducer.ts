@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-import { BookState } from './_state.interfaces';
-import { initialBookState } from './_state.inits';
+import { BookState } from '../_state.interfaces';
+import { initialBookState } from '../_state.inits';
 import { BookActionTypes, GetBookSuccess } from './book.action';
 
 export function reducer(state = initialBookState, action: Action): BookState {
