@@ -40,6 +40,9 @@ export class BookDetailsModal extends FundamentalModal {
   }
 
   ionViewWillEnter() {
+    this.title = '';
+    this.desc = '';
+    this.image = '';
     this.store.dispatch(new GetBook({ isbn: this.isbn }));
   }
 }
