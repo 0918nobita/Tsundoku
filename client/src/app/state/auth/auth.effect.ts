@@ -34,7 +34,7 @@ export class AuthEffects {
               this.localDB.table('resolvedBooks').clear(),
               this.localDB.table('registeredBooks').clear()
             ]);
-            return new SignInFail({ error: 'サインインに失敗しました' });
+            return new SignInFail({ error: '自動サインインに失敗しました' });
           }
 
           return new SignInSuccess({ user });
