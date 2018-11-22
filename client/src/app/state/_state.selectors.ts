@@ -16,6 +16,11 @@ export const getBookDetail = createSelector(
   (state: BookState) => state.bookDetail
 );
 
+export const nowLoadingBook = createSelector(
+  getBook,
+  (state: BookState) => state.loading
+);
+
 export const getPlan = (state: State) => state.plan;
 
 export const getPlans = createSelector(
