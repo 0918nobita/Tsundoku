@@ -49,7 +49,7 @@ export class BookEffects {
       }
 
       return this.afFirestore
-        .collection<ResolvedBook>('resolvedBook', ref =>
+        .collection<ResolvedBook>('resolvedBooks', ref =>
           ref.where('isbn', '==', action.payload.isbn)
         )
         .valueChanges()
