@@ -1,6 +1,13 @@
 import { createSelector } from '@ngrx/store';
 
-import { State, PlanState } from './_state.interfaces';
+import { State, PlanState, AuthState } from './_state.interfaces';
+
+export const getAuth = (state: State) => state.auth;
+
+export const getUser = createSelector(
+  getAuth,
+  (state: AuthState) => state.user
+);
 
 export const getPlan = (state: State) => state.plan;
 
