@@ -20,7 +20,7 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  private user$: Observable<firebase.User | null>;
+  private user$: Observable<firebase.User | null | undefined>;
 
   constructor(private platform: Platform, private store: Store<State>) {}
 
@@ -28,6 +28,7 @@ export class MyApp {
     this.store.dispatch(new SignIn());
     this.user$ = this.store.pipe(select(getUser));
     this.user$.subscribe(async user => {
+      if (user === void 0) return;
       await this.setRootPage(!user ? LoginPage : SplitPane);
     });
   }

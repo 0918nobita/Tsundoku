@@ -7,7 +7,7 @@ import {
 } from './_state.interfaces';
 
 export const initialAuthState: AuthState = {
-  user: null
+  user: undefined
 };
 
 export const initialBookState: BookState = {

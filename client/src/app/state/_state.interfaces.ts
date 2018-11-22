@@ -11,7 +11,7 @@ export interface State {
 }
 
 export interface AuthState {
-  user: firebase.User | null;
+  user: firebase.User | null | undefined;
 }
 
 export interface BookState {
