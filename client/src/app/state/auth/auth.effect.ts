@@ -12,7 +12,7 @@ import {
   SignIn,
   SignInSuccess
 } from './auth.action';
-import { LocalDatabase } from '../services/local-database';
+import { LocalDatabase } from '../../services/local-database';
 
 @Injectable()
 export class AuthEffects {

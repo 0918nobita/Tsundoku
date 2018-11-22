@@ -7,7 +7,7 @@ import { LoginPage } from '../pages/login/login';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { Store, select } from '@ngrx/store';
 import { State } from './state/_state.interfaces';
-import { SignIn } from './state/auth.action';
+import { SignIn } from './state/auth/auth.action';
 import { Observable } from 'rxjs';
 import { getUser } from './state/_state.selectors';
 

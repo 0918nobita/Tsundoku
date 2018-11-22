@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { State } from '../../app/state/_state.interfaces';
 import { Plan } from '../../app/models/plan';
 import { getPlans } from '../../app/state/_state.selectors';
-import { WatchPlan } from '../../app/state/plan.action';
+import { WatchPlan } from '../../app/state/plan/plan.action';
 
 @Component({
   selector: 'page-about',

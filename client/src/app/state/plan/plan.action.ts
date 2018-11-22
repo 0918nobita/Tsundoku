@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Plan } from '../models/plan';
+import { Plan } from '../../models/plan';
 
 export enum PlanActionTypes {
   WatchPlan = '[Plan] Watch',

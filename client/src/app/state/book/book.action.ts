@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ResolvedBook } from '../models/resolved-book';
+import { ResolvedBook } from '../../models/resolved-book';
 
 /*
   本に関するアクション

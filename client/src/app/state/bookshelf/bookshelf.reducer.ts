@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-import { initialBookshelfState } from './_state.inits';
-import { BookshelfState } from './_state.interfaces';
+import { initialBookshelfState } from '../_state.inits';
+import { BookshelfState } from '../_state.interfaces';
 import { BookshelfActionTypes } from './bookshelf.action';
 
 export function reducer(

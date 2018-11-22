@@ -11,9 +11,9 @@ import {
   PlanActionTypes,
   WatchPlanFail
 } from './plan.action';
-import { Plan } from '../models/plan';
-import { mine } from '../services/firestore-utils';
-import { BookService } from '../services/book.service';
+import { Plan } from '../../models/plan';
+import { mine } from '../../services/firestore-utils';
+import { BookService } from '../../services/book.service';
 
 @Injectable()
 export class PlanEffects {

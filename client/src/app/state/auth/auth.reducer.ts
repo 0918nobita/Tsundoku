@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-import { AuthState } from './_state.interfaces';
-import { initialAuthState } from './_state.inits';
+import { AuthState } from '../_state.interfaces';
+import { initialAuthState } from '../_state.inits';
 import { AuthActionTypes, SignInSuccess } from './auth.action';
 
 export function reducer(state = initialAuthState, action: Action): AuthState {

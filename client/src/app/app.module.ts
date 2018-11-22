@@ -35,9 +35,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { reducers } from './state/_state.reducers';
-import { PlanEffects } from './state/plan.effect';
-import { BookEffects } from './state/book.effect';
-import { AuthEffects } from './state/auth.effect';
+import { PlanEffects } from './state/plan/plan.effect';
+import { BookEffects } from './state/book/book.effect';
+import { AuthEffects } from './state/auth/auth.effect';
 
 @NgModule({
   declarations: [

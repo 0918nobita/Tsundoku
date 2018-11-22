@@ -5,7 +5,7 @@ import { BookService } from '../../app/services/book.service';
 import { FundamentalModal } from '../fundamental-modal';
 import { Store } from '@ngrx/store';
 import { State } from '../../app/state/_state.interfaces';
-import { GetBook } from '../../app/state/book.action';
+import { GetBook } from '../../app/state/book/book.action';
 
 @Component({
   selector: 'book-details-modal',

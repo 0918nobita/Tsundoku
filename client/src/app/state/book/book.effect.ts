@@ -11,8 +11,8 @@ import {
 } from './book.action';
 import { concatMap, take, map, catchError } from 'rxjs/operators';
 import { Dexie } from 'dexie';
-import { LocalDatabase } from '../services/local-database';
-import { ResolvedBook } from '../models/resolved-book';
+import { LocalDatabase } from '../../services/local-database';
+import { ResolvedBook } from '../../models/resolved-book';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 
