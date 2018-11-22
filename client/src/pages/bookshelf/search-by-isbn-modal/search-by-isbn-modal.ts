@@ -17,11 +17,11 @@ export class SearchByIsbnModal extends FundamentalModal {
   hitBook: ResolvedBook;
 
   constructor(
-    private toastCtrl: ToastController,
+    protected toastCtrl: ToastController,
     protected viewCtrl: ViewController,
     private bookService: BookService
   ) {
-    super(viewCtrl);
+    super(viewCtrl, toastCtrl);
   }
 
   async search() {
@@ -46,15 +46,5 @@ export class SearchByIsbnModal extends FundamentalModal {
     } catch (error) {
       this.showError(error);
     }
-  }
-
-  async showError(error) {
-    await this.toastCtrl
-      .create({
-        message: error,
-        duration: 5000,
-        position: 'top'
-      })
-      .present();
   }
 }

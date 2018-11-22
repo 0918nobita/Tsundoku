@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, ToastController } from 'ionic-angular';
 import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
@@ -7,7 +7,10 @@ import { FundamentalModal } from '../../fundamental-modal';
   templateUrl: 'book-creation-modal.html'
 })
 export class BookCreationModal extends FundamentalModal {
-  constructor(protected viewCtrl: ViewController) {
-    super(viewCtrl);
+  constructor(
+    protected viewCtrl: ViewController,
+    protected toastCtrl: ToastController
+  ) {
+    super(viewCtrl, toastCtrl);
   }
 }

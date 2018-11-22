@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController, ToastController } from 'ionic-angular';
 
 import { BookService } from '../../app/services/book.service';
 import { FundamentalModal } from '../fundamental-modal';
@@ -20,10 +20,11 @@ export class BookDetailsModal extends FundamentalModal {
   constructor(
     private navParams: NavParams,
     protected viewCtrl: ViewController,
+    protected toastCtrl: ToastController,
     private bookService: BookService,
     private store: Store<State>
   ) {
-    super(viewCtrl);
+    super(viewCtrl, toastCtrl);
     this.isbn = this.navParams.get('isbn');
     this.bookService.getBookByISBN(this.isbn).then(book => {
       this.title = book.title;
