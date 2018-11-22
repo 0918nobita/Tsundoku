@@ -15,7 +15,8 @@
     "baseUrl": "./",
     "paths": {
       "shared/*": ["../shared/*"]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": [
     "src/**/*.ts",
