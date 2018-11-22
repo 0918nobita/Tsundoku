@@ -34,6 +34,7 @@
     "@ionic/storage": "2.2.0",
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
+    "algoliasearch": "^3.30.0",
     "axios": "^0.18.0",
     "dexie": "^2.0.4",
     "firebase": "5.5.6",
