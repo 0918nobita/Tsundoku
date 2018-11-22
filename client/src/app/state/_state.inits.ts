@@ -2,8 +2,13 @@ import {
   PlanState,
   SkillState,
   BookState,
-  BookshelfState
+  BookshelfState,
+  AuthState
 } from './_state.interfaces';
+
+export const initialAuthState: AuthState = {
+  user: null
+};
 
 export const initialBookState: BookState = {
   loading: false,
