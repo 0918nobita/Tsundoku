@@ -25,7 +25,6 @@ import { firebaseConfig } from './config';
 import { LocalDatabase } from './services/local-database';
 import { BookService } from './services/book.service';
 import { BookshelfService } from './services/bookshelf.service';
-import { AuthService } from './services/auth.service';
 import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
 import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
@@ -89,7 +88,6 @@ import { AuthEffects } from './state/auth.effect';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BookService,
     BookshelfService,
-    AuthService,
     SkillService,
     LocalDatabase
   ]
