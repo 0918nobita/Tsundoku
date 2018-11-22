@@ -3,10 +3,15 @@ import { Skill } from '../models/skill';
 import { ResolvedBook } from '../models/resolved-book';
 
 export interface State {
+  auth: AuthState;
   book: BookState;
   bookshelf: BookshelfState;
   plan: PlanState;
   skill: SkillState;
+}
+
+export interface AuthState {
+  user: firebase.User | null;
 }
 
 export interface BookState {
