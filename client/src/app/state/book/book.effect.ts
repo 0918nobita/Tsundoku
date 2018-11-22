@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { concatMap, take, map, catchError } from 'rxjs/operators';
+import { Dexie } from 'dexie';
 
 import {
   GetBook,
@@ -9,12 +12,8 @@ import {
   GetBookFail,
   BookActionTypes
 } from './book.action';
-import { concatMap, take, map, catchError } from 'rxjs/operators';
-import { Dexie } from 'dexie';
 import { LocalDatabase } from '../../services/local-database';
 import { ResolvedBook } from '../../models/resolved-book';
-
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
 export class BookEffects {
