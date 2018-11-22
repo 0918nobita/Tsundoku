@@ -30,7 +30,7 @@ export class SearchByIsbnModal extends FundamentalModal {
       this.hitBook = await this.bookService.getBookByISBN(this.isbn);
       this.show = true;
     } catch (error) {
-      this.showError(error);
+      await this.showError(error);
     }
   }
 
@@ -44,7 +44,7 @@ export class SearchByIsbnModal extends FundamentalModal {
         this.dismiss()
       ]);
     } catch (error) {
-      this.showError(error);
+      await this.showError(error);
     }
   }
 }

@@ -1,3 +1,1 @@
-export class ManuallyAddedBook {
-  constructor() {}
-}
+export class ManuallyAddedBook {}

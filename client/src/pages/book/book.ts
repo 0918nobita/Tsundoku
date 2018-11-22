@@ -13,7 +13,9 @@ export class Book {
 
   constructor(private modalCtrl: ModalController) {}
 
-  showDetails() {
-    this.modalCtrl.create(BookDetailsModal, { isbn: this.book.isbn }).present();
+  async showDetails() {
+    await this.modalCtrl
+      .create(BookDetailsModal, { isbn: this.book.isbn })
+      .present();
   }
 }

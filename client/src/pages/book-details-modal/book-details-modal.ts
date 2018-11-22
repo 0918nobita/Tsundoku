@@ -26,11 +26,14 @@ export class BookDetailsModal extends FundamentalModal {
   ) {
     super(viewCtrl, toastCtrl);
     this.isbn = this.navParams.get('isbn');
-    this.bookService.getBookByISBN(this.isbn).then(book => {
-      this.title = book.title;
-      this.desc = book.desc;
-      this.image = book.image;
-    });
+    this.bookService
+      .getBookByISBN(this.isbn)
+      .then(book => {
+        this.title = book.title;
+        this.desc = book.desc;
+        this.image = book.image;
+      })
+      .catch(err => this.showError(err));
   }
 
   ionViewWillEnter() {
