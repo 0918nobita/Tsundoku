@@ -25,7 +25,7 @@ export function reducer(state = initialBookState, action: Action): BookState {
     case BookActionTypes.SearchByIsbn:
     case BookActionTypes.SearchByIsbnSuccess:
     case BookActionTypes.SearchByIsbnFailed:
-    case BookActionTypes.SearchBySkillAction:
+    case BookActionTypes.SearchBySkill:
     case BookActionTypes.SearchBySkillSuccess:
     case BookActionTypes.SearchBySkillFailed:
     default:
