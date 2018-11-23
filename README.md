@@ -5,7 +5,7 @@
 「**効率的に技術書を読もう。賢く積読しよう。**」
 
 - フロントエンド (Ionic 3, Angular 6, RxJS v6, NgRx, AngularFire, FirebaseUI)
-- フロントエンドの静的ファイルは Netlify でホスティグ
+- フロントエンドの静的ファイルは Netlify でホスティング
 - バックエンド (Cloud Functions, Cloud Firestore, Algolia)
 - Firebase Authentication でアカウントを管理
 
