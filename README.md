@@ -1,6 +1,6 @@
 # Tsundoku.tech
 
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg) [![Build Status](https://travis-ci.com/TsundokuApp/Tsundoku.svg?branch=develop)](https://travis-ci.com/TsundokuApp/Tsundoku) [![Maintainability](https://api.codeclimate.com/v1/badges/24df2547bd334d08558a/maintainability)](https://codeclimate.com/github/TsundokuApp/Tsundoku/maintainability)
+![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg) [![Build Status](https://travis-ci.com/TsundokuApp/Tsundoku.svg?branch=develop)](https://travis-ci.com/TsundokuApp/Tsundoku) [![Maintainability](https://api.codeclimate.com/v1/badges/24df2547bd334d08558a/maintainability)](https://codeclimate.com/github/TsundokuApp/Tsundoku/maintainability) [![Total alerts](https://img.shields.io/lgtm/alerts/g/TsundokuApp/Tsundoku.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/TsundokuApp/Tsundoku/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/TsundokuApp/Tsundoku.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/TsundokuApp/Tsundoku/context:javascript)
 
 「**効率的に技術書を読もう。賢く積読しよう。**」
 
