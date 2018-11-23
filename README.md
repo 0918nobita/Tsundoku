@@ -4,15 +4,9 @@
 
 「**効率的に技術書を読もう。賢く積読しよう。**」
 
-- フロントエンド
-  - Ionic 3 (Angular 6, RxJS v6, NgRx)
-  - AngularFire
-  - FirebaseUI
+- フロントエンド (Ionic 3, Angular 6, RxJS v6, NgRx, AngularFire, FirebaseUI)
 - フロントエンドの静的ファイルは Netlify でホスティグ
-- バックエンド
-  - Cloud Functions
-  - Cloud Firestore
-  - Algolia
+- バックエンド (Cloud Functions, Cloud Firestore, Algolia)
 - Firebase Authentication でアカウントを管理
 
 ## ローカル開発環境の構築
