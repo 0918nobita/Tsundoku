@@ -4,7 +4,7 @@
 
 「**効率的に技術書を読もう。賢く積読しよう。**」
 
-- フロントエンドは Ionic 3 (Angular 6, RxJS v6) / AngularFire を用いて実装する
+- フロントエンドは Ionic 3 (Angular 6, RxJS v6, NgRx) / AngularFire を用いて実装する
 - フロントエンドの静的ファイルは Netlify でホスティングする
 - Cloud Functions / Cloud Firestore を用いてサーバーサイドを構築する
 - Firebase Authentication を用いてアカウント管理を行う
