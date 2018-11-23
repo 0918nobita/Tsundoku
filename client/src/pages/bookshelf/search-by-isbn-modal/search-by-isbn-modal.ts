@@ -26,6 +26,8 @@ export class SearchByIsbnModal extends FundamentalModal {
 
   async search() {
     try {
+      this.isbn = this.isbn.replace(/-/g, '');
+      if (this.isbn.length !== 13) throw new Error('13桁で入力してください');
       this.show = false;
       this.hitBook = await this.bookService.getBookByISBN(this.isbn);
       this.show = true;
