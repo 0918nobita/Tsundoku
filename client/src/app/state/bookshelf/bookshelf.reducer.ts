@@ -9,6 +9,8 @@ export function reducer(
   action: Action
 ): BookshelfState {
   switch (action.type) {
+    case BookshelfActionTypes.WatchBookshelf:
+    case BookshelfActionTypes.WatchBookshelfFail:
     case BookshelfActionTypes.RegisterManuallyAddedBook:
     case BookshelfActionTypes.RegisterResolvedBook:
     case BookshelfActionTypes.DeleteBookshelf:
