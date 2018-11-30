@@ -16,7 +16,9 @@
 その後、以下のコマンドを実行して Firebase CLI の初期設定を行って下さい。
 
 ```bash
+# npm を利用している場合は npm i -g firebase-tools
 $ yarn global add firebase-tools
+
 $ firebase login
 # Google アカウントでログインして下さい
 ```
@@ -28,7 +30,10 @@ $ firebase login
 ```bash
 $ git clone https://github.com/TsundokuApp/Tsundoku
 $ cd Tsundoku/client
+
+# npm を利用している場合は npm i
 $ yarn install
+
 $ cd ../functions
 $ yarn install
 ```
@@ -55,6 +60,21 @@ export const firebaseConfig = {
 ```typescript
 // Google Books API の API キーを取得してここに書き込んでください
 export const apiKey = 'xxxxxxxxxxxxxxxxxxxx';
+```
+
+## client の開発用サーバの起動
+
+以下のコマンドを実行すると Ionic App Scripts が提供する start コマンドが実行され、  
+開発用サーバが起動し、ブラウザの新規タブで ``localhost:8100`` のページが表示されます。
+
+ソースファイルを変更すると自動でビルドし直し、それが完了するとブラウザも自動でリロードされます。  
+※ たまにバグるので、その時は端末上で Ctrl + C でコマンドの実行を停止し、再度 start コマンドを実行してください。
+
+```bash
+$ cd client
+
+# npm を利用している場合は npm run start
+$ yarn start
 ```
 
 細かな仕様や DB の設計などについては、Reference リポジトリを参照して下さい。
