@@ -34,10 +34,10 @@ export class LoginPage {
     this.store.dispatch(new SignIn());
     this.loader.present();
 
-    this.user$.subscribe(async user => {
-      if (user === void 0) return;
+    this.ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-      if (user !== null) {
+    this.user$.subscribe(async user => {
+      if (user !== null && user !== void 0) {
         await this.navCtrl.setRoot(SplitPane);
         this.loader.dismiss();
         return;
@@ -46,8 +46,6 @@ export class LoginPage {
       this.loader.dismiss();
       this.showFirebaseUI();
     });
-
-    this.ui = new firebaseui.auth.AuthUI(firebase.auth());
   }
 
   showFirebaseUI() {
