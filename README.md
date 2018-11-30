@@ -21,7 +21,7 @@ $ firebase login
 # Google アカウントでログインして下さい
 ```
 
-最後に、以下のコマンドを実行して Tsundoku のソースコードの取得と依存パッケージのインストールを行って下さい。  
+次に、以下のコマンドを実行して Tsundoku のソースコードの取得と依存パッケージのインストールを行って下さい。  
 ``client`` ディレクトリと ``functions`` ディレクトリは分離された npm プロジェクトです。  
 ``shared`` ディレクトリ内の ``.ts`` 形式のソースファイルは、この 2 つの npm プロジェクトで共有されます。
 
@@ -32,5 +32,12 @@ $ yarn install
 $ cd ../functions
 $ yarn install
 ```
+
+最後に、``client/src/app/config.ts`` と ``functions/src/config.ts`` を手動で作成して下さい。  
+どちらも API キー等をエクスポートするものです。
+
+### ``client/src/app/config.ts`` の書き方
+
+### ``functions/src/config.ts`` の書き方
 
 細かな仕様や DB の設計などについては、Reference リポジトリを参照して下さい。
