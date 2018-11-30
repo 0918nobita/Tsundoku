@@ -17,7 +17,6 @@ import { getUser } from '../../app/state/_state.selectors';
 })
 export class LoginPage {
   user$: Observable<firebase.User | null | undefined>;
-  ui: firebaseui.auth.AuthUI;
 
   private loader: Loading;
 
@@ -34,8 +33,6 @@ export class LoginPage {
     this.store.dispatch(new SignIn());
     this.loader.present();
 
-    this.ui = new firebaseui.auth.AuthUI(firebase.auth());
-
     this.user$.subscribe(async user => {
       if (user !== null && user !== void 0) {
         await this.navCtrl.setRoot(SplitPane);
@@ -49,30 +46,33 @@ export class LoginPage {
   }
 
   showFirebaseUI() {
-    this.ui.start('#firebaseui-auth-container', {
-      callbacks: {
-        signInSuccessWithAuthResult: (
-          authResult: firebase.auth.UserCredential
-        ) => {
-          // const user = authResult.user;
+    new firebaseui.auth.AuthUI(firebase.auth()).start(
+      '#firebaseui-auth-container',
+      {
+        callbacks: {
+          signInSuccessWithAuthResult: (
+            authResult: firebase.auth.UserCredential
+          ) => {
+            // const user = authResult.user;
 
-          if (
-            (authResult.additionalUserInfo as firebase.auth.AdditionalUserInfo)
-              .isNewUser
-          ) {
-            // Do initialization stuff here (ex. create profile)
+            if (
+              (authResult.additionalUserInfo as firebase.auth.AdditionalUserInfo)
+                .isNewUser
+            ) {
+              // Do initialization stuff here (ex. create profile)
+              return false;
+            }
+
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
             return false;
           }
-
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return false;
-        }
-      },
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-      signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
-      tosUrl: 'https://tsundoku.tech',
-      privacyPolicyUrl: 'https://tsundoku.tech'
-    });
+        },
+        credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+        signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
+        tosUrl: 'https://tsundoku.tech',
+        privacyPolicyUrl: 'https://tsundoku.tech'
+      }
+    );
   }
 }
