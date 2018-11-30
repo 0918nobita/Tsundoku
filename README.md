@@ -38,6 +38,23 @@ $ yarn install
 
 ### ``client/src/app/config.ts`` の書き方
 
+```typescript
+// Firebase プロジェクトを作成し、各キーを取得してここに書き込んでください
+export const firebaseConfig = {
+  apiKey: 'xxxxxxxxxxxxxxxxxxxx',
+  authDomain: 'xxxxxxxxxxxxxxxxxxxx',
+  databaseURL: 'xxxxxxxxxxxxxxxxxxxx',
+  projectId: 'xxxxxxxxxxxxxxxxxxxx',
+  storageBucket: 'xxxxxxxxxxxxxxxxxxxx',
+  messagingSenderId: 'xxxxxxxxxxxxxxxxxxxx'
+};
+```
+
 ### ``functions/src/config.ts`` の書き方
+
+```typescript
+// Google Books API の API キーを取得してここに書き込んでください
+export const apiKey = 'xxxxxxxxxxxxxxxxxxxx';
+```
 
 細かな仕様や DB の設計などについては、Reference リポジトリを参照して下さい。
