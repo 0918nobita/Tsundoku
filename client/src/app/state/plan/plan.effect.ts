@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
+import { Action, Store, select } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, from, of } from 'rxjs';
-import { concatMap, mergeMap, map, catchError } from 'rxjs/operators';
+import { concatMap, mergeMap, map, catchError, take } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import {
@@ -13,14 +13,16 @@ import {
 } from './plan.action';
 import { Plan } from '../../models/plan';
 import { mine } from '../../services/firestore-utils';
-import { BookService } from '../../services/book.service';
+import { State } from '../_state.interfaces';
+import { GetBook } from '../book/book.action';
+import { getBookDetail } from '../_state.selectors';
 
 @Injectable()
 export class PlanEffects {
   constructor(
     private actions$: Actions,
     private afFirestore: AngularFirestore,
-    private bookService: BookService
+    private store: Store<State>
   ) {}
 
   @Effect()
@@ -33,19 +35,25 @@ export class PlanEffects {
         .pipe(
           mergeMap(changes =>
             from(changes).pipe(
-              mergeMap(change =>
-                from(
-                  this.bookService.getBookByISBN(change.payload.doc.data().isbn)
-                ).pipe(
-                  map(
-                    book =>
-                      new UpdatePlan({
-                        id: change.payload.doc.id,
-                        plan: { ...change.payload.doc.data(), book }
-                      })
+              mergeMap(change => {
+                this.store.dispatch(
+                  new GetBook({ isbn: change.payload.doc.data().isbn })
+                );
+                return this.store.pipe(
+                  select(getBookDetail),
+                  take(1),
+                  map(book =>
+                    book !== null
+                      ? new UpdatePlan({
+                          id: change.payload.doc.id,
+                          plan: { ...change.payload.doc.data(), book }
+                        })
+                      : new WatchPlanFail({
+                          error: '本の情報の取得に失敗しました'
+                        })
                   )
-                )
-              )
+                );
+              })
             )
           ),
           catchError(error => of(new WatchPlanFail({ error })))
