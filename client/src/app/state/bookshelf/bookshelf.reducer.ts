@@ -21,7 +21,6 @@ export function reducer(
       const books = state.books;
       updateDynamicList(books, book);
       sortByDatetime({ key: 'modified', objects: books }, 'desc');
-      console.log(books);
       return Object.assign({}, { ...state, books });
 
     case BookshelfActionTypes.WatchBookshelfFail:
