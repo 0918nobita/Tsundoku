@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import 'firebase/functions';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { RegisteredBook } from '../../app/models/registered-book';
-import { Store, select } from '@ngrx/store';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
-import { Observable } from 'rxjs';
 import { getBooks } from '../../app/state/_state.selectors';
-import { map } from 'rxjs/operators';
-import { sortByDatetime } from '../../app/services/firestore-utils';
 
 @Component({
   selector: 'page-bookshelf',
