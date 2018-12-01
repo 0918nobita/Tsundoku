@@ -42,11 +42,12 @@ export class BookshelfPage {
   }
 
   adjustThumbnails() {
+    const firstThumbnail = document.getElementsByClassName('book-thumbnail')[0];
+    if (firstThumbnail === void 0) return;
+
     const booksRow = document.getElementById('books-row'),
       bookWidth = parseInt(
-        window.getComputedStyle(
-          document.getElementsByClassName('book-thumbnail')[0]
-        ).width as string,
+        window.getComputedStyle(firstThumbnail).width as string,
         10
       ),
       columns = Math.floor(
