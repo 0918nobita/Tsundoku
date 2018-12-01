@@ -3,14 +3,9 @@ import { ActionSheetController, ModalController } from 'ionic-angular';
 import 'firebase/functions';
 
 import { RegisteredBook } from 'shared/entity';
-import { BookshelfService } from '../../app/services/bookshelf.service';
 import { BookCreationModal } from './book-creation-modal/book-creation-modal';
 import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
 import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-modal';
-import {
-  sortByDatetime,
-  updateDynamicList
-} from '../../app/services/firestore-utils';
 import { Store } from '@ngrx/store';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
