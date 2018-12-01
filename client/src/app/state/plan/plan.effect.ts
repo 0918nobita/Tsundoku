@@ -37,12 +37,15 @@ export class PlanEffects {
                 from(
                   this.bookService.getBookByISBN(change.payload.doc.data().isbn)
                 ).pipe(
-                  map(
-                    book =>
-                      new UpdatePlan({
-                        id: change.payload.doc.id,
-                        plan: { ...change.payload.doc.data(), book }
-                      })
+                  map(book =>
+                    book !== null
+                      ? new UpdatePlan({
+                          id: change.payload.doc.id,
+                          plan: { ...change.payload.doc.data(), book }
+                        })
+                      : new WatchPlanFail({
+                          error: '本の情報の取得に失敗しました'
+                        })
                   )
                 )
               )
