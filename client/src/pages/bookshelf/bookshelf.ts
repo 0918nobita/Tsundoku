@@ -11,6 +11,9 @@ import {
   sortByDatetime,
   updateDynamicList
 } from '../../app/services/firestore-utils';
+import { Store } from '@ngrx/store';
+import { State } from '../../app/state/_state.interfaces';
+import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 
 @Component({
   selector: 'page-bookshelf',
@@ -23,17 +26,19 @@ export class BookshelfPage {
   constructor(
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
-    private bookshelfService: BookshelfService
+    private store: Store<State>
   ) {}
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
 
-    this.bookshelfService.getBookshelf().subscribe(book => {
+    this.store.dispatch(new WatchBookshelf());
+
+    /*this.bookshelfService.getBookshelf().subscribe(book => {
       updateDynamicList(this.registeredBooks, book);
       sortByDatetime({ key: 'modified', objects: this.registeredBooks }, 'asc');
       this.adjustThumbnails();
-    });
+    });*/
   }
 
   adjustThumbnails() {
