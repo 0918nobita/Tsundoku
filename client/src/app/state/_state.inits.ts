@@ -16,7 +16,8 @@ export const initialBookState: BookState = {
 };
 
 export const initialBookshelfState: BookshelfState = {
-  loading: false
+  loading: false,
+  books: []
 };
 
 export const initialPlanState: PlanState = {

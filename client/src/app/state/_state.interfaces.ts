@@ -1,6 +1,7 @@
 import { Plan } from '../models/plan';
 import { Skill } from '../models/skill';
 import { ResolvedBook } from '../models/resolved-book';
+import { RegisteredBook } from '../models/registered-book';
 
 export interface State {
   auth: AuthState;
@@ -21,6 +22,7 @@ export interface BookState {
 
 export interface BookshelfState {
   loading: boolean;
+  books: RegisteredBook[];
 }
 
 export interface PlanState {
