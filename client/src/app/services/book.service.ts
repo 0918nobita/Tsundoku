@@ -4,7 +4,7 @@ import 'firebase/functions';
 import Dexie from 'dexie';
 import axios from 'axios';
 
-import { ResolvedBook } from 'shared/entity';
+import { ResolvedBook } from '../models/resolved-book';
 import { LocalDatabase } from './local-database';
 
 @Injectable({
