@@ -29,7 +29,6 @@ export class BookshelfPage {
     this.books$ = this.store.pipe(
       select(getBooks),
       map(books => {
-        sortByDatetime({ key: 'modified', objects: books }, 'asc');
         this.length = books.length;
         this.adjustThumbnails();
         return books;
