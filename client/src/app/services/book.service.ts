@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/app';
-import 'firebase/functions';
 import Dexie from 'dexie';
-import axios from 'axios';
 
 import { ResolvedBook } from '../models/resolved-book';
 import { LocalDatabase } from './local-database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { take, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,10 @@ import { LocalDatabase } from './local-database';
 export class BookService {
   private resolvedBooks: Dexie.Table<ResolvedBook, number>;
 
-  constructor(private localDB: LocalDatabase) {
+  constructor(
+    private localDB: LocalDatabase,
+    private afFirestore: AngularFirestore
+  ) {
     this.resolvedBooks = this.localDB.table('resolvedBooks');
   }
 
@@ -23,21 +25,30 @@ export class BookService {
   attachBookDetails = async <T extends { isbn: string }>(item: T) =>
     Object.assign({}, item, { book: await this.getBookByISBN(item.isbn) });
 
-  async getBookByISBN(isbn: string): Promise<ResolvedBook> {
-    const localBooks = await this.resolvedBooks
-      .where('isbn')
-      .equals(isbn)
-      .toArray();
-    if (localBooks.length > 0) {
-      return localBooks[0];
-    } else if (navigator.onLine) {
-      return this.getBookOnline(isbn);
-    } else {
-      throw new Error('本の情報の取得に失敗しました');
+  async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
+    if (navigator.onLine === false) {
+      const array = await this.resolvedBooks
+        .where('isbn')
+        .equals(isbn)
+        .toArray();
+      if (array.length > 0) return array[0];
+      throw new Error('ローカルDBで本が見つかりませんでした');
     }
+
+    return this.afFirestore
+      .collection<ResolvedBook>('resolvedBooks', ref =>
+        ref.where('isbn', '==', isbn)
+      )
+      .valueChanges()
+      .pipe(
+        take(1),
+        map(books => (books.length !== 0 ? books[0] : null))
+      )
+      .toPromise();
   }
 
-  private async getBookOnline(isbn: string): Promise<ResolvedBook> {
+  /*private async getBookOnline(isbn: string): Promise<ResolvedBook> {
+    console.log('Google Books API 叩きまーす');
     const result = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
     );
@@ -85,5 +96,5 @@ export class BookService {
       isbn: clue,
       usingGoogleBooksAPI: false
     })).data;
-  }
+  }*/
 }
