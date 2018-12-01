@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActionSheetController, ModalController } from 'ionic-angular';
 import 'firebase/functions';
 
 import { RegisteredBook } from '../../app/models/registered-book';
