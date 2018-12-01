@@ -2,38 +2,40 @@ import { Component } from '@angular/core';
 import { ActionSheetController, ModalController } from 'ionic-angular';
 import 'firebase/functions';
 
-import { RegisteredBook } from 'shared/entity';
-import { BookCreationModal } from './book-creation-modal/book-creation-modal';
-import { SearchByIsbnModal } from './search-by-isbn-modal/search-by-isbn-modal';
-import { SearchBySkillModal } from './search-by-skill-modal/search-by-skill-modal';
-import { Store } from '@ngrx/store';
+import { RegisteredBook } from '../../app/models/registered-book';
+import { Store, select } from '@ngrx/store';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
+import { Observable } from 'rxjs';
+import { getBooks } from '../../app/state/_state.selectors';
+import { map } from 'rxjs/operators';
+import { sortByDatetime } from '../../app/services/firestore-utils';
 
 @Component({
   selector: 'page-bookshelf',
   templateUrl: 'bookshelf.html'
 })
 export class BookshelfPage {
-  registeredBooks: RegisteredBook[] = [];
+  books$: Observable<RegisteredBook[]>;
   additions = [];
+  private length = 0;
 
-  constructor(
-    private actionSheetCtrl: ActionSheetController,
-    private modalCtrl: ModalController,
-    private store: Store<State>
-  ) {}
+  constructor(private store: Store<State>) {}
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
 
     this.store.dispatch(new WatchBookshelf());
 
-    /*this.bookshelfService.getBookshelf().subscribe(book => {
-      updateDynamicList(this.registeredBooks, book);
-      sortByDatetime({ key: 'modified', objects: this.registeredBooks }, 'asc');
-      this.adjustThumbnails();
-    });*/
+    this.books$ = this.store.pipe(
+      select(getBooks),
+      map(books => {
+        sortByDatetime({ key: 'modified', objects: books }, 'asc');
+        this.length = books.length;
+        this.adjustThumbnails();
+        return books;
+      })
+    );
   }
 
   adjustThumbnails() {
@@ -53,12 +55,12 @@ export class BookshelfPage {
           (bookWidth + 10)
       );
 
-    if (columns > this.registeredBooks.length) {
+    if (columns > this.length) {
       this.additions = [];
       return;
     }
 
-    const rest = this.registeredBooks.length % columns;
+    const rest = this.length % columns;
     if (rest === 0) return;
 
     const diff = columns - rest;
@@ -71,34 +73,5 @@ export class BookshelfPage {
     } else if (diff < this.additions.length) {
       this.additions.splice(0, this.additions.length - diff);
     }
-  }
-
-  async addBook() {
-    await this.actionSheetCtrl
-      .create({
-        title: '本を追加する',
-        buttons: [
-          {
-            text: '本をISBNで検索する',
-            handler: () => {
-              // tslint:disable-next-line:no-floating-promises
-              this.modalCtrl.create(SearchByIsbnModal).present();
-            }
-          },
-          {
-            text: '本をスキルで検索する',
-            handler: () => this.modalCtrl.create(SearchBySkillModal).present()
-          },
-          {
-            text: '本の情報を手動入力する',
-            handler: () => this.modalCtrl.create(BookCreationModal).present()
-          },
-          {
-            text: 'キャンセル',
-            role: 'cancel'
-          }
-        ]
-      })
-      .present();
   }
 }
