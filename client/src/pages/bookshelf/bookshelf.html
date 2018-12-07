@@ -6,19 +6,23 @@
       <settings-button></settings-button>
     </ion-buttons>
   </ion-navbar>
+  <ion-searchbar placeholder="検索" (click)="switchFragment()" [showCancelButton]="true"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar placeholder="ISBN (13桁) を入力して本を検索"></ion-searchbar>
-  <search></search>
-  <ion-grid>
-    <ion-row align-items-center justify-content-around id="books-row">
-      <ion-col *ngFor="let book of books$ | async" col-auto>
-        <book-widget [book]="book"></book-widget>
-      </ion-col>
-      <ion-col *ngFor="let _ of additions" col-auto>
-        <div class="empty"></div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div id="search-fragment">
+    <search></search>
+  </div>
+  <div id="library-fragment">
+    <ion-grid>
+      <ion-row align-items-center justify-content-around id="books-row">
+        <ion-col *ngFor="let book of books$ | async" col-auto>
+          <book-widget [book]="book"></book-widget>
+        </ion-col>
+        <ion-col *ngFor="let _ of additions" col-auto>
+          <div class="empty"></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

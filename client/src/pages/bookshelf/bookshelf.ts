@@ -8,6 +8,11 @@ import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
 
+enum Fragment {
+  Library,
+  Search
+}
+
 @Component({
   selector: 'page-bookshelf',
   templateUrl: 'bookshelf.html'
@@ -16,6 +21,7 @@ export class BookshelfPage {
   books$: Observable<RegisteredBook[]>;
   additions = [];
   private length = 0;
+  fragment: Fragment = Fragment.Library;
 
   constructor(private store: Store<State>) {}
 
@@ -32,6 +38,22 @@ export class BookshelfPage {
         return books;
       })
     );
+  }
+
+  switchFragment() {
+    if (this.fragment === Fragment.Search) return;
+
+    const libraryFragment = document.getElementById(
+      'library-fragment'
+    ) as HTMLElement;
+    libraryFragment.style.display = 'none';
+
+    const searchFragment = document.getElementById(
+      'search-fragment'
+    ) as HTMLElement;
+    searchFragment.style.display = 'block';
+
+    this.fragment = Fragment.Search;
   }
 
   adjustThumbnails() {
