@@ -28,6 +28,7 @@ import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
 import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
+import { Search } from '../pages/bookshelf/search/search';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -47,7 +48,8 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     Book,
     SplitPane,
     SettingsButton,
-    SettingsModal
+    SettingsModal,
+    Search
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     BookDetailsModal,
     SplitPane,
     SettingsButton,
-    SettingsModal
+    SettingsModal,
+    Search
   ],
   providers: [
     StatusBar,
