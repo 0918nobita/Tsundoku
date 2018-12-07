@@ -8,7 +8,6 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
-import { BookCreationModal } from '../pages/bookshelf/book-creation-modal/book-creation-modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -44,7 +43,6 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     AchievementPage,
     BookshelfPage,
     TabsPage,
-    BookCreationModal,
     BookDetailsModal,
     Book,
     SplitPane,
@@ -70,7 +68,6 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     BookshelfPage,
     TabsPage,
     LoginPage,
-    BookCreationModal,
     BookDetailsModal,
     SplitPane,
     SettingsButton,
