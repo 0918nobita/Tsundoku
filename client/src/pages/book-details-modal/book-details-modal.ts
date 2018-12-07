@@ -5,6 +5,8 @@ import {
   ToastController,
   LoadingController
 } from 'ionic-angular';
+import { timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { FundamentalModal } from '../fundamental-modal';
 import { BookService } from '../../app/services/book.service';
@@ -33,7 +35,17 @@ export class BookDetailsModal extends FundamentalModal {
       content: '読み込み中です…'
     });
 
-    loader.present();
+    const subscription = timer(500)
+      .pipe(take(1))
+      .subscribe({
+        next() {
+          loader.present();
+        },
+        complete() {
+          loader.dismiss();
+        }
+      });
+
     this.bookService
       .getBookByISBN(this.isbn)
       .then(book => {
@@ -44,10 +56,10 @@ export class BookDetailsModal extends FundamentalModal {
         this.title = book.title;
         this.desc = book.desc;
         this.image = book.image;
-        loader.dismiss();
+        subscription.unsubscribe();
       })
       .catch(err => {
-        loader.dismiss();
+        subscription.unsubscribe();
         this.showError(err);
       });
   }
