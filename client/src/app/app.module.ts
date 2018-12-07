@@ -8,7 +8,6 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { ProgressPage } from '../pages/progress/progress';
 import { AchievementPage } from '../pages/achievement/achievement';
 import { BookshelfPage } from '../pages/bookshelf/bookshelf';
-import { SearchByIsbnModal } from '../pages/bookshelf/search-by-isbn-modal/search-by-isbn-modal';
 import { SearchBySkillModal } from '../pages/bookshelf/search-by-skill-modal/search-by-skill-modal';
 import { BookCreationModal } from '../pages/bookshelf/book-creation-modal/book-creation-modal';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -46,7 +45,6 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     AchievementPage,
     BookshelfPage,
     TabsPage,
-    SearchByIsbnModal,
     SearchBySkillModal,
     BookCreationModal,
     BookDetailsModal,
@@ -74,7 +72,6 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     BookshelfPage,
     TabsPage,
     LoginPage,
-    SearchByIsbnModal,
     SearchBySkillModal,
     BookCreationModal,
     BookDetailsModal,
