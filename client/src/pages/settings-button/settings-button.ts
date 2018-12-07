@@ -9,7 +9,7 @@ import { SettingsModal } from './settings-modal/settings-modal';
 export class SettingsButton {
   constructor(private modalCtrl: ModalController) {}
 
-  async openModal() {
-    await this.modalCtrl.create(SettingsModal).present();
+  openModal() {
+    this.modalCtrl.create(SettingsModal).present();
   }
 }

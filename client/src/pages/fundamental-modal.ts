@@ -6,12 +6,12 @@ export class FundamentalModal {
     protected toastCtrl: ToastController
   ) {}
 
-  async dismiss() {
-    await this.viewCtrl.dismiss();
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
-  async showError(error) {
-    await this.toastCtrl
+  showError(error) {
+    this.toastCtrl
       .create({
         message: error,
         duration: 5000,
