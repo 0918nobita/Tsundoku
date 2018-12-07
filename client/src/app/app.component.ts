@@ -1,10 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Store } from '@ngrx/store';
 import 'firebase/auth';
 
 import { LoginPage } from '../pages/login/login';
-import { State } from './state/_state.interfaces';
 
 @Component({
   templateUrl: 'app.html'
