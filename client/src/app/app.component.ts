@@ -15,7 +15,7 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  constructor(private platform: Platform, private store: Store<State>) {}
+  constructor(private platform: Platform) {}
 
   ngAfterViewInit() {
     if (this.firstRun) {

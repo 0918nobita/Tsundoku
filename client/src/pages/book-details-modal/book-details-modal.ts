@@ -3,7 +3,6 @@ import {
   NavParams,
   ViewController,
   ToastController,
-  Loading,
   LoadingController
 } from 'ionic-angular';
 
