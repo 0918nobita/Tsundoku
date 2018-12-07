@@ -1,44 +1,15 @@
-div.book-addition-button {
-  width: 128px;
-  height: 168px;
-  color: black;
-  background-color: #D0D0D0;
-
-  ion-icon {
-    font-size: 40px;
-  }
-}
-
 div.empty {
   width: 128px;
   height: 0;
 }
 
 @media screen and (max-width: 700px) {
-  div.book-addition-button {
-    width: 100px;
-    height: 132px;
-
-    h2 {
-      font-size: 1em;
-    }
-
-    ion-icon {
-      font-size: 30px;
-    }
-  }
-
   div.empty {
     width: 100px;
   }
 }
 
 @media screen and (max-width: 375px) {
-  div.book-addition-button {
-    width: 80px;
-    height: 105px;
-  }
-
   div.empty {
     width: 80px;
   }
