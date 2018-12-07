@@ -10,6 +10,7 @@
 
 <ion-content padding>
   <ion-searchbar placeholder="ISBN (13桁) を入力して本を検索"></ion-searchbar>
+  <search></search>
   <ion-grid>
     <ion-row align-items-center justify-content-around id="books-row">
       <ion-col *ngFor="let book of books$ | async" col-auto>
