@@ -34,7 +34,7 @@ export class SplitPane {
     private appRef: ApplicationRef
   ) {}
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.events.subscribe('tabs:changed', index => {
       this.makeButtonSelected(index);
       this.appRef.tick();
