@@ -6,14 +6,21 @@
       <settings-button></settings-button>
     </ion-buttons>
   </ion-navbar>
-  <ion-searchbar placeholder="検索" (click)="switchFragment()" [showCancelButton]="true"></ion-searchbar>
+  <ion-searchbar
+    placeholder="検索"
+    [(ngModel)]="text"
+    (click)="switchFragment()"
+    [showCancelButton]="true"
+    (ionInput)="updateText()"
+    (ionCancel)="onCancelSearch()"
+    (ionBlur)="blur()"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  <div id="search-fragment">
+  <div #searchFragment id="search-fragment">
     <search></search>
   </div>
-  <div id="library-fragment">
+  <div #libraryFragment>
     <ion-grid>
       <ion-row align-items-center justify-content-around id="books-row">
         <ion-col *ngFor="let book of books$ | async" col-auto>

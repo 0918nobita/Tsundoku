@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -22,6 +22,10 @@ export class BookshelfPage {
   additions = [];
   private length = 0;
   fragment: Fragment = Fragment.Library;
+  showSearchCancelButton = true;
+  text = '';
+  @ViewChild('libraryFragment') libraryFragment;
+  @ViewChild('searchFragment') searchFragment;
 
   constructor(private store: Store<State>) {}
 
@@ -40,20 +44,14 @@ export class BookshelfPage {
     );
   }
 
-  switchFragment() {
-    if (this.fragment === Fragment.Search) return;
+  switchFragment(to = Fragment.Search) {
+    this.libraryFragment.nativeElement.style.display =
+      to === Fragment.Search ? 'none' : 'block';
 
-    const libraryFragment = document.getElementById(
-      'library-fragment'
-    ) as HTMLElement;
-    libraryFragment.style.display = 'none';
+    this.searchFragment.nativeElement.style.display =
+      to === Fragment.Search ? 'block' : 'none';
 
-    const searchFragment = document.getElementById(
-      'search-fragment'
-    ) as HTMLElement;
-    searchFragment.style.display = 'block';
-
-    this.fragment = Fragment.Search;
+    this.fragment = to;
   }
 
   adjustThumbnails() {
@@ -91,5 +89,18 @@ export class BookshelfPage {
     } else if (diff < this.additions.length) {
       this.additions.splice(0, this.additions.length - diff);
     }
+  }
+
+  updateText() {
+    console.log(`Update: ${this.text}`);
+  }
+
+  blur() {
+    if (this.text !== '') return;
+    this.onCancelSearch();
+  }
+
+  onCancelSearch() {
+    this.switchFragment(Fragment.Library);
   }
 }
