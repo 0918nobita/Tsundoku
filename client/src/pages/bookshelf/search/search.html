@@ -1,1 +1,6 @@
-<p>検索画面</p>
+<p>検索方法</p>
+
+<ion-segment [(ngModel)]="searchMethod" no-border-top (ionChange)="segmentChanged()">
+  <ion-segment-button value="isbn"><ion-icon name="barcode"></ion-icon><span style="font-size: 15px; vertical-align: top;">ISBN</span></ion-segment-button>
+  <ion-segment-button value="skill"><ion-icon name="done-all"></ion-icon><span style="font-size: 15px; vertical-align: top;">スキル</span></ion-segment-button>
+</ion-segment>
