@@ -1,13 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
-import { Platform } from 'ionic-angular';
+import { Platform, Events } from 'ionic-angular';
 
 enum Fragment {
   Library,
@@ -30,11 +30,13 @@ export class BookshelfPage {
   mdSearchIcon: HTMLElement;
   mdCancelButton: HTMLElement;
   iosCancelButton: HTMLElement;
+  currentTabs: BehaviorSubject<number>;
 
   constructor(
     private store: Store<State>,
     private platform: Platform,
-    private el: ElementRef
+    private el: ElementRef,
+    private events: Events
   ) {}
 
   ionViewDidLoad() {
@@ -70,6 +72,9 @@ export class BookshelfPage {
       this.onCancelSearch();
       this.iosCancelButton.style.display = 'none';
     });
+
+    this.currentTabs = new BehaviorSubject(0);
+    this.events.subscribe('tabs:changed', x => this.currentTabs.next(x));
   }
 
   switchFragment(to = Fragment.Search) {
@@ -139,5 +144,15 @@ export class BookshelfPage {
   onCancelSearch() {
     (document.activeElement as HTMLElement).blur();
     this.switchFragment(Fragment.Library);
+  }
+
+  @HostListener('document:keyup.esc')
+  esc() {
+    if (this.currentTabs.getValue() !== 0) return;
+    if (this.fragment !== Fragment.Search) return;
+    (this.platform.platforms().indexOf('ios') !== -1
+      ? this.iosCancelButton
+      : this.mdCancelButton
+    ).click();
   }
 }
