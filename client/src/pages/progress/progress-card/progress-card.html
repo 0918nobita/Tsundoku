@@ -2,5 +2,16 @@
   <ion-card-content>
     <h2>{{plan.title}}</h2>
     <p>{{plan.desc}}</p>
+    <ion-grid>
+      <ion-row align-items-center>
+        <ion-col col-auto>
+          <book-widget [book]="plan.book"></book-widget>
+        </ion-col>
+        <ion-col col-auto>
+          <div style="width: 120px; height: 120px"><canvas #graph></canvas></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!--<ion-range min="1" [max]="plan.book.pageCount" step="1"></ion-range>-->
   </ion-card-content>
 </ion-card>
