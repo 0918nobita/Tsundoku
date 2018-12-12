@@ -333,6 +333,11 @@
   resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.30.1.tgz#0cb9b918ba7f94c1e60527ba74273ca276d17137"
   integrity sha512-UKzBzTH2UDXiLSb/Zyf9jqf2y8rScJXeLBz1Jie8VUZv6xhg1lPaqgkEsTtc8Qi7HYLjlnw768v0CEsCxsmLOw==
 
+"@types/chart.js@^2.7.41":
+  version "2.7.41"
+  resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.7.41.tgz#3e59d82fbfd536dfec8c092bfbf218cac567ab2e"
+  integrity sha512-AkxGv6oqAfd93sv2B2uAOm6z/elj/O62p8WZCPr9EStr85ykcw7bETVMaK0+4XLuHhGui7Fdm+tfQk0EatRFKA==
+
 "@types/cordova@latest":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
