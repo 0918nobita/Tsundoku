@@ -9,13 +9,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let plan of plans$ | async">
-    <ion-card>
-      <ion-card-content>
-        <h2>{{plan.title}}</h2>
-        <p>{{plan.desc}}</p>
-        <book-widget [book]="plan.book"></book-widget>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  <ng-container *ngFor="let plan of plans$ | async">
+    <progress-card [plan]="plan"></progress-card>
+  </ng-container>
 </ion-content>
