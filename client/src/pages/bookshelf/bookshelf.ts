@@ -22,11 +22,11 @@ export class BookshelfPage {
   books$: Observable<RegisteredBook[]>;
   additions = [];
   private length = 0;
-  fragment: Fragment = Fragment.Library;
-  showSearchCancelButton = true;
+  fragment = Fragment.Library;
   text = '';
   @ViewChild('libraryFragment') libraryFragment;
   @ViewChild('searchFragment') searchFragment;
+  nativeElement: HTMLElement;
   mdSearchIcon: HTMLElement;
   mdCancelButton: HTMLElement;
   iosCancelButton: HTMLElement;
@@ -35,8 +35,8 @@ export class BookshelfPage {
   constructor(
     private store: Store<State>,
     private platform: Platform,
-    private el: ElementRef,
-    private events: Events
+    private events: Events,
+    private el: ElementRef
   ) {}
 
   ionViewDidLoad() {
@@ -53,21 +53,15 @@ export class BookshelfPage {
       })
     );
 
-    this.mdSearchIcon = this.el.nativeElement.querySelector(
-      '.searchbar-search-icon'
-    );
-    this.mdCancelButton = this.el.nativeElement.querySelector(
-      '.searchbar-md-cancel'
-    );
+    this.mdSearchIcon = this.querySelector('.searchbar-search-icon');
+    this.mdCancelButton = this.querySelector('.searchbar-md-cancel');
     this.mdCancelButton.addEventListener('click', () => {
       this.onCancelSearch();
       this.mdCancelButton.style.display = 'none';
       this.mdSearchIcon.style.display = 'block';
     });
 
-    this.iosCancelButton = this.el.nativeElement.querySelector(
-      '.searchbar-ios-cancel'
-    );
+    this.iosCancelButton = this.querySelector('.searchbar-ios-cancel');
     this.iosCancelButton.addEventListener('click', () => {
       this.onCancelSearch();
       this.iosCancelButton.style.display = 'none';
@@ -154,5 +148,9 @@ export class BookshelfPage {
       ? this.iosCancelButton
       : this.mdCancelButton
     ).click();
+  }
+
+  private querySelector(selector: string): HTMLElement {
+    return this.el.nativeElement.querySelector(selector);
   }
 }
