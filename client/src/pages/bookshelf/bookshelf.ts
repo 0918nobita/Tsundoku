@@ -31,6 +31,7 @@ export class BookshelfPage {
   mdCancelButton: HTMLElement;
   iosCancelButton: HTMLElement;
   currentTabs: BehaviorSubject<number>;
+  currentSearchMethod: BehaviorSubject<string>;
 
   constructor(
     private store: Store<State>,
@@ -69,6 +70,12 @@ export class BookshelfPage {
 
     this.currentTabs = new BehaviorSubject(0);
     this.events.subscribe('tabs:changed', x => this.currentTabs.next(x));
+
+    this.currentSearchMethod = new BehaviorSubject('isbn');
+    this.events.subscribe('searchMethod:changed', method => {
+      this.currentSearchMethod.next(method);
+      this.updatePlaceholder();
+    });
   }
 
   switchFragment(to = Fragment.Search) {
@@ -129,6 +136,7 @@ export class BookshelfPage {
     }
 
     this.switchFragment();
+    this.updatePlaceholder();
   }
 
   updateText() {
@@ -136,6 +144,7 @@ export class BookshelfPage {
   }
 
   onCancelSearch() {
+    this.querySelector('.searchbar-input').setAttribute('placeholder', '検索');
     (document.activeElement as HTMLElement).blur();
     this.switchFragment(Fragment.Library);
   }
@@ -148,6 +157,15 @@ export class BookshelfPage {
       ? this.iosCancelButton
       : this.mdCancelButton
     ).click();
+  }
+
+  private updatePlaceholder() {
+    this.querySelector('.searchbar-input').setAttribute(
+      'placeholder',
+      this.currentSearchMethod.getValue() === 'isbn'
+        ? 'ISBN を入力 (13 桁)'
+        : 'スキルをフリーワードで検索'
+    );
   }
 
   private querySelector(selector: string): HTMLElement {
