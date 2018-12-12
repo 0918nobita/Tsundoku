@@ -2,6 +2,7 @@
   "extends": [ "../tslint.json" ],
   "rules": {
     "no-unnecessary-type-assertion": false,
-    "no-floating-promises": false
+    "no-floating-promises": false,
+    "no-unused-expression": false
   }
 }
