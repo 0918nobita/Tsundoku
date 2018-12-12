@@ -137,6 +137,7 @@ export class BookshelfPage {
   }
 
   onCancelSearch() {
+    (document.activeElement as HTMLElement).blur();
     this.switchFragment(Fragment.Library);
   }
 }
