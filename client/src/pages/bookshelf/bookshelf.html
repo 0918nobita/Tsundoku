@@ -9,11 +9,10 @@
   <ion-searchbar
     placeholder="検索"
     [(ngModel)]="text"
-    (click)="switchFragment()"
-    [showCancelButton]="true"
+    cancelButtonText="キャンセル"
     (ionInput)="updateText()"
     (ionCancel)="onCancelSearch()"
-    (ionBlur)="blur()"></ion-searchbar>
+    (ionFocus)="onFocus()"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>

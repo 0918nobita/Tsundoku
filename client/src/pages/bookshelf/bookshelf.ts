@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
+import { Platform } from 'ionic-angular';
 
 enum Fragment {
   Library,
@@ -26,8 +27,15 @@ export class BookshelfPage {
   text = '';
   @ViewChild('libraryFragment') libraryFragment;
   @ViewChild('searchFragment') searchFragment;
+  mdSearchIcon: HTMLElement;
+  mdCancelButton: HTMLElement;
+  iosCancelButton: HTMLElement;
 
-  constructor(private store: Store<State>) {}
+  constructor(
+    private store: Store<State>,
+    private platform: Platform,
+    private el: ElementRef
+  ) {}
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
@@ -42,6 +50,26 @@ export class BookshelfPage {
         return books;
       })
     );
+
+    this.mdSearchIcon = this.el.nativeElement.querySelector(
+      '.searchbar-search-icon'
+    );
+    this.mdCancelButton = this.el.nativeElement.querySelector(
+      '.searchbar-md-cancel'
+    );
+    this.mdCancelButton.addEventListener('click', () => {
+      this.onCancelSearch();
+      this.mdCancelButton.style.display = 'none';
+      this.mdSearchIcon.style.display = 'block';
+    });
+
+    this.iosCancelButton = this.el.nativeElement.querySelector(
+      '.searchbar-ios-cancel'
+    );
+    this.iosCancelButton.addEventListener('click', () => {
+      this.onCancelSearch();
+      this.iosCancelButton.style.display = 'none';
+    });
   }
 
   switchFragment(to = Fragment.Search) {
@@ -91,13 +119,21 @@ export class BookshelfPage {
     }
   }
 
-  updateText() {
-    console.log(`Update: ${this.text}`);
+  onFocus() {
+    const platforms = this.platform.platforms();
+
+    if (platforms.indexOf('ios') !== -1) {
+      this.iosCancelButton.style.display = 'block';
+    } else {
+      this.mdSearchIcon.style.display = 'none';
+      this.mdCancelButton.style.display = 'block';
+    }
+
+    this.switchFragment();
   }
 
-  blur() {
-    if (this.text !== '') return;
-    this.onCancelSearch();
+  updateText() {
+    console.log(`Update: ${this.text}`);
   }
 
   onCancelSearch() {
