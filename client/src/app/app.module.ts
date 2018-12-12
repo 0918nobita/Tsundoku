@@ -29,6 +29,7 @@ import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
 import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
 import { Search } from '../pages/bookshelf/search/search';
+import { ProgressCard } from '../pages/progress/progress-card/progress-card';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -49,7 +50,8 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     SplitPane,
     SettingsButton,
     SettingsModal,
-    Search
+    Search,
+    ProgressCard
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     SplitPane,
     SettingsButton,
     SettingsModal,
-    Search
+    Search,
+    ProgressCard
   ],
   providers: [
     StatusBar,
