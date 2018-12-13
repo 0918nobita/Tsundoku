@@ -4,6 +4,7 @@ import { Skill } from '../../models/skill';
 export enum SkillActionTypes {
   CreateSkill = '[Skill] Create',
   CreateSkillSuccess = '[Skill] Succeed in creating',
+  CreateSkillFail = '[Skill] Fail in creating',
   DeleteSkill = '[Skill] Delete',
   DeleteSkillSuccess = '[Skill] Succeed in deleting'
 }
@@ -17,6 +18,11 @@ export class CreateSkill implements Action {
 // スキルの作成に成功した
 export class CreateSkillSuccess implements Action {
   readonly type = SkillActionTypes.CreateSkillSuccess;
+}
+
+// スキルの作成に成功した
+export class CreateSkillFail implements Action {
+  readonly type = SkillActionTypes.CreateSkillFail;
 }
 
 // スキルを削除する
