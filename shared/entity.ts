@@ -28,4 +28,6 @@ export interface Skill {
   content: string;
   created: firebase.firestore.Timestamp;
   uid: string;
+  plan: string;
+  isbn: string;
 }
