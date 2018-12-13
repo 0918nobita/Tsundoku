@@ -29,6 +29,7 @@ export class CreateSkillFail implements Action {
 // スキルを削除する
 export class DeleteSkill implements Action {
   readonly type = SkillActionTypes.DeleteSkill;
+  constructor(public payload: { id: string }) {}
 }
 
 // スキルの削除に成功した
