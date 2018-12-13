@@ -6,7 +6,8 @@ export enum SkillActionTypes {
   CreateSkillSuccess = '[Skill] Succeed in creating',
   CreateSkillFail = '[Skill] Fail in creating',
   DeleteSkill = '[Skill] Delete',
-  DeleteSkillSuccess = '[Skill] Succeed in deleting'
+  DeleteSkillSuccess = '[Skill] Succeed in deleting',
+  DeleteSkillFail = '[Skill] Fail in deleting'
 }
 
 // スキルを作成する
@@ -33,4 +34,9 @@ export class DeleteSkill implements Action {
 // スキルの削除に成功した
 export class DeleteSkillSuccess implements Action {
   readonly type = SkillActionTypes.DeleteSkillSuccess;
+}
+
+// スキルの削除に失敗した
+export class DeleteSkillFail implements Action {
+  readonly type = SkillActionTypes.DeleteSkillFail;
 }
