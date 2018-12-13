@@ -37,6 +37,7 @@ import { reducers } from './state/_state.reducers';
 import { PlanEffects } from './state/plan/plan.effect';
 import { AuthEffects } from './state/auth/auth.effect';
 import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
+import { SkillEffects } from './state/skill/skill.effect';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,12 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
     AngularFirestoreModule.enablePersistence(),
     LoginPageModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([BookshelfEffects, PlanEffects, AuthEffects])
+    EffectsModule.forRoot([
+      BookshelfEffects,
+      PlanEffects,
+      AuthEffects,
+      SkillEffects
+    ])
   ],
   bootstrap: [IonicApp],
   entryComponents: [
