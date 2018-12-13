@@ -144,7 +144,10 @@ export class BookshelfPage {
   }
 
   onCancelSearch() {
-    this.querySelector('.searchbar-input').setAttribute('placeholder', '検索');
+    this.querySelector('.searchbar-input').setAttribute(
+      'placeholder',
+      '追加する本を検索'
+    );
     (document.activeElement as HTMLElement).blur();
     this.switchFragment(Fragment.Library);
   }
