@@ -11,6 +11,15 @@
           <div style="width: 120px; height: 120px"><canvas #graph></canvas></div>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ng-container *ngFor="let skill of skills$ | async">
+          <ion-col col-auto><ion-chip><ion-label>{{skill.content}}</ion-label></ion-chip></ion-col>
+        </ng-container>
+      </ion-row>
+      <ion-row>
+        <button ion-button style="padding-left: 0" color="light">
+          <ion-icon name="add"></ion-icon> スキルを追加する</button>
+      </ion-row>
     </ion-grid>
     <!--<ion-range min="1" [max]="plan.book.pageCount" step="1"></ion-range>-->
   </ion-card-content>

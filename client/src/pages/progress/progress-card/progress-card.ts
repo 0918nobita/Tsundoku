@@ -2,6 +2,9 @@ import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { Plan } from '../../../app/models/plan';
+import { Observable } from 'rxjs';
+import { Skill } from '../../../app/models/skill';
+import { SkillService } from '../../../app/services/skill.service';
 
 @Component({
   selector: 'progress-card',
@@ -10,8 +13,13 @@ import { Plan } from '../../../app/models/plan';
 export class ProgressCard {
   @Input() plan: Plan;
   @ViewChild('graph') graph: ElementRef;
+  skills$: Observable<Skill[]>;
+
+  constructor(private skillService: SkillService) {}
 
   ngAfterViewInit() {
+    this.skills$ = this.skillService.getSkills(this.plan.uid, this.plan.isbn);
+
     const context = this.graph.nativeElement.getContext('2d');
     new Chart(context, {
       type: 'doughnut',
