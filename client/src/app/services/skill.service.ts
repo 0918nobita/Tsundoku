@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Skill } from '../models/skill';
 import { map } from 'rxjs/operators';
+import { mine } from './firestore-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,14 @@ export class SkillService {
   constructor(private afFirestore: AngularFirestore) {}
 
   // 自分のスキルをすべて取得するか、特定の本に対して付与されたスキルをすべて取得する
-  getSkills = (uid: string, isbn?: string): Observable<Skill[]> =>
-    this.afFirestore
+  getSkills(uid: string, isbn?: string): Observable<Skill[]> {
+    if (isbn === void 0) {
+      return this.afFirestore.collection<Skill>('skills', mine).valueChanges();
+    }
+
+    return this.afFirestore
       .collection<Skill>('skills', ref => ref.where('isbn', '==', isbn))
       .valueChanges()
       .pipe(map(skills => skills.filter(skill => skill.uid === uid)));
+  }
 }
