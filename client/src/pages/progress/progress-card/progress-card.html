@@ -13,7 +13,14 @@
       </ion-row>
       <ion-row>
         <ng-container *ngFor="let skill of skills$ | async">
-          <ion-col col-auto><ion-chip><ion-label>{{skill.content}}</ion-label></ion-chip></ion-col>
+          <ion-col col-auto>
+            <ion-chip>
+              <ion-label>{{skill.content}}</ion-label>
+              <button ion-button clear color="dark">
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
+            </ion-chip>
+          </ion-col>
         </ng-container>
       </ion-row>
       <ion-row>
