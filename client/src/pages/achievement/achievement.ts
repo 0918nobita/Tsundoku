@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import moment from 'moment';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import { SkillService } from '../../app/services/skill.service';
 import { Skill } from 'shared/entity';
@@ -7,6 +9,8 @@ import {
   sortByDatetime,
   updateDynamicList
 } from '../../app/services/firestore-utils';
+import { from } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'page-contact',
@@ -20,10 +24,13 @@ export class AchievementPage {
   }
 
   ionViewWillEnter() {
-    this.skillService.getSkills().subscribe(skill => {
-      updateDynamicList(this.skills, skill);
-      sortByDatetime({ key: 'created', objects: this.skills }, 'desc');
-    });
+    this.skillService
+      .getSkills((firebase.auth().currentUser as firebase.User).uid)
+      .pipe(flatMap(skills => from(skills)))
+      .subscribe(skill => {
+        updateDynamicList(this.skills, skill);
+        sortByDatetime({ key: 'created', objects: this.skills }, 'desc');
+      });
   }
 
   differenceTime(time: Date) {
