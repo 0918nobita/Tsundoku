@@ -10,4 +10,5 @@ export interface Skill {
   plan: Plan;
   uid: string;
   created: firebase.firestore.Timestamp;
+  isbn: string;
 }
