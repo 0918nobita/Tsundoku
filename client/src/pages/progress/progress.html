@@ -9,6 +9,9 @@
 </ion-header>
 
 <ion-content padding>
+  <button ion-button color="light" style="padding-left: 0">
+    <ion-icon name="add"></ion-icon> 読書計画を追加する
+  </button>
   <ng-container *ngFor="let plan of plans$ | async">
     <progress-card [plan]="plan"></progress-card>
   </ng-container>
