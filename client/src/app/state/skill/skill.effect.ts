@@ -6,7 +6,10 @@ import {
   CreateSkill,
   SkillActionTypes,
   CreateSkillSuccess,
-  CreateSkillFail
+  CreateSkillFail,
+  DeleteSkill,
+  DeleteSkillSuccess,
+  DeleteSkillFail
 } from '../skill/skill.action';
 import { concatMap, catchError } from 'rxjs/operators';
 import { AngularFireFunctions } from '@angular/fire/functions';
@@ -25,9 +28,22 @@ export class SkillEffects {
       const id = await this.afFunctions
         .httpsCallable('createSkill')(action.payload)
         .toPromise();
-      console.log(`Created Skill's ID: ${id}`);
+      console.log(`Created skill's ID: ${id}`);
       return new CreateSkillSuccess();
     }),
     catchError(() => of(new CreateSkillFail()))
+  );
+
+  @Effect()
+  deleteSkill: Observable<Action> = this.actions$.pipe(
+    ofType<DeleteSkill>(SkillActionTypes.DeleteSkill),
+    concatMap(async action => {
+      await this.afFunctions
+        .httpsCallable('deleteSkill')(action.payload.id)
+        .toPromise();
+      console.log(`Deleted skill's ID: ${action.payload.id}`);
+      return new DeleteSkillSuccess();
+    }),
+    catchError(() => of(new DeleteSkillFail()))
   );
 }
