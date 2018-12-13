@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import { ResolvedBook } from "../../shared/entity";
-import { apiKey } from "./config";
+import { ResolvedBook } from '../../shared/entity';
+import { apiKey } from './config';
 
 export const _postResolvedBook = (db: FirebaseFirestore.Firestore) => async (
   resolvedBook: ResolvedBook
 ) => {
-  return (await db.collection("resolvedBook").add(resolvedBook)).id;
+  return (await db.collection('resolvedBook').add(resolvedBook)).id;
 };
 
 const searchBooksUsingGoogleBooksAPI = (
@@ -20,11 +20,11 @@ const searchBooksUsingGoogleBooksAPI = (
     response = result.data.items.map(
       ({ volumeInfo }): ResolvedBook => ({
         desc: volumeInfo.description,
-        donor: "none",
+        donor: 'none',
         image:
           volumeInfo.imageLinks !== void 0
             ? `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`
-            : "./assets/image_not_found.png",
+            : './assets/image_not_found.png',
         isbn: clue,
         title: volumeInfo.title,
         pageCount: volumeInfo.pageCount
@@ -41,8 +41,8 @@ export const _searchBooksByISBN = (
   db: FirebaseFirestore.Firestore
 ) => async (args: { isbn: string; usingGoogleBooksAPI: boolean }) => {
   const querySnapshot = await db
-    .collection("resolvedBooks")
-    .where("isbn", "==", args.isbn)
+    .collection('resolvedBooks')
+    .where('isbn', '==', args.isbn)
     .get();
   let response: ResolvedBook[] = [];
 
