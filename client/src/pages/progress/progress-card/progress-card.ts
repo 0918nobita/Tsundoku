@@ -53,4 +53,8 @@ export class ProgressCard {
       return Math.round((samples / total) * 100 * 10) / 10;
     }
   }
+
+  addSkill() {
+    console.log('addSkill');
+  }
 }

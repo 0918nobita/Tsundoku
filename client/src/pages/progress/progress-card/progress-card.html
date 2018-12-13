@@ -12,6 +12,12 @@
         </ion-col>
       </ion-row>
       <ion-row>
+        <ion-col col-auto>
+          <ion-chip color="light" (click)="addSkill()">
+            <ion-icon name="add" color="light" style="width: 30px"></ion-icon>
+            <ion-label style="margin-left: 0">追加</ion-label>
+          </ion-chip>
+        </ion-col>
         <ng-container *ngFor="let skill of skills$ | async">
           <ion-col col-auto>
             <ion-chip>
