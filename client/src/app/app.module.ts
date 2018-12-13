@@ -38,6 +38,7 @@ import { PlanEffects } from './state/plan/plan.effect';
 import { AuthEffects } from './state/auth/auth.effect';
 import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
 import { SkillEffects } from './state/skill/skill.effect';
+import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-addition-modal';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SkillEffects } from './state/skill/skill.effect';
     SettingsButton,
     SettingsModal,
     Search,
-    ProgressCard
+    ProgressCard,
+    PlanAdditionModal
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { SkillEffects } from './state/skill/skill.effect';
     SettingsButton,
     SettingsModal,
     Search,
-    ProgressCard
+    ProgressCard,
+    PlanAdditionModal
   ],
   providers: [
     StatusBar,
