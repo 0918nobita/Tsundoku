@@ -5,6 +5,7 @@ import { Plan } from '../../../app/models/plan';
 import { Observable } from 'rxjs';
 import { Skill } from '../../../app/models/skill';
 import { SkillService } from '../../../app/services/skill.service';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'progress-card',
@@ -15,7 +16,10 @@ export class ProgressCard {
   @ViewChild('graph') graph: ElementRef;
   skills$: Observable<Skill[]>;
 
-  constructor(private skillService: SkillService) {}
+  constructor(
+    private skillService: SkillService,
+    private alertCtrl: AlertController
+  ) {}
 
   ngAfterViewInit() {
     this.skills$ = this.skillService.getSkills(this.plan.uid, this.plan.isbn);
@@ -55,6 +59,29 @@ export class ProgressCard {
   }
 
   addSkill() {
-    console.log('addSkill');
+    this.alertCtrl
+      .create({
+        title: 'スキルの追加',
+        message: 'あなたがこの本を通して得たスキルをひとつずつ追加してください',
+        inputs: [
+          {
+            name: 'content',
+            placeholder: 'スキルの内容'
+          }
+        ],
+        buttons: [
+          {
+            text: 'キャンセル',
+            role: 'cancel'
+          },
+          {
+            text: '追加',
+            handler: () => {
+              console.log('追加');
+            }
+          }
+        ]
+      })
+      .present();
   }
 }
