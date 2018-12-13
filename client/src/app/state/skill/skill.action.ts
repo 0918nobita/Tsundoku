@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Skill } from '../../models/skill';
 
 export enum SkillActionTypes {
   CreateSkill = '[Skill] Create',
@@ -7,8 +8,10 @@ export enum SkillActionTypes {
   DeleteSkillSuccess = '[Skill] Succeed in deleting'
 }
 
-class CreateSkill implements Action {
+// スキルを作成する
+export class CreateSkill implements Action {
   readonly type = SkillActionTypes.CreateSkill;
+  constructor(public payload: { skill: Skill }) {}
 }
 
 // スキルの作成に成功した
