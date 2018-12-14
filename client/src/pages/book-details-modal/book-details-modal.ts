@@ -7,6 +7,8 @@ import {
 } from 'ionic-angular';
 import { timer } from 'rxjs';
 import { take } from 'rxjs/operators';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import { FundamentalModal } from '../fundamental-modal';
 import { BookService } from '../../app/services/book.service';
@@ -20,7 +22,8 @@ export class BookDetailsModal extends FundamentalModal {
   title: string;
   desc: string;
   image: string;
-  added = false;
+  added: boolean;
+  loaded: boolean;
 
   constructor(
     private navParams: NavParams,
@@ -30,6 +33,8 @@ export class BookDetailsModal extends FundamentalModal {
     private bookService: BookService
   ) {
     super(viewCtrl, toastCtrl);
+    this.added = false;
+    this.loaded = false;
     this.isbn = this.navParams.get('isbn');
 
     const loader = this.loadingCtrl.create({
@@ -62,6 +67,13 @@ export class BookDetailsModal extends FundamentalModal {
       .catch(err => {
         subscription.unsubscribe();
         this.showError(err);
+      });
+
+    this.bookService
+      .isOwnedBy(this.isbn, (firebase.auth().currentUser as firebase.User).uid)
+      .subscribe(result => {
+        this.loaded = true;
+        this.added = result;
       });
   }
 }
