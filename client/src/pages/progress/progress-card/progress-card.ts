@@ -1,4 +1,10 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  ElementRef,
+  HostListener
+} from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { Plan } from '../../../app/models/plan';
@@ -15,6 +21,7 @@ export class ProgressCard {
   @Input() plan: Plan;
   @ViewChild('graph') graph: ElementRef;
   skills$: Observable<Skill[]>;
+  conversion = false;
 
   constructor(
     private skillService: SkillService,
@@ -76,11 +83,20 @@ export class ProgressCard {
           {
             text: '追加',
             handler: () => {
-              console.log('追加');
+              if (this.conversion) {
+                this.conversion = false;
+                return false;
+              }
             }
           }
         ]
       })
       .present();
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent) {
+    if (event.keyCode === 229) this.conversion = true;
+    else if (event.keyCode === 13) this.conversion = false;
   }
 }
