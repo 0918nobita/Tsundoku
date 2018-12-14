@@ -20,6 +20,7 @@ export class BookDetailsModal extends FundamentalModal {
   title: string;
   desc: string;
   image: string;
+  added = false;
 
   constructor(
     private navParams: NavParams,

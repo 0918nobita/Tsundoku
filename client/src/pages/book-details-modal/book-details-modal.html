@@ -10,6 +10,13 @@
 <ion-content padding>
   <h2>{{title}}</h2>
   <img src="{{image}}">
+  <div *ngIf="!added; then addButton; else deleteButton"></div>
+  <ng-template #addButton>
+    <p><button ion-button small>本棚に追加する</button></p>
+  </ng-template>
+  <ng-template #deleteButton>
+    <p><button ion-button color="danger" small>本棚から削除する</button></p>
+  </ng-template>
   <p>{{desc}}</p>
   <p>ISBN: {{isbn}}</p>
 </ion-content>
