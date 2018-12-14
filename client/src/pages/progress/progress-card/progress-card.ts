@@ -62,7 +62,6 @@ export class ProgressCard {
     this.alertCtrl
       .create({
         title: 'スキルの追加',
-        message: 'あなたがこの本を通して得たスキルをひとつずつ追加してください',
         inputs: [
           {
             name: 'content',
