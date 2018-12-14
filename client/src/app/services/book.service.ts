@@ -5,6 +5,8 @@ import { ResolvedBook } from '../models/resolved-book';
 import { LocalDatabase } from './local-database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { take, map } from 'rxjs/operators';
+import { RegisteredBook } from '../models/registered-book';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +48,12 @@ export class BookService {
       )
       .toPromise();
   }
+
+  isOwnedBy = (isbn: string, uid: string): Observable<boolean> =>
+    this.afFirestore
+      .collection<RegisteredBook>('bookshelf', ref =>
+        ref.where('isbn', '==', isbn)
+      )
+      .valueChanges()
+      .pipe(map(books => books.filter(book => book.uid === uid).length > 0));
 }
