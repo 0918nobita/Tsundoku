@@ -72,7 +72,7 @@ export class ProgressCard {
         inputs: [
           {
             name: 'content',
-            placeholder: 'スキルの内容'
+            placeholder: 'スキルの内容 (必須)'
           }
         ],
         buttons: [
@@ -82,11 +82,12 @@ export class ProgressCard {
           },
           {
             text: '追加',
-            handler: () => {
+            handler: data => {
               if (this.conversion) {
                 this.conversion = false;
                 return false;
               }
+              if (data.content.length === 0) return false;
             }
           }
         ]
