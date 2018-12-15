@@ -22,7 +22,7 @@
           <ion-col col-auto>
             <ion-chip>
               <ion-label>{{skill.content}}</ion-label>
-              <button ion-button clear color="dark">
+              <button ion-button clear color="dark" (click)="deleteSkill(skill)">
                 <ion-icon name="close-circle"></ion-icon>
               </button>
             </ion-chip>

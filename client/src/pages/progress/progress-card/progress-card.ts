@@ -115,6 +115,10 @@ export class ProgressCard {
       .present();
   }
 
+  deleteSkill(skill: Skill) {
+    this.skillService.deleteSkill(skill);
+  }
+
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {
     if (event.keyCode === 229) this.conversion = true;
