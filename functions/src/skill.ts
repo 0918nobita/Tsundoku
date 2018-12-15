@@ -1,7 +1,18 @@
-import { Skill } from "../../shared/entity";
+import * as admin from "firebase-admin";
 
 export const _createSkill = (db: FirebaseFirestore.Firestore) =>
-  async (skill: Skill) => (await db.collection('skill').add(skill)).id;
+  async (args: {
+    isbn: string;
+    content: string;
+    uid: string;
+  }) => {
+    const date = admin.firestore.FieldValue.serverTimestamp();
+    return (await db.collection('skills').add({
+      ...args,
+      created: date,
+      modified: date
+    })).id;
+  };
 
 export const _deleteSkill = (db: FirebaseFirestore.Firestore) =>
   async (id: string) => {
