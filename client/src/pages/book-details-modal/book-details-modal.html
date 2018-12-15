@@ -13,7 +13,7 @@
   <div *ngIf="loaded">
     <div *ngIf="!added; then addButton; else deleteButton"></div>
     <ng-template #addButton>
-      <p><button ion-button small>本棚に追加する</button></p>
+      <p><button ion-button small (click)="register()">本棚に追加する</button></p>
     </ng-template>
     <ng-template #deleteButton>
       <p><button ion-button color="danger" small>本棚から削除する</button></p>

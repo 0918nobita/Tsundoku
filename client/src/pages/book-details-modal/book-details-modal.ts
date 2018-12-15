@@ -12,6 +12,7 @@ import 'firebase/auth';
 
 import { FundamentalModal } from '../fundamental-modal';
 import { BookService } from '../../app/services/book.service';
+import { BookshelfService } from '../../app/services/bookshelf.service';
 
 @Component({
   selector: 'book-details-modal',
@@ -30,7 +31,8 @@ export class BookDetailsModal extends FundamentalModal {
     private loadingCtrl: LoadingController,
     protected viewCtrl: ViewController,
     protected toastCtrl: ToastController,
-    private bookService: BookService
+    private bookService: BookService,
+    private bookshelfService: BookshelfService
   ) {
     super(viewCtrl, toastCtrl);
     this.added = false;
@@ -75,5 +77,13 @@ export class BookDetailsModal extends FundamentalModal {
         this.loaded = true;
         this.added = result;
       });
+  }
+
+  async register() {
+    try {
+      await this.bookshelfService.registerBook(this.isbn);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
