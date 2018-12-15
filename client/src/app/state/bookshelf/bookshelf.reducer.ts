@@ -3,10 +3,7 @@ import { Action } from '@ngrx/store';
 import { initialBookshelfState } from '../_state.inits';
 import { BookshelfState } from '../_state.interfaces';
 import { BookshelfActionTypes, UpdateBookshelf } from './bookshelf.action';
-import {
-  updateDynamicList,
-  sortByDatetime
-} from '../../../app/services/firestore-utils';
+import { sortByDatetime } from '../../../app/services/firestore-utils';
 
 export function reducer(
   state = initialBookshelfState,
@@ -17,9 +14,7 @@ export function reducer(
       return state;
 
     case BookshelfActionTypes.UpdateBookshelf:
-      const { book } = (action as UpdateBookshelf).payload;
-      const books = state.books;
-      updateDynamicList(books, book);
+      const books = (action as UpdateBookshelf).payload;
       sortByDatetime({ key: 'modified', objects: books }, 'desc');
       return Object.assign({}, { ...state, books });
 

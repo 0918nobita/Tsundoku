@@ -18,7 +18,7 @@ export class WatchBookshelf implements Action {
 // 本棚の情報を更新する (差分の本の情報を payload で指定する)
 export class UpdateBookshelf implements Action {
   readonly type = BookshelfActionTypes.UpdateBookshelf;
-  constructor(public payload: { book: RegisteredBook }) {}
+  constructor(public payload: RegisteredBook[]) {}
 }
 
 export class WatchBookshelfFail implements Action {

@@ -6,8 +6,8 @@ import {
   BookshelfActionTypes,
   UpdateBookshelf
 } from './bookshelf.action';
-import { Observable, from } from 'rxjs';
-import { concatMap, map, mergeMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { concatMap, map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { mine } from '../../../app/services/firestore-utils';
 import { RegisteredBook } from '../../../app/models/registered-book';
@@ -25,19 +25,21 @@ export class BookshelfEffects {
   watchBookshelf: Observable<Action> = this.actions$.pipe(
     ofType<WatchBookshelf>(BookshelfActionTypes.WatchBookshelf),
     concatMap(() => {
-      const nextRegisteredBooks = (registeredBooks: RegisteredBook[]) =>
-        from(registeredBooks).pipe(
-          mergeMap(registeredBook =>
-            from(this.bookService.embedBookDetails(registeredBook))
-          )
-        );
+      const nextRegisteredBooks = async (registeredBooks: RegisteredBook[]) => {
+        for (let i = 0; i < registeredBooks.length; i++) {
+          registeredBooks[i] = await this.bookService.embedBookDetails(
+            registeredBooks[i]
+          );
+        }
+        return registeredBooks;
+      };
 
       return this.afFirestore
         .collection<RegisteredBook>('bookshelf', mine)
         .valueChanges()
         .pipe(
-          mergeMap(nextRegisteredBooks),
-          map(book => new UpdateBookshelf({ book }))
+          concatMap(nextRegisteredBooks),
+          map(books => new UpdateBookshelf(books))
         );
     })
   );
