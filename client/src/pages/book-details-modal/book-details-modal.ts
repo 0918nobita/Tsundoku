@@ -3,7 +3,8 @@ import {
   NavParams,
   ViewController,
   ToastController,
-  LoadingController
+  LoadingController,
+  Loading
 } from 'ionic-angular';
 import { timer } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -19,6 +20,7 @@ import { BookshelfService } from '../../app/services/bookshelf.service';
   templateUrl: 'book-details-modal.html'
 })
 export class BookDetailsModal extends FundamentalModal {
+  loader: Loading;
   isbn: string;
   title: string;
   desc: string;
@@ -39,7 +41,7 @@ export class BookDetailsModal extends FundamentalModal {
     this.loaded = false;
     this.isbn = this.navParams.get('isbn');
 
-    const loader = this.loadingCtrl.create({
+    this.loader = this.loadingCtrl.create({
       content: '読み込み中です…'
     });
 
@@ -47,10 +49,10 @@ export class BookDetailsModal extends FundamentalModal {
       .pipe(take(1))
       .subscribe({
         next() {
-          loader.present();
+          this.loader.present();
         },
         complete() {
-          loader.dismiss();
+          this.loader.dismiss();
         }
       });
 
@@ -81,7 +83,11 @@ export class BookDetailsModal extends FundamentalModal {
 
   async register() {
     try {
+      this.loaded = false;
+      this.loader.present();
       await this.bookshelfService.registerBook(this.isbn);
+      this.loader.dismiss();
+      this.loaded = true;
     } catch (e) {
       console.error(e);
     }
@@ -89,7 +95,11 @@ export class BookDetailsModal extends FundamentalModal {
 
   async unregister() {
     try {
+      this.loaded = false;
+      this.loader.present();
       await this.bookshelfService.unregisterBook(this.isbn);
+      this.loader.dismiss();
+      this.loaded = true;
     } catch (e) {
       console.error(e);
     }
