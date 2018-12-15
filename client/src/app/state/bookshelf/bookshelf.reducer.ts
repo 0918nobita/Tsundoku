@@ -19,7 +19,6 @@ export function reducer(
       return Object.assign({}, { ...state, books });
 
     case BookshelfActionTypes.WatchBookshelfFail:
-    case BookshelfActionTypes.RegisterManuallyAddedBook:
     case BookshelfActionTypes.RegisterResolvedBook:
     case BookshelfActionTypes.DeleteBookshelf:
     default:
