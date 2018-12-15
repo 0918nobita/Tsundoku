@@ -5,7 +5,6 @@ export enum BookshelfActionTypes {
   WatchBookshelf = '[Bookshelf] Watch',
   UpdateBookshelf = '[Bookshelf] Update',
   WatchBookshelfFail = '[Bookshelf] Fail in reading',
-  RegisterResolvedBook = '[Bookshelf] Register resolved book',
   DeleteBookshelf = '[Bookshelf] Delete'
 }
 
@@ -23,11 +22,6 @@ export class UpdateBookshelf implements Action {
 export class WatchBookshelfFail implements Action {
   readonly type = BookshelfActionTypes.WatchBookshelfFail;
   constructor(public payload?: {}) {}
-}
-
-// 解決済みの本を本棚に追加する
-export class RegisterResolvedBook implements Action {
-  readonly type = BookshelfActionTypes.RegisterResolvedBook;
 }
 
 // 本棚の一括削除 (退会時)
