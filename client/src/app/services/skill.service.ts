@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 import { Skill } from '../models/skill';
 import { map } from 'rxjs/operators';
 import { mine } from './firestore-utils';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
-  constructor(private afFirestore: AngularFirestore) {}
+  constructor(
+    private afFirestore: AngularFirestore,
+    private afFunctions: AngularFireFunctions
+  ) {}
 
   // 自分のスキルをすべて取得するか、特定の本に対して付与されたスキルをすべて取得する
   getSkills(uid: string, isbn?: string): Observable<Skill[]> {
@@ -23,4 +29,13 @@ export class SkillService {
       .valueChanges()
       .pipe(map(skills => skills.filter(skill => skill.uid === uid)));
   }
+
+  createSkill = async (isbn: string, content: string): Promise<void> =>
+    this.afFunctions
+      .httpsCallable('createSkill')({
+        isbn,
+        content,
+        uid: (firebase.auth().currentUser as firebase.User).uid
+      })
+      .toPromise();
 }
