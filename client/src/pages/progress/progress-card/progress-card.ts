@@ -14,7 +14,6 @@ import { SkillService } from '../../../app/services/skill.service';
 import {
   AlertController,
   LoadingController,
-  Loading,
   ToastController
 } from 'ionic-angular';
 
