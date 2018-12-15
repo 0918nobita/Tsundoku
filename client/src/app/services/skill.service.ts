@@ -6,7 +6,7 @@ import 'firebase/auth';
 
 import { Skill } from '../models/skill';
 import { map } from 'rxjs/operators';
-import { mine } from './firestore-utils';
+import { mine, sortByDatetime } from './firestore-utils';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Injectable({
@@ -27,7 +27,13 @@ export class SkillService {
     return this.afFirestore
       .collection<Skill>('skills', ref => ref.where('isbn', '==', isbn))
       .valueChanges()
-      .pipe(map(skills => skills.filter(skill => skill.uid === uid)));
+      .pipe(
+        map(skills => {
+          const filtered = skills.filter(skill => skill.uid === uid);
+          sortByDatetime({ key: 'created', objects: filtered }, 'desc');
+          return filtered;
+        })
+      );
   }
 
   createSkill = async (isbn: string, content: string): Promise<void> =>
