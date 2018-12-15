@@ -27,18 +27,13 @@ export class ProgressCard {
   @ViewChild('graph') graph: ElementRef;
   skills$: Observable<Skill[]>;
   conversion = false;
-  loader: Loading;
 
   constructor(
     private skillService: SkillService,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController
-  ) {
-    this.loader = this.loadingCtrl.create({
-      content: '追加処理中です…'
-    });
-  }
+  ) {}
 
   ngAfterViewInit() {
     this.skills$ = this.skillService.getSkills(this.plan.uid, this.plan.isbn);
@@ -95,14 +90,17 @@ export class ProgressCard {
           {
             text: '追加',
             handler: data => {
-              this.loader.present();
+              const loader = this.loadingCtrl.create({
+                content: '追加処理中です…'
+              });
+              loader.present();
               this.skillService
                 .createSkill(this.plan.isbn, data.content)
                 .then(() => {
-                  this.loader.dismiss();
+                  loader.dismiss();
                 })
                 .catch(e => {
-                  this.loader.dismiss();
+                  loader.dismiss();
                   this.toastCtrl
                     .create({
                       message: e,
