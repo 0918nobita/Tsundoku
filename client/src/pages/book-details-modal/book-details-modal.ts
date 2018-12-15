@@ -86,4 +86,12 @@ export class BookDetailsModal extends FundamentalModal {
       console.error(e);
     }
   }
+
+  async unregister() {
+    try {
+      await this.bookshelfService.unregisterBook(this.isbn);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }

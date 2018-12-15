@@ -41,4 +41,12 @@ export class BookshelfService {
         uid: (firebase.auth().currentUser as firebase.User).uid
       })
       .toPromise();
+
+  unregisterBook = async (isbn: string): Promise<void> =>
+    this.afFunctions
+      .httpsCallable('unregisterBook')({
+        isbn,
+        uid: (firebase.auth().currentUser as firebase.User).uid
+      })
+      .toPromise();
 }
