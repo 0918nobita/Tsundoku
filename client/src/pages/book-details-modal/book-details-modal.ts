@@ -89,6 +89,7 @@ export class BookDetailsModal extends FundamentalModal {
       this.loader.dismiss();
       this.loaded = true;
     } catch (e) {
+      this.showError(e);
       console.error(e);
     }
   }
@@ -101,6 +102,7 @@ export class BookDetailsModal extends FundamentalModal {
       this.loader.dismiss();
       this.loaded = true;
     } catch (e) {
+      this.showError(e);
       console.error(e);
     }
   }
