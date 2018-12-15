@@ -44,4 +44,13 @@ export class SkillService {
         uid: (firebase.auth().currentUser as firebase.User).uid
       })
       .toPromise();
+
+  deleteSkill = async (skill: Skill): Promise<void> =>
+    this.afFunctions
+      .httpsCallable('deleteSkill')({
+        isbn: skill.isbn,
+        content: skill.content,
+        uid: skill.uid
+      })
+      .toPromise();
 }
