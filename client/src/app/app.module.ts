@@ -28,7 +28,7 @@ import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
 import { SettingsModal } from '../pages/settings-button/settings-modal/settings-modal';
-import { Search } from '../pages/bookshelf/search/search';
+import { SearchModal } from '../pages/bookshelf/search-modal/search-modal';
 import { ProgressCard } from '../pages/progress/progress-card/progress-card';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -52,7 +52,7 @@ import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-ad
     SplitPane,
     SettingsButton,
     SettingsModal,
-    Search,
+    SearchModal,
     ProgressCard,
     PlanAdditionModal
   ],
@@ -84,7 +84,7 @@ import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-ad
     SplitPane,
     SettingsButton,
     SettingsModal,
-    Search,
+    SearchModal,
     ProgressCard,
     PlanAdditionModal
   ],
