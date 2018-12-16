@@ -89,6 +89,10 @@ export class ProgressCard {
           {
             text: '追加',
             handler: data => {
+              if (this.conversion) {
+                this.conversion = false;
+                return false;
+              }
               const loader = this.loadingCtrl.create({
                 content: '追加処理中です…'
               });
