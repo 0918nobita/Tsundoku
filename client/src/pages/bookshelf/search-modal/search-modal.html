@@ -3,9 +3,15 @@
     <ion-buttons start>
       <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
     </ion-buttons>
-    <ion-title></ion-title>
+    <ion-title>本の検索</ion-title>
   </ion-navbar>
 </ion-header>
   
 <ion-content padding>
+  <div id="search-box"></div>
+  <ng-container *ngFor="let hit of hits$ | async">
+    <ion-card>
+      <ion-card-content>{{hit.content}}</ion-card-content>
+    </ion-card>
+  </ng-container>
 </ion-content>
