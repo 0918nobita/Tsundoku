@@ -15,11 +15,12 @@ import { Plan } from '../../models/plan';
 import { BookService } from '../../../app/services/book.service';
 import { State } from '../_state.interfaces';
 import { getUser } from '../_state.selectors';
+import { AuthEffects } from '../auth/auth.effect';
 
 @Injectable()
 export class PlanEffects {
   constructor(
-    private store: Store<State>,
+    private authEffects: AuthEffects,
     private actions$: Actions,
     private afFirestore: AngularFirestore,
     private bookService: BookService
@@ -29,17 +30,10 @@ export class PlanEffects {
   watchPlan: Observable<Action> = this.actions$.pipe(
     ofType<WatchPlan>(PlanActionTypes.WatchPlan),
     concatMap(() =>
-      this.store.pipe(
-        select(getUser),
-        map(me => {
-          if (me === null || me === void 0) {
-            throw new Error('ユーザー情報の取得に失敗しました');
-          }
-          return me;
-        }),
-        mergeMap(me =>
+      this.authEffects.forAuthenticated.pipe(
+        mergeMap(uid =>
           this.afFirestore
-            .collection<Plan>('plans', ref => ref.where('uid', '==', me.uid))
+            .collection<Plan>('plans', ref => ref.where('uid', '==', uid))
             .snapshotChanges()
             .pipe(
               mergeMap(async changes => {
