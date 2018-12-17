@@ -22,20 +22,23 @@ export class SearchSkillModal extends FundamentalModal {
     this.hits$ = new Subject();
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.search = instantsearch(algoliaConfig);
 
     this.search.addWidget(
       searchBox({
         container: '#search-box',
-        autofocus: false,
-        placeholder: 'フリーワードでスキルを検索'
+        autofocus: true,
+        placeholder: 'フリーワードでスキルを検索',
+        poweredBy: true
       })
     );
 
     this.search.addWidget(
       analytics({
+        delay: () => 0,
         pushFunction: (_: any, __: any, results: any) => {
+          console.log(results);
           this.hits$.next(results.hits);
         }
       })

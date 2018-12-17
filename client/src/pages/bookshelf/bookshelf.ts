@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -7,13 +7,7 @@ import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
-import { ModalController } from 'ionic-angular';
 import { SearchSkillModal } from './search-skill-modal/search-skill-modal';
-
-enum Fragment {
-  Library,
-  Search
-}
 
 @Component({
   templateUrl: 'bookshelf.html'
@@ -22,15 +16,9 @@ export class BookshelfPage {
   books$: Observable<RegisteredBook[]>;
   additions = [];
   private length = 0;
-  fragment = Fragment.Library;
-  text = '';
-  @ViewChild('libraryFragment') libraryFragment;
-  @ViewChild('searchFragment') searchFragment;
+  pushPage = SearchSkillModal;
 
-  constructor(
-    private store: Store<State>,
-    private modalCtrl: ModalController
-  ) {}
+  constructor(private store: Store<State>) {}
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
@@ -86,9 +74,5 @@ export class BookshelfPage {
 
   searchBook() {
     console.log('searchBook');
-  }
-
-  openSearchSkillModal() {
-    this.modalCtrl.create(SearchSkillModal).present();
   }
 }
