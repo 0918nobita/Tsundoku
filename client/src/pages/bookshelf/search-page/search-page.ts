@@ -12,9 +12,9 @@ import { algoliaConfig } from '../../../app/config';
 import { Subject } from 'rxjs';
 
 @Component({
-  templateUrl: 'search-skill-modal.html'
+  templateUrl: 'search-page.html'
 })
-export class SearchSkillModal extends FundamentalModal {
+export class SearchPage extends FundamentalModal {
   search: any;
   hits$: Subject<{ isbn: string; Content: string }[]>;
   title: string;

@@ -7,7 +7,7 @@ import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
-import { SearchSkillModal } from './search-skill-modal/search-skill-modal';
+import { SearchPage } from './search-page/search-page';
 
 @Component({
   templateUrl: 'bookshelf.html'
@@ -16,7 +16,7 @@ export class BookshelfPage {
   books$: Observable<RegisteredBook[]>;
   additions = [];
   private length = 0;
-  pushPage = SearchSkillModal;
+  pushPage = SearchPage;
 
   constructor(private store: Store<State>) {}
 
