@@ -1,33 +1,24 @@
 import { Component } from '@angular/core';
 import moment from 'moment';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
 
-import { SkillService } from '../../app/services/skill.service';
-import { Skill } from 'shared/entity';
-import {
-  sortByDatetime,
-  updateDynamicList
-} from '../../app/services/firestore-utils';
-import { from } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { Skill } from '../../app/models/skill';
+import { Store, select } from '@ngrx/store';
+import { getSkills } from '../../app/state/_state.selectors';
+import { State } from '../../app/state/_state.interfaces';
+import { Observable } from 'rxjs';
+import { WatchSkill } from '../../app/state/skill/skill.action';
 
 @Component({
   templateUrl: 'achievement.html'
 })
 export class AchievementPage {
-  skills: Skill[] = [];
+  skills$: Observable<Skill[]>;
 
-  constructor(private skillService: SkillService) {}
+  constructor(private store: Store<State>) {}
 
-  ionViewWillEnter() {
-    this.skillService
-      .getSkills((firebase.auth().currentUser as firebase.User).uid)
-      .pipe(flatMap(skills => from(skills)))
-      .subscribe(skill => {
-        updateDynamicList(this.skills, skill);
-        sortByDatetime({ key: 'created', objects: this.skills }, 'desc');
-      });
+  ionViewDidLoad() {
+    this.store.dispatch(new WatchSkill());
+    this.skills$ = this.store.pipe(select(getSkills));
   }
 
   differenceTime(time: Date) {
