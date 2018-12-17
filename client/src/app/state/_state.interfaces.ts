@@ -1,12 +1,10 @@
 import { Plan } from '../models/plan';
-import { Skill } from '../models/skill';
 import { RegisteredBook } from '../models/registered-book';
 
 export interface State {
   auth: AuthState;
   bookshelf: BookshelfState;
   plan: PlanState;
-  skill: SkillState;
 }
 
 export interface AuthState {
@@ -21,9 +19,4 @@ export interface BookshelfState {
 export interface PlanState {
   loading: boolean;
   plans: Plan[];
-}
-
-export interface SkillState {
-  loading: boolean;
-  skills: Skill[];
 }

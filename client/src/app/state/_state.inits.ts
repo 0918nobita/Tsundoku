@@ -1,9 +1,4 @@
-import {
-  PlanState,
-  SkillState,
-  BookshelfState,
-  AuthState
-} from './_state.interfaces';
+import { PlanState, BookshelfState, AuthState } from './_state.interfaces';
 
 export const initialAuthState: AuthState = {
   user: undefined
@@ -17,9 +12,4 @@ export const initialBookshelfState: BookshelfState = {
 export const initialPlanState: PlanState = {
   loading: false,
   plans: []
-};
-
-export const initialSkillState: SkillState = {
-  loading: false,
-  skills: []
 };
