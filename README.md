@@ -54,7 +54,7 @@ export const firebaseConfig = {
   messagingSenderId: 'xxxxxxxxxxxxxxxxxxxx'
 };
 
-// Algolia アカウントを作成し、App ID, API キーを取得後、
+// Algolia アカウントを作成し、App ID と (クライアント用) API キーを取得した後、
 // スキル情報を蓄積するインデックスを作成して、それぞれここに書き込んでください
 export const algoliaConfig = {
   appId: 'XXXXXXXXXX',
