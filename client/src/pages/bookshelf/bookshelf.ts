@@ -7,6 +7,8 @@ import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
+import { ModalController } from 'ionic-angular';
+import { SearchModal } from './search-modal/search-modal';
 
 enum Fragment {
   Library,
@@ -26,7 +28,10 @@ export class BookshelfPage {
   @ViewChild('libraryFragment') libraryFragment;
   @ViewChild('searchFragment') searchFragment;
 
-  constructor(private store: Store<State>) {}
+  constructor(
+    private store: Store<State>,
+    private modalCtrl: ModalController
+  ) {}
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
@@ -78,5 +83,9 @@ export class BookshelfPage {
     } else if (diff < this.additions.length) {
       this.additions.splice(0, this.additions.length - diff);
     }
+  }
+
+  openSearchModal(mode: 'isbn' | 'skill') {
+    this.modalCtrl.create(SearchModal, { mode }).present();
   }
 }
