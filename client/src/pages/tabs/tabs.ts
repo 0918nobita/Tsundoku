@@ -6,6 +6,7 @@ import { BookshelfPage } from '../bookshelf/bookshelf';
 import { Events, Tab } from 'ionic-angular';
 
 @Component({
+  selector: 'tabs-page',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {

@@ -10,6 +10,7 @@ import { Events, ModalController, Nav } from 'ionic-angular';
 import { SettingsModal } from '../settings-button/settings-modal/settings-modal';
 
 @Component({
+  selector: 'split-pane',
   templateUrl: 'split-pane.html'
 })
 export class SplitPane {
