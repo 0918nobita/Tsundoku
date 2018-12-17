@@ -14,18 +14,18 @@ export class WatchPlan implements Action {
   readonly type = PlanActionTypes.WatchPlan;
 }
 
+export class UpdatePlan implements Action {
+  readonly type = PlanActionTypes.UpdatePlan;
+  constructor(public payload: Plan[]) {}
+}
+
 export class WatchPlanFail implements Action {
   readonly type = PlanActionTypes.WatchPlanFail;
-  constructor(public payload?: { error: any }) {}
+  constructor(public payload: any) {}
 }
 
 export class CreatePlan implements Action {
   readonly type = PlanActionTypes.CreatePlan;
-}
-
-export class UpdatePlan implements Action {
-  readonly type = PlanActionTypes.UpdatePlan;
-  constructor(public payload: { id: string; plan: Plan }) {}
 }
 
 export class DeletePlan implements Action {
