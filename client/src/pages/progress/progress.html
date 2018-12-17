@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button color="light" style="padding-left: 0" (click)="openPlanAdditionModal()">
+  <button ion-button color="dark" style="padding-left: 0" (click)="openPlanAdditionModal()" small>
     <ion-icon name="add"></ion-icon> 読書計画を追加する
   </button>
   <ng-container *ngFor="let plan of plans$ | async">
