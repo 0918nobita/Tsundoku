@@ -45,23 +45,20 @@ export class BookEffects {
           skipWhile(books => books.length === 0),
           map(books => books[0]),
           mergeMap(async book => {
-            const uid = await this.authEffects.forAuthenticated
-              .pipe(take(1))
-              .toPromise();
-            const isOwnedBy = await this.bookService
-              .isOwnedBy(action.isbn, uid)
-              .pipe(take(1))
-              .toPromise();
+            const uid = await pickOnce(this.authEffects.forAuthenticated);
+            const isOwnedBy = await pickOnce(
+              this.bookService.isOwnedBy(action.isbn, uid)
+            );
             if (isOwnedBy === false) {
               return new LoadBookDetailsSuccess(book);
             }
-            const registeredBooks = await this.afFirestore
-              .collection<RegisteredBook>('bookshelf', ref =>
-                ref.where('isbn', '==', action.isbn).where('uid', '==', uid)
-              )
-              .valueChanges()
-              .pipe(take(1))
-              .toPromise();
+            const registeredBooks = await pickOnce(
+              this.afFirestore
+                .collection<RegisteredBook>('bookshelf', ref =>
+                  ref.where('isbn', '==', action.isbn).where('uid', '==', uid)
+                )
+                .valueChanges()
+            );
             if (registeredBooks.length === 0) {
               throw new Error('予期せぬエラーが発生しました');
             }
@@ -71,4 +68,8 @@ export class BookEffects {
     ),
     catchError(e => of(new LoadBookDetailsFail(e)))
   );
+}
+
+function pickOnce<T>(observable: Observable<T>): Promise<T> {
+  return observable.pipe(take(1)).toPromise();
 }
