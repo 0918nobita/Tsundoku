@@ -14,7 +14,7 @@ import {
   WatchSkillFail,
   UpdateSkill
 } from '../skill/skill.action';
-import { concatMap, catchError, map, filter } from 'rxjs/operators';
+import { concatMap, catchError, map } from 'rxjs/operators';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Skill } from '../../../app/models/skill';
