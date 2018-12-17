@@ -53,6 +53,14 @@ export const firebaseConfig = {
   storageBucket: 'xxxxxxxxxxxxxxxxxxxx',
   messagingSenderId: 'xxxxxxxxxxxxxxxxxxxx'
 };
+
+// Algolia アカウントを作成し、App ID, API キーを取得後、
+// スキル情報を蓄積するインデックスを作成して、それぞれここに書き込んでください
+export const algoliaConfig = {
+  appId: 'XXXXXXXXXX',
+  apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  indexName: 'xxxxx'
+};
 ```
 
 ### ``functions/src/config.ts`` の書き方
