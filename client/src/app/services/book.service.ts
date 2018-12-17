@@ -24,9 +24,6 @@ export class BookService {
   embedBookDetails = async <T extends { isbn: string }>(item: T) =>
     Object.assign({}, item, await this.getBookByISBN(item.isbn));
 
-  attachBookDetails = async <T extends { isbn: string }>(item: T) =>
-    Object.assign({}, item, { book: await this.getBookByISBN(item.isbn) });
-
   async getBookByISBN(isbn: string): Promise<ResolvedBook | null> {
     if (navigator.onLine === false) {
       const array = await this.resolvedBooks
