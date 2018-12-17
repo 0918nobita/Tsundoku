@@ -4,7 +4,8 @@ import {
   State,
   PlanState,
   AuthState,
-  BookshelfState
+  BookshelfState,
+  SkillState
 } from './_state.interfaces';
 
 export const getAuth = (state: State) => state.auth;
@@ -26,4 +27,11 @@ export const getPlan = (state: State) => state.plan;
 export const getPlans = createSelector(
   getPlan,
   (state: PlanState) => state.plans
+);
+
+export const getSkill = (state: State) => state.skill;
+
+export const getSkills = createSelector(
+  getSkill,
+  (state: SkillState) => state.skills
 );
