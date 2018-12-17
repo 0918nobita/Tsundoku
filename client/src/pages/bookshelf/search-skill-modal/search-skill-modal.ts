@@ -2,7 +2,12 @@ import { FundamentalModal } from '../../fundamental-modal';
 import { Component } from '@angular/core';
 import { ViewController, ToastController } from 'ionic-angular';
 import instantsearch from 'instantsearch.js/es';
-import { searchBox, analytics } from 'instantsearch.js/es/widgets';
+import {
+  searchBox,
+  analytics,
+  pagination,
+  stats
+} from 'instantsearch.js/es/widgets';
 import { algoliaConfig } from '../../../app/config';
 import { Subject } from 'rxjs';
 
@@ -31,6 +36,19 @@ export class SearchSkillModal extends FundamentalModal {
         autofocus: true,
         placeholder: 'フリーワードでスキルを検索',
         poweredBy: true
+      })
+    );
+
+    this.search.addWidget(
+      stats({
+        container: '#stats'
+      })
+    );
+
+    this.search.addWidget(
+      pagination({
+        container: '#pagination',
+        maxPages: 20
       })
     );
 
