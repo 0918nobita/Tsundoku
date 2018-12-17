@@ -8,7 +8,7 @@ import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
 import { ModalController } from 'ionic-angular';
-import { SearchModal } from './search-modal/search-modal';
+import { SearchSkillModal } from './search-skill-modal/search-skill-modal';
 
 enum Fragment {
   Library,
@@ -85,7 +85,11 @@ export class BookshelfPage {
     }
   }
 
-  openSearchModal(mode: 'isbn' | 'skill') {
-    this.modalCtrl.create(SearchModal, { mode }).present();
+  searchBook() {
+    console.log('searchBook');
+  }
+
+  openSearchSkillModal() {
+    this.modalCtrl.create(SearchSkillModal).present();
   }
 }

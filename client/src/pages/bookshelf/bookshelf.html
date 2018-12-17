@@ -9,8 +9,12 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="openSearchModal('isbn')" color="light" style="margin: 4px"><ion-icon name="search" style="width: 35px"></ion-icon>ISBNで本をみつける</button>
-  <button ion-button (click)="openSearchModal('skill')" color="primary" style="margin: 4px"><ion-icon name="done-all" style="width: 35px"></ion-icon>スキルから本をみつける</button>
+  <button ion-button (click)="searchBook()" color="light" style="margin: 4px">
+    <ion-icon name="search" style="width: 35px"></ion-icon>ISBNで本をみつける
+  </button>
+  <button ion-button (click)="openSearchSkillModal()" color="primary" style="margin: 4px">
+    <ion-icon name="done-all" style="width: 35px"></ion-icon>スキルから本をみつける
+  </button>
   <ion-grid>
     <ion-row align-items-center justify-content-around id="books-row">
       <ion-col *ngFor="let book of books$ | async" col-auto>
