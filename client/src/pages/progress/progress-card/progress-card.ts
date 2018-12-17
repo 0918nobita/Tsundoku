@@ -71,7 +71,7 @@ export class ProgressCard {
     }
   }
 
-  addSkill() {
+  createSkillListener() {
     this.alertCtrl
       .create({
         title: 'スキルの追加',
@@ -93,29 +93,26 @@ export class ProgressCard {
                 this.conversion = false;
                 return false;
               }
-              const loader = this.loadingCtrl.create({
-                content: '追加処理中です…'
-              });
-              loader.present();
-              this.skillService
-                .createSkill(this.plan.isbn, data.content)
-                .then(() => {
-                  loader.dismiss();
-                })
-                .catch(e => {
-                  loader.dismiss();
-                  this.toastCtrl
-                    .create({
-                      message: e,
-                      duration: 5000
-                    })
-                    .present();
-                });
+              this.createSkill(data.content);
             }
           }
         ]
       })
       .present();
+  }
+
+  async createSkill(content: string) {
+    const loader = this.loadingCtrl.create({
+      content: '追加処理中です…'
+    });
+    loader.present();
+    try {
+      await this.skillService.createSkill(this.plan.isbn, content);
+    } catch (e) {
+      this.showError(e);
+    } finally {
+      loader.dismiss();
+    }
   }
 
   async deleteSkill(skill: Skill) {
@@ -126,12 +123,7 @@ export class ProgressCard {
     try {
       await this.skillService.deleteSkill(skill);
     } catch (e) {
-      this.toastCtrl
-        .create({
-          message: e,
-          duration: 5000
-        })
-        .present();
+      this.showError(e);
     } finally {
       loader.dismiss();
     }
@@ -139,7 +131,18 @@ export class ProgressCard {
 
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {
+    /* tslint:disable:deprecation */
     if (event.keyCode === 229) this.conversion = true;
     else if (event.keyCode === 13) this.conversion = false;
+  }
+
+  private showError(error: any) {
+    this.toastCtrl
+      .create({
+        message: error,
+        duration: 5000,
+        position: 'top'
+      })
+      .present();
   }
 }
