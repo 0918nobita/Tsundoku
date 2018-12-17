@@ -13,7 +13,7 @@ import {
   SignInSuccess
 } from './auth.action';
 import { LocalDatabase } from '../../services/local-database';
-import { AuthState, State } from '../_state.interfaces';
+import { State } from '../_state.interfaces';
 import { getUser } from '../_state.selectors';
 
 @Injectable()
