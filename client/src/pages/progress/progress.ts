@@ -10,7 +10,6 @@ import { ModalController } from 'ionic-angular';
 import { PlanAdditionModal } from './plan-addition-modal/plan-addition-modal';
 
 @Component({
-  selector: 'page-progress',
   templateUrl: 'progress.html'
 })
 export class ProgressPage {

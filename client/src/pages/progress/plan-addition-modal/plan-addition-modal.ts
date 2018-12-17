@@ -3,7 +3,6 @@ import { ViewController, ToastController } from 'ionic-angular';
 import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
-  selector: 'plan-addition-modal',
   templateUrl: 'plan-addition-modal.html'
 })
 export class PlanAdditionModal extends FundamentalModal {

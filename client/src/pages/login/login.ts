@@ -12,7 +12,6 @@ import { SignIn } from '../../app/state/auth/auth.action';
 import { getUser } from '../../app/state/_state.selectors';
 
 @Component({
-  selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {

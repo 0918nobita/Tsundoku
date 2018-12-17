@@ -16,7 +16,6 @@ enum Fragment {
 }
 
 @Component({
-  selector: 'page-bookshelf',
   templateUrl: 'bookshelf.html'
 })
 export class BookshelfPage {

@@ -7,7 +7,6 @@ import { algoliaConfig } from '../../../app/config';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'search-skill-modal',
   templateUrl: 'search-skill-modal.html'
 })
 export class SearchSkillModal extends FundamentalModal {

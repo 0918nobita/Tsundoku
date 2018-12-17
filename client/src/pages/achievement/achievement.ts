@@ -13,7 +13,6 @@ import { from } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'page-contact',
   templateUrl: 'achievement.html'
 })
 export class AchievementPage {

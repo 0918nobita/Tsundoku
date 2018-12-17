@@ -16,7 +16,6 @@ import { BookService } from '../../app/services/book.service';
 import { BookshelfService } from '../../app/services/bookshelf.service';
 
 @Component({
-  selector: 'book-details-modal',
   templateUrl: 'book-details-modal.html'
 })
 export class BookDetailsModal extends FundamentalModal {

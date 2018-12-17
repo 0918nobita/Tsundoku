@@ -3,7 +3,6 @@ import { ViewController, ToastController } from 'ionic-angular';
 import { FundamentalModal } from '../../fundamental-modal';
 
 @Component({
-  selector: 'settings-modal',
   templateUrl: 'settings-modal.html'
 })
 export class SettingsModal extends FundamentalModal {
