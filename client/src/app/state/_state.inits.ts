@@ -20,6 +20,6 @@ export const initialPlanState: PlanState = {
 };
 
 export const initialSkillState: SkillState = {
-  loading: false,
+  progress: 'complete',
   skills: []
 };
