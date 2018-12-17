@@ -39,6 +39,7 @@ import { AuthEffects } from './state/auth/auth.effect';
 import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
 import { SkillEffects } from './state/skill/skill.effect';
 import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-addition-modal';
+import { BookEffects } from './state/book/book.effect';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-ad
     LoginPageModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([
+      BookEffects,
       BookshelfEffects,
       PlanEffects,
       AuthEffects,
