@@ -2,11 +2,16 @@ import {
   PlanState,
   SkillState,
   BookshelfState,
-  AuthState
+  AuthState,
+  BookState
 } from './_state.interfaces';
 
 export const initialAuthState: AuthState = {
   user: undefined
+};
+
+export const initialBookState: BookState = {
+  progress: 'complete'
 };
 
 export const initialBookshelfState: BookshelfState = {
