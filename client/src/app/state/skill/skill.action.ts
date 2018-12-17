@@ -4,6 +4,7 @@ import { Skill } from '../../models/skill';
 export enum SkillActionTypes {
   WatchSkill = '[Skill] Watch',
   UpdateSkill = '[Skill] Update',
+  WatchSkillFail = '[Skill] Fail in watching',
   CreateSkill = '[Skill] Create',
   CreateSkillSuccess = '[Skill] Succeed in creating',
   CreateSkillFail = '[Skill] Fail in creating',
@@ -19,6 +20,11 @@ export class WatchSkill implements Action {
 export class UpdateSkill implements Action {
   readonly type = SkillActionTypes.UpdateSkill;
   constructor(public payload: Skill[]) {}
+}
+
+export class WatchSkillFail implements Action {
+  readonly type = SkillActionTypes.WatchSkillFail;
+  constructor(public payload: any) {}
 }
 
 export class CreateSkill implements Action {
