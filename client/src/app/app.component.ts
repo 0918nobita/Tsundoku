@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import 'firebase/auth';
+import moment from 'moment';
 
 import { LoginPage } from '../pages/login/login';
 
@@ -13,7 +14,9 @@ export class MyApp {
   rootPage: any;
   firstRun: boolean = true;
 
-  constructor(private platform: Platform) {}
+  constructor(private platform: Platform) {
+    moment.locale('ja');
+  }
 
   ngAfterViewInit() {
     if (this.firstRun) {

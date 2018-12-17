@@ -18,9 +18,7 @@ import { flatMap } from 'rxjs/operators';
 export class AchievementPage {
   skills: Skill[] = [];
 
-  constructor(private skillService: SkillService) {
-    moment.locale('ja');
-  }
+  constructor(private skillService: SkillService) {}
 
   ionViewWillEnter() {
     this.skillService
