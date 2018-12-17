@@ -3,8 +3,7 @@ import {
   NavParams,
   ViewController,
   ToastController,
-  LoadingController,
-  Loading
+  LoadingController
 } from 'ionic-angular';
 import { timer } from 'rxjs';
 import { take } from 'rxjs/operators';
