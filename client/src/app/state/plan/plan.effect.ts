@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, Store, select } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { concatMap, mergeMap, map, catchError } from 'rxjs/operators';
@@ -13,8 +13,6 @@ import {
 } from './plan.action';
 import { Plan } from '../../models/plan';
 import { BookService } from '../../../app/services/book.service';
-import { State } from '../_state.interfaces';
-import { getUser } from '../_state.selectors';
 import { AuthEffects } from '../auth/auth.effect';
 
 @Injectable()
