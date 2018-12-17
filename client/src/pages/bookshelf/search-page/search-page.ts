@@ -1,6 +1,4 @@
-import { FundamentalModal } from '../../fundamental-modal';
 import { Component } from '@angular/core';
-import { ViewController, ToastController } from 'ionic-angular';
 import instantsearch from 'instantsearch.js/es';
 import {
   searchBox,
@@ -14,16 +12,12 @@ import { Subject } from 'rxjs';
 @Component({
   templateUrl: 'search-page.html'
 })
-export class SearchPage extends FundamentalModal {
+export class SearchPage {
   search: any;
   hits$: Subject<{ isbn: string; Content: string }[]>;
   title: string;
 
-  constructor(
-    protected viewCtrl: ViewController,
-    protected toastCtrl: ToastController
-  ) {
-    super(viewCtrl, toastCtrl);
+  constructor() {
     this.hits$ = new Subject();
   }
 
