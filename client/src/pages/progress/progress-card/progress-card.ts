@@ -118,8 +118,23 @@ export class ProgressCard {
       .present();
   }
 
-  deleteSkill(skill: Skill) {
-    this.skillService.deleteSkill(skill);
+  async deleteSkill(skill: Skill) {
+    const loader = this.loadingCtrl.create({
+      content: '削除処理中です…'
+    });
+    loader.present();
+    try {
+      await this.skillService.deleteSkill(skill);
+    } catch (e) {
+      this.toastCtrl
+        .create({
+          message: e,
+          duration: 5000
+        })
+        .present();
+    } finally {
+      loader.dismiss();
+    }
   }
 
   @HostListener('document:keydown', ['$event'])
