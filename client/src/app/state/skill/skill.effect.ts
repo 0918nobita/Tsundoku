@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { Action, Store, select } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import {
   CreateSkill,
   SkillActionTypes,
@@ -18,13 +18,12 @@ import { concatMap, catchError, map } from 'rxjs/operators';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Skill } from '../../../app/models/skill';
-import { getUser } from '../_state.selectors';
-import { State } from '../_state.interfaces';
+import { AuthEffects } from '../auth/auth.effect';
 
 @Injectable()
 export class SkillEffects {
   constructor(
-    private store: Store<State>,
+    private authEffects: AuthEffects,
     private actions$: Actions,
     private afFunctions: AngularFireFunctions,
     private afFirestore: AngularFirestore
@@ -34,17 +33,10 @@ export class SkillEffects {
   watchSkill: Observable<Action> = this.actions$.pipe(
     ofType<WatchSkill>(SkillActionTypes.WatchSkill),
     concatMap(() =>
-      this.store.pipe(
-        select(getUser),
-        map(me => {
-          if (me === null || me === void 0) {
-            throw new Error('ユーザー情報の取得に失敗しました');
-          }
-          return me;
-        }),
-        concatMap(me =>
+      this.authEffects.forAuthenticated.pipe(
+        concatMap(uid =>
           this.afFirestore
-            .collection<Skill>('skills', ref => ref.where('uid', '==', me.uid))
+            .collection<Skill>('skills', ref => ref.where('uid', '==', uid))
             .valueChanges()
             .pipe(map(skills => new UpdateSkill(skills)))
         )
