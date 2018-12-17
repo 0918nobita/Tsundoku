@@ -20,7 +20,7 @@ import { Action } from '@ngrx/store';
 import { AuthEffects } from '../auth/auth.effect';
 import { RegisteredBook } from '../../models/registered-book';
 import { ResolvedBook } from '../../models/resolved-book';
-import { BookService } from 'src/app/services/book.service';
+import { BookService } from '../../services/book.service';
 
 @Injectable()
 export class BookEffects {
