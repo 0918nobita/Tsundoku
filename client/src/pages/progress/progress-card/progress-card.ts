@@ -11,11 +11,14 @@ import { Plan } from '../../../app/models/plan';
 import { Observable } from 'rxjs';
 import { Skill } from '../../../app/models/skill';
 import { SkillService } from '../../../app/services/skill.service';
+import { AlertController, LoadingController } from 'ionic-angular';
+import { Store, select } from '@ngrx/store';
+import { State } from '../../../app/state/_state.interfaces';
 import {
-  AlertController,
-  LoadingController,
-  ToastController
-} from 'ionic-angular';
+  CreateSkill,
+  DeleteSkill
+} from '../../../app/state/skill/skill.action';
+import { getSkillProgress } from '../../../app/state/_state.selectors';
 
 @Component({
   selector: 'progress-card',
@@ -30,8 +33,8 @@ export class ProgressCard {
   constructor(
     private skillService: SkillService,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private store: Store<State>
   ) {}
 
   ngAfterViewInit() {
@@ -102,31 +105,21 @@ export class ProgressCard {
   }
 
   async createSkill(content: string) {
-    const loader = this.loadingCtrl.create({
-      content: '追加処理中です…'
-    });
+    this.store.dispatch(new CreateSkill(this.plan.isbn, content));
+    const loader = this.loadingCtrl.create({ content: '追加処理中です…' });
     loader.present();
-    try {
-      await this.skillService.createSkill(this.plan.isbn, content);
-    } catch (e) {
-      this.showError(e);
-    } finally {
-      loader.dismiss();
-    }
+    this.store.pipe(select(getSkillProgress)).subscribe(progress => {
+      if (progress === 'complete') loader.dismiss();
+    });
   }
 
   async deleteSkill(skill: Skill) {
-    const loader = this.loadingCtrl.create({
-      content: '削除処理中です…'
-    });
+    this.store.dispatch(new DeleteSkill(skill));
+    const loader = this.loadingCtrl.create({ content: '削除処理中です…' });
     loader.present();
-    try {
-      await this.skillService.deleteSkill(skill);
-    } catch (e) {
-      this.showError(e);
-    } finally {
-      loader.dismiss();
-    }
+    this.store.pipe(select(getSkillProgress)).subscribe(progress => {
+      if (progress === 'complete') loader.dismiss();
+    });
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -134,15 +127,5 @@ export class ProgressCard {
     /* tslint:disable:deprecation */
     if (event.keyCode === 229) this.conversion = true;
     else if (event.keyCode === 13) this.conversion = false;
-  }
-
-  private showError(error: any) {
-    this.toastCtrl
-      .create({
-        message: error,
-        duration: 5000,
-        position: 'top'
-      })
-      .present();
   }
 }
