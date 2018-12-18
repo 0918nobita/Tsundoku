@@ -22,6 +22,7 @@
     "x-ray": "^2.3.3"
   },
   "devDependencies": {
+    "@types/algoliasearch": "^3.30.1",
     "@types/cors": "^2.8.4",
     "retire": "^1.6.2",
     "tsconfig-paths": "^3.5.0",
