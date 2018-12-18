@@ -69,9 +69,11 @@ export const skillCountDown = functions.firestore
         } else {
           const first = querySnapshot.docs[0];
           const count: number = first.data().count;
+
           if (count <= 1) {
-            const objectID = (await skillsCount.doc(first.id).get()).data()
-              .objectID;
+            const doc = skillsCount.doc(first.id);
+            const objectID = (await doc.get()).data().objectID;
+            doc.delete();
             index.deleteObject(objectID, err => {
               if (err) console.error(err);
             });
