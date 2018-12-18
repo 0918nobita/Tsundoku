@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Skill } from '../models/skill';
 import { map } from 'rxjs/operators';
 import { mine, sortByDatetime } from './firestore-utils';
-import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
