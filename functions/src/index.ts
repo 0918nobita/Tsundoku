@@ -19,7 +19,7 @@ export const createSkill = functions.https.onCall(_createSkill(db));
 export const deleteSkill = functions.https.onCall(_deleteSkill(db));
 
 export const updateSkillCount = functions.firestore
-  .document('skills')
+  .document('skills/{skillId}')
   .onCreate((snap, context) => {
     const newValue = snap.data();
     console.log(newValue);
