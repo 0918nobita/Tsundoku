@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "tsundoku-functions",
   "scripts": {
     "build": "tsc",
     "serve": "npm run build && firebase serve --only functions",

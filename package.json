@@ -1,5 +1,5 @@
 {
-  "name": "Tsundoku",
+  "name": "tsundoku",
   "version": "1.0.0",
   "description": "Progressive Web App for people having lots of unread books",
   "main": "index.js",
