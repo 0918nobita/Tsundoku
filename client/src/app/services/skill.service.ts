@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
 
 import { Skill } from '../models/skill';
 import { map } from 'rxjs/operators';
@@ -13,10 +11,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
   providedIn: 'root'
 })
 export class SkillService {
-  constructor(
-    private afFirestore: AngularFirestore,
-    private afFunctions: AngularFireFunctions
-  ) {}
+  constructor(private afFirestore: AngularFirestore) {}
 
   // 自分のスキルをすべて取得するか、特定の本に対して付与されたスキルをすべて取得する
   getSkills(uid: string, isbn?: string): Observable<Skill[]> {
@@ -35,13 +30,4 @@ export class SkillService {
         })
       );
   }
-
-  deleteSkill = async (skill: Skill): Promise<void> =>
-    this.afFunctions
-      .httpsCallable('deleteSkill')({
-        isbn: skill.isbn,
-        content: skill.content,
-        uid: skill.uid
-      })
-      .toPromise();
 }
