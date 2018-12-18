@@ -42,7 +42,7 @@ export class CreateSkillFail implements Action {
 
 export class DeleteSkill implements Action {
   readonly type = SkillActionTypes.DeleteSkill;
-  constructor(public payload: { id: string }) {}
+  constructor(public skill: Skill) {}
 }
 
 export class DeleteSkillSuccess implements Action {
