@@ -35,3 +35,8 @@ export const getSkills = createSelector(
   getSkill,
   (state: SkillState) => state.skills
 );
+
+export const getSkillProgress = createSelector(
+  getSkill,
+  (state: SkillState) => state.progress
+);
