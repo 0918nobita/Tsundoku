@@ -29,7 +29,7 @@ export class WatchSkillFail implements Action {
 
 export class CreateSkill implements Action {
   readonly type = SkillActionTypes.CreateSkill;
-  constructor(public payload: { skill: Skill }) {}
+  constructor(public isbn: string, public content: string) {}
 }
 
 export class CreateSkillSuccess implements Action {
