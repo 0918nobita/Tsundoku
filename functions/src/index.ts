@@ -1,9 +1,11 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
+import * as algoliasearch from 'algoliasearch';
 
 import { _searchBooksByISBN, _postResolvedBook } from './book';
 import { _registerBook, _unregisterBook } from './bookshelf';
 import { _createSkill, _deleteSkill } from './skill';
+import { algoliaAdminConfig } from './config';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -19,19 +21,29 @@ export const createSkill = functions.https.onCall(_createSkill(db));
 export const deleteSkill = functions.https.onCall(_deleteSkill(db));
 
 const skillsCount = db.collection('skillsCount');
+const index = algoliasearch(
+  algoliaAdminConfig.appId,
+  algoliaAdminConfig.apiKey
+).initIndex(algoliaAdminConfig.indexName);
 
-export const updateSkillCount = functions.firestore
+export const skillCountUp = functions.firestore
   .document('skills/{skillId}')
   .onCreate(snap => {
     const newValue = snap.data();
+    const content = newValue.content;
     skillsCount
-      .where('content', '==', newValue.content)
+      .where('content', '==', content)
       .get()
-      .then(querySnapshot => {
+      .then(async querySnapshot => {
         if (querySnapshot.docs.length === 0) {
-          skillsCount.add({
-            content: newValue.content,
+          const ref = await skillsCount.add({
+            content,
             count: 1
+          });
+          const isbn = newValue.isbn;
+          index.addObject({ content, isbn }, (err, res) => {
+            if (err) console.error(err);
+            skillsCount.doc(ref.id).update({ objectID: res.objectID });
           });
         } else {
           const first = querySnapshot.docs[0];
@@ -44,21 +56,25 @@ export const updateSkillCount = functions.firestore
     return 0;
   });
 
-export const deleteSkillCount = functions.firestore
+export const skillCountDown = functions.firestore
   .document('skills/{skillId}')
   .onDelete(snap => {
-    const deletedValue = snap.data();
+    const content = snap.data().content;
     skillsCount
-      .where('content', '==', deletedValue.content)
+      .where('content', '==', content)
       .get()
-      .then(querySnapshot => {
+      .then(async querySnapshot => {
         if (querySnapshot.docs.length === 0) {
           console.warn('skillsCount との同期に失敗しました');
         } else {
           const first = querySnapshot.docs[0];
           const count: number = first.data().count;
           if (count <= 1) {
-            skillsCount.doc(first.id).delete();
+            const objectID = (await skillsCount.doc(first.id).get()).data()
+              .objectID;
+            index.deleteObject(objectID, err => {
+              if (err) console.error(err);
+            });
           } else {
             skillsCount.doc(first.id).update({
               count: count - 1
