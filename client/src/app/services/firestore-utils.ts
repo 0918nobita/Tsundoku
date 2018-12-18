@@ -22,25 +22,6 @@ type ContainingDatetime =
 export const mine = (ref: firebase.firestore.Query) =>
   ref.where('uid', '==', (firebase.auth().currentUser as firebase.User).uid);
 
-export function updateDynamicList(
-  list: ContainingCreated[],
-  newElement: ContainingCreated
-);
-
-export function updateDynamicList(
-  list: ContainingModified[],
-  newElement: ContainingModified
-);
-
-export function updateDynamicList(list: any[], newElement) {
-  const field = newElement.modified !== void 0 ? 'modified' : 'created';
-  const index = list
-    .map(item => item[field].toMillis())
-    .indexOf(newElement[field].toMillis());
-  if (index !== -1) list.splice(index, 1);
-  list.push(newElement);
-}
-
 type Order = 'asc' | 'desc';
 
 const sortFn = (fieldName: string, order: Order) => (
