@@ -18,9 +18,28 @@ export const unregisterBook = functions.https.onCall(_unregisterBook(db));
 export const createSkill = functions.https.onCall(_createSkill(db));
 export const deleteSkill = functions.https.onCall(_deleteSkill(db));
 
+const skillsCount = db.collection('skillsCount');
+
 export const updateSkillCount = functions.firestore
   .document('skills/{skillId}')
-  .onCreate((snap, context) => {
+  .onCreate(snap => {
     const newValue = snap.data();
-    console.log(newValue);
+    skillsCount
+      .where('content', '==', newValue.content)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.docs.length === 0) {
+          skillsCount.add({
+            content: newValue.content,
+            count: 1
+          });
+        } else {
+          const first = querySnapshot.docs[0];
+          const count: number = first.data().count;
+          skillsCount.doc(first.id).update({
+            count: count + 1
+          });
+        }
+      });
+    return 0;
   });
