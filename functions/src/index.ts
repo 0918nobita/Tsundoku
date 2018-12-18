@@ -43,3 +43,28 @@ export const updateSkillCount = functions.firestore
       });
     return 0;
   });
+
+export const deleteSkillCount = functions.firestore
+  .document('skills/{skillId}')
+  .onDelete(snap => {
+    const deletedValue = snap.data();
+    skillsCount
+      .where('content', '==', deletedValue.content)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.docs.length === 0) {
+          console.warn('skillsCount との同期に失敗しました');
+        } else {
+          const first = querySnapshot.docs[0];
+          const count: number = first.data().count;
+          if (count <= 1) {
+            skillsCount.doc(first.id).delete();
+          } else {
+            skillsCount.doc(first.id).update({
+              count: count - 1
+            });
+          }
+        }
+      });
+    return 0;
+  });
