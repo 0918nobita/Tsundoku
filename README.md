@@ -68,6 +68,14 @@ export const algoliaConfig = {
 ```typescript
 // Google Books API の API キーを取得してここに書き込んでください
 export const apiKey = 'xxxxxxxxxxxxxxxxxxxx';
+
+// appId, indexName: 上記 algoliaConfig と同じ値を書き込んでください
+// apiKey: Admin API キーを書き込んでください (クライアント用とは異なります)
+export const algoliaAdminConfig = {
+  appId: 'XXXXXXXXXX',
+  apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  indexName: 'xxxxx'
+};
 ```
 
 ## client の開発用サーバの起動
