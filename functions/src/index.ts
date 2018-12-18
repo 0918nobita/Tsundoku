@@ -17,3 +17,10 @@ export const unregisterBook = functions.https.onCall(_unregisterBook(db));
 
 export const createSkill = functions.https.onCall(_createSkill(db));
 export const deleteSkill = functions.https.onCall(_deleteSkill(db));
+
+export const updateSkillCount = functions.firestore
+  .document('skills')
+  .onCreate((snap, context) => {
+    const newValue = snap.data();
+    console.log(newValue);
+  });
