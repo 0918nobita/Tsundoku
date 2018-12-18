@@ -19,6 +19,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Skill } from '../../../app/models/skill';
 import { AuthEffects } from '../auth/auth.effect';
+import { pickOnce } from '../book/book.effect';
 
 @Injectable()
 export class SkillEffects {
@@ -49,10 +50,15 @@ export class SkillEffects {
   createSkill: Observable<Action> = this.actions$.pipe(
     ofType<CreateSkill>(SkillActionTypes.CreateSkill),
     concatMap(async action => {
-      const id = await this.afFunctions
-        .httpsCallable('createSkill')(action.payload)
+      const uid = await pickOnce(this.authEffects.forAuthenticated);
+      await this.afFunctions
+        .httpsCallable('createSkill')({
+          isbn: action.isbn,
+          content: action.content,
+          uid
+        })
         .toPromise();
-      console.log(`Created skill's ID: ${id}`);
+      console.log(`Created skill: ${action.content}`);
       return new CreateSkillSuccess();
     }),
     catchError(() => of(new CreateSkillFail()))
