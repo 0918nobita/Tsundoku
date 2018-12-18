@@ -16,12 +16,23 @@ export function reducer(state = initialSkillState, action: Action): SkillState {
       return Object.assign({}, { ...state, skills });
 
     case SkillActionTypes.WatchSkillFail:
+      return state;
+
     case SkillActionTypes.CreateSkill:
+      return Object.assign({}, { ...state, progress: 'adding' as 'adding' });
+
+    case SkillActionTypes.DeleteSkill:
+      return Object.assign({}, state, { progress: 'deleting' });
+
     case SkillActionTypes.CreateSkillSuccess:
     case SkillActionTypes.CreateSkillFail:
-    case SkillActionTypes.DeleteSkill:
     case SkillActionTypes.DeleteSkillSuccess:
     case SkillActionTypes.DeleteSkillFail:
+      return Object.assign(
+        {},
+        { ...state, progress: 'complete' as 'complete' }
+      );
+
     default:
       return state;
   }
