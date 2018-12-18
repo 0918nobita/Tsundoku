@@ -29,8 +29,8 @@ const sortFn = (fieldName: string, order: Order) => (
   latter
 ): number => {
   const asc = order === 'asc',
-    formerMillis = former.modified.toMillis(),
-    latterMillis = latter.modified.toMillis();
+    formerMillis = former[fieldName].toMillis(),
+    latterMillis = latter[fieldName].toMillis();
 
   if (formerMillis < latterMillis) {
     return asc ? -1 : 1;
