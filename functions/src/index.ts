@@ -1,9 +1,9 @@
-import * as admin from "firebase-admin";
-import * as functions from "firebase-functions";
+import * as admin from 'firebase-admin';
+import * as functions from 'firebase-functions';
 
-import { _searchBooksByISBN, _postResolvedBook } from "./book";
-import { _registerBook, _unregisterBook } from "./bookshelf";
-import { _createSkill, _deleteSkill } from "./skill";
+import { _searchBooksByISBN, _postResolvedBook } from './book';
+import { _registerBook, _unregisterBook } from './bookshelf';
+import { _createSkill, _deleteSkill } from './skill';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();

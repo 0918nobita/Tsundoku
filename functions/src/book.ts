@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 import { ResolvedBook } from '../../shared/entity';
 import { apiKey } from './config';
@@ -46,10 +46,13 @@ export const _searchBooksByISBN = (
     .get();
   let response: ResolvedBook[] = [];
 
-  for (const doc of querySnapshot.docs) response.push(<ResolvedBook>doc.data());
+  for (const doc of querySnapshot.docs) {
+    response.push(doc.data() as ResolvedBook);
+  }
 
-  if (response.length === 0 && args.usingGoogleBooksAPI === true)
+  if (response.length === 0 && args.usingGoogleBooksAPI === true) {
     response = await searchBooksUsingGoogleBooksAPI(db)(args.isbn);
+  }
 
   return response;
 };
