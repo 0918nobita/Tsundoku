@@ -9,8 +9,7 @@ export const _createSkill = (db: FirebaseFirestore.Firestore) =>
     const date = admin.firestore.FieldValue.serverTimestamp();
     return (await db.collection('skills').add({
       ...args,
-      created: date,
-      modified: date
+      created: date
     })).id;
   };
 
