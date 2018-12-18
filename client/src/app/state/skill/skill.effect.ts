@@ -69,9 +69,13 @@ export class SkillEffects {
     ofType<DeleteSkill>(SkillActionTypes.DeleteSkill),
     concatMap(async action => {
       await this.afFunctions
-        .httpsCallable('deleteSkill')(action.payload.id)
+        .httpsCallable('deleteSkill')({
+          isbn: action.skill.isbn,
+          content: action.skill.content,
+          uid: action.skill.uid
+        })
         .toPromise();
-      console.log(`Deleted skill's ID: ${action.payload.id}`);
+      console.log(`Deleted skill: ${action.skill.content}`);
       return new DeleteSkillSuccess();
     }),
     catchError(() => of(new DeleteSkillFail()))
