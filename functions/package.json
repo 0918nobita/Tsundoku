@@ -13,6 +13,7 @@
   "main": "lib/functions/src/index.js",
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "algoliasearch": "^3.32.0",
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "firebase": "^5.4.2",
