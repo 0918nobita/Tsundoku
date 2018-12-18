@@ -70,6 +70,6 @@ export class BookEffects {
   );
 }
 
-function pickOnce<T>(observable: Observable<T>): Promise<T> {
+export function pickOnce<T>(observable: Observable<T>): Promise<T> {
   return observable.pipe(take(1)).toPromise();
 }
