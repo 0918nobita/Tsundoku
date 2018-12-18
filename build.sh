@@ -10,6 +10,11 @@ cd ../client
   echo "  projectId: \"$PROJECT_ID\","
   echo "  storageBucket: \"$STORAGE_BUCKET\""
   echo "};"
+  echo "export const algoliaConfig = {"
+  echo "  appId: \"$ALGOLIA_APP_ID\","
+  echo "  apiKey: \"$ALGOLIA_API_KEY\","
+  echo "  indexName: \"$ALGOLIA_INDEX_NAME\""
+  echo "}"
 } >> src/app/config.ts
 cat src/app/config.ts
 npm i
