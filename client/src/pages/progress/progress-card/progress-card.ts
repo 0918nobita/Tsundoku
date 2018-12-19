@@ -11,7 +11,11 @@ import { Plan } from '../../../app/models/plan';
 import { Observable } from 'rxjs';
 import { Skill } from '../../../app/models/skill';
 import { SkillService } from '../../../app/services/skill.service';
-import { AlertController, LoadingController } from 'ionic-angular';
+import {
+  AlertController,
+  LoadingController,
+  ModalController
+} from 'ionic-angular';
 import { Store, select } from '@ngrx/store';
 import { State } from '../../../app/state/_state.interfaces';
 import {
@@ -19,6 +23,7 @@ import {
   DeleteSkill
 } from '../../../app/state/skill/skill.action';
 import { getSkillProgress } from '../../../app/state/_state.selectors';
+import { SkillControlModal } from './skill-control-modal/skill-control-modal';
 
 @Component({
   selector: 'progress-card',
@@ -34,6 +39,7 @@ export class ProgressCard {
     private skillService: SkillService,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
+    private modalCtrl: ModalController,
     private store: Store<State>
   ) {}
 
@@ -101,6 +107,10 @@ export class ProgressCard {
         ]
       })
       .present();
+  }
+
+  openSkillControlModal() {
+    this.modalCtrl.create(SkillControlModal).present();
   }
 
   async createSkill(content: string) {
