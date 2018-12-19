@@ -64,8 +64,7 @@ export class ProgressCard {
         },
         legend: { display: false },
         responsive: true,
-        maintainAspectRatio: false,
-        animation: { animateScale: true }
+        maintainAspectRatio: false
       }
     });
 
