@@ -9,10 +9,25 @@
 </ion-header>
 
 <ion-content padding>
+  <div #progressPageContent>
   <button ion-button color="dark" style="padding-left: 0" (click)="openPlanAdditionModal()" small>
     <ion-icon name="add"></ion-icon> 読書計画を追加する
   </button>
-  <ng-container *ngFor="let plan of plans$ | async">
-    <progress-card [plan]="plan"></progress-card>
-  </ng-container>
+  <ion-grid>
+    <ion-row align-items-center>
+    <ng-container *ngFor="let plan of plans$ | async">
+      <ng-container *ngIf="matches; else elseBlock">
+        <ion-col col-6>
+          <progress-card [plan]="plan"></progress-card>
+        </ion-col>
+      </ng-container>
+      <ng-template #elseBlock>
+        <ion-col col-12>
+          <progress-card [plan]="plan"></progress-card>
+        </ion-col>
+      </ng-template>
+    </ng-container>
+    </ion-row>
+  </ion-grid>
+  </div>
 </ion-content>
