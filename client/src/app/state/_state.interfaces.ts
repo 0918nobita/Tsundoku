@@ -33,4 +33,5 @@ export interface PlanState {
 export interface SkillState {
   progress: 'complete' | 'adding' | 'deleting';
   skills: Skill[];
+  skillDetails: Skill[];
 }

@@ -26,5 +26,6 @@ export const initialPlanState: PlanState = {
 
 export const initialSkillState: SkillState = {
   progress: 'complete',
-  skills: []
+  skills: [],
+  skillDetails: []
 };
