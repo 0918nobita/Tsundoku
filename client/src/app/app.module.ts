@@ -40,6 +40,7 @@ import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
 import { SkillEffects } from './state/skill/skill.effect';
 import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-addition-modal';
 import { BookEffects } from './state/book/book.effect';
+import { SkillControlModal } from '../pages/progress/progress-card/skill-control-modal/skill-control-modal';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BookEffects } from './state/book/book.effect';
     SettingsModal,
     SearchPage,
     ProgressCard,
-    PlanAdditionModal
+    PlanAdditionModal,
+    SkillControlModal
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { BookEffects } from './state/book/book.effect';
     SettingsModal,
     SearchPage,
     ProgressCard,
-    PlanAdditionModal
+    PlanAdditionModal,
+    SkillControlModal
   ],
   providers: [
     StatusBar,
