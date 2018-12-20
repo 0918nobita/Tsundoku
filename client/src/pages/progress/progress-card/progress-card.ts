@@ -115,16 +115,16 @@ export class ProgressCard {
 
   async createSkill(content: string) {
     this.store.dispatch(new CreateSkill(this.plan.isbn, content));
-    const loader = this.loadingCtrl.create({ content: '追加処理中です…' });
-    loader.present();
-    this.store.pipe(select(getSkillProgress)).subscribe(progress => {
-      if (progress === 'complete') loader.dismiss();
-    });
+    this.loading('追加処理中です…');
   }
 
   async deleteSkill(skill: Skill) {
     this.store.dispatch(new DeleteSkill(skill));
-    const loader = this.loadingCtrl.create({ content: '削除処理中です…' });
+    this.loading('削除処理中です…');
+  }
+
+  private loading(content: string) {
+    const loader = this.loadingCtrl.create({ content });
     loader.present();
     this.store.pipe(select(getSkillProgress)).subscribe(progress => {
       if (progress === 'complete') loader.dismiss();
