@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button small color="dark" (click)="createSkillListener()">スキルを追加する</button>
+  <button ion-button small color="dark" (click)="createSkillListener()">
+    <ion-icon style="padding: 0 7px" name="checkmark"></ion-icon>
+    スキルを追加する
+  </button>
   <ng-container *ngFor="let skill of skills$ | async">
     <ion-card>
       <ion-card-content>
