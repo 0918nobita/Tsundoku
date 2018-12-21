@@ -8,8 +8,14 @@ import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
 import { SearchPage } from './search-page/search-page';
-import { AlertController, ToastController } from 'ionic-angular';
+import {
+  AlertController,
+  ToastController,
+  LoadingController
+} from 'ionic-angular';
 import { FixAlertController } from '../fix-alert-controller';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { pickOnce } from '../../app/state/book/book.effect';
 
 @Component({
   templateUrl: 'bookshelf.html'
@@ -23,7 +29,9 @@ export class BookshelfPage extends FixAlertController {
   constructor(
     private store: Store<State>,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private loadingCtrl: LoadingController,
+    private afFunctions: AngularFireFunctions
   ) {
     super();
   }
@@ -102,6 +110,7 @@ export class BookshelfPage extends FixAlertController {
                 this.conversion = false;
                 return false;
               }
+              data.isbn = data.isbn.replace(/-/g, '');
               if (data.isbn.length !== 13) {
                 this.toastCtrl
                   .create({
@@ -121,6 +130,25 @@ export class BookshelfPage extends FixAlertController {
   }
 
   async searchBook(isbn: string) {
-    console.log(isbn);
+    const loader = this.loadingCtrl.create({
+      content: '検索中です…'
+    });
+    loader.present();
+    try {
+      const books = await pickOnce(
+        this.afFunctions.httpsCallable('searchBooksByISBN')({
+          isbn,
+          usingGoogleBooksAPI: true
+        })
+      );
+      console.log(books);
+    } catch (e) {
+      this.toastCtrl.create({
+        message: e,
+        duration: 5000
+      });
+    } finally {
+      loader.dismiss();
+    }
   }
 }
