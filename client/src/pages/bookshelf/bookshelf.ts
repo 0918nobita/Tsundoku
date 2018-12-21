@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { RegisteredBook } from '../../app/models/registered-book';
 import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
-import { getBooks } from '../../app/state/_state.selectors';
+import { getBooks, getUser } from '../../app/state/_state.selectors';
 import { SearchPage } from './search-page/search-page';
 import {
   AlertController,
@@ -112,13 +112,7 @@ export class BookshelfPage extends FixAlertController {
               }
               data.isbn = data.isbn.replace(/-/g, '');
               if (data.isbn.length !== 13) {
-                this.toastCtrl
-                  .create({
-                    message: '13桁で入力してください',
-                    position: 'top',
-                    duration: 5000
-                  })
-                  .present();
+                this.showError('13桁で入力してください');
                 return false;
               }
               this.searchBook(data.isbn);
@@ -141,14 +135,61 @@ export class BookshelfPage extends FixAlertController {
           usingGoogleBooksAPI: true
         })
       );
-      console.log(books);
+      if (books.length === 0) {
+        this.alertCtrl
+          .create({
+            title: 'ヒットしませんでした',
+            buttons: ['閉じる']
+          })
+          .present();
+      } else {
+        const book = books[0];
+        this.alertCtrl
+          .create({
+            title: 'ヒットしました',
+            message: book.title,
+            buttons: [
+              {
+                text: 'キャンセル',
+                role: 'cancel'
+              },
+              {
+                text: '追加',
+                handler: () => {
+                  pickOnce(this.store.pipe(select(getUser)))
+                    .then(user => {
+                      if (user !== void 0 && user !== null) {
+                        pickOnce(
+                          this.afFunctions.httpsCallable('registerBook')({
+                            isbn: book.isbn,
+                            uid: user.uid
+                          })
+                        );
+                      } else {
+                        throw new Error('アカウント情報の取得に失敗しました');
+                      }
+                    })
+                    .catch(e => {
+                      this.showError(e);
+                    });
+                }
+              }
+            ]
+          })
+          .present();
+      }
     } catch (e) {
-      this.toastCtrl.create({
-        message: e,
-        duration: 5000
-      });
+      this.showError(e);
     } finally {
       loader.dismiss();
     }
+  }
+
+  private showError(err: any) {
+    this.toastCtrl.create({
+      message: err,
+      duration: 5000,
+      position: 'top'
+    });
   }
 }
