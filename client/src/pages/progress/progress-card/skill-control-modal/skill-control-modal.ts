@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   NavParams,
   ViewController,
@@ -25,7 +25,6 @@ import { getSkillProgress } from '../../../../app/state/_state.selectors';
 export class SkillControlModal extends FundamentalModal {
   plan: Plan;
   skills$: Observable<Skill[]>;
-  private conversion = false;
 
   constructor(
     protected viewCtrl: ViewController,
@@ -90,12 +89,5 @@ export class SkillControlModal extends FundamentalModal {
     this.store.pipe(select(getSkillProgress)).subscribe(progress => {
       if (progress === 'complete') loader.dismiss();
     });
-  }
-
-  @HostListener('document:keydown', ['$event'])
-  onKeydown(event: KeyboardEvent) {
-    /* tslint:disable:deprecation */
-    if (event.keyCode === 229) this.conversion = true;
-    else if (event.keyCode === 13) this.conversion = false;
   }
 }

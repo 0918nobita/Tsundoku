@@ -1,10 +1,13 @@
 import { ViewController, ToastController } from 'ionic-angular';
+import { FixAlertController } from './fix-alert-controller';
 
-export class FundamentalModal {
+export class FundamentalModal extends FixAlertController {
   constructor(
     protected viewCtrl: ViewController,
     protected toastCtrl: ToastController
-  ) {}
+  ) {
+    super();
+  }
 
   dismiss() {
     this.viewCtrl.dismiss();
