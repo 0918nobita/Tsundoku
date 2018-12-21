@@ -41,6 +41,7 @@ import { SkillEffects } from './state/skill/skill.effect';
 import { PlanAdditionModal } from '../pages/progress/plan-addition-modal/plan-addition-modal';
 import { BookEffects } from './state/book/book.effect';
 import { SkillControlModal } from '../pages/progress/progress-card/skill-control-modal/skill-control-modal';
+import { PlanControlModal } from '../pages/progress/progress-card/plan-control-modal/plan-control-moda';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SkillControlModal } from '../pages/progress/progress-card/skill-control
     SearchPage,
     ProgressCard,
     PlanAdditionModal,
-    SkillControlModal
+    SkillControlModal,
+    PlanControlModal
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { SkillControlModal } from '../pages/progress/progress-card/skill-control
     SearchPage,
     ProgressCard,
     PlanAdditionModal,
-    SkillControlModal
+    SkillControlModal,
+    PlanControlModal
   ],
   providers: [
     StatusBar,

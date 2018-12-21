@@ -4,6 +4,7 @@ import { Chart } from 'chart.js';
 import { Plan } from '../../../app/models/plan';
 import { SkillControlModal } from './skill-control-modal/skill-control-modal';
 import { ModalController } from 'ionic-angular';
+import { PlanControlModal } from './plan-control-modal/plan-control-moda';
 
 @Component({
   selector: 'progress-card',
@@ -51,5 +52,9 @@ export class ProgressCard {
 
   openSkillControlModal(plan: Plan) {
     this.modalCtrl.create(SkillControlModal, { plan }).present();
+  }
+
+  openPlanControlModal(plan: Plan) {
+    this.modalCtrl.create(PlanControlModal, { plan }).present();
   }
 }
