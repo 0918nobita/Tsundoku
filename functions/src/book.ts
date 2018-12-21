@@ -6,7 +6,7 @@ import { apiKey } from './config';
 export const _postResolvedBook = (db: FirebaseFirestore.Firestore) => async (
   resolvedBook: ResolvedBook
 ) => {
-  return (await db.collection('resolvedBook').add(resolvedBook)).id;
+  return (await db.collection('resolvedBooks').add(resolvedBook)).id;
 };
 
 const searchBooksUsingGoogleBooksAPI = (
