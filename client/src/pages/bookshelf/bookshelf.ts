@@ -8,17 +8,25 @@ import { State } from '../../app/state/_state.interfaces';
 import { WatchBookshelf } from '../../app/state/bookshelf/bookshelf.action';
 import { getBooks } from '../../app/state/_state.selectors';
 import { SearchPage } from './search-page/search-page';
+import { AlertController, ToastController } from 'ionic-angular';
+import { FixAlertController } from '../fix-alert-controller';
 
 @Component({
   templateUrl: 'bookshelf.html'
 })
-export class BookshelfPage {
+export class BookshelfPage extends FixAlertController {
   books$: Observable<RegisteredBook[]>;
   additions = [];
   private length = 0;
   pushPage = SearchPage;
 
-  constructor(private store: Store<State>) {}
+  constructor(
+    private store: Store<State>,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
+  ) {
+    super();
+  }
 
   ionViewDidLoad() {
     window.addEventListener('resize', () => this.adjustThumbnails());
@@ -72,7 +80,47 @@ export class BookshelfPage {
     }
   }
 
-  searchBook() {
-    console.log('searchBook');
+  searchBookListener() {
+    this.alertCtrl
+      .create({
+        title: 'ISBN で本を検索',
+        inputs: [
+          {
+            name: 'isbn',
+            placeholder: 'ISBN (13桁)'
+          }
+        ],
+        buttons: [
+          {
+            text: 'キャンセル',
+            role: 'cancel'
+          },
+          {
+            text: '検索',
+            handler: data => {
+              if (this.conversion) {
+                this.conversion = false;
+                return false;
+              }
+              if (data.isbn.length !== 13) {
+                this.toastCtrl
+                  .create({
+                    message: '13桁で入力してください',
+                    position: 'top',
+                    duration: 5000
+                  })
+                  .present();
+                return false;
+              }
+              this.searchBook(data.isbn);
+            }
+          }
+        ]
+      })
+      .present();
+  }
+
+  async searchBook(isbn: string) {
+    console.log(isbn);
   }
 }
