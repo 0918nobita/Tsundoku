@@ -8,4 +8,25 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>タイトル *</ion-label>
+      <ion-label *ngIf="!validTitle" stacked style="color: red">必須です</ion-label>
+      <ion-input value="{{plan.title}}" [(ngModel)]="title" (input)="validateTitle($event.target.value)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>説明文</ion-label>
+      <ion-textarea value="{{plan.desc}}"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>読んだページ数 *</ion-label>
+      <ion-label *ngIf="!valid" stacked style="color: red">NaN ですかその入力値は</ion-label>
+      <ion-input type="number" value="{{plan.progress}}" [(ngModel)]="pageCount" (input)="validate($event.target.value)"></ion-input>
+      <ion-range min="0" max="{{plan.book.pageCount}}" [(ngModel)]="pageCount" step="1">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>{{plan.book.pageCount}}</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="store()" [disabled]="!validTitle || !valid">保存する</button>
 </ion-content>
