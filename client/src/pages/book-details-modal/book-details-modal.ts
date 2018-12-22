@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   NavParams,
   ViewController,
