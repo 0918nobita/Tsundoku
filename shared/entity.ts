@@ -2,7 +2,6 @@ import * as firebase from '../functions/node_modules/firebase';
 
 export interface ResolvedBook {
   desc: string;
-  donor: string;
   image: string;
   isbn: string;
   title: string;
