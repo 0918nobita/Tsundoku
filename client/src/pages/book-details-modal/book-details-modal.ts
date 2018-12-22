@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
 import {
   NavParams,
   ViewController,
@@ -58,7 +58,7 @@ export class BookDetailsModal extends FundamentalModal {
         }
         this.title = book.title;
         this.desc = book.desc;
-        this.image = book.image;
+        this.image = this.navParams.get('image');
         subscription.unsubscribe();
       })
       .catch(err => {

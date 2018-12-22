@@ -45,6 +45,11 @@ export class Book {
   }
 
   showDetails() {
-    this.modalCtrl.create(BookDetailsModal, { isbn: this.book.isbn }).present();
+    this.modalCtrl
+      .create(BookDetailsModal, {
+        isbn: this.book.isbn,
+        image: this.book.image !== 'none' ? this.book.image : this.thumbnailURL
+      })
+      .present();
   }
 }
