@@ -37,6 +37,7 @@ export class BookDetailsModal extends FundamentalModal {
     this.added = false;
     this.loaded = false;
     this.isbn = this.navParams.get('isbn');
+    this.image = this.navParams.get('image');
 
     const subscription = timer(500)
       .pipe(take(1))
@@ -58,7 +59,6 @@ export class BookDetailsModal extends FundamentalModal {
         }
         this.title = book.title;
         this.desc = book.desc;
-        this.image = this.navParams.get('image');
         subscription.unsubscribe();
       })
       .catch(err => {
