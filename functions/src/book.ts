@@ -23,7 +23,7 @@ const searchBooksUsingGoogleBooksAPI = (
         image:
           volumeInfo.imageLinks !== void 0
             ? `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`
-            : './assets/image_not_found.png',
+            : 'none',
         isbn: clue,
         title: volumeInfo.title,
         pageCount: volumeInfo.pageCount
