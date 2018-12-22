@@ -1,5 +1,8 @@
 <div class="book" (click)="showDetails()">
-  <canvas *ngIf="book.image === 'none'; else elseBlock" #thumbnail width="128px" height="164px"></canvas>
+  <ng-container *ngIf="book.image === 'none'; else elseBlock">
+      <canvas #thumbnail style="display: none;" width="128" height="164"></canvas>
+      <img class="book-thumbnail" [src]="thumbnailURL">
+  </ng-container>
   <ng-template #elseBlock>
     <img class="book-thumbnail" src="{{book.image}}">
   </ng-template>

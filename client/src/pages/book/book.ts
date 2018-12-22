@@ -3,7 +3,8 @@ import {
   Input,
   ViewChildren,
   QueryList,
-  ElementRef
+  ElementRef,
+  ChangeDetectorRef
 } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { BookDetailsModal } from '../book-details-modal/book-details-modal';
@@ -17,15 +18,18 @@ export class Book {
   @ViewChildren('thumbnail') thumbnail: QueryList<ElementRef>;
   @Input()
   book: ResolvedBook;
+  thumbnailURL;
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(
+    private modalCtrl: ModalController,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     const children = this.thumbnail.toArray();
     if (children.length > 0) {
-      const ctx: CanvasRenderingContext2D = this.thumbnail.first.nativeElement.getContext(
-        '2d'
-      );
+      const canvas = this.thumbnail.first.nativeElement;
+      const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
       ctx.fillStyle = '#EEEEEE';
       ctx.fillRect(0, 0, 128, 164);
       ctx.fillStyle = '#222222';
@@ -35,6 +39,8 @@ export class Book {
       for (let i = 0; i < lines.length; i++) {
         ctx.fillText(lines[i], 10, 10 + (i + 1) * 15);
       }
+      this.thumbnailURL = canvas.toDataURL();
+      this.cdRef.detectChanges();
     }
   }
 
