@@ -40,13 +40,6 @@ export class SearchPage {
     );
 
     this.search.addWidget(
-      pagination({
-        container: '#pagination',
-        maxPages: 20
-      })
-    );
-
-    this.search.addWidget(
       analytics({
         delay: () => 0,
         pushFunction: (_: any, __: any, results: any) => {
