@@ -66,9 +66,7 @@ export class LoginPage {
           }
         },
         credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-        signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
-        tosUrl: 'https://tsundoku.tech',
-        privacyPolicyUrl: 'https://tsundoku.tech'
+        signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID]
       }
     );
   }
