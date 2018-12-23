@@ -20,6 +20,36 @@ export const unregisterBook = functions.https.onCall(_unregisterBook(db));
 export const createSkill = functions.https.onCall(_createSkill(db));
 export const deleteSkill = functions.https.onCall(_deleteSkill(db));
 
+export const withdraw = functions.https.onCall(
+  async ({ uid }: { uid: string }) => {
+    await admin.auth().deleteUser(uid);
+    const collections = ['bookshelf', 'plans', 'skills'];
+    const firestore = admin.firestore();
+    for (const collection of collections) {
+      const snapshot = await firestore
+        .collection(collection)
+        .where('uid', '==', uid)
+        .get();
+      const docs = snapshot.docs;
+      for (const doc of docs) {
+        if (collection === 'skills') {
+          const skillCountRef = (await firestore
+            .collection('skillsCount')
+            .where('isbn', '==', doc.data().isbn)
+            .get()).docs[0];
+          await firestore
+            .collection('skillsCount')
+            .doc(skillCountRef.id)
+            .update({
+              count: skillCountRef.data().count - 1
+            });
+        }
+        await firestore.doc(doc.id).delete();
+      }
+    }
+  }
+);
+
 const skillsCount = db.collection('skillsCount');
 const index = algoliasearch(
   algoliaAdminConfig.appId,
