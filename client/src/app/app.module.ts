@@ -19,11 +19,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { firebaseConfig } from './config';
-import { LocalDatabase } from './services/local-database';
-import { BookService } from './services/book.service';
-import { BookshelfService } from './services/bookshelf.service';
 import { BookDetailsModal } from '../pages/book-details-modal/book-details-modal';
-import { SkillService } from './services/skill.service';
 import { Book } from '../pages/book/book';
 import { SplitPane } from '../pages/split-pane/split-pane';
 import { SettingsButton } from '../pages/settings-button/settings-button';
@@ -101,11 +97,7 @@ import { PlanControlModal } from '../pages/progress/progress-card/plan-control-m
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    BookService,
-    BookshelfService,
-    SkillService,
-    LocalDatabase
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
