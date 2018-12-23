@@ -21,6 +21,11 @@ export class SettingsModal extends FundamentalModal {
   ) {
     super(viewCtrl, toastCtrl);
   }
+
+  logout() {
+    this.store.dispatch(new SignOut());
+  }
+
   withdraw() {
     this.alertCtrl
       .create({
