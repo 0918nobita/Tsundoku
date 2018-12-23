@@ -19,7 +19,7 @@ const searchBooksUsingGoogleBooksAPI = (
   if (result.data.totalItems > 0) {
     response = result.data.items.map(
       ({ volumeInfo }): ResolvedBook => ({
-        desc: volumeInfo.description,
+        desc: volumeInfo.description || '',
         image:
           volumeInfo.imageLinks !== void 0
             ? `https${volumeInfo.imageLinks.smallThumbnail.slice(4)}`
