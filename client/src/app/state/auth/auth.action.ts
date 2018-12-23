@@ -2,8 +2,9 @@ import { Action } from '@ngrx/store';
 
 export enum AuthActionTypes {
   SignIn = '[Auth] Sign In',
-  SignInSuccess = '[Auth] Succeed',
-  SignInFail = '[Auth] Fail'
+  SignInSuccess = '[Auth] Succeed in signing in',
+  SignInFail = '[Auth] Fail in signing in',
+  SignOut = '[Auth] Sign Out'
 }
 
 export class SignIn implements Action {
@@ -18,4 +19,8 @@ export class SignInSuccess implements Action {
 export class SignInFail implements Action {
   readonly type = AuthActionTypes.SignInFail;
   constructor(public error?: any) {}
+}
+
+export class SignOut implements Action {
+  readonly type = AuthActionTypes.SignOut;
 }
