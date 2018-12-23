@@ -1,11 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import instantsearch from 'instantsearch.js/es';
-import {
-  searchBox,
-  analytics,
-  pagination,
-  stats
-} from 'instantsearch.js/es/widgets';
+import { searchBox, analytics, stats } from 'instantsearch.js/es/widgets';
 import { algoliaConfig } from '../../../app/config';
 import { Subject } from 'rxjs';
 
