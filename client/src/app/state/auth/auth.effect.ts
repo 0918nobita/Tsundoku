@@ -40,14 +40,14 @@ export class AuthEffects {
               this.localDB.table('resolvedBooks').clear(),
               this.localDB.table('registeredBooks').clear()
             ]);
-            return new SignInFail({ error: '自動サインインに失敗しました' });
+            return new SignInFail('自動サインインに失敗しました');
           }
 
           return new SignInSuccess({ user });
         })
       )
     ),
-    catchError(error => of(new SignInFail({ error })))
+    catchError(error => of(new SignInFail(error)))
   );
 
   forAuthenticated = this.store.pipe(
