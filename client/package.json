@@ -34,6 +34,7 @@
     "@ionic/storage": "2.2.0",
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
+    "@sgbj/angular-gist": "^0.3.0",
     "algoliasearch": "^3.30.0",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",

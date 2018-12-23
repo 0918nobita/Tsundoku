@@ -328,6 +328,11 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@sgbj/angular-gist@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@sgbj/angular-gist/-/angular-gist-0.3.0.tgz#c1d93fc1020656094dd00042e4450c949da6110c"
+  integrity sha512-cv1JcItdzQxszlWA6cymqtSeaRi5iB8N6y1IMKYgSe3cZkrLQ2/IQ8+Vx2F7KQrLDnziilZaEJwvXInfSMZQiw==
+
 "@types/algoliasearch@^3.30.1":
   version "3.30.1"
   resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.30.1.tgz#0cb9b918ba7f94c1e60527ba74273ca276d17137"
