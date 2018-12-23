@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, Loading } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
@@ -17,29 +17,27 @@ import { getUser } from '../../app/state/_state.selectors';
 export class LoginPage {
   user$: Observable<firebase.User | null | undefined>;
 
-  private loader: Loading;
-
   constructor(
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
     private store: Store<State>
   ) {
-    this.loader = this.loadingCtrl.create({
+    const loader = this.loadingCtrl.create({
       content: 'サインイン中…'
     });
     this.user$ = this.store.pipe(select(getUser));
 
     this.store.dispatch(new SignIn());
-    this.loader.present();
+    loader.present();
 
     this.user$.subscribe(async user => {
       if (user !== null && user !== void 0) {
         await this.navCtrl.setRoot(SplitPane);
-        this.loader.dismiss();
+        loader.dismiss();
         return;
       }
 
-      this.loader.dismiss();
+      loader.dismiss();
       this.showFirebaseUI();
     });
   }
