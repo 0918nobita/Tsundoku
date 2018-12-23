@@ -4,7 +4,8 @@ export enum AuthActionTypes {
   SignIn = '[Auth] Sign In',
   SignInSuccess = '[Auth] Succeed in signing in',
   SignInFail = '[Auth] Fail in signing in',
-  SignOut = '[Auth] Sign Out'
+  SignOut = '[Auth] Sign Out',
+  SignOutSuccess = '[Auth] Succeed in signing out'
 }
 
 export class SignIn implements Action {
@@ -23,4 +24,8 @@ export class SignInFail implements Action {
 
 export class SignOut implements Action {
   readonly type = AuthActionTypes.SignOut;
+}
+
+export class SignOutSuccess implements Action {
+  readonly type = AuthActionTypes.SignOutSuccess;
 }
