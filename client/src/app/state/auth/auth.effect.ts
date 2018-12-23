@@ -10,7 +10,10 @@ import {
   AuthActionTypes,
   SignInFail,
   SignIn,
-  SignInSuccess
+  SignInSuccess,
+  SignOut,
+  SignOutFail,
+  SignOutSuccess
 } from './auth.action';
 import { LocalDatabase } from '../../services/local-database';
 import { State } from '../_state.interfaces';
@@ -48,6 +51,16 @@ export class AuthEffects {
       )
     ),
     catchError(error => of(new SignInFail(error)))
+  );
+
+  @Effect()
+  signOut: Observable<Action> = this.actions$.pipe(
+    ofType<SignOut>(AuthActionTypes.SignOut),
+    concatMap(async () => {
+      await firebase.auth().signOut();
+      return new SignOutSuccess();
+    }),
+    catchError(error => of(new SignOutFail(error)))
   );
 
   forAuthenticated = this.store.pipe(
