@@ -21,7 +21,7 @@ export class SearchPage {
     this.hits$ = new Subject();
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.search = instantsearch(algoliaConfig);
 
     this.search.addWidget(
@@ -43,7 +43,6 @@ export class SearchPage {
       analytics({
         delay: () => 0,
         pushFunction: (_: any, __: any, results: any) => {
-          console.log(results);
           this.hits$.next(results.hits);
         }
       })
