@@ -10,9 +10,6 @@
 
 <ion-content padding>
   <div #progressPageContent>
-  <button ion-button color="dark" style="padding-left: 0" (click)="openPlanAdditionModal()" small>
-    <ion-icon name="add"></ion-icon> 読書計画を追加する
-  </button>
   <ion-grid>
     <ion-row align-items-center>
     <ng-container *ngFor="let plan of plans$ | async">
