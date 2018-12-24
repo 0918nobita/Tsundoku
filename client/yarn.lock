@@ -328,11 +328,6 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@sgbj/angular-gist@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@sgbj/angular-gist/-/angular-gist-0.3.0.tgz#c1d93fc1020656094dd00042e4450c949da6110c"
-  integrity sha512-cv1JcItdzQxszlWA6cymqtSeaRi5iB8N6y1IMKYgSe3cZkrLQ2/IQ8+Vx2F7KQrLDnziilZaEJwvXInfSMZQiw==
-
 "@types/algoliasearch@^3.30.1":
   version "3.30.1"
   resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.30.1.tgz#0cb9b918ba7f94c1e60527ba74273ca276d17137"
@@ -5392,13 +5387,6 @@ postcss@^6.0.17, postcss@^6.0.21:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postscribe@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/postscribe/-/postscribe-2.0.8.tgz#5b7a53aad4b690b6c2f75818fcefe74490f410d5"
-  integrity sha1-W3pTqtS2kLbC91gY/O/nRJD0ENU=
-  dependencies:
-    prescribe ">=1.1.2"
-
 preact-compat@^3.17.0, preact-compat@^3.18.0:
   version "3.18.4"
   resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.18.4.tgz#fbe76ddd30356c68e3ccde608107104946f2cf8d"
@@ -5441,11 +5429,6 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
-
-prescribe@>=1.1.2:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/prescribe/-/prescribe-1.1.3.tgz#8d3122445f3fbaf4c4c5817ea527a17fc8139ee6"
-  integrity sha1-jTEiRF8/uvTExYF+pSehf8gTnuY=
 
 preserve@^0.2.0:
   version "0.2.0"

@@ -34,7 +34,6 @@
     "@ionic/storage": "2.2.0",
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
-    "@sgbj/angular-gist": "^0.3.0",
     "algoliasearch": "^3.30.0",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
@@ -45,7 +44,6 @@
     "ionic-angular": "git://github.com/rdlabo/ionic-angular-v6.git",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
-    "postscribe": "^2.0.8",
     "rxjs": "^6.3.3",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
