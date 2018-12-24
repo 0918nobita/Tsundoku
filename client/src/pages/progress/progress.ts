@@ -7,7 +7,6 @@ import { Plan } from '../../app/models/plan';
 import { getPlans } from '../../app/state/_state.selectors';
 import { WatchPlan } from '../../app/state/plan/plan.action';
 import { ModalController } from 'ionic-angular';
-import { PlanAdditionModal } from './plan-addition-modal/plan-addition-modal';
 
 @Component({
   selector: 'page-progress',
@@ -33,9 +32,5 @@ export class ProgressPage {
 
   ionViewWillEnter() {
     this.matches = this.mq.matches;
-  }
-
-  openPlanAdditionModal() {
-    this.modalCtrl.create(PlanAdditionModal).present();
   }
 }
