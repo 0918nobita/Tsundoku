@@ -4733,6 +4733,11 @@ next-tick@1:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ngx-gist@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/ngx-gist/-/ngx-gist-1.0.4.tgz#95a3d16efba47c4849b086d3a36d18670cef4428"
+  integrity sha1-laPRbvukfEhJsIbTo20YZwzvRCg=
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

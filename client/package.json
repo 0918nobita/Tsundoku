@@ -44,6 +44,7 @@
     "ionic-angular": "git://github.com/rdlabo/ionic-angular-v6.git",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
+    "ngx-gist": "^1.0.4",
     "rxjs": "^6.3.3",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
