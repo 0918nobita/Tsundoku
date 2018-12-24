@@ -18,6 +18,7 @@ export const postResolvedBook = functions.https.onCall(_postResolvedBook(db));
 export const registerBook = functions.https.onCall(_registerBook(db));
 export const unregisterBook = functions.https.onCall(_unregisterBook(db));
 
+export const createPlan = functions.https.onCall(_createSkill(db));
 export const updatePlan = functions.https.onCall(_updatePlan(db));
 
 export const createSkill = functions.https.onCall(_createSkill(db));
