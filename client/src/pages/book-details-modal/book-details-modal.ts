@@ -14,6 +14,10 @@ import 'firebase/auth';
 import { FundamentalModal } from '../fundamental-modal';
 import { BookService } from '../../app/services/book.service';
 import { BookshelfService } from '../../app/services/bookshelf.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { pickOnce } from '../../app/state/book/book.effect';
+import { Plan } from '../../app/models/plan';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   templateUrl: 'book-details-modal.html'
@@ -25,6 +29,7 @@ export class BookDetailsModal extends FundamentalModal {
   image: string;
   added: boolean;
   loaded: boolean;
+  alreadyPlanned: boolean;
 
   constructor(
     private navParams: NavParams,
@@ -33,11 +38,14 @@ export class BookDetailsModal extends FundamentalModal {
     protected toastCtrl: ToastController,
     private bookService: BookService,
     private bookshelfService: BookshelfService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private afFirestore: AngularFirestore,
+    private afFunctions: AngularFireFunctions
   ) {
     super(viewCtrl, toastCtrl);
     this.added = false;
     this.loaded = false;
+    this.alreadyPlanned = false;
     this.isbn = this.navParams.get('isbn');
     this.image = this.navParams.get('image');
 
@@ -68,12 +76,22 @@ export class BookDetailsModal extends FundamentalModal {
         this.showError(err);
       });
 
-    this.bookService
-      .isOwnedBy(this.isbn, (firebase.auth().currentUser as firebase.User).uid)
-      .subscribe(result => {
-        this.loaded = true;
-        this.added = result;
-      });
+    const uid = (firebase.auth().currentUser as firebase.User).uid;
+    this.bookService.isOwnedBy(this.isbn, uid).subscribe(result => {
+      this.loaded = true;
+      this.added = result;
+      if (result) {
+        pickOnce(
+          this.afFirestore
+            .collection<Plan>('plans', ref =>
+              ref.where('isbn', '==', this.isbn).where('uid', '==', uid)
+            )
+            .valueChanges()
+        ).then(result => {
+          this.alreadyPlanned = result.length !== 0;
+        });
+      }
+    });
   }
 
   async register() {
@@ -91,6 +109,52 @@ export class BookDetailsModal extends FundamentalModal {
     } finally {
       loader.dismiss();
     }
+  }
+
+  createPlan() {
+    this.alertCtrl
+      .create({
+        title: '読書計画の追加',
+        message: '計画のタイトルと説明文を入力してください',
+        inputs: [
+          {
+            name: 'title',
+            placeholder: 'タイトル'
+          },
+          {
+            name: 'desc',
+            placeholder: '説明文 (任意)'
+          }
+        ],
+        buttons: [
+          {
+            text: 'キャンセル',
+            role: 'cancel'
+          },
+          {
+            text: '決定',
+            handler: content => {
+              if (this.conversion) {
+                this.conversion = false;
+                return false;
+              }
+              const timestamp = firebase.firestore.Timestamp.fromDate(
+                new Date()
+              );
+              this.afFirestore.collection('plans').add({
+                ...content,
+                isbn: this.isbn,
+                uid: (firebase.auth().currentUser as firebase.User).uid,
+                progress: 0,
+                created: timestamp,
+                modified: timestamp
+              });
+              this.dismiss();
+            }
+          }
+        ]
+      })
+      .present();
   }
 
   unregisterListener() {
