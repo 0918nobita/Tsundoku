@@ -17,7 +17,6 @@ import { BookshelfService } from '../../app/services/bookshelf.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { pickOnce } from '../../app/state/book/book.effect';
 import { Plan } from '../../app/models/plan';
-import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   templateUrl: 'book-details-modal.html'
@@ -39,8 +38,7 @@ export class BookDetailsModal extends FundamentalModal {
     private bookService: BookService,
     private bookshelfService: BookshelfService,
     private alertCtrl: AlertController,
-    private afFirestore: AngularFirestore,
-    private afFunctions: AngularFireFunctions
+    private afFirestore: AngularFirestore
   ) {
     super(viewCtrl, toastCtrl);
     this.added = false;
