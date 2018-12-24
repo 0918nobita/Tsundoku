@@ -1,3 +1,6 @@
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
 import { Component } from '@angular/core';
 import {
   ViewController,
@@ -8,6 +11,7 @@ import { FundamentalModal } from '../../fundamental-modal';
 import { State } from '../../../app/state/_state.interfaces';
 import { Store } from '@ngrx/store';
 import { SignOut } from '../../../app/state/auth/auth.action';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   templateUrl: 'settings-modal.html'
@@ -17,7 +21,8 @@ export class SettingsModal extends FundamentalModal {
     protected viewCtrl: ViewController,
     protected toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    private store: Store<State>
+    private store: Store<State>,
+    private afFunctions: AngularFireFunctions
   ) {
     super(viewCtrl, toastCtrl);
   }
@@ -35,7 +40,9 @@ export class SettingsModal extends FundamentalModal {
           {
             text: '退会する',
             handler: () => {
-              console.log('退会処理');
+              this.afFunctions.functions.httpsCallable('withdraw')({
+                uid: (firebase.auth().currentUser as firebase.User).uid
+              });
             }
           },
           {
