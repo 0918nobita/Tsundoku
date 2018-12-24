@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>本の詳細</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{title}}</h2>
+  <img src="{{image}}">
+  <div *ngIf="loaded">
+    <div *ngIf="!added; then addButton; else deleteButton"></div>
+    <ng-template #addButton>
+      <p><button ion-button small (click)="register()">本棚に追加する</button></p>
+    </ng-template>
+    <ng-template #deleteButton>
+      <p *ngIf="!alreadyPlanned">
+        <button ion-button color="primary" (click)="createPlan()">読書計画を立てる</button>
+      </p>
+      <p>
+        <button ion-button color="danger" small (click)="unregisterListener()">本棚から削除する</button>
+      </p>
+    </ng-template>
+  </div>
+  <p>{{desc}}</p>
+  <p>ISBN: {{isbn}}</p>
+</ion-content>

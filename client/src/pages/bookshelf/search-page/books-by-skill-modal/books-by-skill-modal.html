@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>紐付けられた本の一覧</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ng-container *ngFor="let book of books$ | async">
+    <ion-card>
+      <ion-card-content>
+        <h2>{{book.title}}</h2>
+        <book-widget [book]="book"></book-widget>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

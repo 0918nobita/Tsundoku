@@ -1,0 +1,22 @@
+<ion-split-pane when="(min-width: 1000px)">
+  <ion-menu [content]="content" swipeEnabled="false">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Tsundoku</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item #progress (click)="showPage('progress')"><ion-icon name="walk" padding-horizontal></ion-icon> 進捗</button>
+        <button ion-item #bookshelf (click)="showPage('bookshelf')"><ion-icon name="bookmarks" padding-horizontal></ion-icon> 本棚</button>
+        <button ion-item #achievement (click)="showPage('achievement')"><ion-icon name="trophy" padding-horizontal></ion-icon> 達成</button>
+      </ion-list>
+      <button id="side-bar-settings-button" ion-item (click)="openSettingsModal()">
+        <ion-icon name="settings" padding-horizontal></ion-icon>
+        設定
+      </button>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav #content [root]="root" main></ion-nav>
+</ion-split-pane>

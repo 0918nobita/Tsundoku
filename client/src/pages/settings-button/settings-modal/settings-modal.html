@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>設定</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <a ion-item detail-none href="https://scrapbox.io/Tsundoku" target="_blank">
+      <ion-icon item-start name="help"></ion-icon>
+      <ion-label>ヘルプ</ion-label>
+    </a>
+    <ion-item (click)="logout()">
+      <ion-icon item-start name="log-out"></ion-icon>
+      <ion-label>ログアウト</ion-label>
+    </ion-item>
+    <a ion-item detail-none href="https://twitter.com/0918nobita" target="_blank">
+      <ion-icon item-start name="logo-twitter"></ion-icon>
+      <ion-label>開発者のTwitterアカウント</ion-label>
+    </a>
+    <ion-item (click)="withdraw()">
+      <ion-icon item-start name="remove-circle" color="danger"></ion-icon>
+      <ion-label color="danger">退会</ion-label>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

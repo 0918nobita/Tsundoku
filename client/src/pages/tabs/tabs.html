@@ -1,0 +1,5 @@
+<ion-tabs [selectedIndex]="1" (ionChange)="switchTabs($event)">
+  <ion-tab [root]="tab1Root" tabTitle="本棚" tabIcon="bookmarks"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="進捗" tabIcon="walk"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="達成" tabIcon="trophy"></ion-tab>
+</ion-tabs>

@@ -1,0 +1,20 @@
+book-widget {
+  display: inline-block;
+
+  img {
+    width: 128px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 700px) {
+    img {
+      width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    img {
+      width: 80px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-content>
+    <h2>{{plan.title}}</h2>
+    <p>{{plan.desc}}</p>
+    <ion-grid>
+      <ion-row align-items-center>
+        <ion-col col-auto>
+          <book-widget [book]="plan.book"></book-widget>
+        </ion-col>
+        <ion-col col-auto>
+          <div style="width: 120px; height: 120px"><canvas #graph></canvas></div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+        <ion-col>
+          <button ion-button style="padding-left: 0" color="light" small (click)="openPlanControlModal(plan)">
+            <ion-icon name="create"></ion-icon> 読書計画を編集する
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button style="padding-left: 0" color="light" small (click)="openSkillControlModal(plan)">
+            <ion-icon name="done-all"></ion-icon> スキルを管理する
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

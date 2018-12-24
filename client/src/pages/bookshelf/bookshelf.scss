@@ -1,0 +1,24 @@
+div#search-fragment {
+  display: none;
+}
+
+div.empty {
+  width: 128px;
+  height: 0;
+}
+
+@media screen and (max-width: 700px) {
+  div.empty {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  div.empty {
+    width: 80px;
+  }
+}
+
+.back-button {
+  color: white;
+}

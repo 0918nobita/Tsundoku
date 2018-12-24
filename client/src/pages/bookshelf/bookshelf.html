@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>本棚</ion-title>
+
+    <ion-buttons end>
+      <settings-button></settings-button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="searchBookListener()" color="dark" style="margin: 4px" small>
+    <ion-icon name="search" style="width: 35px"></ion-icon>ISBNで本をみつける
+  </button>
+  <button ion-button [navPush]="pushPage" color="primary" style="margin: 4px" small>
+    <ion-icon name="done-all" style="width: 35px"></ion-icon>スキルから本をみつける
+  </button>
+  <ion-grid>
+    <ion-row align-items-center justify-content-around id="books-row">
+      <ion-col *ngFor="let book of books$ | async" col-auto>
+        <book-widget [book]="book"></book-widget>
+      </ion-col>
+      <ion-col *ngFor="let _ of additions" col-auto>
+        <div class="empty"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

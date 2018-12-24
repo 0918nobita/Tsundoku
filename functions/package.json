@@ -1,0 +1,36 @@
+{
+  "name": "tsundoku-functions",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "retire": "retire"
+  },
+  "main": "lib/functions/src/index.js",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "algoliasearch": "^3.32.0",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "firebase": "^5.4.2",
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^2.0.2",
+    "x-ray": "^2.3.3"
+  },
+  "devDependencies": {
+    "@types/algoliasearch": "^3.30.1",
+    "@types/cors": "^2.8.4",
+    "retire": "^1.6.2",
+    "tsconfig-paths": "^3.5.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.5.3",
+    "yarn": "^1.9.4"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true
+}

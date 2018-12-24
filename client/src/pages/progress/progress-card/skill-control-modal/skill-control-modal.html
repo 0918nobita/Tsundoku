@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" [style.color]="'white'">閉じる</button>
+    </ion-buttons>
+    <ion-title>スキルの管理</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p><b>{{plan.book.title}}</b></p>
+  <p>{{plan.title}}</p>
+  <p>{{plan.desc}}</p>
+  <button ion-button small color="dark" (click)="createSkillListener()">
+    <ion-icon style="padding: 0 7px" name="checkmark"></ion-icon>
+    スキルを追加する
+  </button>
+  <ng-container *ngFor="let skill of skills$ | async">
+    <ion-card>
+      <ion-card-content>
+        {{skill.content}}
+        <ion-icon name="close" (click)="deleteSkill(skill)" style="float: right; padding: 5px"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

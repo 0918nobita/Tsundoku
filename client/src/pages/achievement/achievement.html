@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>達成</ion-title>
+
+    <ion-buttons end>
+      <settings-button></settings-button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <canvas #graph></canvas>
+  <ng-container *ngFor="let skill of skills$ | async">
+    <ion-card>
+      <ion-card-content>
+        <p>{{skill.content}}</p>
+        <p>ISBN: {{skill.isbn}}</p>
+        <p>{{differenceTime(skill.created.toDate())}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

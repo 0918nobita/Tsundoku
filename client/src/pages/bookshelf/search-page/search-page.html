@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>スキルの検索</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+  <div id="search-box"></div>
+  <div id="stats"></div>
+  <ng-container *ngFor="let hit of hits$ | async">
+    <ion-card (click)="openModal(hit.content)">
+      <ion-card-content>{{hit.content}}</ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

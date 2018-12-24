@@ -1,0 +1,12 @@
+sudo: required
+language: node_js
+node_js:
+  - "8"
+script:
+  - yarn test:ci
+before_script:
+  - cd functions
+  - yarn install
+  - cd ../client
+  - yarn install
+
