@@ -16,7 +16,7 @@
     </ion-item>
     <ion-item>
       <ion-label color="primary" stacked>説明文</ion-label>
-      <ion-textarea value="{{plan.desc}}"></ion-textarea>
+      <ion-textarea value="{{plan.desc}}" [(ngModel)]="desc"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label stacked>読んだページ数 *</ion-label>
@@ -28,5 +28,5 @@
       </ion-range>
     </ion-item>
   </ion-list>
-  <button ion-button (click)="store()" [disabled]="!validTitle || !valid">保存する</button>
+  <button ion-button (click)="update()" [disabled]="!validTitle || !valid">更新する</button>
 </ion-content>
