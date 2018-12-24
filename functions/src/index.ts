@@ -119,3 +119,16 @@ export const skillCountDown = functions.firestore
       });
     return 0;
   });
+
+export const deletePlan = functions.firestore
+  .document('bookshelf/{id}')
+  .onDelete(async snap => {
+    const { isbn, uid } = snap.data();
+    const plans = db.collection('plans');
+    const id = (await plans
+      .where('isbn', '==', isbn)
+      .where('uid', '==', uid)
+      .get()).docs[0].id;
+    await plans.doc(id).delete();
+    return 0;
+  });
