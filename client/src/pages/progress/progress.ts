@@ -6,7 +6,6 @@ import { State } from '../../app/state/_state.interfaces';
 import { Plan } from '../../app/models/plan';
 import { getPlans } from '../../app/state/_state.selectors';
 import { WatchPlan } from '../../app/state/plan/plan.action';
-import { ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-progress',
@@ -18,7 +17,7 @@ export class ProgressPage {
   matches = false;
   private mq: MediaQueryList;
 
-  constructor(private store: Store<State>, private modalCtrl: ModalController) {
+  constructor(private store: Store<State>) {
     this.store.dispatch(new WatchPlan());
     this.plans$ = this.store.pipe(select(getPlans));
   }
