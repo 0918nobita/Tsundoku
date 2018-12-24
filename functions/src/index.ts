@@ -132,3 +132,18 @@ export const deletePlan = functions.firestore
     await plans.doc(id).delete();
     return 0;
   });
+
+export const deleteAllSkills = functions.firestore
+  .document('plans/{id}')
+  .onDelete(async snap => {
+    const { isbn, uid } = snap.data();
+    const skills = db.collection('skills');
+    const ids = (await skills
+      .where('isbn', '==', isbn)
+      .where('uid', '==', uid)
+      .get()).docs.map(doc => doc.id);
+    for (const id of ids) {
+      await skills.doc(id).delete();
+    }
+    return 0;
+  });
