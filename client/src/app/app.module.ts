@@ -34,7 +34,6 @@ import { PlanEffects } from './state/plan/plan.effect';
 import { AuthEffects } from './state/auth/auth.effect';
 import { BookshelfEffects } from './state/bookshelf/bookshelf.effect';
 import { SkillEffects } from './state/skill/skill.effect';
-import { PlanAdditionModal } from '../pages/book-details-modal/plan-addition-modal/plan-addition-modal';
 import { BookEffects } from './state/book/book.effect';
 import { SkillControlModal } from '../pages/progress/progress-card/skill-control-modal/skill-control-modal';
 import { PlanControlModal } from '../pages/progress/progress-card/plan-control-modal/plan-control-moda';
@@ -53,7 +52,6 @@ import { PlanControlModal } from '../pages/progress/progress-card/plan-control-m
     SettingsModal,
     SearchPage,
     ProgressCard,
-    PlanAdditionModal,
     SkillControlModal,
     PlanControlModal
   ],
@@ -90,7 +88,6 @@ import { PlanControlModal } from '../pages/progress/progress-card/plan-control-m
     SettingsModal,
     SearchPage,
     ProgressCard,
-    PlanAdditionModal,
     SkillControlModal,
     PlanControlModal
   ],
