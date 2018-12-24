@@ -3,7 +3,8 @@ import {
   NavParams,
   ViewController,
   ToastController,
-  LoadingController
+  LoadingController,
+  AlertController
 } from 'ionic-angular';
 import { timer } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -31,7 +32,8 @@ export class BookDetailsModal extends FundamentalModal {
     protected viewCtrl: ViewController,
     protected toastCtrl: ToastController,
     private bookService: BookService,
-    private bookshelfService: BookshelfService
+    private bookshelfService: BookshelfService,
+    private alertCtrl: AlertController
   ) {
     super(viewCtrl, toastCtrl);
     this.added = false;
@@ -89,6 +91,34 @@ export class BookDetailsModal extends FundamentalModal {
     } finally {
       loader.dismiss();
     }
+  }
+
+  unregisterListener() {
+    this.alertCtrl
+      .create({
+        title: '本当に削除しますか？',
+        message: '紐付けられた読書計画・スキルも削除されます',
+        buttons: [
+          {
+            text: '削除する',
+            handler: () => {
+              this.unregister()
+                .then(() => {
+                  this.dismiss();
+                })
+                .catch(e => {
+                  this.showError(e);
+                  this.dismiss();
+                });
+            }
+          },
+          {
+            text: 'キャンセル',
+            role: 'cancel'
+          }
+        ]
+      })
+      .present();
   }
 
   async unregister() {
