@@ -8,4 +8,12 @@
 </ion-header>
 
 <ion-content padding>
+  <ng-container *ngFor="let book of books$ | async">
+    <ion-card>
+      <ion-card-content>
+        <h2>{{book.title}}</h2>
+        <book-widget [book]="book"></book-widget>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
 </ion-content>

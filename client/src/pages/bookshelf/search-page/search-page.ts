@@ -3,6 +3,8 @@ import instantsearch from 'instantsearch.js/es';
 import { searchBox, analytics, stats } from 'instantsearch.js/es/widgets';
 import { algoliaConfig } from '../../../app/config';
 import { Subject } from 'rxjs';
+import { ModalController } from 'ionic-angular';
+import { BooksBySkillModal } from './books-by-skill-modal/books-by-skill-modal';
 
 @Component({
   templateUrl: 'search-page.html'
@@ -12,7 +14,10 @@ export class SearchPage {
   hits$: Subject<{ isbn: string; Content: string }[]>;
   title: string;
 
-  constructor(private cdRef: ChangeDetectorRef) {
+  constructor(
+    private cdRef: ChangeDetectorRef,
+    private modalCtrl: ModalController
+  ) {
     this.hits$ = new Subject();
   }
 
@@ -52,5 +57,9 @@ export class SearchPage {
     searchBox.childNodes[0].childNodes[0].addEventListener('keyup', () => {
       this.cdRef.detectChanges();
     });
+  }
+
+  openModal(content: string) {
+    this.modalCtrl.create(BooksBySkillModal, { content }).present();
   }
 }
