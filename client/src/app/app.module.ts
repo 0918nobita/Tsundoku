@@ -39,6 +39,8 @@ import { SkillControlModal } from '../pages/progress/progress-card/skill-control
 import { PlanControlModal } from '../pages/progress/progress-card/plan-control-modal/plan-control-moda';
 import { BooksBySkillModal } from '../pages/bookshelf/search-page/books-by-skill-modal/books-by-skill-modal';
 
+import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -74,7 +76,8 @@ import { BooksBySkillModal } from '../pages/bookshelf/search-page/books-by-skill
       PlanEffects,
       AuthEffects,
       SkillEffects
-    ])
+    ]),
+    NgxGistModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

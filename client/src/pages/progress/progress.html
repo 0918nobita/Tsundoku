@@ -10,21 +10,24 @@
 
 <ion-content padding>
   <div #progressPageContent>
-  <ion-grid>
-    <ion-row align-items-center>
-    <ng-container *ngFor="let plan of plans$ | async">
-      <ng-container *ngIf="matches; else elseBlock">
-        <ion-col col-6>
-          <progress-card [plan]="plan"></progress-card>
-        </ion-col>
-      </ng-container>
-      <ng-template #elseBlock>
-        <ion-col col-12>
-          <progress-card [plan]="plan"></progress-card>
-        </ion-col>
-      </ng-template>
+    <ng-container *ngIf="(plans$ | async)?.length == 0">
+      <ngx-gist [gistId]="'0918nobita/c741bbeb1747024c1cca277dae75ef9d'" [file] = "'welcome.md'" style="height: 530px"></ngx-gist>
     </ng-container>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+      <ion-row align-items-center>
+        <ng-container *ngFor="let plan of plans$ | async">
+          <ng-container *ngIf="matches; else elseBlock">
+            <ion-col col-6>
+              <progress-card [plan]="plan"></progress-card>
+            </ion-col>
+          </ng-container>
+          <ng-template #elseBlock>
+            <ion-col col-12>
+              <progress-card [plan]="plan"></progress-card>
+            </ion-col>
+          </ng-template>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
