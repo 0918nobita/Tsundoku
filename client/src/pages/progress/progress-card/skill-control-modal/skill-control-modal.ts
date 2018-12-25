@@ -65,7 +65,11 @@ export class SkillControlModal extends FundamentalModal {
                 this.conversion = false;
                 return false;
               }
-              this.createSkill(data.content);
+              if (data.content.replace(/\s+/g, '').length === 0) {
+                this.showError('空白文字を除いて1文字以上入力してください');
+                return false;
+              }
+              this.createSkill(data.content.replace(/(^\s+)|(\s+$)/g, ''));
             }
           }
         ]
