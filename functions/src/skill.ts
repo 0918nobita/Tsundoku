@@ -6,6 +6,9 @@ export const _createSkill = (db: FirebaseFirestore.Firestore) => async (args: {
   uid: string;
 }) => {
   const date = admin.firestore.FieldValue.serverTimestamp();
+  if (args.content.replace(/\s+/g, '').length === 0) {
+    throw new Error('不正なフォーマットのスキルです');
+  }
   return (await db.collection('skills').add({
     ...args,
     created: date
