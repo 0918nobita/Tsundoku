@@ -4,6 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { concatMap, mergeMap, map, catchError } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
+import firebase from 'firebase/app';
 
 import {
   WatchPlan,
@@ -87,7 +88,8 @@ export class PlanEffects {
           .update({
             title: action.payload.title,
             desc: action.payload.desc,
-            progress: action.payload.progress
+            progress: action.payload.progress,
+            modified: firebase.firestore.Timestamp.fromDate(new Date())
           });
       } catch (e) {
         return new UpdatePlanFail(e);
