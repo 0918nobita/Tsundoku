@@ -38,6 +38,7 @@ export class CreateSkillSuccess implements Action {
 
 export class CreateSkillFail implements Action {
   readonly type = SkillActionTypes.CreateSkillFail;
+  constructor(public error: any) {}
 }
 
 export class DeleteSkill implements Action {
@@ -51,4 +52,5 @@ export class DeleteSkillSuccess implements Action {
 
 export class DeleteSkillFail implements Action {
   readonly type = SkillActionTypes.DeleteSkillFail;
+  constructor(public error: any) {}
 }
