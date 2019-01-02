@@ -64,7 +64,7 @@ export class PlanControlModal extends FundamentalModal {
         new UpdatePlan({
           isbn: this.plan.isbn,
           title: this.title,
-          desc: this.desc,
+          desc: this.desc || '',
           progress: count
         })
       );
