@@ -13,7 +13,6 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
   switch (action.type) {
     case PlanActionTypes.WatchPlan:
     case PlanActionTypes.CreatePlan:
-    case PlanActionTypes.UpdatePlan:
     case PlanActionTypes.DeletePlan:
       return state;
 
@@ -26,9 +25,15 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
       const plans = (action as ReloadPlan).payload;
       return Object.assign({}, { ...state, plans });
 
+    case PlanActionTypes.UpdatePlan:
+      return Object.assign({}, { ...state, loading: true });
+
+    case PlanActionTypes.UpdatePlanSuccess:
+      return Object.assign({}, { ...state, loading: false });
+
     case PlanActionTypes.UpdatePlanFail:
       console.error((action as UpdatePlanFail).error);
-      return state;
+      return Object.assign({}, { ...state, loading: false });
 
     default:
       return state;

@@ -8,6 +8,7 @@ export enum PlanActionTypes {
   WatchPlanFail = '[Plan] Fail in reading',
   CreatePlan = '[Plan] Create',
   UpdatePlan = '[Plan] Update',
+  UpdatePlanSuccess = '[Plan] Succeed in updating',
   UpdatePlanFail = '[Plan] Fail in updating',
   DeletePlan = '[Plan] Delete'
 }
@@ -41,6 +42,10 @@ export class UpdatePlan implements Action {
       progress: number;
     }
   ) {}
+}
+
+export class UpdatePlanSuccess implements Action {
+  readonly type = PlanActionTypes.UpdatePlanSuccess;
 }
 
 export class UpdatePlanFail implements Action {
