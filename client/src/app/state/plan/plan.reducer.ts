@@ -2,13 +2,18 @@ import { Action } from '@ngrx/store';
 
 import { initialPlanState } from '../_state.inits';
 import { PlanState } from '../_state.interfaces';
-import { PlanActionTypes, ReloadPlan, WatchPlanFail } from './plan.action';
-import { sortByDatetime } from '../../services/firestore-utils';
+import {
+  PlanActionTypes,
+  ReloadPlan,
+  WatchPlanFail,
+  UpdatePlanFail
+} from './plan.action';
 
 export function reducer(state = initialPlanState, action: Action): PlanState {
   switch (action.type) {
     case PlanActionTypes.WatchPlan:
     case PlanActionTypes.CreatePlan:
+    case PlanActionTypes.UpdatePlan:
     case PlanActionTypes.DeletePlan:
       return state;
 
@@ -19,8 +24,11 @@ export function reducer(state = initialPlanState, action: Action): PlanState {
 
     case PlanActionTypes.ReloadPlan:
       const plans = (action as ReloadPlan).payload;
-      sortByDatetime({ key: 'modified', objects: plans }, 'desc');
       return Object.assign({}, { ...state, plans });
+
+    case PlanActionTypes.UpdatePlanFail:
+      console.error((action as UpdatePlanFail).error);
+      return state;
 
     default:
       return state;
