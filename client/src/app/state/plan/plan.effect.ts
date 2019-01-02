@@ -7,7 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import {
   WatchPlan,
-  UpdatePlan,
+  ReloadPlan,
   PlanActionTypes,
   WatchPlanFail
 } from './plan.action';

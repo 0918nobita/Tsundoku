@@ -6,7 +6,7 @@ export enum PlanActionTypes {
   WatchPlan = '[Plan] Watch',
   WatchPlanFail = '[Plan] Fail in reading',
   CreatePlan = '[Plan] Create',
-  UpdatePlan = '[Plan] Update',
+  ReloadPlan = '[Plan] Update',
   DeletePlan = '[Plan] Delete'
 }
 
@@ -14,8 +14,8 @@ export class WatchPlan implements Action {
   readonly type = PlanActionTypes.WatchPlan;
 }
 
-export class UpdatePlan implements Action {
-  readonly type = PlanActionTypes.UpdatePlan;
+export class ReloadPlan implements Action {
+  readonly type = PlanActionTypes.ReloadPlan;
   constructor(public payload: Plan[]) {}
 }
 
