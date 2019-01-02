@@ -4,9 +4,11 @@ import { Plan } from '../../models/plan';
 
 export enum PlanActionTypes {
   WatchPlan = '[Plan] Watch',
+  ReloadPlan = '[Plan] Reload',
   WatchPlanFail = '[Plan] Fail in reading',
   CreatePlan = '[Plan] Create',
-  ReloadPlan = '[Plan] Update',
+  UpdatePlan = '[Plan] Update',
+  UpdatePlanFail = '[Plan] Fail in updating',
   DeletePlan = '[Plan] Delete'
 }
 
@@ -26,6 +28,24 @@ export class WatchPlanFail implements Action {
 
 export class CreatePlan implements Action {
   readonly type = PlanActionTypes.CreatePlan;
+}
+
+export class UpdatePlan implements Action {
+  readonly type = PlanActionTypes.UpdatePlan;
+  constructor(
+    public payload: {
+      uid: string;
+      isbn: string;
+      title: string;
+      desc: string;
+      progress: number;
+    }
+  ) {}
+}
+
+export class UpdatePlanFail implements Action {
+  readonly type = PlanActionTypes.UpdatePlanFail;
+  constructor(public error: any) {}
 }
 
 export class DeletePlan implements Action {
