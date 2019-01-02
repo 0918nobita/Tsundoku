@@ -66,7 +66,7 @@ export class PlanEffects {
   );
 
   @Effect()
-  UpdatePlan: Observable<Action> = this.actions$.pipe(
+  updatePlan: Observable<Action> = this.actions$.pipe(
     ofType<UpdatePlan>(PlanActionTypes.UpdatePlan),
     concatMap(async action => {
       const uid = await pickOnce(this.authEffects.forAuthenticated);
