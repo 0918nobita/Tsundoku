@@ -14,6 +14,7 @@ import {
 import { Plan } from '../../models/plan';
 import { BookService } from '../../../app/services/book.service';
 import { AuthEffects } from '../auth/auth.effect';
+import { sortByDatetime } from '../../../app/services/firestore-utils';
 
 @Injectable()
 export class PlanEffects {
@@ -49,9 +50,10 @@ export class PlanEffects {
                     throw new Error('本の情報の取得に失敗しました');
                   }
                 }
+                sortByDatetime({ key: 'modified', objects: plans }, 'desc');
                 return plans;
               }),
-              map(plans => new UpdatePlan(plans))
+              map(plans => new ReloadPlan(plans))
             )
         )
       )
