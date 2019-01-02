@@ -4,7 +4,7 @@ import { Chart } from 'chart.js';
 import { Plan } from '../../../app/models/plan';
 import { SkillControlModal } from './skill-control-modal/skill-control-modal';
 import { ModalController } from 'ionic-angular';
-import { PlanControlModal } from './plan-control-modal/plan-control-moda';
+import { PlanControlModal } from './plan-control-modal/plan-control-modal';
 
 @Component({
   selector: 'progress-card',

@@ -9,12 +9,16 @@ import {
   WatchPlan,
   ReloadPlan,
   PlanActionTypes,
-  WatchPlanFail
+  WatchPlanFail,
+  UpdatePlan,
+  UpdatePlanSuccess,
+  UpdatePlanFail
 } from './plan.action';
 import { Plan } from '../../models/plan';
 import { BookService } from '../../../app/services/book.service';
 import { AuthEffects } from '../auth/auth.effect';
 import { sortByDatetime } from '../../../app/services/firestore-utils';
+import { pickOnce } from '../book/book.effect';
 
 @Injectable()
 export class PlanEffects {
@@ -59,5 +63,36 @@ export class PlanEffects {
       )
     ),
     catchError(e => of(new WatchPlanFail(e)))
+  );
+
+  @Effect()
+  UpdatePlan: Observable<Action> = this.actions$.pipe(
+    ofType<UpdatePlan>(PlanActionTypes.UpdatePlan),
+    concatMap(async action => {
+      const uid = await pickOnce(this.authEffects.forAuthenticated);
+      const { docs } = await pickOnce(
+        this.afFirestore
+          .collection('plans', ref =>
+            ref.where('uid', '==', uid).where('isbn', '==', action.payload.isbn)
+          )
+          .get()
+      );
+      if (docs.length === 0) {
+        return new UpdatePlanFail('本の情報を取得できませんでした');
+      }
+      try {
+        await this.afFirestore
+          .collection<Plan>('plans')
+          .doc(docs[0].id)
+          .update({
+            title: action.payload.title,
+            desc: action.payload.desc,
+            progress: action.payload.progress
+          });
+      } catch (e) {
+        return new UpdatePlanFail(e);
+      }
+      return new UpdatePlanSuccess();
+    })
   );
 }

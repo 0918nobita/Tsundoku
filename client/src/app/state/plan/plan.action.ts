@@ -35,7 +35,6 @@ export class UpdatePlan implements Action {
   readonly type = PlanActionTypes.UpdatePlan;
   constructor(
     public payload: {
-      uid: string;
       isbn: string;
       title: string;
       desc: string;

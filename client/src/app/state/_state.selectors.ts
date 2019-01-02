@@ -29,6 +29,11 @@ export const getPlans = createSelector(
   (state: PlanState) => state.plans
 );
 
+export const isLoadingPlan = createSelector(
+  getPlan,
+  (state: PlanState) => state.loading
+);
+
 export const getSkill = (state: State) => state.skill;
 
 export const getSkills = createSelector(

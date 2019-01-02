@@ -7,7 +7,11 @@ import {
   LoadingController
 } from 'ionic-angular';
 import { Plan } from '../../../../app/models/plan';
-import { AngularFireFunctions } from '@angular/fire/functions';
+import { State } from '../../../../app/state/_state.interfaces';
+import { Store, select } from '@ngrx/store';
+import { UpdatePlan } from '../../../../app/state/plan/plan.action';
+import { isLoadingPlan } from '../../../../app/state/_state.selectors';
+import { filter } from 'rxjs/operators';
 import { pickOnce } from '../../../../app/state/book/book.effect';
 
 @Component({
@@ -25,8 +29,8 @@ export class PlanControlModal extends FundamentalModal {
     protected viewCtrl: ViewController,
     protected toastCtrl: ToastController,
     private navParams: NavParams,
-    private afFunctions: AngularFireFunctions,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private store: Store<State>
   ) {
     super(viewCtrl, toastCtrl);
     this.plan = this.navParams.get('plan');
@@ -56,14 +60,20 @@ export class PlanControlModal extends FundamentalModal {
     });
     try {
       loader.present();
-      const newPlan = {
-        uid: this.plan.uid,
-        isbn: this.plan.isbn,
-        title: this.title,
-        desc: this.desc,
-        progress: count
-      };
-      await pickOnce(this.afFunctions.httpsCallable('updatePlan')(newPlan));
+      this.store.dispatch(
+        new UpdatePlan({
+          isbn: this.plan.isbn,
+          title: this.title,
+          desc: this.desc,
+          progress: count
+        })
+      );
+      await pickOnce(
+        this.store.pipe(
+          select(isLoadingPlan),
+          filter(item => item === true)
+        )
+      );
     } catch (e) {
       this.showError(e);
     } finally {
