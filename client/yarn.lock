@@ -3209,10 +3209,6 @@ invert-kv@^1.0.0:
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
   integrity sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
 
-"ionic-angular@git://github.com/rdlabo/ionic-angular-v6.git":
-  version "3.9.2-201809090309"
-  resolved "git://github.com/rdlabo/ionic-angular-v6.git#8f2022197289b8d7ff4d86fd001cec24cddbd44d"
-
 ionicons@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-3.0.0.tgz#40b8daf4fd7a31150bd002160f66496e22a98c3c"
