@@ -17,6 +17,7 @@
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.2.0",
+    "rxjs": "^6.5.3",
     "typescript": "3.6.3"
   },
   "scripts": {
@@ -41,7 +42,7 @@
     "singleQuote": true,
     "semi": true,
     "trailingComma": "es5"
-  },  
+  },
   "description": "An Ionic project",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.6.1",
