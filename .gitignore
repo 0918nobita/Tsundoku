@@ -1,15 +1,7 @@
 client/src/app/config.ts
 client/coverage
 
-ionic-app/src/app/config.ts
-
 .firebase/
-docs/
-
-client/.idea/*
-!runConfigurations
-
-functions/.idea/*
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -28,13 +20,10 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+.idea
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode
 
 # misc
 /.sass-cache
